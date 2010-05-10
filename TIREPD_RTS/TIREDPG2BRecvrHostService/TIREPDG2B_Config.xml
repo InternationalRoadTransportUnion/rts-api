@@ -1,0 +1,28 @@
+﻿<Config>
+  <Section name="PluginManager">
+    <Plugin name="DBHelperFactory" objectType="IRU.RTS.CommonComponents.DBHelperFactory, CommonComponents" isRunnable="false" />
+    <Plugin name="G2B_RemotingHelperSettings" objectType="IRU.RTS.TIREPD.G2B_RemotingHelper, TIREPDG2BReceiver"
+			isRunnable="true" />
+  </Section>
+  <Section name="G2B_RemotingHelper">
+
+    <G2B_RemotingHelperSettings DBHelperFactoryPlugin="DBHelperFactory" G2BDBName="TIREPD_DB"
+    SubscriberDBName="SubsciberDB" EncryptionKeysTable="EncryptionKeys"
+    RemotingPort="9009" CryptoProviderEndpoint="tcp://localhost:9012/CryptoProvider.rem"
+    RemotingEndPoint="TIREPDG2BReceiver.rem"></G2B_RemotingHelperSettings>
+  </Section>
+
+  <Section name="DBHelperFactory">
+    <ConnectionStrings>
+      <DB Name="TIREPD_DB">
+        <!-- Base64 encoded -->
+        <ConnectionString>SERVER=PUNKKILLER-61P\I2008;DATABASE=TIR_EPD;uid=sa;pwd=sapass;connect timeout =200</ConnectionString>
+      </DB>
+      <DB Name="SubscriberDB">
+        <!-- Base64 encoded -->
+        <ConnectionString>SERVER=PUNKKILLER-61P\I2008;DATABASE=WS_Subscriber_db;uid=sa;pwd=sapass;connect timeout =200</ConnectionString>
+      </DB>
+
+    </ConnectionStrings>
+  </Section>
+</Config>

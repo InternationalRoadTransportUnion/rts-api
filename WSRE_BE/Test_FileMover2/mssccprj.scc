@@ -1,0 +1,9 @@
+SCC = This is a Source Code Control file
+
+[Test_FileMover.csproj]
+SCC_Aux_Path = "\\Bomserv000\VssData$\"
+SCC_Project_Name = "$/RTS/WSST_BE/WSST_BE/Test_FileMover", DXAAAAAA
+
+[Test_FileMover2.csproj]
+SCC_Aux_Path = "\\192.168.12.200\E$\VSS"
+SCC_Project_Name = "$/RTS/WSRE_BE/Test_FileMover2", SNRAAAAA

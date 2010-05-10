@@ -1,0 +1,9 @@
+o:\bin\WSRE_FileRcvrHostService.exe.config
+o:\bin\WSRE_FileRcvrHostService.exe
+o:\bin\WSRE_FileRcvrHostService.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\WSRE_FileRcvrHostService.ProjectInstaller.resources
+obj\Debug\WSRE_FileRcvrHostService.WSRE_FileRcvrHostServiceMain.resources
+obj\Debug\WSRE_FileRcvrHostService.csproj.GenerateResource.Cache
+obj\Debug\WSRE_FileRcvrHostService.exe
+obj\Debug\WSRE_FileRcvrHostService.pdb

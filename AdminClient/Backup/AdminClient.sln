@@ -1,0 +1,31 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminClient", "AdminClientProj\AdminClient.csproj", "{EB776E2C-851F-476F-90F7-9A83E03A425A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 2
+		SccLocalPath0 = .
+		CanCheckoutShared = false
+		SolutionUniqueID = {29DD2AA2-10AB-40E9-8091-5E83983B420C}
+		SccProjectUniqueName1 = AdminClientProj\\AdminClient.csproj
+		SccLocalPath1 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection1 = AdminClientProj\\
+	EndGlobalSection
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{EB776E2C-851F-476F-90F7-9A83E03A425A}.Debug.ActiveCfg = Debug|.NET
+		{EB776E2C-851F-476F-90F7-9A83E03A425A}.Debug.Build.0 = Debug|.NET
+		{EB776E2C-851F-476F-90F7-9A83E03A425A}.Release.ActiveCfg = Release|.NET
+		{EB776E2C-851F-476F-90F7-9A83E03A425A}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="RTSTestClient.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SetReadOnly" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="RTSTestClient_Query_SafeTIRHolderQueryServiceClass" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/SMDWebs/RTS/TCHQ_WS/tirCarnetQuery.asmx</Value>
+    </Setting>
+    <Setting Name="RTSTestClient_WSRQ_ReconciliationQueryServiceClass" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/SMDWebs/RTS/WSRQ_WS/WSRQ.asmx</Value>
+    </Setting>
+    <Setting Name="RTSTestClient_WSRE_SafeTirUpload" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/SMDWebs/RTS/WSST_WS/safetirupload.asmx</Value>
+    </Setting>
+    <Setting Name="RTSTestClient_WSST_SafeTirUpload" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/SMDWebs/RTS/WSST_WS/safetirupload.asmx</Value>
+    </Setting>
+    <Setting Name="RTSTestClient_TIREPDG2B_TIREPDG2BService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/SMDWEBS/EPD/TIREPDG2B/TIREPDG2BService.asmx</Value>
+    </Setting>
+    <Setting Name="RTSTestClient_TIREPDB2G_TIREPDB2GServiceClass" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/SMDWEBS/EPD/TIREPDB2GService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

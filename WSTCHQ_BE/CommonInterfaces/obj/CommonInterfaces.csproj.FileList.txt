@@ -1,0 +1,6 @@
+O:\bin\CommonInterfaces.xml
+obj\Debug\ResolveAssemblyReference.cache
+O:\bin\CommonInterfaces.dll
+O:\bin\CommonInterfaces.pdb
+obj\Debug\CommonInterfaces.dll
+obj\Debug\CommonInterfaces.pdb

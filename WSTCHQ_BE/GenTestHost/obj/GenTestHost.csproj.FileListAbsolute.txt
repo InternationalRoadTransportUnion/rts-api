@@ -1,0 +1,11 @@
+O:\bin\GenTestHost.exe.config
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\GenTestHost\obj\Debug\GenTestHost.exe
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\GenTestHost\obj\Debug\GenTestHost.pdb
+O:\bin\GenTestHost.exe
+O:\bin\GenTestHost.pdb
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\GenTestHost\obj\Debug\ResolveAssemblyReference.cache
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\GenTestHost\obj\Debug\GenTestHost.CommonComponentsTest.resources
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\GenTestHost\obj\Debug\GenTestHost.frmMain.resources
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\GenTestHost\obj\Debug\GenTestHost.SampleMessageGenerator.resources
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\GenTestHost\obj\Debug\GenTestHost.TCHQClient.resources
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\GenTestHost\obj\Debug\GenTestHost.csproj.GenerateResource.Cache

@@ -1,0 +1,12 @@
+O:\bin\GenTestHost.exe.config
+obj\Debug\GenTestHost.exe
+obj\Debug\GenTestHost.pdb
+O:\bin\GenTestHost.exe
+O:\bin\GenTestHost.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\GenTestHost.CommonComponentsTest.resources
+obj\Debug\GenTestHost.frmMain.resources
+obj\Debug\GenTestHost.SampleMessageGenerator.resources
+obj\Debug\GenTestHost.TCHQClient.resources
+obj\Debug\GenTestHost.csproj.GenerateResource.Cache
+obj\Release\GenTestHost.exe

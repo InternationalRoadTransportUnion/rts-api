@@ -1,0 +1,20 @@
+﻿<Config>
+	<Section name="PluginManager">
+		<Plugin name="WSCsccCopyFileProcessor" objectType="IRU.RTS.WSCscc.WSCsccCopyFileProcessor, WSCscc_Client" isRunnable="false" />
+
+		<Plugin name="FileSystemListener" objectType="IRU.RTS.CommonComponents.FileSystemListener, FileListener"
+			isRunnable="true" />
+
+	</Section>
+	<Section name="FileSystemListener">
+		<FileSystemListener DeliverToPlugin="WSCsccCopyFileProcessor" PollFolderLocation="O:\CopyTo_Request\CopyToRequestDrop" WorkingFolderLocation="O:\CopyTo_Request\CopytoRequestWorkingfolder"
+			ArchiveFolderLocation="O:\CopyTo_Request\CopytoRequestFileArchive" MaxConcurrentProcessCount="1" ErrorFolderLocation="O:\CopyTo_Request\CopyToErrorProcessingFiles" FilePattern="*.cif" ForceScanInterval="3">
+		</FileSystemListener>
+
+	</Section>
+	<Section name="WSCsccCopyFileProcessor">
+		<WSCsccCopyFileProcessorSettings  TemporaryFolderPath="O:\CopyTo_Request\CopyWsresponseTemp" DoubleAgentDropPath="O:\CopyTo_Request\CopyWsresponseDA" SenderID="IRU">
+ 		</WSCsccCopyFileProcessorSettings>
+	</Section>
+
+</Config>

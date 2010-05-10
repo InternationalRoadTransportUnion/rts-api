@@ -1,0 +1,5 @@
+o:\bin\CommonComponents.dll
+o:\bin\CommonComponents.pdb
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\CommonComponents\obj\Debug\ResolveAssemblyReference.cache
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\CommonComponents\obj\Debug\CommonComponents.dll
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\CommonComponents\obj\Debug\CommonComponents.pdb

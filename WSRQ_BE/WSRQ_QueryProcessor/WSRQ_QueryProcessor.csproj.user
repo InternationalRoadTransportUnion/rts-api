@@ -1,0 +1,8 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <StartAction>Program</StartAction>
+    <StartProgram>O:\bin\GenTestHost7.exe</StartProgram>
+    <StartArguments>-o:\bin\WSWSRQ_Config.xml</StartArguments>
+    <StartWorkingDirectory>O:\bin</StartWorkingDirectory>
+  </PropertyGroup>
+</Project>

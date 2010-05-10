@@ -1,0 +1,43 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminClient", "AdminClientProj\AdminClient.csproj", "{EB776E2C-851F-476F-90F7-9A83E03A425A}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AdminClientStandAloneSetup", "AdminClientStandAloneSetup\AdminClientStandAloneSetup.vdproj", "{0B147186-6B33-44CC-A5FB-FF6268D185AB}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://mt8808-02:8080/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = AdminClientProj\\AdminClient.csproj
+		SccProjectName1 = AdminClientProj
+		SccLocalPath1 = AdminClientProj
+		SccProjectUniqueName2 = AdminClientStandAloneSetup\\AdminClientStandAloneSetup.vdproj
+		SccProjectName2 = AdminClientStandAloneSetup
+		SccLocalPath2 = AdminClientStandAloneSetup
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB776E2C-851F-476F-90F7-9A83E03A425A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB776E2C-851F-476F-90F7-9A83E03A425A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB776E2C-851F-476F-90F7-9A83E03A425A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB776E2C-851F-476F-90F7-9A83E03A425A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B147186-6B33-44CC-A5FB-FF6268D185AB}.Debug|Any CPU.ActiveCfg = Debug
+		{0B147186-6B33-44CC-A5FB-FF6268D185AB}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,7 @@
+bin\WSRE_WS.dll
+bin\WSRE_WS.pdb
+bin\RTSStructures.dll
+bin\RTSStructures.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\WSRE_WS.dll
+obj\Debug\WSRE_WS.pdb

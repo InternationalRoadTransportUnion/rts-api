@@ -1,0 +1,5 @@
+o:\bin\WSCscc_Client.dll
+o:\bin\WSCscc_Client.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\WSCscc_Client.dll
+obj\Debug\WSCscc_Client.pdb

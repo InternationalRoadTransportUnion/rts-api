@@ -1,0 +1,5 @@
+O:\bin\CryptoInterfaces.dll
+O:\bin\CryptoInterfaces.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\CryptoInterfaces.dll
+obj\Debug\CryptoInterfaces.pdb

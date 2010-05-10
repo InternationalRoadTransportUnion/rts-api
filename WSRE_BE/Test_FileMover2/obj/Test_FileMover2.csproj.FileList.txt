@@ -1,0 +1,7 @@
+o:\bin\Test_FileMoverWSRE.exe
+o:\bin\Test_FileMoverWSRE.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\Test_FileMover.Form1.resources
+obj\Debug\Test_FileMoverWSRE.exe
+obj\Debug\Test_FileMoverWSRE.pdb
+obj\Debug\Test_FileMover2.csproj.GenerateResource.Cache

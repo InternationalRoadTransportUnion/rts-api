@@ -1,0 +1,5 @@
+o:\bin\StructToTable.dll
+o:\bin\StructToTable.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\StructToTable.dll
+obj\Debug\StructToTable.pdb

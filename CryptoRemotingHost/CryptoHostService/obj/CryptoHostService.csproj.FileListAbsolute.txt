@@ -1,0 +1,9 @@
+o:\bin\CryptoHostService.exe.config
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\CryptoHostService\obj\Debug\CryptoHostService.exe
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\CryptoHostService\obj\Debug\CryptoHostService.pdb
+o:\bin\CryptoHostService.exe
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\CryptoHostService\obj\Debug\ResolveAssemblyReference.cache
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\CryptoHostService\obj\Debug\CryptoHostService.HostSvcMain.resources
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\CryptoHostService\obj\Debug\CryptoHostService.ProjectInstaller.resources
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\CryptoHostService\obj\Debug\CryptoHostService.csproj.GenerateResource.Cache
+o:\bin\CryptoHostService.pdb

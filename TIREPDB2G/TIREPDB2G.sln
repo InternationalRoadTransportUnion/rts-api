@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIREPDB2G", "TIREPDB2G\TIREPDB2G.csproj", "{D7726149-9588-45E6-998A-269C9833DDE0}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIREPDG2B", "TIREPDG2B\TIREPDG2B.csproj", "{F111C462-6362-4FE8-8B3F-852EF93F5FF3}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupTIREPDB2GWS", "SetupTIREPDB2GWS\SetupTIREPDB2GWS.vdproj", "{5A811C74-3314-4E77-8959-CEDDC543D3B1}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupTIREPDG2BWS", "SetupTIREPDG2BWS\SetupTIREPDG2BWS.vdproj", "{CC5CACA7-862A-4104-9C47-E75182344A4D}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://mt8808-02:8080/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = TIREPDB2G\\TIREPDB2G.csproj
+		SccProjectName1 = TIREPDB2G
+		SccLocalPath1 = TIREPDB2G
+		SccProjectUniqueName2 = TIREPDG2B\\TIREPDG2B.csproj
+		SccProjectName2 = TIREPDG2B
+		SccLocalPath2 = TIREPDG2B
+		SccProjectUniqueName3 = SetupTIREPDB2GWS\\SetupTIREPDB2GWS.vdproj
+		SccProjectName3 = SetupTIREPDB2GWS
+		SccLocalPath3 = SetupTIREPDB2GWS
+		SccProjectUniqueName4 = SetupTIREPDG2BWS\\SetupTIREPDG2BWS.vdproj
+		SccProjectName4 = SetupTIREPDG2BWS
+		SccLocalPath4 = SetupTIREPDG2BWS
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D7726149-9588-45E6-998A-269C9833DDE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7726149-9588-45E6-998A-269C9833DDE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7726149-9588-45E6-998A-269C9833DDE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7726149-9588-45E6-998A-269C9833DDE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F111C462-6362-4FE8-8B3F-852EF93F5FF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F111C462-6362-4FE8-8B3F-852EF93F5FF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F111C462-6362-4FE8-8B3F-852EF93F5FF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F111C462-6362-4FE8-8B3F-852EF93F5FF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A811C74-3314-4E77-8959-CEDDC543D3B1}.Debug|Any CPU.ActiveCfg = Debug
+		{5A811C74-3314-4E77-8959-CEDDC543D3B1}.Release|Any CPU.ActiveCfg = Release
+		{CC5CACA7-862A-4104-9C47-E75182344A4D}.Debug|Any CPU.ActiveCfg = Debug
+		{CC5CACA7-862A-4104-9C47-E75182344A4D}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

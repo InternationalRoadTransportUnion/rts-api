@@ -1,0 +1,5 @@
+SCC = This is a Source Code Control file
+
+[AdminClient.csproj]
+SCC_Aux_Path = "\\192.168.12.200\E$\VSS"
+SCC_Project_Name = "$/RTS/AdminClient/AdminClient/AdminClientProj", XJAAAAAA

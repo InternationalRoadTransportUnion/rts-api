@@ -1,0 +1,10 @@
+o:\bin\WSWSRQ_Config.xml
+o:\bin\WSRQHostService.exe.config
+o:\bin\WSRQHostService.exe
+o:\bin\WSRQHostService.pdb
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSRQ_BE\WSRQHostService\obj\Debug\ResolveAssemblyReference.cache
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSRQ_BE\WSRQHostService\obj\Debug\WSRQHostService.HostSvcMain.resources
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSRQ_BE\WSRQHostService\obj\Debug\WSRQHostService.ProjectInstaller.resources
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSRQ_BE\WSRQHostService\obj\Debug\WSRQHostService.csproj.GenerateResource.Cache
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSRQ_BE\WSRQHostService\obj\Debug\WSRQHostService.exe
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSRQ_BE\WSRQHostService\obj\Debug\WSRQHostService.pdb

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WSST_FileReceiver</name>
+    </assembly>
+    <members>
+        <member name="T:IRU.RTS.WSST.WSST_FileReceiver">
+            <summary>
+            Summary description for Class1.
+            </summary>
+        </member>
+        <member name="T:IRU.RTS.WSST.ExternalDBHelper">
+            <summary>
+            This class is used by WSST_FileReceiver to update the WSST_Exernal_Log table in the WSST_EXTERNAL_DB
+            </summary>
+        </member>
+        <member name="M:IRU.RTS.WSST.ExternalDBHelper.#ctor(IRU.CommonInterfaces.IDBHelper,IRU.RTS.WSST.WSST_EXTERNAL_LOG_STRUCT)">
+            <summary>
+            Stores references to ExternalIDBHElper and the main WSST_EXTERNAL_LOG_STRUCT. 
+            These are used in the member variables.
+            </summary>
+            <param name="iExtDBHelper">Reference to External DB IDBHelper</param>
+            <param name="ExtLogStruct">Reference to WSST_EXTERNAL_LOG_STRUCT in WSST_FileReceiver</param>
+        </member>
+        <member name="M:IRU.RTS.WSST.ExternalDBHelper.LogSafeTIRfileContentsinInDB">
+            <summary>
+            Uses Struct_To_Table to generete an Insert SQLCommand and executes against External DB IDBHelper.
+            </summary>
+            <returns>Number of Rows affected</returns>
+        </member>
+        <member name="M:IRU.RTS.WSST.ExternalDBHelper.UpdateExternalLogReturnCode">
+            <summary>
+            Uses Struct_To_Table to generete an Update SQLCommand and executes against External DB IDBHelper
+            </summary>
+            <returns>Number of Rows affected</returns>
+        </member>
+        <member name="T:IRU.RTS.WSST.WSSTFR_RemotingHelper">
+            <summary>
+            Was WSSTFileReceiverPlugin in the design documents - mandar
+            </summary>
+        </member>
+    </members>
+</doc>

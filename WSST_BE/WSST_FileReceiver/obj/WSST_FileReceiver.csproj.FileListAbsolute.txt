@@ -1,0 +1,6 @@
+o:\bin\WSST_FileReceiver.dll
+o:\bin\WSST_FileReceiver.pdb
+o:\bin\WSST_FileReceiver.xml
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSST_BE\WSST_FileReceiver\obj\Debug\ResolveAssemblyReference.cache
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSST_BE\WSST_FileReceiver\obj\Debug\WSST_FileReceiver.dll
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSST_BE\WSST_FileReceiver\obj\Debug\WSST_FileReceiver.pdb

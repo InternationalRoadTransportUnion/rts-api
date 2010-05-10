@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="CryptoRemotingHost">
+</Property><Property Name="Solution File" Value="C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\CryptoRemotingHost.sln">
+</Property><Property Name="User Options File" Value="C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\CryptoRemotingHost.suo">
+</Property><Property Name="Date" Value="Tuesday, October 23, 2007">
+</Property><Property Name="Time" Value="19:13 PM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="CryptoRemotingHost.sln" Description="File successfully backed up as C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\Backup\CryptoRemotingHost.sln">
+</Event><Event ErrorLevel="0" Project="" Source="CryptoRemotingHost.suo" Description="File successfully backed up as C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\Backup\CryptoRemotingHost.suo">
+</Event><Event ErrorLevel="0" Project="CryptoProvider" Source="CryptoProvider\CryptoProvider.csproj" Description="Project file successfully backed up as C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\Backup\CryptoProvider\CryptoProvider.csproj">
+</Event><Event ErrorLevel="0" Project="CryptoProvider" Source="CryptoProvider\CryptoProvider.csproj.user" Description="Project user file successfully backed up as C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\Backup\CryptoProvider\CryptoProvider.csproj.user">
+</Event><Event ErrorLevel="0" Project="CryptoProvider" Source="CryptoProvider\AssemblyInfo.cs" Description="File successfully backed up as C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\Backup\CryptoProvider\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="CryptoProvider" Source="CryptoProvider\CryptoOperations.cs" Description="File successfully backed up as C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\Backup\CryptoProvider\CryptoOperations.cs">
+</Event><Event ErrorLevel="0" Project="CryptoProvider" Source="CryptoProvider\Crypto_RemotingHelper.cs" Description="File successfully backed up as C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\Backup\CryptoProvider\Crypto_RemotingHelper.cs">
+</Event><Event ErrorLevel="0" Project="CryptoProvider" Source="CryptoProvider\Crypto_config.xml" Description="File successfully backed up as C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\Backup\CryptoProvider\Crypto_config.xml">
+</Event><Event ErrorLevel="0" Project="CryptoProvider" Source="CryptoProvider\CryptoProvider.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="CryptoProvider" Source="CryptoProvider\CryptoProvider.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CryptoHostService" Source="CryptoHostService\CryptoHostService.csproj" Description="Project file successfully backed up as C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\Backup\CryptoHostService\CryptoHostService.csproj">
+</Event><Event ErrorLevel="0" Project="CryptoHostService" Source="CryptoHostService\CryptoHostService.csproj.user" Description="Project user file successfully backed up as C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\Backup\CryptoHostService\CryptoHostService.csproj.user">
+</Event><Event ErrorLevel="0" Project="CryptoHostService" Source="CryptoHostService\AssemblyInfo.cs" Description="File successfully backed up as C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\Backup\CryptoHostService\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="CryptoHostService" Source="CryptoHostService\HostSvcMain.cs" Description="File successfully backed up as C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\Backup\CryptoHostService\HostSvcMain.cs">
+</Event><Event ErrorLevel="0" Project="CryptoHostService" Source="CryptoHostService\ProjectInstaller.cs" Description="File successfully backed up as C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\Backup\CryptoHostService\ProjectInstaller.cs">
+</Event><Event ErrorLevel="0" Project="CryptoHostService" Source="CryptoHostService\App.config" Description="File successfully backed up as C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\Backup\CryptoHostService\App.config">
+</Event><Event ErrorLevel="0" Project="CryptoHostService" Source="CryptoHostService\CryptoHost_Config.xml" Description="File successfully backed up as C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\Backup\CryptoHostService\CryptoHost_Config.xml">
+</Event><Event ErrorLevel="0" Project="CryptoHostService" Source="CryptoHostService\HostSvcMain.resx" Description="File successfully backed up as C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\Backup\CryptoHostService\HostSvcMain.resx">
+</Event><Event ErrorLevel="0" Project="CryptoHostService" Source="CryptoHostService\ProjectInstaller.resx" Description="File successfully backed up as C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\Backup\CryptoHostService\ProjectInstaller.resx">
+</Event><Event ErrorLevel="0" Project="CryptoHostService" Source="CryptoHostService\CryptoHostService.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="CryptoHostService" Source="CryptoHostService\CryptoHostService.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="CryptoRemotingHost.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="CryptoRemotingHost.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CryptoProvider" Source="CryptoProvider\CryptoProvider.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="CryptoHostService" Source="CryptoHostService\CryptoHostService.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

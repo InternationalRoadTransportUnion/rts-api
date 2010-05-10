@@ -1,0 +1,9 @@
+o:\bin\WSCsccClientHostService.exe.config
+o:\bin\WSCsccClientHostService.exe
+o:\bin\WSCsccClientHostService.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\WSCsccClientHostService.WSSClientHostSvcMain.resources
+obj\Debug\WSCsccClientHostService.ProjectInstaller.resources
+obj\Debug\WSCsccClientHostService.csproj.GenerateResource.Cache
+obj\Debug\WSCsccClientHostService.exe
+obj\Debug\WSCsccClientHostService.pdb

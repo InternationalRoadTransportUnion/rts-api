@@ -1,0 +1,47 @@
+﻿<Config>
+	<Section name="PluginManager">
+		<Plugin name="DBHelperFactory" objectType="IRU.RTS.CommonComponents.DBHelperFactory, CommonComponents" isRunnable="false" />
+
+		<Plugin name="CopyToJobListener" objectType="IRU.RTS.CopyToProcessor.CopyToJobListener, WSCscc_JobListener"
+			isRunnable="true" />
+<Plugin name="CopyToResponseProcessor" objectType="IRU.RTS.CopyToProcessor.CopyToResponseProcessor, WSCscc_JobListener"
+			isRunnable="false" />
+		<Plugin name="FileSystemListener" objectType="IRU.RTS.CommonComponents.FileSystemListener, FileListener"
+			isRunnable="true" /> 
+
+		
+		
+
+	</Section>
+
+
+	<Section name="FileSystemListener">
+		<FileSystemListener DeliverToPlugin="CopyToResponseProcessor" PollFolderLocation="O:\CopyTo_Request\CopyToResponseDrop" WorkingFolderLocation="O:\CopyTo_Request\CopytoResponseWorkingfolder"
+			ArchiveFolderLocation="O:\CopyTo_Request\CopytoResponseFileArchive"  MaxConcurrentProcessCount = "1" ErrorFolderLocation="o:\ErrorProcessingFiles" FilePattern="*.SafeTIR_COPY_RESULT" ForceScanInterval="3"></FileSystemListener>
+			
+	</Section>			
+
+	<Section name="CopyToResponseProcessor">
+		<CopyToResponseProcessorSettings DBHelperFactoryPlugin="DBHelperFactory" ></CopyToResponseProcessorSettings>
+	</Section>
+
+
+	<Section name="CopyToJobListener">
+		<CopyToJobListenerSettings DBHelperFactoryPlugin="DBHelperFactory"  DoubleAgentDropPath="O:\CopyTo_Request\DoubleAgentDropPath"
+			TemporaryFolderPath="O:\CopyTo_Request\TempFolder" DelayBetweenPollsInMilliSeconds="4000" CryptoProviderEndpoint="tcp://Doctor43:9012/CryptoProvider.rem" ></CopyToJobListenerSettings>
+	</Section>
+	<Section name="DBHelperFactory">
+		<ConnectionStrings>
+			<DB Name="WSST_Internal_DB">
+				<!-- Base64 encoded -->
+				<ConnectionString>SERVER=DOCTOR43\I0;DATABASE=WSST_INTERNAL_DB;uid=rtsuser;pwd=rtsuser;connect timeout =20</ConnectionString>
+			</DB>
+			<DB Name="WSST_COPYTODB">
+			<ConnectionString>SERVER=DOCTOR43\I0;DATABASE=WSST_COPY_TO_DB;uid=rtsuser;pwd=rtsuser;connect timeout =20</ConnectionString>
+			</DB>
+			<DB Name="SubscriberDB">
+			<ConnectionString>SERVER=DOCTOR43\I0;DATABASE=WS_SUBSCRIBER_DB;uid=rtsuser;pwd=rtsuser;connect timeout =20</ConnectionString>
+			</DB>
+		</ConnectionStrings>
+	</Section>
+</Config>

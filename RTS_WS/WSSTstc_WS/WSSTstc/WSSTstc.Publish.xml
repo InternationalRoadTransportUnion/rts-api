@@ -1,0 +1,12 @@
+<publishData>
+  <publishTarget publishUrl="C:\ApplicationData\SMDWebs\RTS\WSSTstc_WS\">
+    <file relUrl="Global.asax" publishTime="29/11/2005 7:03:14 PM" />
+    <file relUrl="bin/WSSTstc.pdb" publishTime="16/11/2007 7:49:38 PM" />
+    <file relUrl="bin/bin.iru" publishTime="27/01/2006 9:25:02 PM" />
+    <file relUrl="Web.config" publishTime="16/11/2007 7:48:18 PM" />
+    <file relUrl="bin/WSSTstc.dll" publishTime="16/11/2007 7:49:38 PM" />
+    <file relUrl="bin/RTSStructures.pdb" publishTime="15/11/2007 3:54:14 PM" />
+    <file relUrl="bin/RTSStructures.dll" publishTime="15/11/2007 3:54:14 PM" />
+    <file relUrl="asmapCopy.asmx" publishTime="29/11/2005 7:03:14 PM" />
+  </publishTarget>
+</publishData>

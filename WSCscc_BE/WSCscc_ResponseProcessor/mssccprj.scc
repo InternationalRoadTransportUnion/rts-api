@@ -1,0 +1,5 @@
+SCC = This is a Source Code Control file
+
+[WSCscc_ResponseProcessor.csproj]
+SCC_Aux_Path = "\\Bomserv000\VssData$\"
+SCC_Project_Name = "$/RTS/WSCscc_BE/WSCscc_BE/WSCscc_ResponseProcessor", LBBAAAAA

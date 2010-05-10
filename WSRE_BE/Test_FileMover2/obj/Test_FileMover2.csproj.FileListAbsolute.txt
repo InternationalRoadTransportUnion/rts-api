@@ -1,0 +1,7 @@
+o:\bin\Test_FileMoverWSRE.exe
+o:\bin\Test_FileMoverWSRE.pdb
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSRE_BE\Test_FileMover2\obj\Debug\ResolveAssemblyReference.cache
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSRE_BE\Test_FileMover2\obj\Debug\Test_FileMover.Form1.resources
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSRE_BE\Test_FileMover2\obj\Debug\Test_FileMover2.csproj.GenerateResource.Cache
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSRE_BE\Test_FileMover2\obj\Debug\Test_FileMoverWSRE.exe
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSRE_BE\Test_FileMover2\obj\Debug\Test_FileMoverWSRE.pdb

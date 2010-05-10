@@ -1,0 +1,5 @@
+o:\bin\WSRQNewRequest_Processor.dll
+o:\bin\WSRQNewRequest_Processor.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\WSRQNewRequest_Processor.dll
+obj\Debug\WSRQNewRequest_Processor.pdb

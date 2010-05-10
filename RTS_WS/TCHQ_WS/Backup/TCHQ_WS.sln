@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCHQ_WS", "http://localhost/Smdwebs/RTS/TCHQ_WS/TCHQ_WS.csproj", "{B8DB2515-D510-4C63-9229-F1247303E57F}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 1
+		SccProjectUniqueName0 = http://localhost/Smdwebs/RTS/TCHQ_WS/TCHQ_WS.csproj
+		SccProjectName0 = \u0022$/RTS/WSTCHQ_WS\u0022,\u0020SBAAAAAA
+		SccLocalPath0 = ..\\..\\..\\..\\SMDWebs\\RTS\\TCHQ_WS
+		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+		CanCheckoutShared = false
+		SccProjectEnlistmentChoice0 = 2
+	EndGlobalSection
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{B8DB2515-D510-4C63-9229-F1247303E57F}.Debug.ActiveCfg = Debug|.NET
+		{B8DB2515-D510-4C63-9229-F1247303E57F}.Debug.Build.0 = Debug|.NET
+		{B8DB2515-D510-4C63-9229-F1247303E57F}.Release.ActiveCfg = Release|.NET
+		{B8DB2515-D510-4C63-9229-F1247303E57F}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

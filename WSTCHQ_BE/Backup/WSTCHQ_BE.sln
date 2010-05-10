@@ -1,0 +1,151 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonInterfaces", "CommonInterfaces\CommonInterfaces.csproj", "{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonComponents", "CommonComponents\CommonComponents.csproj", "{7786779D-6B79-4A51-A03E-2497DCFE2025}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCHQ_Processor", "TCHQ_Processor\TCHQ_Processor.csproj", "{FFB77A89-28E2-46CB-B3DD-EFED10FACFFD}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenTestHost", "GenTestHost\GenTestHost.csproj", "{C50D522B-37D7-430F-AD4F-6ADDA9E8F096}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoInterfaces", "CryptoInterfaces\CryptoInterfaces.csproj", "{06D4C54B-A25A-4684-BC6C-192CEB970170}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTSStructures", "RTSStructures\RTSStructures.csproj", "{BBF126D5-CA34-4786-A61D-0B426EC0677B}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptEngine", "CryptEngine\CryptEngine.csproj", "{DAD79E22-2139-4ECB-827E-8F7FB871F5D1}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileListener", "FileListener\FileListener.csproj", "{5489F565-7459-44B1-926C-B6B69655C8BC}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyManager", "KeyManager\KeyManager.csproj", "{5E093F16-E114-49BD-B1A8-C24036F3F328}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCHQHostService", "TCHQHostService\TCHQHostService.csproj", "{DC62515E-09C6-4176-8CA7-F689DACE44E7}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriberDBHelper", "SubscriberDBHelper\SubscriberDBHelper.csproj", "{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 12
+		SccLocalPath0 = .
+		CanCheckoutShared = false
+		SolutionUniqueID = {6EEC9994-D977-4A25-BCF6-54F1B8514156}
+		SccProjectUniqueName1 = CommonComponents\\CommonComponents.csproj
+		SccLocalPath1 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection1 = CommonComponents\\
+		SccProjectUniqueName2 = CommonInterfaces\\CommonInterfaces.csproj
+		SccLocalPath2 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection2 = CommonInterfaces\\
+		SccProjectUniqueName3 = CryptoInterfaces\\CryptoInterfaces.csproj
+		SccLocalPath3 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection3 = CryptoInterfaces\\
+		SccProjectUniqueName4 = GenTestHost\\GenTestHost.csproj
+		SccLocalPath4 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection4 = GenTestHost\\
+		SccProjectUniqueName5 = TCHQ_Processor\\TCHQ_Processor.csproj
+		SccLocalPath5 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection5 = TCHQ_Processor\\
+		SccProjectUniqueName6 = RTSStructures\\RTSStructures.csproj
+		SccLocalPath6 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection6 = RTSStructures\\
+		SccProjectUniqueName7 = CryptEngine\\CryptEngine.csproj
+		SccLocalPath7 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection7 = CryptEngine\\
+		SccProjectUniqueName8 = FileListener\\FileListener.csproj
+		SccLocalPath8 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection8 = FileListener\\
+		SccProjectUniqueName9 = KeyManager\\KeyManager.csproj
+		SccLocalPath9 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection9 = KeyManager\\
+		SccProjectUniqueName10 = TCHQHostService\\TCHQHostService.csproj
+		SccLocalPath10 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection10 = TCHQHostService\\
+		SccProjectUniqueName11 = SubscriberDBHelper\\SubscriberDBHelper.csproj
+		SccLocalPath11 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection11 = SubscriberDBHelper\\
+	EndGlobalSection
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}.Debug.ActiveCfg = Debug|.NET
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}.Debug.Build.0 = Debug|.NET
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}.Release.ActiveCfg = Release|.NET
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}.Release.Build.0 = Release|.NET
+		{7786779D-6B79-4A51-A03E-2497DCFE2025}.Debug.ActiveCfg = Debug|.NET
+		{7786779D-6B79-4A51-A03E-2497DCFE2025}.Debug.Build.0 = Debug|.NET
+		{7786779D-6B79-4A51-A03E-2497DCFE2025}.Release.ActiveCfg = Release|.NET
+		{7786779D-6B79-4A51-A03E-2497DCFE2025}.Release.Build.0 = Release|.NET
+		{FFB77A89-28E2-46CB-B3DD-EFED10FACFFD}.Debug.ActiveCfg = Debug|.NET
+		{FFB77A89-28E2-46CB-B3DD-EFED10FACFFD}.Debug.Build.0 = Debug|.NET
+		{FFB77A89-28E2-46CB-B3DD-EFED10FACFFD}.Release.ActiveCfg = Release|.NET
+		{FFB77A89-28E2-46CB-B3DD-EFED10FACFFD}.Release.Build.0 = Release|.NET
+		{C50D522B-37D7-430F-AD4F-6ADDA9E8F096}.Debug.ActiveCfg = Debug|.NET
+		{C50D522B-37D7-430F-AD4F-6ADDA9E8F096}.Debug.Build.0 = Debug|.NET
+		{C50D522B-37D7-430F-AD4F-6ADDA9E8F096}.Release.ActiveCfg = Release|.NET
+		{C50D522B-37D7-430F-AD4F-6ADDA9E8F096}.Release.Build.0 = Release|.NET
+		{06D4C54B-A25A-4684-BC6C-192CEB970170}.Debug.ActiveCfg = Debug|.NET
+		{06D4C54B-A25A-4684-BC6C-192CEB970170}.Debug.Build.0 = Debug|.NET
+		{06D4C54B-A25A-4684-BC6C-192CEB970170}.Release.ActiveCfg = Release|.NET
+		{06D4C54B-A25A-4684-BC6C-192CEB970170}.Release.Build.0 = Release|.NET
+		{BBF126D5-CA34-4786-A61D-0B426EC0677B}.Debug.ActiveCfg = Debug|.NET
+		{BBF126D5-CA34-4786-A61D-0B426EC0677B}.Debug.Build.0 = Debug|.NET
+		{BBF126D5-CA34-4786-A61D-0B426EC0677B}.Release.ActiveCfg = Release|.NET
+		{BBF126D5-CA34-4786-A61D-0B426EC0677B}.Release.Build.0 = Release|.NET
+		{DAD79E22-2139-4ECB-827E-8F7FB871F5D1}.Debug.ActiveCfg = Debug|.NET
+		{DAD79E22-2139-4ECB-827E-8F7FB871F5D1}.Debug.Build.0 = Debug|.NET
+		{DAD79E22-2139-4ECB-827E-8F7FB871F5D1}.Release.ActiveCfg = Release|.NET
+		{DAD79E22-2139-4ECB-827E-8F7FB871F5D1}.Release.Build.0 = Release|.NET
+		{5489F565-7459-44B1-926C-B6B69655C8BC}.Debug.ActiveCfg = Debug|.NET
+		{5489F565-7459-44B1-926C-B6B69655C8BC}.Debug.Build.0 = Debug|.NET
+		{5489F565-7459-44B1-926C-B6B69655C8BC}.Release.ActiveCfg = Release|.NET
+		{5489F565-7459-44B1-926C-B6B69655C8BC}.Release.Build.0 = Release|.NET
+		{5E093F16-E114-49BD-B1A8-C24036F3F328}.Debug.ActiveCfg = Debug|.NET
+		{5E093F16-E114-49BD-B1A8-C24036F3F328}.Debug.Build.0 = Debug|.NET
+		{5E093F16-E114-49BD-B1A8-C24036F3F328}.Release.ActiveCfg = Release|.NET
+		{5E093F16-E114-49BD-B1A8-C24036F3F328}.Release.Build.0 = Release|.NET
+		{DC62515E-09C6-4176-8CA7-F689DACE44E7}.Debug.ActiveCfg = Debug|.NET
+		{DC62515E-09C6-4176-8CA7-F689DACE44E7}.Debug.Build.0 = Debug|.NET
+		{DC62515E-09C6-4176-8CA7-F689DACE44E7}.Release.ActiveCfg = Release|.NET
+		{DC62515E-09C6-4176-8CA7-F689DACE44E7}.Release.Build.0 = Release|.NET
+		{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}.Debug.ActiveCfg = Debug|.NET
+		{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}.Debug.Build.0 = Debug|.NET
+		{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}.Release.ActiveCfg = Release|.NET
+		{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

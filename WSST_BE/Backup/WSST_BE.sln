@@ -1,0 +1,91 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSST_FileReceiver", "WSST_FileReceiver\WSST_FileReceiver.csproj", "{C93E3D50-89B8-47C9-9363-0698BE16AD87}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSST_Processor", "WSST_Processor\WSST_Processor.csproj", "{CBAE1418-58D5-4944-9E43-57D5F75020D2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_FileMover", "Test_FileMover\Test_FileMover.csproj", "{2DE2576D-9A01-4BAF-A616-030AA599CDC6}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StructToTable", "StructToTable\StructToTable.csproj", "{09DE4F88-70C7-4556-85D3-B5FCC4BCDFF1}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSST_FileRcvrHostService", "WSST_FileRcvrHostService\WSST_FileRcvrHostService.csproj", "{83BD7B2C-9661-439B-AD29-BD3D40307429}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSST_ProcessorHostService", "WSST_ProcessorHostService\WSST_ProcessorHostService.csproj", "{785E5239-95E1-40F4-9188-F44F3C09FA92}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 7
+		SccLocalPath0 = .
+		CanCheckoutShared = false
+		SolutionUniqueID = {8CACE736-EE30-459B-9D52-CB12D3242F61}
+		SccProjectUniqueName1 = WSST_FileReceiver\\WSST_FileReceiver.csproj
+		SccLocalPath1 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection1 = WSST_FileReceiver\\
+		SccProjectUniqueName2 = WSST_Processor\\WSST_Processor.csproj
+		SccLocalPath2 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection2 = WSST_Processor\\
+		SccProjectUniqueName3 = Test_FileMover\\Test_FileMover.csproj
+		SccLocalPath3 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection3 = Test_FileMover\\
+		SccProjectUniqueName4 = StructToTable\\StructToTable.csproj
+		SccLocalPath4 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection4 = StructToTable\\
+		SccProjectUniqueName5 = WSST_FileRcvrHostService\\WSST_FileRcvrHostService.csproj
+		SccLocalPath5 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection5 = WSST_FileRcvrHostService\\
+		SccProjectUniqueName6 = WSST_ProcessorHostService\\WSST_ProcessorHostService.csproj
+		SccLocalPath6 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection6 = WSST_ProcessorHostService\\
+	EndGlobalSection
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{C93E3D50-89B8-47C9-9363-0698BE16AD87}.Debug.ActiveCfg = Debug|.NET
+		{C93E3D50-89B8-47C9-9363-0698BE16AD87}.Debug.Build.0 = Debug|.NET
+		{C93E3D50-89B8-47C9-9363-0698BE16AD87}.Release.ActiveCfg = Release|.NET
+		{C93E3D50-89B8-47C9-9363-0698BE16AD87}.Release.Build.0 = Release|.NET
+		{CBAE1418-58D5-4944-9E43-57D5F75020D2}.Debug.ActiveCfg = Debug|.NET
+		{CBAE1418-58D5-4944-9E43-57D5F75020D2}.Debug.Build.0 = Debug|.NET
+		{CBAE1418-58D5-4944-9E43-57D5F75020D2}.Release.ActiveCfg = Release|.NET
+		{CBAE1418-58D5-4944-9E43-57D5F75020D2}.Release.Build.0 = Release|.NET
+		{2DE2576D-9A01-4BAF-A616-030AA599CDC6}.Debug.ActiveCfg = Debug|.NET
+		{2DE2576D-9A01-4BAF-A616-030AA599CDC6}.Debug.Build.0 = Debug|.NET
+		{2DE2576D-9A01-4BAF-A616-030AA599CDC6}.Release.ActiveCfg = Release|.NET
+		{2DE2576D-9A01-4BAF-A616-030AA599CDC6}.Release.Build.0 = Release|.NET
+		{09DE4F88-70C7-4556-85D3-B5FCC4BCDFF1}.Debug.ActiveCfg = Debug|.NET
+		{09DE4F88-70C7-4556-85D3-B5FCC4BCDFF1}.Debug.Build.0 = Debug|.NET
+		{09DE4F88-70C7-4556-85D3-B5FCC4BCDFF1}.Release.ActiveCfg = Release|.NET
+		{09DE4F88-70C7-4556-85D3-B5FCC4BCDFF1}.Release.Build.0 = Release|.NET
+		{83BD7B2C-9661-439B-AD29-BD3D40307429}.Debug.ActiveCfg = Debug|.NET
+		{83BD7B2C-9661-439B-AD29-BD3D40307429}.Debug.Build.0 = Debug|.NET
+		{83BD7B2C-9661-439B-AD29-BD3D40307429}.Release.ActiveCfg = Release|.NET
+		{83BD7B2C-9661-439B-AD29-BD3D40307429}.Release.Build.0 = Release|.NET
+		{785E5239-95E1-40F4-9188-F44F3C09FA92}.Debug.ActiveCfg = Debug|.NET
+		{785E5239-95E1-40F4-9188-F44F3C09FA92}.Debug.Build.0 = Debug|.NET
+		{785E5239-95E1-40F4-9188-F44F3C09FA92}.Release.ActiveCfg = Release|.NET
+		{785E5239-95E1-40F4-9188-F44F3C09FA92}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

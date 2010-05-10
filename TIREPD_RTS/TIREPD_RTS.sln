@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIREPDG2BReceiver", "TIREPDG2BReceiver\TIREPDG2BReceiver.csproj", "{BF83D7D8-AB24-435D-A6EF-66C4C79BDB33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIREPDInterfaces", "TIREPDInterfaces\TIREPDInterfaces.csproj", "{8D660BE3-CF1F-4831-822C-ABE38DEAD90C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIREDPG2BRecvrHostService", "TIREDPG2BRecvrHostService\TIREDPG2BRecvrHostService.csproj", "{9C9DD04E-A604-4655-A9EC-9F630F2C0902}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TIREPDG2BHostServiceReceiverSetup", "TIREPDG2BHostServiceReceiverSetup\TIREPDG2BHostServiceReceiverSetup.vdproj", "{A91B9D9D-7A5C-4968-8C03-2C4689453CA9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF83D7D8-AB24-435D-A6EF-66C4C79BDB33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF83D7D8-AB24-435D-A6EF-66C4C79BDB33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF83D7D8-AB24-435D-A6EF-66C4C79BDB33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF83D7D8-AB24-435D-A6EF-66C4C79BDB33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D660BE3-CF1F-4831-822C-ABE38DEAD90C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D660BE3-CF1F-4831-822C-ABE38DEAD90C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D660BE3-CF1F-4831-822C-ABE38DEAD90C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D660BE3-CF1F-4831-822C-ABE38DEAD90C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C9DD04E-A604-4655-A9EC-9F630F2C0902}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C9DD04E-A604-4655-A9EC-9F630F2C0902}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C9DD04E-A604-4655-A9EC-9F630F2C0902}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C9DD04E-A604-4655-A9EC-9F630F2C0902}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A91B9D9D-7A5C-4968-8C03-2C4689453CA9}.Debug|Any CPU.ActiveCfg = Debug
+		{A91B9D9D-7A5C-4968-8C03-2C4689453CA9}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,5 @@
+o:\bin\KeyManager.dll
+o:\bin\KeyManager.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\KeyManager.dll
+obj\Debug\KeyManager.pdb

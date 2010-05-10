@@ -1,0 +1,13 @@
+<publishData>
+  <publishTarget publishUrl="C:\ApplicationData\SMDWebs\RTS\WSRQ_WS\">
+    <file relUrl="bin/RTSStructures.pdb" publishTime="15/11/2007 3:54:14 PM" />
+    <file relUrl="Web.config" publishTime="23/10/2007 5:37:06 PM" />
+    <file relUrl="bin/CryptoInterfaces.pdb" publishTime="15/11/2007 3:54:13 PM" />
+    <file relUrl="bin/WSRQ_WS.dll" publishTime="15/11/2007 4:01:56 PM" />
+    <file relUrl="WSRQ.asmx" publishTime="24/10/2007 3:27:14 PM" />
+    <file relUrl="Properties/Web.config" publishTime="23/10/2007 5:36:53 PM" />
+    <file relUrl="bin/RTSStructures.dll" publishTime="15/11/2007 3:54:14 PM" />
+    <file relUrl="bin/WSRQ_WS.pdb" publishTime="15/11/2007 4:01:55 PM" />
+    <file relUrl="bin/CryptoInterfaces.dll" publishTime="15/11/2007 3:54:13 PM" />
+  </publishTarget>
+</publishData>

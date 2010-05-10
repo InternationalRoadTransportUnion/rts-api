@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="WSSTstc_WS">
+</Property><Property Name="Solution File" Value="C:\ApplicationData\RussianCustoms\RTS_WS\WSSTstc_WS\WSSTstc_WS.sln">
+</Property><Property Name="User Options File" Value="C:\ApplicationData\RussianCustoms\RTS_WS\WSSTstc_WS\WSSTstc_WS.suo">
+</Property><Property Name="Date" Value="Wednesday, August 29, 2007">
+</Property><Property Name="Time" Value="17:01 PM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="WSSTstc_WS.sln" Description="File successfully backed up as C:\ApplicationData\RussianCustoms\RTS_WS\WSSTstc_WS\Backup\WSSTstc_WS.sln">
+</Event><Event ErrorLevel="0" Project="" Source="WSSTstc_WS.suo" Description="File successfully backed up as C:\ApplicationData\RussianCustoms\RTS_WS\WSSTstc_WS\Backup\WSSTstc_WS.suo">
+</Event><Event ErrorLevel="1" Project="WSSTstc" Source="http://localhost/Smdwebs/RTS/WSSTstc_WS/WSSTstc.csproj" Description="Warning: The project file is being backed up to a relative path that differs from the original solution relative path.  The difference in folder hierarchy may create problems in opening or building the backed up solution and project.">
+</Event><Event ErrorLevel="2" Project="http://localhost/Smdwebs/RTS/WSSTstc_WS/" Source="http://localhost/Smdwebs/RTS/WSSTstc_WS/" Description="ERROR: Failed to backup website http://localhost/Smdwebs/RTS/WSSTstc_WS/">
+</Event><Event ErrorLevel="0" Project="" Source="WSSTstc_WS.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="WSSTstc_WS.sln" Description="Converted">
+</Event></UpgradeLog>

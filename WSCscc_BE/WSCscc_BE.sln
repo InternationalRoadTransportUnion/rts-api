@@ -1,0 +1,58 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSCscc_JobListener", "WSCscc_JobListener\WSCscc_JobListener.csproj", "{0F210563-8740-423A-9669-4BC40D068B61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSCscc_Client", "WSCscc_Client\WSCscc_Client.csproj", "{7E0AA4F7-2009-4EE1-9C01-42FD5EFC60B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSCsccClientHostService", "WSCsccClientHostService\WSCsccClientHostService.csproj", "{01B063B4-8F3A-440F-B143-D38E141296E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSCsccJobListenerHostService", "WSCsccJobListenerHostService\WSCsccJobListenerHostService.csproj", "{A3BAC88D-1B2B-41CA-9DF9-7BAC223F063A}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 5
+		SccLocalPath0 = .
+		CanCheckoutShared = false
+		SccProjectUniqueName1 = WSCscc_Client\\WSCscc_Client.csproj
+		SccLocalPath1 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection1 = WSCscc_Client\\
+		SccProjectUniqueName2 = WSCscc_JobListener\\WSCscc_JobListener.csproj
+		SccLocalPath2 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection2 = WSCscc_JobListener\\
+		SccProjectUniqueName3 = WSCsccClientHostService\\WSCsccClientHostService.csproj
+		SccLocalPath3 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection3 = WSCsccClientHostService\\
+		SccProjectUniqueName4 = WSCsccJobListenerHostService\\WSCsccJobListenerHostService.csproj
+		SccLocalPath4 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection4 = WSCsccJobListenerHostService\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F210563-8740-423A-9669-4BC40D068B61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F210563-8740-423A-9669-4BC40D068B61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F210563-8740-423A-9669-4BC40D068B61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F210563-8740-423A-9669-4BC40D068B61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E0AA4F7-2009-4EE1-9C01-42FD5EFC60B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E0AA4F7-2009-4EE1-9C01-42FD5EFC60B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E0AA4F7-2009-4EE1-9C01-42FD5EFC60B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E0AA4F7-2009-4EE1-9C01-42FD5EFC60B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01B063B4-8F3A-440F-B143-D38E141296E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01B063B4-8F3A-440F-B143-D38E141296E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01B063B4-8F3A-440F-B143-D38E141296E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01B063B4-8F3A-440F-B143-D38E141296E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3BAC88D-1B2B-41CA-9DF9-7BAC223F063A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3BAC88D-1B2B-41CA-9DF9-7BAC223F063A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3BAC88D-1B2B-41CA-9DF9-7BAC223F063A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3BAC88D-1B2B-41CA-9DF9-7BAC223F063A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

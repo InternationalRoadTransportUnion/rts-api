@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="TCHQ_WS">
+</Property><Property Name="Solution File" Value="C:\ApplicationData\RussianCustoms\RTS_WS\TCHQ_WS\TCHQ_WS.sln">
+</Property><Property Name="Date" Value="Monday, September 24, 2007">
+</Property><Property Name="Time" Value="14:42:07 PM">
+</Property><Property Name="Log Number" Value="3">
+</Property></Properties><Event ErrorLevel="1" Project="Copy of RTS.csproj" Source=" Copy of RTS.csproj:(Warning List)" Description="Warning: This web project was converted as a file-based web application. If your site contained any IIS meta-information, e.g. sub-folders marked as virtual directories, it is recommended that you close this web site and re-open it using the Open Web Site command and selecting the Local IIS tab.&#xA;">
+</Event><Event ErrorLevel="0" Project="Copy of RTS.csproj" Source="Copy of RTS.csproj" Description="Converted.&#xA;There may be some unresolved conversion issues you will need to manually fix. For more information, please refer to http://go.microsoft.com/fwlink/?LinkId=46995 or search for the help topic &quot;Converting from Visual Studio .NET 2002 or 2003&quot;.">
+</Event><Event ErrorLevel="3" Project="Copy of RTS.csproj" Source="Copy of RTS.csproj" Description="Converted">
+</Event><Event ErrorLevel="2" Project="TCHQ_WS.csproj" Source=" TCHQ_WS.csproj:(Error List)" Description="ERROR: Unable to find codebehind file ~/App_Code/tirCarnetQuery.asmx.cs.    tirCarnetQuery.asmx&#xA;">
+</Event><Event ErrorLevel="1" Project="TCHQ_WS.csproj" Source=" TCHQ_WS.csproj:(Warning List)" Description="ERROR: Unable to parse file tirCarnetQuery.asmx.&#xA;">
+</Event><Event ErrorLevel="2" Project="TCHQ_WS.csproj" Source=" TCHQ_WS.csproj:(Error List)" Description="ERROR: Unable to get local copy of file tircarnetquery.asmx.cs.&#xA;">
+</Event><Event ErrorLevel="2" Project="TCHQ_WS.csproj" Source=" TCHQ_WS.csproj:(Error List)" Description="ERROR: Unable to get local copy of file global.asax.cs.&#xA;">
+</Event><Event ErrorLevel="2" Project="TCHQ_WS.csproj" Source=" TCHQ_WS.csproj:(Error List)" Description="ERROR: Unable to get local copy of file tracehelper.cs.&#xA;">
+</Event><Event ErrorLevel="2" Project="TCHQ_WS.csproj" Source=" TCHQ_WS.csproj:(Error List)" Description="ERROR: Unable to get local copy of file assemblyinfo.cs.&#xA;">
+</Event><Event ErrorLevel="1" Project="TCHQ_WS.csproj" Source=" TCHQ_WS.csproj:(Warning List)" Description="Warning: This web project was converted as a file-based web application. If your site contained any IIS meta-information, e.g. sub-folders marked as virtual directories, it is recommended that you close this web site and re-open it using the Open Web Site command and selecting the Local IIS tab.&#xA;">
+</Event><Event ErrorLevel="2" Project="TCHQ_WS.csproj" Source=" TCHQ_WS.csproj:(Error List)" Description="ERROR: The following files were not migrated because they were not found in the project file or the associated 'BuildAction' is set to 'None'.&#xA;You may need to exclude these files from the project after the conversion process in order to compile your web site: &#xA;File List == App_Code\assemblyinfo.cs,App_Code\tracehelper.cs,App_Code\tircarnetquery.asmx.cs,App_Code\global.asax.cs.&#xA;">
+</Event><Event ErrorLevel="0" Project="TCHQ_WS.csproj" Source="TCHQ_WS.csproj" Description="Converted.&#xA;There may be some unresolved conversion issues you will need to manually fix. For more information, please refer to http://go.microsoft.com/fwlink/?LinkId=46995 or search for the help topic &quot;Converting from Visual Studio .NET 2002 or 2003&quot;.">
+</Event><Event ErrorLevel="3" Project="TCHQ_WS.csproj" Source="TCHQ_WS.csproj" Description="Converted">
+</Event></UpgradeLog>

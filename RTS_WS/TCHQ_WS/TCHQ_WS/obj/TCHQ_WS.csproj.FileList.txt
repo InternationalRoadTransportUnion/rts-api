@@ -1,0 +1,10 @@
+bin\RTS.dll
+bin\RTS.pdb
+bin\RTSStructures.dll
+bin\RTSStructures.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\RTS.Global.resources
+obj\Debug\IRU.RTS.WSTCHQService.SafeTIRHolderQueryServiceClass.resources
+obj\Debug\TCHQ_WS.csproj.GenerateResource.Cache
+obj\Debug\RTS.dll
+obj\Debug\RTS.pdb

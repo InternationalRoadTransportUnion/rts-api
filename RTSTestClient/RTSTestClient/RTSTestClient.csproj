@@ -1,0 +1,464 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E62CE39A-83E2-4B27-9D67-E856ADAEC64B}</ProjectGuid>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>RTSTestClient</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>RTSTestClient</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <WebReference_EnableProperties>true</WebReference_EnableProperties>
+    <WebReference_EnableSQLTypes>false</WebReference_EnableSQLTypes>
+    <WebReference_EnableLegacyEventingModel>true</WebReference_EnableLegacyEventingModel>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>o:\bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonComponents, Version=1.76.2858.26974, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\RTS_Builds\bin\CommonComponents.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="CryptoInterfaces, Version=1.0.2865.29903, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\RTS_Builds\bin\CryptoInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Services2">
+      <Name>Microsoft.Web.Services2</Name>
+      <HintPath>C:\Program Files\Microsoft WSE\v2.0\Microsoft.Web.Services2.dll</HintPath>
+      <AssemblyFolderKey>hklm\microsoft wse 2.0</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services">
+      <Name>System.Web.Services</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="bin\Debug\IRU.Cer" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="StressTestData.csv" />
+    <Content Include="App.ico" />
+    <Content Include="bin\Debug\QueryTemplate.xml" />
+    <Content Include="bin\Debug\RTSTestClient.xml" />
+    <None Include="Web References\TIREPDB2G\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\TIREPDB2G\schema1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\TIREPDB2G\TIREPDB2GService.disco" />
+    <None Include="Web References\TIREPDB2G\TIREPDB2GService.wsdl" />
+    <None Include="Web References\TIREPDB2G\TIREPDB2GService0.wsdl" />
+    <None Include="Web References\TIREPDB2G\TIREPDB2GUploadAck.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\TIREPDG2B\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\TIREPDG2B\schema1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\TIREPDG2B\TIREPDG2BService.disco" />
+    <None Include="Web References\TIREPDG2B\TIREPDG2BService.wsdl" />
+    <None Include="Web References\TIREPDG2B\TIREPDG2BService0.wsdl" />
+    <None Include="Web References\TIREPDG2B\TIREPDG2BUploadAck.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSST\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WSST\safetirupload.disco" />
+    <None Include="Web References\WSRE\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WSRE\safetirupload.disco" />
+    <None Include="Web References\WSRE\safetirupload.wsdl" />
+    <None Include="Web References\WSRE\SafeTIRUploadAck.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSRQ\ReconciliationResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSRQ\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WSRQ\WSRQ.disco" />
+    <None Include="Web References\Query\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\Query\tirCarnetQuery.disco" />
+    <None Include="Web References\Query\tirCarnetQuery.wsdl" />
+    <None Include="Web References\Query\TIRHolderResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSRQ\WSRQ.wsdl" />
+    <None Include="Web References\WSST\safetirupload.wsdl" />
+    <None Include="Web References\WSST\SafeTIRUploadAck.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CertGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TIREPDG2BTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TIREPDB2GStressTest.cs" />
+    <Compile Include="TIREPDB2GStressTester.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TIREPDB2GTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TIREPDB2GSampleMessageGenerator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQueryXMLGenerator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQueryXMLGeneratorWSRE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQueryXMLGeneratorWSRQ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQueryXMLGeneratorWSRQNR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RegExHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TCHQSampleMessageGenerator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TCHQStressTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TCHQStressTester.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TCHQTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TraceHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web References\Query\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\TIREPDB2G\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\TIREPDG2B\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WSRE\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WSRQ\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WSST\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="WSRESampleMessageGenerator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WSREStressTest.cs" />
+    <Compile Include="WSREStressTester.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WSRETest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WSRQNewRequestFileListener.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WSRQSampleMessageGenerator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WSRQStressTest.cs" />
+    <Compile Include="WSRQStressTester.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WSRQTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WSSTStressTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WSSTStressTester.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WSSTTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <EmbeddedResource Include="TIREPDG2BTest.resx">
+      <DependentUpon>TIREPDG2BTest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TIREPDB2GStressTester.resx">
+      <DependentUpon>TIREPDB2GStressTester.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TIREPDB2GTest.resx">
+      <DependentUpon>TIREPDB2GTest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TIREPDB2GSampleMessageGenerator.resx">
+      <DependentUpon>TIREPDB2GSampleMessageGenerator.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQueryXMLGenerator.resx">
+      <DependentUpon>frmQueryXMLGenerator.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQueryXMLGeneratorWSRE.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmQueryXMLGeneratorWSRE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQueryXMLGeneratorWSRQ.resx">
+      <DependentUpon>frmQueryXMLGeneratorWSRQ.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQueryXMLGeneratorWSRQNR.resx">
+      <DependentUpon>frmQueryXMLGeneratorWSRQNR.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TCHQSampleMessageGenerator.resx">
+      <DependentUpon>TCHQSampleMessageGenerator.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TCHQStressTester.resx">
+      <DependentUpon>TCHQStressTester.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TCHQTest.resx">
+      <DependentUpon>TCHQTest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestParent.resx">
+      <DependentUpon>TestParent.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WSRESampleMessageGenerator.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>WSRESampleMessageGenerator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WSRETest.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>WSRETest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WSRQNewRequestFileListener.resx">
+      <DependentUpon>WSRQNewRequestFileListener.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WSRQSampleMessageGenerator.resx">
+      <DependentUpon>WSRQSampleMessageGenerator.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WSRQStressTester.resx">
+      <DependentUpon>WSRQStressTester.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WSRQTest.resx">
+      <DependentUpon>WSRQTest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WSSTStressTester.resx">
+      <DependentUpon>WSSTStressTester.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WSSTTest.resx">
+      <DependentUpon>WSSTTest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <WebReferenceUrl Include="http://localhost/RTS2/TCHQ_WS/tirCarnetQuery.asmx%3fop=WSTCHQ">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Query\</RelPath>
+      <UpdateFromURL>http://localhost/RTS2/TCHQ_WS/tirCarnetQuery.asmx%3fop=WSTCHQ</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>RTSTestClient_Query_SafeTIRHolderQueryServiceClass</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost/SMDWebs/RTS/WSRQ_WS/WSRQ.asmx%3fop=WSRQ">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WSRQ\</RelPath>
+      <UpdateFromURL>http://localhost/SMDWebs/RTS/WSRQ_WS/WSRQ.asmx%3fop=WSRQ</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>RTSTestClient_WSRQ_ReconciliationQueryServiceClass</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost/RTS2/WSST_WS/safetirupload.asmx%3fop=WSRE">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WSRE\</RelPath>
+      <UpdateFromURL>http://localhost/RTS2/WSST_WS/safetirupload.asmx%3fop=WSRE</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>RTSTestClient_WSRE_SafeTirUpload</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost/RTS2/WSST_WS/safetirupload.asmx%3fop=WSST">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WSST\</RelPath>
+      <UpdateFromURL>http://localhost/RTS2/WSST_WS/safetirupload.asmx%3fop=WSST</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>RTSTestClient_WSST_SafeTirUpload</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:8080/SMDWEBS/EPD/TIREPDB2G/TIREPDB2GService.asmx%3fop=TIREPDB2G">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\TIREPDB2G\</RelPath>
+      <UpdateFromURL>http://localhost:8080/SMDWEBS/EPD/TIREPDB2G/TIREPDB2GService.asmx%3fop=TIREPDB2G</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>RTSTestClient_TIREPDB2G_TIREPDB2GServiceClass</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:8080/SMDWEBS/EPD/TIREPDG2B/TIREPDG2BService.asmx%3fop=TIREPDG2B">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\TIREPDG2B\</RelPath>
+      <UpdateFromURL>http://localhost:8080/SMDWEBS/EPD/TIREPDG2B/TIREPDG2BService.asmx%3fop=TIREPDG2B</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>RTSTestClient_TIREPDG2B_TIREPDG2BService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

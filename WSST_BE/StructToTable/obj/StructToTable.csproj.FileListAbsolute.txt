@@ -1,0 +1,5 @@
+o:\bin\StructToTable.dll
+o:\bin\StructToTable.pdb
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSST_BE\StructToTable\obj\Debug\ResolveAssemblyReference.cache
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSST_BE\StructToTable\obj\Debug\StructToTable.dll
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSST_BE\StructToTable\obj\Debug\StructToTable.pdb

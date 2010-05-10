@@ -1,0 +1,67 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSCscc_JobListener", "WSCscc_JobListener\WSCscc_JobListener.csproj", "{0F210563-8740-423A-9669-4BC40D068B61}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSCscc_Client", "WSCscc_Client\WSCscc_Client.csproj", "{7E0AA4F7-2009-4EE1-9C01-42FD5EFC60B7}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSCsccClientHostService", "WSCsccClientHostService\WSCsccClientHostService.csproj", "{01B063B4-8F3A-440F-B143-D38E141296E9}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSCsccJobListenerHostService", "WSCsccJobListenerHostService\WSCsccJobListenerHostService.csproj", "{A3BAC88D-1B2B-41CA-9DF9-7BAC223F063A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 5
+		SccLocalPath0 = .
+		CanCheckoutShared = false
+		SolutionUniqueID = {36B8EE7D-255D-4633-B653-1B1076249EC3}
+		SccProjectUniqueName1 = WSCscc_Client\\WSCscc_Client.csproj
+		SccLocalPath1 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection1 = WSCscc_Client\\
+		SccProjectUniqueName2 = WSCscc_JobListener\\WSCscc_JobListener.csproj
+		SccLocalPath2 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection2 = WSCscc_JobListener\\
+		SccProjectUniqueName3 = WSCsccClientHostService\\WSCsccClientHostService.csproj
+		SccLocalPath3 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection3 = WSCsccClientHostService\\
+		SccProjectUniqueName4 = WSCsccJobListenerHostService\\WSCsccJobListenerHostService.csproj
+		SccLocalPath4 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection4 = WSCsccJobListenerHostService\\
+	EndGlobalSection
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{0F210563-8740-423A-9669-4BC40D068B61}.Debug.ActiveCfg = Debug|.NET
+		{0F210563-8740-423A-9669-4BC40D068B61}.Debug.Build.0 = Debug|.NET
+		{0F210563-8740-423A-9669-4BC40D068B61}.Release.ActiveCfg = Release|.NET
+		{0F210563-8740-423A-9669-4BC40D068B61}.Release.Build.0 = Release|.NET
+		{7E0AA4F7-2009-4EE1-9C01-42FD5EFC60B7}.Debug.ActiveCfg = Debug|.NET
+		{7E0AA4F7-2009-4EE1-9C01-42FD5EFC60B7}.Debug.Build.0 = Debug|.NET
+		{7E0AA4F7-2009-4EE1-9C01-42FD5EFC60B7}.Release.ActiveCfg = Release|.NET
+		{7E0AA4F7-2009-4EE1-9C01-42FD5EFC60B7}.Release.Build.0 = Release|.NET
+		{01B063B4-8F3A-440F-B143-D38E141296E9}.Debug.ActiveCfg = Debug|.NET
+		{01B063B4-8F3A-440F-B143-D38E141296E9}.Debug.Build.0 = Debug|.NET
+		{01B063B4-8F3A-440F-B143-D38E141296E9}.Release.ActiveCfg = Release|.NET
+		{01B063B4-8F3A-440F-B143-D38E141296E9}.Release.Build.0 = Release|.NET
+		{A3BAC88D-1B2B-41CA-9DF9-7BAC223F063A}.Debug.ActiveCfg = Debug|.NET
+		{A3BAC88D-1B2B-41CA-9DF9-7BAC223F063A}.Debug.Build.0 = Debug|.NET
+		{A3BAC88D-1B2B-41CA-9DF9-7BAC223F063A}.Release.ActiveCfg = Release|.NET
+		{A3BAC88D-1B2B-41CA-9DF9-7BAC223F063A}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

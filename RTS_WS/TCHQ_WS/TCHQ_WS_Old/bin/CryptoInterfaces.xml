@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CryptoInterfaces</name>
+    </assembly>
+    <members>
+        <member name="T:IRU.RTS.CryptoInterfaces.ICryptoOperations">
+            <summary>
+            Interface to be implemented by CryptoProvider. Covers Common Crypto operations. This needs to be revisited once details of algorithms (GOST etc. are in).
+            The interface is packaged in separate assembly so there is bare minimum dependency in case the crypto operations need to run on separate box
+            </summary>
+        </member>
+        <member name="M:IRU.RTS.CryptoInterfaces.ICryptoOperations.Initialize(System.Collections.Hashtable)">
+            <summary>
+            Initialises the Crypto context if required
+            </summary>
+            <param name="initParams">Hashtable containing the parameters requried for initialisation</param>
+        </member>
+        <member name="M:IRU.RTS.CryptoInterfaces.ICryptoOperations.Encrypt(System.Byte[],System.String,System.Collections.Hashtable)">
+            <summary>
+            Encrypt routine
+            </summary>
+            <param name="input">byte Array of data to encrypt</param>
+            <param name="algName">Name of Alg implemented e.g. DES, RSA etc.</param>
+            <param name="encryptParams">Hashtable containing the keys, IV etc.</param>
+            <returns>encrypted byte array</returns>
+        </member>
+        <member name="M:IRU.RTS.CryptoInterfaces.ICryptoOperations.Decrypt(System.Byte[],System.String,System.Collections.Hashtable)">
+            <summary>
+            Decrypt routine
+            </summary>
+            <param name="input">byte array of Encrypted Data</param>
+            <param name="algName">Name of algorithm to use</param>
+            <param name="decryptParams">HAshtable containing parameters to decrypt</param>
+            <returns>decrypted data byte array</returns>
+        </member>
+        <member name="M:IRU.RTS.CryptoInterfaces.ICryptoOperations.Hash(System.Byte[],System.String,System.Collections.Hashtable)">
+            <summary>
+            Hashing implementation
+            </summary>
+            <param name="input">Byte array of data to hash</param>
+            <param name="algName">Hashing algorithm name e.g. SHA-1 etc.</param>
+            <param name="hashParams">Hashtable of parameters</param>
+            <returns>Hash value</returns>
+        </member>
+        <member name="M:IRU.RTS.CryptoInterfaces.ICryptoOperations.Sign(System.Byte[],System.String,System.String,System.Collections.Hashtable)">
+            <summary>
+            Signing implementation
+            </summary>
+            <param name="Indata">Data to Sign</param>
+            <param name="hashAlgName"> Name of hashing algo</param>
+            <param name="signAlgName">Sign ing algorithm name</param>
+            <param name="signParams">Hashtable of parameters/keys etc.</param>
+            <returns>signature</returns>
+        </member>
+        <member name="M:IRU.RTS.CryptoInterfaces.ICryptoOperations.Verify(System.Byte[],System.Byte[],System.String,System.String,System.Collections.Hashtable)">
+            <summary>
+            Verifies the data witht the signature
+            </summary>
+            <param name="hash">data to verify</param>
+            <param name="signedHash">Signed hash</param>
+            <param name="hashAlgName">Hashing algo used SHA-1 etc.</param>
+            <param name="signAlgName">Signing algo used</param>
+            <param name="verifyParams">Hashtable of parameters used in encryption keys/IVs etc</param>
+            <returns>tru of false if hash verifies</returns>
+        </member>
+        <member name="M:IRU.RTS.CryptoInterfaces.ICryptoOperations.GenerateKey(System.String,System.Collections.Hashtable)">
+            <summary>
+            Generate key
+            </summary>
+            <param name="algName">Keygeneration algorithm to use e.g. RSA</param>
+            <param name="keyGenParams">Hashtable containing parameters to use</param>
+            <returns>Hashtable containg the key</returns>
+        </member>
+        <member name="M:IRU.RTS.CryptoInterfaces.ICryptoOperations.GenerateRandom(System.Int32,System.Collections.Hashtable)">
+            <summary>
+            Generate random number of specified length
+            </summary>
+            <param name="length">Length in bytes</param>
+            <param name="rngParams">hashtable of parameters</param>
+            <returns>bytearray containing the number</returns>
+        </member>
+        <member name="M:IRU.RTS.CryptoInterfaces.ICryptoOperations.DeInitialize(System.Collections.Hashtable)">
+            <summary>
+            Used to release context etc.
+            </summary>
+            <param name="deInitParams"></param>
+        </member>
+    </members>
+</doc>

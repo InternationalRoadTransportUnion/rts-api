@@ -1,0 +1,5 @@
+O:\bin\CryptoInterfaces.dll
+O:\bin\CryptoInterfaces.pdb
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\CryptoInterfaces\obj\Debug\ResolveAssemblyReference.cache
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\CryptoInterfaces\obj\Debug\CryptoInterfaces.dll
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\CryptoInterfaces\obj\Debug\CryptoInterfaces.pdb

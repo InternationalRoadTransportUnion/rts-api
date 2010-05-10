@@ -1,0 +1,42 @@
+<Config>
+	<Section name="PluginManager">
+		<Plugin name="DBHelperFactory" objectType="IRU.RTS.CommonComponents.DBHelperFactory, CommonComponents" isRunnable="false" />
+		<Plugin name="WSST_Processor" objectType="IRU.RTS.WSST.WSST_Processor, WSST_Processor" isRunnable="false" />
+		<Plugin name="FileSystemListener" objectType="IRU.RTS.CommonComponents.FileSystemListener, FileListener"
+			isRunnable="true" />
+		<!--<Plugin name="InMemoryCache" objectType="IRU.RTS.CommonComponents.FileCache, CommonComponents"
+			isRunnable="false" />-->
+	</Section>
+	
+	<Section name="WSST_Processor">
+		<WSST_ProcessorSettings DBHelperFactoryPlugin="DBHelperFactory"
+			InMemoryCachePlugin="InMemoryCache" DispatchFileDropPath="O:\WSST_Folders\DispatchPath" TemporaryFolderPath="O:\WSST_Folders\temp_Dispatch" 
+			CryptoProviderEndpoint="tcp://Doctor43:9012/CryptoProvider.rem" SchemaFilesPath="O:\bin\Schemas" ></WSST_ProcessorSettings>
+	</Section>
+	
+
+	
+	<!--</Section>-->
+	
+	<Section name="FileSystemListener">
+		<FileSystemListener DeliverToPlugin="WSST_Processor" PollFolderLocation="O:\WSST_Folders\SafeTirInDrop" WorkingFolderLocation="O:\WSST_Folders\SafeTIRWorkingfolder" 
+			ArchiveFolderLocation="O:\WSST_Folders\SafeTIRUploadFileArchive" MaxConcurrentProcessCount = "2" ErrorFolderLocation="o:\ErrorProcessingFiles" FilePattern="*.SafeTIR" ForceScanInterval="3"></FileSystemListener>
+
+			
+	</Section>
+	<Section name="DBHelperFactory">
+		   <ConnectionStrings>
+			<DB Name="WSST_Internal_DB">
+				<!-- Base64 encoded -->
+				<ConnectionString>SERVER=DOCTOR43\I0;DATABASE=WSST_INTERNAL_DB;uid=rtsuser;pwd=rtsuser;connect timeout =20</ConnectionString>
+			</DB>
+			<DB Name="WSST_COPYTODB">
+			<ConnectionString>SERVER=DOCTOR43\I0;DATABASE=WSST_COPY_TO_DB;uid=rtsuser;pwd=rtsuser;connect timeout =20</ConnectionString>
+			</DB>
+			<DB Name="SubscriberDB">
+			<ConnectionString>SERVER=DOCTOR43\I0;DATABASE=WS_SUBSCRIBER_DB;uid=rtsuser;pwd=rtsuser;connect timeout =20</ConnectionString>
+			</DB>
+		</ConnectionStrings>
+	</Section>
+</Config>
+

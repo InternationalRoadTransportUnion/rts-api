@@ -1,0 +1,20 @@
+<publishData>
+  <publishTarget publishUrl="C:\ApplicationData\SMDWebs\RTS\WSRE_WS_2\">
+    <file relUrl="bin/RTSStructures.pdb" publishTime="17/05/2009 17:24:13" />
+    <file relUrl="Web.config" publishTime="23/10/2007 17:49:43" />
+    <file relUrl="bin/WSRE_WS.dll" publishTime="17/05/2009 17:40:16" />
+    <file relUrl="bin/RTSStructures.dll" publishTime="17/05/2009 17:24:13" />
+    <file relUrl="bin/WSRE_WS.pdb" publishTime="17/05/2009 17:40:16" />
+    <file relUrl="WSREService.asmx" publishTime="23/10/2007 17:49:14" />
+  </publishTarget>
+  <publishTarget publishUrl="C:\ApplicationData\SMDWebs\RTS\WSRE_WS\">
+    <file relUrl="bin/RTSStructures.pdb" publishTime="23/10/2007 17:06:51" />
+    <file relUrl="bin/WebService1.dll" publishTime="23/10/2007 17:50:32" />
+    <file relUrl="Web.config" publishTime="23/10/2007 17:49:43" />
+    <file relUrl="bin/WSRE_WS.dll" publishTime="23/10/2007 17:51:58" />
+    <file relUrl="bin/WebService1.pdb" publishTime="23/10/2007 17:50:32" />
+    <file relUrl="bin/RTSStructures.dll" publishTime="23/10/2007 17:06:51" />
+    <file relUrl="bin/WSRE_WS.pdb" publishTime="23/10/2007 17:51:58" />
+    <file relUrl="WSREService.asmx" publishTime="23/10/2007 17:49:14" />
+  </publishTarget>
+</publishData>

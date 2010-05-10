@@ -1,0 +1,5 @@
+o:\bin\CryptEngine.dll
+o:\bin\CryptEngine.pdb
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\CryptEngine\obj\Debug\ResolveAssemblyReference.cache
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\CryptEngine\obj\Debug\CryptEngine.dll
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\CryptEngine\obj\Debug\CryptEngine.pdb

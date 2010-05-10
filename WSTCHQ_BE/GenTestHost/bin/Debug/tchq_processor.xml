@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TCHQ_Processor</name>
+    </assembly>
+    <members>
+        <member name="T:IRU.RTS.WSTCHQ.CWQuerys">
+            <summary>
+            CWQuerys is called to retrieve the CW Carnet Data. This data is returned in a Decrypted Hash Table.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:IRU.RTS.WSTCHQ.CWQuerys.m_idbHelper" -->
+        <!-- Badly formed XML comment ignored for member "M:IRU.RTS.WSTCHQ.CWQuerys.#ctor(IRU.CommonInterfaces.IDBHelper)" -->
+        <member name="M:IRU.RTS.WSTCHQ.CWQuerys.GetTIRCarnetQueryData(System.String)">
+            <summary>
+            CWQuerys GetTIRCarnetQueryData - This is call to get the TIR Carnet Data.
+            </summary>
+            <param name="sTIR_Carnet_No"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:IRU.RTS.WSTCHQ.CWQuerys.DecrpytCuteWISEResult(System.Collections.Hashtable,System.String)" -->
+        <member name="T:IRU.RTS.WSTCHQ.TCHQ_DBHelper">
+            <summary>
+            Wraps all calls to TCHQDB.
+            </summary>
+        </member>
+        <member name="M:IRU.RTS.WSTCHQ.TCHQ_DBHelper.#ctor(IRU.CommonInterfaces.IDBHelper)">
+            <summary>
+            Initialize the TCHQ_DB instance  of IDBHelper
+            </summary>
+            <param name="requestHelper"></param>
+        </member>
+        <member name="M:IRU.RTS.WSTCHQ.TCHQ_DBHelper.LogRequestS5(IRU.RTS.WSTCHQ.TCHQLogRequestStruct,System.Boolean)">
+            <summary>
+            Log Initial Request in TCHQ_REQUEST_LOG, as soon as the query is recieved 
+            Insert a new query record in the Table all other step functions update this record
+            </summary>
+            <param name="tchQLogRequestData"> Log data structure</param>
+        </member>
+        <member name="M:IRU.RTS.WSTCHQ.TCHQ_DBHelper.LogRequestS10(IRU.RTS.WSTCHQ.TCHQLogRequestStruct,System.Boolean)">
+            <summary>
+            Updates TCHQ_REQUEST_LOG on session key decryption
+            </summary>
+            <param name="tchQLogRequestData">Log data structure</param>
+            <param name="decryptSessionFailed">boolean indicating step succeeded or failed</param>
+        </member>
+        <member name="M:IRU.RTS.WSTCHQ.TCHQ_DBHelper.LogRequestS15(IRU.RTS.WSTCHQ.TCHQLogRequestStruct,System.Boolean)">
+            <summary>
+            Logs into TCHQ_REQUEST_LOG after query decryption step
+            </summary>
+            <param name="tchQLogRequestData">Log data structure</param>
+            <param name="decryptionFailed">boolean indicating failure of query encryption</param>
+        </member>
+        <member name="M:IRU.RTS.WSTCHQ.TCHQ_DBHelper.LogRequestS25(IRU.RTS.WSTCHQ.TCHQLogRequestStruct,System.Boolean)">
+            <summary>
+            Updates TCHQ_REQUEST_LOG with Query XML Validation status
+            </summary>
+            <param name="tchQLogRequestData">Log data structure</param>
+            <param name="xmlNotValid">boolean indicating if the query xml was valid or invalid</param>
+        </member>
+        <member name="M:IRU.RTS.WSTCHQ.TCHQ_DBHelper.LogRequestS30(IRU.RTS.WSTCHQ.TCHQLogRequestStruct,System.Boolean)">
+            <summary>
+            Updates TCHQ_REQUEST_LOG with Sender Authorization status  
+            </summary>
+            <param name="tchQLogRequestData">Log data structure</param>
+            <param name="userNotAuthorised">boolean indicating success of authorization</param>
+        </member>
+        <member name="M:IRU.RTS.WSTCHQ.TCHQ_DBHelper.LogRequestS35(IRU.RTS.WSTCHQ.TCHQLogRequestStruct,System.Boolean)">
+            <summary>
+            Update TCHQ_REQUEST_LOG with Carnet query results
+            </summary>
+            <param name="tchQLogRequestData">Log data structure</param>
+            <param name="cwQueryFailed">boolean indicating cuccess failure of query</param>
+        </member>
+        <member name="M:IRU.RTS.WSTCHQ.TCHQ_DBHelper.LogRequestS40(IRU.RTS.WSTCHQ.TCHQLogRequestStruct,System.Boolean)">
+            <summary>
+            Updates TCHQ_REQUEST_LOG with Response XML encryption status
+            </summary>
+            <param name="tchQLogRequestData">Log data structure</param>
+            <param name="hashEncFailed">boolean indicating failure of response encryption</param>
+        </member>
+        <member name="M:IRU.RTS.WSTCHQ.TCHQ_DBHelper.LogRequestS45(IRU.RTS.WSTCHQ.TCHQLogRequestStruct,System.Boolean)">
+            <summary>
+            Updates TCHQ_Request_log with Session Key encryption status
+            </summary>
+            <param name="tchQLogRequestData">Log data structure</param>
+            <param name="sessionKeyEncFailed">boolean indicating failure encrypting session key</param>
+        </member>
+        <member name="M:IRU.RTS.WSTCHQ.TCHQ_DBHelper.LogRequestS99(IRU.RTS.WSTCHQ.TCHQLogRequestStruct)">
+            <summary>
+            Final step update to the TCHQ_REQUEST_LOG table
+            </summary>
+            <param name="tchQLogRequestData">Log data structure</param>
+        </member>
+        <member name="M:IRU.RTS.WSTCHQ.TCHQ_DBHelper.LogSequenceStep(System.Double,System.Int64,System.Int64,System.String,System.DateTime)">
+            <summary>
+            Method to update the tchq_Sequence table
+            </summary>
+            <param name="TCHQ_QueryID">ID generated  for the query</param>
+            <param name="step">Step number </param>
+            <param name="stepResult">Result of the step</param>
+            <param name="stepCompletionTime">Time stamp</param>
+        </member>
+        <member name="T:IRU.RTS.WSTCHQ.TCHQ_QueryProcessor">
+            <summary>
+            Summary description for TCHQ_QueryProcessor.
+            </summary>
+        </member>
+        <member name="T:IRU.RTS.WSTCHQ.TCHQ_RemotingHelper">
+            <summary>
+            Summary description for Class1.
+            </summary>
+        </member>
+    </members>
+</doc>

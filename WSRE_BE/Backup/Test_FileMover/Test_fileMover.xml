@@ -1,0 +1,17 @@
+﻿<Config>
+	<Section name="PluginManager">
+		<Plugin name="FileSystemListener" objectType="IRU.RTS.CommonComponents.FileSystemListener, FileListener"
+			isRunnable="true" />
+		<Plugin name="FileMoverPlugin" objectType="Test_FileMover.MoveAFile, Test_FileMover"
+			isRunnable="false" />
+			
+	</Section>
+	<Section name="FileSystemListener">
+		<FileSystemListener DeliverToPlugin="FileMoverPlugin" PollFolderLocation="o:\SafeTirInDrop" WorkingFolderLocation="o:\SafeTIRWorkingfolder"
+			ArchiveFolderLocation="o:\SafeTIRUploadFileArchive" MaxConcurrentProcessCount="1" FilePattern="*.cif" ForceScanInterval="3"></FileSystemListener>
+	</Section>
+	<Section name="FileMoverPlugin">
+		<MoveAFile DestinationFolderLocation="o:\SafeTIRUploadFileCopy" />
+	</Section>
+	
+</Config>

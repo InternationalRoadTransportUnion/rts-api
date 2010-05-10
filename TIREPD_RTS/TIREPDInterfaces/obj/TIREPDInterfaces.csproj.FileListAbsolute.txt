@@ -1,0 +1,5 @@
+o:\bin\TIREPDInterfaces.dll
+o:\bin\TIREPDInterfaces.pdb
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\TIREPD_RTS\TIREPDInterfaces\obj\Debug\ResolveAssemblyReference.cache
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\TIREPD_RTS\TIREPDInterfaces\obj\Debug\TIREPDInterfaces.dll
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\TIREPD_RTS\TIREPDInterfaces\obj\Debug\TIREPDInterfaces.pdb

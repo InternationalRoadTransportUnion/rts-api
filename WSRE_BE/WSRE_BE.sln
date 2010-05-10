@@ -1,0 +1,62 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSRE_FileRcvrHostService", "WSRE_FileRcvrHostService\WSRE_FileRcvrHostService.csproj", "{83BD7B2C-9661-439B-AD29-BD3D40307429}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSRE_FileReceiver", "WSRE_FileReceiver\WSRE_FileReceiver.csproj", "{C93E3D50-89B8-47C9-9363-0698BE16AD87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSRE_ProcessorHostService", "WSRE_ProcessorHostService\WSRE_ProcessorHostService.csproj", "{785E5239-95E1-40F4-9188-F44F3C09FA92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSRE_Processor", "WSRE_Processor\WSRE_Processor.csproj", "{CBAE1418-58D5-4944-9E43-57D5F75020D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_FileMover2", "Test_FileMover2\Test_FileMover2.csproj", "{89E0AEE9-1CF3-4585-96F9-7D56D27A1DAF}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 6
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Test_FileMover2\\Test_FileMover2.csproj
+		SccLocalPath1 = .
+		SccProjectFilePathRelativizedFromConnection1 = Test_FileMover2\\
+		SccProjectUniqueName2 = WSRE_FileRcvrHostService\\WSRE_FileRcvrHostService.csproj
+		SccLocalPath2 = .
+		SccProjectFilePathRelativizedFromConnection2 = WSRE_FileRcvrHostService\\
+		SccProjectUniqueName3 = WSRE_FileReceiver\\WSRE_FileReceiver.csproj
+		SccLocalPath3 = .
+		SccProjectFilePathRelativizedFromConnection3 = WSRE_FileReceiver\\
+		SccProjectUniqueName4 = WSRE_Processor\\WSRE_Processor.csproj
+		SccLocalPath4 = .
+		SccProjectFilePathRelativizedFromConnection4 = WSRE_Processor\\
+		SccProjectUniqueName5 = WSRE_ProcessorHostService\\WSRE_ProcessorHostService.csproj
+		SccLocalPath5 = .
+		SccProjectFilePathRelativizedFromConnection5 = WSRE_ProcessorHostService\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83BD7B2C-9661-439B-AD29-BD3D40307429}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83BD7B2C-9661-439B-AD29-BD3D40307429}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83BD7B2C-9661-439B-AD29-BD3D40307429}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83BD7B2C-9661-439B-AD29-BD3D40307429}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C93E3D50-89B8-47C9-9363-0698BE16AD87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C93E3D50-89B8-47C9-9363-0698BE16AD87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C93E3D50-89B8-47C9-9363-0698BE16AD87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C93E3D50-89B8-47C9-9363-0698BE16AD87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{785E5239-95E1-40F4-9188-F44F3C09FA92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{785E5239-95E1-40F4-9188-F44F3C09FA92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{785E5239-95E1-40F4-9188-F44F3C09FA92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{785E5239-95E1-40F4-9188-F44F3C09FA92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBAE1418-58D5-4944-9E43-57D5F75020D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBAE1418-58D5-4944-9E43-57D5F75020D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBAE1418-58D5-4944-9E43-57D5F75020D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBAE1418-58D5-4944-9E43-57D5F75020D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89E0AEE9-1CF3-4585-96F9-7D56D27A1DAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89E0AEE9-1CF3-4585-96F9-7D56D27A1DAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89E0AEE9-1CF3-4585-96F9-7D56D27A1DAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89E0AEE9-1CF3-4585-96F9-7D56D27A1DAF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

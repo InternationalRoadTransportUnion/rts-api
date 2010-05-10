@@ -1,0 +1,44 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCHQ_WS", "TCHQ_WS\TCHQ_WS.csproj", "{B8DB2515-D510-4C63-9229-F1247303E57F}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.VirtualPath = "/TCHQ_WS"
+		Debug.AspNetCompiler.PhysicalPath = "TCHQ_WS\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\TCHQ_WS\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/TCHQ_WS"
+		Release.AspNetCompiler.PhysicalPath = "TCHQ_WS\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\TCHQ_WS\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1273"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 1
+		SccProjectUniqueName0 = TCHQ_WS\\TCHQ_WS.csproj
+		SccProjectName0 = \u0022$/RTS/WSTCHQ_WS\u0022,\u0020SBAAAAAA
+		SccLocalPath0 = TCHQ_WS
+		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+		SccProjectEnlistmentChoice0 = 2
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8DB2515-D510-4C63-9229-F1247303E57F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8DB2515-D510-4C63-9229-F1247303E57F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8DB2515-D510-4C63-9229-F1247303E57F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8DB2515-D510-4C63-9229-F1247303E57F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

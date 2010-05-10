@@ -1,0 +1,54 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTSTestClient", "RTSTestClient\RTSTestClient.csproj", "{E62CE39A-83E2-4B27-9D67-E856ADAEC64B}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupRTSTestClient", "SetupRTSTestClient\SetupRTSTestClient.vdproj", "{DA0369F1-7201-4AFF-B6B6-4C8FE0D3E2A9}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupRTSTestClientx86", "SetupRTSTestClientx86\SetupRTSTestClientx86.vdproj", "{8CF63FDF-A6A3-4973-AF18-BC563D14EE11}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://mt8808-02:8080/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = RTSTestClient\\RTSTestClient.csproj
+		SccProjectName1 = RTSTestClient
+		SccLocalPath1 = RTSTestClient
+		SccProjectUniqueName2 = SetupRTSTestClient\\SetupRTSTestClient.vdproj
+		SccProjectName2 = SetupRTSTestClient
+		SccLocalPath2 = SetupRTSTestClient
+		SccProjectUniqueName3 = SetupRTSTestClientx86\\SetupRTSTestClientx86.vdproj
+		SccProjectName3 = SetupRTSTestClientx86
+		SccLocalPath3 = SetupRTSTestClientx86
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E62CE39A-83E2-4B27-9D67-E856ADAEC64B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E62CE39A-83E2-4B27-9D67-E856ADAEC64B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E62CE39A-83E2-4B27-9D67-E856ADAEC64B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E62CE39A-83E2-4B27-9D67-E856ADAEC64B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA0369F1-7201-4AFF-B6B6-4C8FE0D3E2A9}.Debug|Any CPU.ActiveCfg = Debug
+		{DA0369F1-7201-4AFF-B6B6-4C8FE0D3E2A9}.Release|Any CPU.ActiveCfg = Release
+		{8CF63FDF-A6A3-4973-AF18-BC563D14EE11}.Debug|Any CPU.ActiveCfg = Debug
+		{8CF63FDF-A6A3-4973-AF18-BC563D14EE11}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

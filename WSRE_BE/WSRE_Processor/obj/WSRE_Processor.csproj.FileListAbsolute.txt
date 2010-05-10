@@ -1,0 +1,6 @@
+o:\bin\WSRE_Processor.dll
+o:\bin\WSRE_Processor.pdb
+o:\bin\WSRE_Processor_doc.xml
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSRE_BE\WSRE_Processor\obj\Debug\ResolveAssemblyReference.cache
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSRE_BE\WSRE_Processor\obj\Debug\WSRE_Processor.dll
+C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSRE_BE\WSRE_Processor\obj\Debug\WSRE_Processor.pdb

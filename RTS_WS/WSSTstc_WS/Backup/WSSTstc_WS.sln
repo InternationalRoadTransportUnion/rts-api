@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSSTstc", "http://localhost/Smdwebs/RTS/WSSTstc_WS/WSSTstc.csproj", "{34228875-5283-400D-A4AE-CACE92972D3A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 1
+		SccProjectUniqueName0 = http://localhost/Smdwebs/RTS/WSSTstc_WS/WSSTstc.csproj
+		SccProjectName0 = \u0022$/RTS/WSSTstc_WS\u0022,\u0020BCBAAAAA
+		SccLocalPath0 = ..\\..\\..\\..\\SMDWebs\\RTS\\WSSTstc_WS
+		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+		CanCheckoutShared = false
+		SccProjectEnlistmentChoice0 = 2
+	EndGlobalSection
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{34228875-5283-400D-A4AE-CACE92972D3A}.Debug.ActiveCfg = Debug|.NET
+		{34228875-5283-400D-A4AE-CACE92972D3A}.Debug.Build.0 = Debug|.NET
+		{34228875-5283-400D-A4AE-CACE92972D3A}.Release.ActiveCfg = Release|.NET
+		{34228875-5283-400D-A4AE-CACE92972D3A}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

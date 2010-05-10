@@ -1,0 +1,15 @@
+<publishData>
+  <publishTarget publishUrl="C:\ApplicationData\SMDWebs\EPD\TIREPDB2G\">
+    <file relUrl="bin/TIREPDB2G.pdb" publishTime="29/03/2010 15:52:06" />
+    <file relUrl="bin/TIREPDB2G.dll" publishTime="29/03/2010 15:52:06" />
+    <file relUrl="TIREPDB2GService.asmx" publishTime="09/02/2010 17:56:33" />
+    <file relUrl="bin/TIREPDInterfaces.dll" publishTime="29/03/2010 15:46:44" />
+    <file relUrl="bin/TIREPDInterfaces.pdb" publishTime="29/03/2010 15:46:44" />
+    <file relUrl="Web.config" publishTime="09/02/2010 16:53:23" />
+  </publishTarget>
+  <publishTarget publishUrl="C:\ApplicationData\SMDWebs\EPD\">
+    <file relUrl="bin/TIREPDB2G.pdb" publishTime="09/02/2010 16:54:48" />
+    <file relUrl="bin/TIREPDB2G.dll" publishTime="09/02/2010 16:54:48" />
+    <file relUrl="Web.config" publishTime="09/02/2010 16:53:23" />
+  </publishTarget>
+</publishData>

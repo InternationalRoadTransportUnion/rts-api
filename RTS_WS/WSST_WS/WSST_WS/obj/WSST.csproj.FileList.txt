@@ -1,0 +1,10 @@
+bin\WSST.dll
+bin\WSST.pdb
+bin\RTSStructures.dll
+bin\RTSStructures.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\WSST.csproj.GenerateResource.Cache
+obj\Debug\WSST.dll
+obj\Debug\WSST.pdb
+obj\Debug\SAFETIRUpload.SafeTirUpload.resources
+obj\Debug\SAFETIRUpload.Global.resources

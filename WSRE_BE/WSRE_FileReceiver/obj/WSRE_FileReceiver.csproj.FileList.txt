@@ -1,0 +1,6 @@
+o:\bin\WSRE_FileReceiver.dll
+o:\bin\WSRE_FileReceiver.pdb
+o:\bin\WSST_FileReceiver.xml
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\WSRE_FileReceiver.dll
+obj\Debug\WSRE_FileReceiver.pdb

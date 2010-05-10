@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.iru.org" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.iru.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema targetNamespace="http://www.iru.org">
+      <s:include schemaLocation="http://localhost:8080/SMDWEBS/EPD/TIREPDB2G/TIREPDB2GService.asmx?schema=schema1" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TIREPDB2GSoapIn">
+    <wsdl:part name="parameters" element="tns:TIREPDB2G" />
+  </wsdl:message>
+  <wsdl:message name="TIREPDB2GSoapOut">
+    <wsdl:part name="parameters" element="tns:TIREPDB2GResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TIREPDB2GServiceClassSoap">
+    <wsdl:operation name="TIREPDB2G">
+      <wsdl:input message="tns:TIREPDB2GSoapIn" />
+      <wsdl:output message="tns:TIREPDB2GSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TIREPDB2GServiceClassSoap" type="tns:TIREPDB2GServiceClassSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TIREPDB2G">
+      <soap:operation soapAction="http://www.iru.org/TIREPDB2G" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TIREPDB2GServiceClassSoap1" type="tns:TIREPDB2GServiceClassSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TIREPDB2G">
+      <soap12:operation soapAction="http://www.iru.org/TIREPDB2G" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

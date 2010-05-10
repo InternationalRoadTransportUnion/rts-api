@@ -1,0 +1,9 @@
+o:\bin\TCHQHostService.exe.config
+o:\bin\TCHQHostService.exe
+o:\bin\TCHQHostService.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\TCHQHostService.HostSvcMain.resources
+obj\Debug\TCHQHostService.ProjectInstaller.resources
+obj\Debug\TCHQHostService.csproj.GenerateResource.Cache
+obj\Debug\TCHQHostService.exe
+obj\Debug\TCHQHostService.pdb

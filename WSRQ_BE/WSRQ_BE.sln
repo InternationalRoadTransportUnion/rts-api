@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSRQNewRequest_Processor", "WSRQNewRequest_Processor\WSRQNewRequest_Processor.csproj", "{CBAE1418-58D5-4944-9E43-57D5F75020D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSRQNewRequest_ProcessorHostService", "WSRQNewRequest_ProcessorHostService\WSRQNewRequest_ProcessorHostService.csproj", "{785E5239-95E1-40F4-9188-F44F3C09FA92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSRQ_QueryProcessor", "WSRQ_QueryProcessor\WSRQ_QueryProcessor.csproj", "{680745F6-7FEC-4B6A-ACD4-926352C6648D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSRQHostService", "WSRQHostService\WSRQHostService.csproj", "{F6CC03DA-39B0-48FD-B39A-52BA58687912}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 5
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = WSRQ_QueryProcessor\\WSRQ_QueryProcessor.csproj
+		SccLocalPath1 = .
+		SccProjectFilePathRelativizedFromConnection1 = WSRQ_QueryProcessor\\
+		SccProjectUniqueName2 = WSRQHostService\\WSRQHostService.csproj
+		SccLocalPath2 = .
+		SccProjectFilePathRelativizedFromConnection2 = WSRQHostService\\
+		SccProjectUniqueName3 = WSRQNewRequest_Processor\\WSRQNewRequest_Processor.csproj
+		SccLocalPath3 = .
+		SccProjectFilePathRelativizedFromConnection3 = WSRQNewRequest_Processor\\
+		SccProjectUniqueName4 = WSRQNewRequest_ProcessorHostService\\WSRQNewRequest_ProcessorHostService.csproj
+		SccLocalPath4 = .
+		SccProjectFilePathRelativizedFromConnection4 = WSRQNewRequest_ProcessorHostService\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBAE1418-58D5-4944-9E43-57D5F75020D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBAE1418-58D5-4944-9E43-57D5F75020D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBAE1418-58D5-4944-9E43-57D5F75020D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBAE1418-58D5-4944-9E43-57D5F75020D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{785E5239-95E1-40F4-9188-F44F3C09FA92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{785E5239-95E1-40F4-9188-F44F3C09FA92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{785E5239-95E1-40F4-9188-F44F3C09FA92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{785E5239-95E1-40F4-9188-F44F3C09FA92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{680745F6-7FEC-4B6A-ACD4-926352C6648D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{680745F6-7FEC-4B6A-ACD4-926352C6648D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{680745F6-7FEC-4B6A-ACD4-926352C6648D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{680745F6-7FEC-4B6A-ACD4-926352C6648D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6CC03DA-39B0-48FD-B39A-52BA58687912}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6CC03DA-39B0-48FD-B39A-52BA58687912}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6CC03DA-39B0-48FD-B39A-52BA58687912}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6CC03DA-39B0-48FD-B39A-52BA58687912}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
