@@ -1,9 +1,0 @@
-o:\bin\WSCsccJobListenerHostService.exe.config
-o:\bin\WSCsccJobListenerHostService.exe
-o:\bin\WSCsccJobListenerHostService.pdb
-obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\WSCsccJobListenerHostService.ProjectInstaller.resources
-obj\Debug\WSCsccJobListenerHostService.WSCsccJobListenerHostServiceMain.resources
-obj\Debug\WSCsccJobListenerHostService.csproj.GenerateResource.Cache
-obj\Debug\WSCsccJobListenerHostService.exe
-obj\Debug\WSCsccJobListenerHostService.pdb

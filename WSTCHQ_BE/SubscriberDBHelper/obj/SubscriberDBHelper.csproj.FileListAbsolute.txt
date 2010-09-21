@@ -1,5 +1,0 @@
-O:\bin\SubscriberDBHelper.dll
-O:\bin\SubscriberDBHelper.pdb
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\SubscriberDBHelper\obj\Debug\ResolveAssemblyReference.cache
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\SubscriberDBHelper\obj\Debug\SubscriberDBHelper.dll
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\SubscriberDBHelper\obj\Debug\SubscriberDBHelper.pdb

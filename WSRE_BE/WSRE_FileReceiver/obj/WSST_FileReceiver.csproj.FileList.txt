@@ -1,6 +1,0 @@
-o:\bin\WSST_FileReceiver.dll
-o:\bin\WSST_FileReceiver.pdb
-o:\bin\WSST_FileReceiver.xml
-obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\WSST_FileReceiver.dll
-obj\Debug\WSST_FileReceiver.pdb

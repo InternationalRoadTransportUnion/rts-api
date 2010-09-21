@@ -1,6 +1,0 @@
-O:\bin\CommonInterfaces.dll
-O:\bin\CommonInterfaces.pdb
-O:\bin\CommonInterfaces.xml
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\CommonInterfaces\obj\Debug\ResolveAssemblyReference.cache
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\CommonInterfaces\obj\Debug\CommonInterfaces.dll
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\CommonInterfaces\obj\Debug\CommonInterfaces.pdb

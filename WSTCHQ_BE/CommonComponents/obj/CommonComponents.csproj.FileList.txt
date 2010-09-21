@@ -1,5 +1,0 @@
-o:\bin\CommonComponents.dll
-o:\bin\CommonComponents.pdb
-obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\CommonComponents.dll
-obj\Debug\CommonComponents.pdb

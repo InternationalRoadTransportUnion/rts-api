@@ -1,9 +1,0 @@
-o:\bin\CryptoHostService.exe.config
-o:\bin\CryptoHostService.exe
-o:\bin\CryptoHostService.pdb
-obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\CryptoHostService.HostSvcMain.resources
-obj\Debug\CryptoHostService.ProjectInstaller.resources
-obj\Debug\CryptoHostService.csproj.GenerateResource.Cache
-obj\Debug\CryptoHostService.exe
-obj\Debug\CryptoHostService.pdb

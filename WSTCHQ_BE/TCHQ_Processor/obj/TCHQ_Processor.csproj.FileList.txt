@@ -1,6 +1,0 @@
-o:\bin\TCHQ_Processor.dll
-o:\bin\TCHQ_Processor.pdb
-o:\bin\tchq_processor.xml
-obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\TCHQ_Processor.dll
-obj\Debug\TCHQ_Processor.pdb

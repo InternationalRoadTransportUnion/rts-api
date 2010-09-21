@@ -1,6 +1,0 @@
-o:\bin\TCHQ_Processor.dll
-o:\bin\TCHQ_Processor.pdb
-o:\bin\tchq_processor.xml
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\TCHQ_Processor\obj\Debug\ResolveAssemblyReference.cache
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\TCHQ_Processor\obj\Debug\TCHQ_Processor.dll
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\TCHQ_Processor\obj\Debug\TCHQ_Processor.pdb

@@ -1,5 +1,0 @@
-O:\bin\WSRQ_QueryProcessor.dll
-O:\bin\WSRQ_QueryProcessor.pdb
-obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\WSRQ_QueryProcessor.dll
-obj\Debug\WSRQ_QueryProcessor.pdb

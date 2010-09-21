@@ -1,5 +1,0 @@
-O:\bin\RTSStructures.dll
-O:\bin\RTSStructures.pdb
-obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\RTSStructures.dll
-obj\Debug\RTSStructures.pdb

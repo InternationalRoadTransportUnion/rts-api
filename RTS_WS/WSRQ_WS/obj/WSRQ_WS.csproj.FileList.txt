@@ -1,9 +1,0 @@
-obj\Debug\ResolveAssemblyReference.cache
-bin\CryptoInterfaces.dll
-bin\RTSStructures.dll
-bin\RTSStructures.pdb
-bin\CryptoInterfaces.pdb
-bin\WSRQ_WS.dll
-bin\WSRQ_WS.pdb
-obj\Debug\WSRQ_WS.dll
-obj\Debug\WSRQ_WS.pdb

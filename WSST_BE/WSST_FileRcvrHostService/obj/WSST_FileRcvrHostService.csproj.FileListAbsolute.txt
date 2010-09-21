@@ -1,9 +1,0 @@
-o:\bin\WSST_FileRcvrHostService.exe.config
-o:\bin\WSST_FileRcvrHostService.exe
-o:\bin\WSST_FileRcvrHostService.pdb
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSST_BE\WSST_FileRcvrHostService\obj\Debug\ResolveAssemblyReference.cache
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSST_BE\WSST_FileRcvrHostService\obj\Debug\WSST_FileRcvrHostService.ProjectInstaller.resources
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSST_BE\WSST_FileRcvrHostService\obj\Debug\WSST_FileRcvrHostService.WSST_FileRcvrHostServiceMain.resources
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSST_BE\WSST_FileRcvrHostService\obj\Debug\WSST_FileRcvrHostService.csproj.GenerateResource.Cache
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSST_BE\WSST_FileRcvrHostService\obj\Debug\WSST_FileRcvrHostService.exe
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSST_BE\WSST_FileRcvrHostService\obj\Debug\WSST_FileRcvrHostService.pdb

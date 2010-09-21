@@ -1,5 +1,0 @@
-o:\bin\CryptoProvider.dll
-o:\bin\CryptoProvider.pdb
-obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\CryptoProvider.dll
-obj\Debug\CryptoProvider.pdb

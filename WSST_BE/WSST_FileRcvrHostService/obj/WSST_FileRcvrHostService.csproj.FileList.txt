@@ -1,9 +1,0 @@
-o:\bin\WSST_FileRcvrHostService.exe.config
-o:\bin\WSST_FileRcvrHostService.exe
-o:\bin\WSST_FileRcvrHostService.pdb
-obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\WSST_FileRcvrHostService.ProjectInstaller.resources
-obj\Debug\WSST_FileRcvrHostService.WSST_FileRcvrHostServiceMain.resources
-obj\Debug\WSST_FileRcvrHostService.csproj.GenerateResource.Cache
-obj\Debug\WSST_FileRcvrHostService.exe
-obj\Debug\WSST_FileRcvrHostService.pdb

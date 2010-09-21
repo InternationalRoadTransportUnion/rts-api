@@ -1,5 +1,0 @@
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\FileListener\obj\Debug\ResolveAssemblyReference.cache
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\FileListener\obj\Debug\FileListener.dll
-o:\bin\FileListener.dll
-o:\bin\FileListener.pdb
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\FileListener\obj\Debug\FileListener.pdb

@@ -1,6 +1,0 @@
-o:\bin\WSRE_Processor.dll
-o:\bin\WSRE_Processor.pdb
-o:\bin\WSRE_Processor_doc.xml
-obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\WSRE_Processor.dll
-obj\Debug\WSRE_Processor.pdb

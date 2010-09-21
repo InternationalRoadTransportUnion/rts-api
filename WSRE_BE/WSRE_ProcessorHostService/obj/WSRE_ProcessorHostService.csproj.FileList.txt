@@ -1,9 +1,0 @@
-o:\bin\WSRE_ProcessorHostService.exe.config
-o:\bin\WSRE_ProcessorHostService.exe
-o:\bin\WSRE_ProcessorHostService.pdb
-obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\WSST_ProcessorHostService.ProjectInstaller.resources
-obj\Debug\WSRE_ProcessorHostService.WSRE_ProcessorHostServiceMain.resources
-obj\Debug\WSRE_ProcessorHostService.csproj.GenerateResource.Cache
-obj\Debug\WSRE_ProcessorHostService.exe
-obj\Debug\WSRE_ProcessorHostService.pdb

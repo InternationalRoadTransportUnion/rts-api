@@ -1,9 +1,0 @@
-o:\bin\TCHQHostService.exe.config
-o:\bin\TCHQHostService.exe
-o:\bin\TCHQHostService.pdb
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\TCHQHostService\obj\Debug\ResolveAssemblyReference.cache
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\TCHQHostService\obj\Debug\TCHQHostService.HostSvcMain.resources
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\TCHQHostService\obj\Debug\TCHQHostService.ProjectInstaller.resources
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\TCHQHostService\obj\Debug\TCHQHostService.csproj.GenerateResource.Cache
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\TCHQHostService\obj\Debug\TCHQHostService.exe
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\TCHQHostService\obj\Debug\TCHQHostService.pdb

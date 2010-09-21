@@ -1,5 +1,0 @@
-O:\bin\RTSStructures.dll
-O:\bin\RTSStructures.pdb
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\RTSStructures\obj\Debug\ResolveAssemblyReference.cache
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\RTSStructures\obj\Debug\RTSStructures.dll
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\RTSStructures\obj\Debug\RTSStructures.pdb

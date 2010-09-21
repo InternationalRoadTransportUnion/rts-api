@@ -1,6 +1,0 @@
-o:\bin\WSST_Processor.dll
-o:\bin\WSST_Processor.pdb
-o:\bin\WSST_Processor_doc.xml
-obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\WSST_Processor.dll
-obj\Debug\WSST_Processor.pdb

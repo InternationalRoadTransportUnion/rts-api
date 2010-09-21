@@ -1,5 +1,0 @@
-o:\bin\KeyManager.dll
-o:\bin\KeyManager.pdb
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\KeyManager\obj\Debug\ResolveAssemblyReference.cache
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\KeyManager\obj\Debug\KeyManager.dll
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSTCHQ_BE\KeyManager\obj\Debug\KeyManager.pdb

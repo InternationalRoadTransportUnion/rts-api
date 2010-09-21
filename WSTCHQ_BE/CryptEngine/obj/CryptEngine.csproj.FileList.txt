@@ -1,5 +1,0 @@
-o:\bin\CryptEngine.dll
-o:\bin\CryptEngine.pdb
-obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\CryptEngine.dll
-obj\Debug\CryptEngine.pdb

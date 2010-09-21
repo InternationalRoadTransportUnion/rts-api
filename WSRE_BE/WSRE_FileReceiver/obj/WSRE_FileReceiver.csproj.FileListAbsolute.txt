@@ -1,6 +1,0 @@
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSRE_BE\WSRE_FileReceiver\obj\Debug\ResolveAssemblyReference.cache
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSRE_BE\WSRE_FileReceiver\obj\Debug\WSRE_FileReceiver.dll
-o:\bin\WSRE_FileReceiver.dll
-o:\bin\WSRE_FileReceiver.pdb
-o:\bin\WSST_FileReceiver.xml
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSRE_BE\WSRE_FileReceiver\obj\Debug\WSRE_FileReceiver.pdb

@@ -1,5 +1,0 @@
-o:\bin\FileListener.dll
-o:\bin\FileListener.pdb
-obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\FileListener.dll
-obj\Debug\FileListener.pdb

@@ -1,5 +1,0 @@
-o:\bin\CryptoProvider.dll
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\CryptoProvider\obj\Debug\ResolveAssemblyReference.cache
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\CryptoProvider\obj\Debug\CryptoProvider.dll
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\CryptoRemotingHost\CryptoProvider\obj\Debug\CryptoProvider.pdb
-o:\bin\CryptoProvider.pdb

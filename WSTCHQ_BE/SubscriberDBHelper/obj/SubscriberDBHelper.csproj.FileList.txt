@@ -1,5 +1,0 @@
-O:\bin\SubscriberDBHelper.dll
-O:\bin\SubscriberDBHelper.pdb
-obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\SubscriberDBHelper.dll
-obj\Debug\SubscriberDBHelper.pdb

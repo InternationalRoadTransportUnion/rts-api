@@ -1,5 +1,0 @@
-O:\bin\WSRQ_QueryProcessor.dll
-O:\bin\WSRQ_QueryProcessor.pdb
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSRQ_BE\WSRQ_QueryProcessor\obj\Debug\ResolveAssemblyReference.cache
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSRQ_BE\WSRQ_QueryProcessor\obj\Debug\WSRQ_QueryProcessor.dll
-C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\WSRQ_BE\WSRQ_QueryProcessor\obj\Debug\WSRQ_QueryProcessor.pdb

@@ -1,9 +1,0 @@
-o:\bin\WSRQNewRequest_ProcessorHostService.exe.config
-o:\bin\WSRQNewRequest_ProcessorHostService.exe
-o:\bin\WSRQNewRequest_ProcessorHostService.pdb
-obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\WSRQNewRequest_ProcessorHostService.ProjectInstaller.resources
-obj\Debug\WSRQNewRequest_ProcessorHostService.WSRQNewRequest_ProcessorHostServiceMain.resources
-obj\Debug\WSRQNewRequest_ProcessorHostService.csproj.GenerateResource.Cache
-obj\Debug\WSRQNewRequest_ProcessorHostService.exe
-obj\Debug\WSRQNewRequest_ProcessorHostService.pdb

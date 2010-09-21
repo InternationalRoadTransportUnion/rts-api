@@ -1,5 +1,0 @@
-o:\bin\WSCscc_JobListener.dll
-o:\bin\WSCscc_JobListener.pdb
-obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\WSCscc_JobListener.dll
-obj\Debug\WSCscc_JobListener.pdb
