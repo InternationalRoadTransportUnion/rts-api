@@ -8,4 +8,9 @@ namespace IRU.RTS.TIREPD
     {
         TIREPDG2BUploadAck ProcessReceivedFile(TIREPDG2BUploadParams B2GUploadParams, string SenderIP, out long G2BMessageId);
     }
+
+    public interface IB2GSender
+    {
+        bool SendEPDFile(string sDocSend, string ISOCode, string LRN, out string sDocResponse); 
+    }
 }

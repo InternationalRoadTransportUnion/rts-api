@@ -1,0 +1,31 @@
+﻿<Config>
+  <Section name="PluginManager">
+    <Plugin name="DBHelperFactory" objectType="IRU.RTS.CommonComponents.DBHelperFactory, CommonComponents" isRunnable="false" />
+    <Plugin name="B2G_RemotingHelperSettings" objectType="IRU.RTS.TIREPD.B2G_RemotingHelper, TIREPDB2GSender"
+			isRunnable="true" />
+  </Section>
+  <Section name="B2G_RemotingHelperSettings">
+    <B2G_RemotingHelperSettings DBHelperFactoryPlugin="DBHelperFactory" G2BDBName="TIREPD_DB"
+    SubscriberDBName="SubsciberDB" EncryptionKeysTable="EncryptionKeys"
+    RemotingPort="9410" CryptoProviderEndpoint="tcp://localhost:9012/CryptoProvider.rem"
+    RemotingEndPoint="TIREPDB2GSender.rem"
+    SchemaFilesPath="C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\RTS_Builds\bin\schemas"
+    CountryISO_SubscriberId_Info="BY,FCS,TIRPreDeclaration,1.0.0;"
+    >
+    </B2G_RemotingHelperSettings>
+  </Section>
+
+  <Section name="DBHelperFactory">
+    <ConnectionStrings>
+      <DB Name="TIREPD_DB">
+        <!-- Base64 encoded -->
+        <ConnectionString>SERVER=192.168.12.218\I02008;DATABASE=TIR_EPD;uid=sa;pwd=sapass;connect timeout =200</ConnectionString>
+      </DB>
+      <DB Name="SubscriberDB">
+        <!-- Base64 encoded -->
+        <ConnectionString>SERVER=192.168.12.218\I02008;DATABASE=WS_Subscriber_db;uid=sa;pwd=sapass;connect timeout =200</ConnectionString>
+      </DB>
+
+    </ConnectionStrings>
+  </Section>
+</Config>

@@ -98,7 +98,7 @@ namespace IRU.RTS.TIREPD
                 g2bRequestLogData.senderTCPAddress = SenderIP;
                 g2bRequestLogData.rowCreationTime = DateTime.Now;
 
-                if (G2BUploadParams.SubscriberMessageID.Length > 20)
+                if (G2BUploadParams.SubscriberMessageID.Length > 20 || G2BUploadParams.SubscriberMessageID.Trim() == "")
                 {
                     g2bRequestLogData.senderQueryID = "";
                     g2bRequestLogData.returnCode = 1214;//1222;
@@ -210,6 +210,56 @@ namespace IRU.RTS.TIREPD
                     }
                 }
             }
+            if (continueChecking)
+            {
+                if (G2BUploadParams.InformationExchangeVersion == null)
+                {
+                    g2bRequestLogData.returnCode = 1215;
+                    g2bRequestLogData.lastStep = 5;
+                    continueChecking = false;
+                    //g2bRequestLogData.encryptedSessionKeyIn = null;
+                }
+                else
+                {
+                    if (G2BUploadParams.InformationExchangeVersion.Length == 0)
+                    {
+                        g2bRequestLogData.returnCode = 1215;
+                        g2bRequestLogData.lastStep = 5;
+                        continueChecking = false;
+                        //g2bRequestLogData.encryptedSessionKeyIn = null;
+                    }
+                }
+            }
+
+            if (continueChecking)
+            {
+                if (G2BUploadParams.MessageName.Length == 0)
+                {
+                    g2bRequestLogData.returnCode = 1216;//1214;
+                    g2bRequestLogData.lastStep = 5;
+                    continueChecking = false;
+                    //g2bRequestLogData.encryptedQueryParams = null;
+
+                }
+                else
+                {
+                    continueChecking = false;
+                    foreach (string strMsgName in G2B_RemotingHelper.m_MessageNameArr)
+                    {
+                        if (G2BUploadParams.MessageName == strMsgName)
+                        {
+                            continueChecking = true;
+                            break;
+                        }
+                    }
+                    if (continueChecking == false)
+                    {
+                        g2bRequestLogData.returnCode = 1216;//1214;
+                        g2bRequestLogData.lastStep = 5;
+
+                    }
+                }
+            }
 
             if (continueChecking)
             {
@@ -263,6 +313,7 @@ namespace IRU.RTS.TIREPD
             if (!continueChecking)
             {
                 TIREPDG2BUploadAck ack = new TIREPDG2BUploadAck();
+                ack.HostID = G2BUploadParams.SubscriberID;
                 ack.SubscriberMessageID = G2BUploadParams.SubscriberMessageID;
                 ack.ReturnCode = g2bRequestLogData.returnCode;
                 return ack;
@@ -349,6 +400,7 @@ namespace IRU.RTS.TIREPD
             if (!continueChecking)
             {
                 TIREPDG2BUploadAck ack = new TIREPDG2BUploadAck();
+                ack.HostID = G2BUploadParams.SubscriberID;
                 ack.SubscriberMessageID = G2BUploadParams.SubscriberMessageID;
                 ack.ReturnCode = g2bRequestLogData.returnCode;
                 return ack;
@@ -426,6 +478,7 @@ namespace IRU.RTS.TIREPD
             if (!continueChecking)
             {
                 TIREPDG2BUploadAck ack = new TIREPDG2BUploadAck();
+                ack.HostID = G2BUploadParams.SubscriberID; 
                 ack.SubscriberMessageID = G2BUploadParams.SubscriberMessageID;
                 ack.ReturnCode = g2bRequestLogData.returnCode;
                 return ack;
@@ -442,101 +495,160 @@ namespace IRU.RTS.TIREPD
 
             #endregion
 
-            #region Step 20 - do Validate Hash
-            int iStep20Result = 1;
-            string sStep20ResultDesc = "";
+            #region Step 20 - do Validate Hash - no longer used so commented
+            //int iStep20Result = 1;
+            //string sStep20ResultDesc = "";
 
+            //try
+            //{
+            //    /* //replaced by regexhelper
+            //    int iHashStart = g2bRequestLogData.decryptedQueryParamXML.IndexOf("<Hash>");
+
+            //    if(iHashStart >0)
+            //    {
+            //        iHashStart += 6;
+            //    }
+            //    else
+            //    {
+            //        throw new ApplicationException("No Hash found");
+            //    }
+            //    int iHashEnd = g2bRequestLogData.decryptedQueryParamXML.IndexOf("</Hash>");
+            //    int iHashLength = iHashEnd - iHashStart; 
+            //    string sHash =  g2bRequestLogData.decryptedQueryParamXML.Substring(iHashStart,iHashLength);  
+            //    */
+
+            //    string sHash = RegExHelper.ExtractHASH(g2bRequestLogData.decryptedQueryParamXML);//.Substring(iHashStart,iHashLength);  
+
+            //    if (sHash.Trim() == "")
+            //    {
+            //        throw new ApplicationException("No Hash found");
+            //    }
+
+
+            //    byte[] baHash = Convert.FromBase64String(sHash);
+
+            //    /* //replaced by regexhelper
+            //    int iBodyStart = g2bRequestLogData.decryptedQueryParamXML.IndexOf("<Body>");
+            //    if(iBodyStart > 0)
+            //    {
+            //        iBodyStart += 6;
+            //    }
+            //    else
+            //    {
+            //        throw new ApplicationException("No Body Node found");
+            //    }
+            //    int iBodyEnd = g2bRequestLogData.decryptedQueryParamXML.IndexOf("</Body>");
+            //    int iBodyLength = iBodyEnd - iBodyStart ; 
+            //    string sBody =  g2bRequestLogData.decryptedQueryParamXML.Substring(iBodyStart,iBodyLength );  
+            //    */
+
+            //    string sBody = RegExHelper.ExtractBODYContents(g2bRequestLogData.decryptedQueryParamXML);//.Substring(iBodyStart,iBodyLength );  
+
+            //    if (sBody.Trim() == "")
+            //    {
+            //        throw new ApplicationException("No Body Node found");
+            //    }
+
+
+
+            //    byte[] baBody = System.Text.Encoding.Unicode.GetBytes(sBody);
+
+
+            //    if (!m_iCryptoOperations.VerifyHash(baBody, subscriberDetails.HashAlgo, null, baHash))
+            //    {
+            //        g2bRequestLogData.returnCode = 1200;
+            //        g2bRequestLogData.lastStep = 20;
+            //        iStep20Result = 7;
+            //        sStep20ResultDesc = "Hash Verification Failed";
+            //        continueChecking = false;
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    g2bRequestLogData.returnCode = 1200;
+            //    g2bRequestLogData.lastStep = 20;
+            //    iStep20Result = 8;
+            //    sStep20ResultDesc = ex.Message + " - " + ex.StackTrace;
+            //    Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceWarning, ex.Message + " - " + ex.StackTrace);
+
+            //    continueChecking = false;
+            //}
+
+
+            //try
+            //{
+            //    g2bRequestLogData.rowCreationTime = DateTime.Now;
+            //    dbHelperG2B.ConnectToDB();
+            //    dbHelperG2B.BeginTransaction();
+            //    if (iStep20Result == 1)
+            //    {
+            //        g2bDbHelper.LogRequestS20(g2bRequestLogData, false);
+            //    }
+            //    else
+            //    {
+            //        g2bDbHelper.LogRequestS20(g2bRequestLogData, true);
+            //    }
+            //    //Insert step in Sequence table
+            //    g2bDbHelper.LogSequenceStep(g2bRequestLogData.G2B_QueryID, 20, iStep20Result, sStep20ResultDesc, g2bRequestLogData.rowCreationTime);
+            //    dbHelperG2B.CommitTransaction();
+            //}
+            //catch (Exception ex)
+            //{
+            //    Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, ex.Message + " - " + ex.StackTrace);
+            //    continueChecking = false;
+            //}
+            //finally
+            //{
+            //    dbHelperG2B.Close();
+            //}
+
+            //if (!continueChecking)
+            //{
+            //    TIREPDG2BUploadAck ack = new TIREPDG2BUploadAck();
+            //    ack.SubscriberMessageID = G2BUploadParams.SubscriberMessageID;
+            //    ack.ReturnCode = g2bRequestLogData.returnCode;
+            //    return ack;
+            //}
+
+            #endregion
+
+            #region Step 25 - Validate against request XSD
+            int iStep25Result = 1;
+            string sStep25ResultDesc = "";
             try
             {
-                /* //replaced by regexhelper
-                int iHashStart = g2bRequestLogData.decryptedQueryParamXML.IndexOf("<Hash>");
-
-                if(iHashStart >0)
+                XMLValidationHelper xvh = new XMLValidationHelper();
+                if (!xvh.ValidateXML(g2bRequestLogData.decryptedQueryParamXML, out g2bRequestLogData.invalidQueryXMLReason))
                 {
-                    iHashStart += 6;
-                }
-                else
-                {
-                    throw new ApplicationException("No Hash found");
-                }
-                int iHashEnd = g2bRequestLogData.decryptedQueryParamXML.IndexOf("</Hash>");
-                int iHashLength = iHashEnd - iHashStart; 
-                string sHash =  g2bRequestLogData.decryptedQueryParamXML.Substring(iHashStart,iHashLength);  
-                */
-
-                string sHash = RegExHelper.ExtractHASH(g2bRequestLogData.decryptedQueryParamXML);//.Substring(iHashStart,iHashLength);  
-
-                if (sHash.Trim() == "")
-                {
-                    throw new ApplicationException("No Hash found");
-                }
-
-
-                byte[] baHash = Convert.FromBase64String(sHash);
-
-                /* //replaced by regexhelper
-                int iBodyStart = g2bRequestLogData.decryptedQueryParamXML.IndexOf("<Body>");
-                if(iBodyStart > 0)
-                {
-                    iBodyStart += 6;
-                }
-                else
-                {
-                    throw new ApplicationException("No Body Node found");
-                }
-                int iBodyEnd = g2bRequestLogData.decryptedQueryParamXML.IndexOf("</Body>");
-                int iBodyLength = iBodyEnd - iBodyStart ; 
-                string sBody =  g2bRequestLogData.decryptedQueryParamXML.Substring(iBodyStart,iBodyLength );  
-                */
-
-                string sBody = RegExHelper.ExtractBODYContents(g2bRequestLogData.decryptedQueryParamXML);//.Substring(iBodyStart,iBodyLength );  
-
-                if (sBody.Trim() == "")
-                {
-                    throw new ApplicationException("No Body Node found");
-                }
-
-
-
-                byte[] baBody = System.Text.Encoding.Unicode.GetBytes(sBody);
-
-
-                if (!m_iCryptoOperations.VerifyHash(baBody, subscriberDetails.HashAlgo, null, baHash))
-                {
-                    g2bRequestLogData.returnCode = 1200;
-                    g2bRequestLogData.lastStep = 20;
-                    iStep20Result = 7;
-                    sStep20ResultDesc = "Hash Verification Failed";
-                    continueChecking = false;
+                    //iStep25Result = GetTCHQueryXMLErrorCode(g2bRequestLogData.invalidQueryXMLReason, out g2bRequestLogData.invalidQueryXMLReason);
+                    iStep25Result = 1302;
+                    throw new ApplicationException(g2bRequestLogData.invalidQueryXMLReason);
                 }
             }
             catch (Exception ex)
             {
-                g2bRequestLogData.returnCode = 1200;
-                g2bRequestLogData.lastStep = 20;
-                iStep20Result = 8;
-                sStep20ResultDesc = ex.Message + " - " + ex.StackTrace;
+                g2bRequestLogData.returnCode = iStep25Result;
+                g2bRequestLogData.lastStep = 25;
+                sStep25ResultDesc = ex.Message + " - " + ex.StackTrace;
                 Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceWarning, ex.Message + " - " + ex.StackTrace);
 
                 continueChecking = false;
             }
-
-
             try
             {
                 g2bRequestLogData.rowCreationTime = DateTime.Now;
                 dbHelperG2B.ConnectToDB();
                 dbHelperG2B.BeginTransaction();
-                if (iStep20Result == 1)
+                if (iStep25Result == 1)
                 {
-                    g2bDbHelper.LogRequestS20(g2bRequestLogData, false);
+                    g2bDbHelper.LogRequestS25(g2bRequestLogData, false);
                 }
                 else
                 {
-                    g2bDbHelper.LogRequestS20(g2bRequestLogData, true);
+                    g2bDbHelper.LogRequestS25(g2bRequestLogData, true);
                 }
                 //Insert step in Sequence table
-                g2bDbHelper.LogSequenceStep(g2bRequestLogData.G2B_QueryID, 20, iStep20Result, sStep20ResultDesc, g2bRequestLogData.rowCreationTime);
+                g2bDbHelper.LogSequenceStep(g2bRequestLogData.G2B_QueryID, 25, iStep25Result, sStep25ResultDesc, g2bRequestLogData.rowCreationTime);
                 dbHelperG2B.CommitTransaction();
             }
             catch (Exception ex)
@@ -552,10 +664,12 @@ namespace IRU.RTS.TIREPD
             if (!continueChecking)
             {
                 TIREPDG2BUploadAck ack = new TIREPDG2BUploadAck();
+                ack.HostID = G2BUploadParams.SubscriberID;
                 ack.SubscriberMessageID = G2BUploadParams.SubscriberMessageID;
                 ack.ReturnCode = g2bRequestLogData.returnCode;
                 return ack;
             }
+
 
             #endregion
 
@@ -586,6 +700,7 @@ namespace IRU.RTS.TIREPD
             if (!continueChecking)
             {
                 TIREPDG2BUploadAck ack = new TIREPDG2BUploadAck();
+                ack.HostID = G2BUploadParams.SubscriberID;
                 ack.SubscriberMessageID = G2BUploadParams.SubscriberMessageID;
                 ack.ReturnCode = g2bRequestLogData.returnCode;
                 return ack;
@@ -593,6 +708,7 @@ namespace IRU.RTS.TIREPD
             else
             {
                 TIREPDG2BUploadAck ack = new TIREPDG2BUploadAck();
+                ack.HostID = G2BUploadParams.SubscriberID;
                 ack.SubscriberMessageID = G2BUploadParams.SubscriberMessageID;
                 ack.ReturnCode = g2bRequestLogData.returnCode;
                 return ack;

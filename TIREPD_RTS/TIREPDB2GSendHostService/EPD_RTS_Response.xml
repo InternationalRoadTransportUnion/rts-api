@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<EPDRTSReponse>
+  <SubscriberID></SubscriberID>
+  <MessageId></MessageId>
+  <TimeSent></TimeSent>
+  <InformationExchangeVersion></InformationExchangeVersion>
+  <EncrypTedMessage></EncrypTedMessage>
+  <CertificateId></CertificateId>
+  <Response>
+    <HostId></HostId>
+    <ResponseCode></ResponseCode>
+    <SubscriberMessageId></SubscriberMessageId>
+    <ErrorMessage></ErrorMessage>
+  </Response>
+</EPDRTSReponse>

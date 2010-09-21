@@ -259,7 +259,7 @@ namespace IRU.RTS.TIREPD
         /// </summary>
         /// <param name="tchQLogRequestData"></param>
         /// <param name="hashVerificationFailed"></param>
-        public void LogRequestS20(G2BLogRequestStruct tchQLogRequestData, bool hashVerificationFailed)
+        public void LogRequestS25(G2BLogRequestStruct tchQLogRequestData, bool hashVerificationFailed)
         {
             string sSql = "UPDATE [G2B_REQUEST_LOG] " +
                 "SET [ROW_CREATED_TIME] = @ROW_CREATED_TIME, " +
