@@ -3,10 +3,14 @@
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{34228875-5283-400D-A4AE-CACE92972D3A}</ProjectGuid>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -78,10 +82,6 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="RTSStructures">
-      <Name>RTSStructures</Name>
-      <HintPath>O:\bin\RTSStructures.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -127,6 +127,12 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\WSTCHQ_BE\RTSStructures\RTSStructures.csproj">
+      <Project>{BBF126D5-CA34-4786-A61D-0B426EC0677B}</Project>
+      <Name>RTSStructures</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
@@ -149,4 +155,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>c:\Windows\Microsoft.NET\Framework\v3.5\MSBuild.exe $(ProjectPath) /t:ResolveReferences;_CopyWebApplication /p:Configuration=$(ConfigurationName);OutDir=$(ConfigurationName)\Published\bin\;WebProjectOutputDir=$(ConfigurationName)\Published\</PostBuildEvent>
+  </PropertyGroup>
 </Project>

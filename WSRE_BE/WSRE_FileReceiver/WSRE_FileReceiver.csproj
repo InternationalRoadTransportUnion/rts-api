@@ -4,10 +4,14 @@
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{C93E3D50-89B8-47C9-9363-0698BE16AD87}</ProjectGuid>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ApplicationIcon>
@@ -32,7 +36,7 @@
     </UpgradeBackupLocation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>o:\bin\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <BaseAddress>285212672</BaseAddress>
     <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
@@ -54,7 +58,7 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <BaseAddress>285212672</BaseAddress>
     <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
@@ -80,23 +84,26 @@
     <Reference Include="CommonComponents, Version=1.76.2875.28626, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <HintPath>..\..\WSTCHQ_BE\CommonComponents\bin\CommonComponents.dll</HintPath>
     </Reference>
     <Reference Include="CommonInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <HintPath>..\..\WSTCHQ_BE\CommonInterfaces\bin\CommonInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="RTSStructures, Version=1.0.2875.28627, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
+      <HintPath>..\..\WSTCHQ_BE\RTSStructures\bin\RTSStructures.dll</HintPath>
     </Reference>
     <Reference Include="StructToTable, Version=1.0.2840.31053, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\RTS_Builds\bin\StructToTable.dll</HintPath>
+      <HintPath>..\StructToTable\obj\Debug\StructToTable.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SubscriberDBHelper">
       <Name>SubscriberDBHelper</Name>
-      <HintPath>O:\bin\SubscriberDBHelper.dll</HintPath>
+      <HintPath>..\..\WSTCHQ_BE\SubscriberDBHelper\bin\SubscriberDBHelper.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System">

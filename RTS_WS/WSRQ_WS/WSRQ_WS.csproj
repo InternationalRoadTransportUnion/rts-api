@@ -29,14 +29,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CryptoInterfaces, Version=1.0.2852.30805, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>O:\bin\CryptoInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="RTSStructures, Version=1.0.2852.30805, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>O:\bin\RTSStructures.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -63,6 +55,16 @@
   <ItemGroup>
     <Content Include="Web.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WSTCHQ_BE\CryptoInterfaces\CryptoInterfaces.csproj">
+      <Project>{06D4C54B-A25A-4684-BC6C-192CEB970170}</Project>
+      <Name>CryptoInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\RTSStructures\RTSStructures.csproj">
+      <Project>{BBF126D5-CA34-4786-A61D-0B426EC0677B}</Project>
+      <Name>RTSStructures</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v8.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -87,4 +89,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>c:\Windows\Microsoft.NET\Framework\v3.5\MSBuild.exe $(ProjectPath) /t:ResolveReferences;_CopyWebApplication /p:Configuration=$(ConfigurationName);OutDir=$(ConfigurationName)\Published\bin\;WebProjectOutputDir=$(ConfigurationName)\Published\</PostBuildEvent>
+  </PropertyGroup>
 </Project>

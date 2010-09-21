@@ -19,20 +19,6 @@
             <returns></returns>
         </member>
         <!-- Badly formed XML comment ignored for member "M:IRU.RTS.WSTCHQ.CWQuerys.DecrpytCuteWISEResult(System.Collections.Hashtable,System.String)" -->
-        <member name="T:IRU.RTS.WSTCHQ.TCHQ_QueryProcessor">
-            <summary>
-            Summary description for TCHQ_QueryProcessor.
-            </summary>
-        </member>
-        <member name="M:IRU.RTS.WSTCHQ.TCHQ_QueryProcessor.UpdateResponseResult(System.Int64,System.DateTime,System.Boolean)">
-            <summary>
-            Updates the RESPONSE_RESULT and time columns. The WEb Service Layer will call back this method after calling 
-            processquery and checking if the client is still connected
-            </summary>
-            <param name="QueryId"> Query ID , key to row in log table </param>
-            <param name="dtResponseSent">Time in the WS layer</param>
-            <param name="ResponseResult">true=client was still connected, false= client was not connected </param>
-        </member>
         <member name="T:IRU.RTS.WSTCHQ.TCHQ_RemotingHelper">
             <summary>
             Summary description for Class1.
@@ -136,6 +122,20 @@
             <param name="TCHQ_QueryID"></param>
             <param name="dtResponseSent"></param>
             <param name="ResponseResult"></param>
+        </member>
+        <member name="T:IRU.RTS.WSTCHQ.TCHQ_QueryProcessor">
+            <summary>
+            Summary description for TCHQ_QueryProcessor.
+            </summary>
+        </member>
+        <member name="M:IRU.RTS.WSTCHQ.TCHQ_QueryProcessor.UpdateResponseResult(System.Int64,System.DateTime,System.Boolean)">
+            <summary>
+            Updates the RESPONSE_RESULT and time columns. The WEb Service Layer will call back this method after calling 
+            processquery and checking if the client is still connected
+            </summary>
+            <param name="QueryId"> Query ID , key to row in log table </param>
+            <param name="dtResponseSent">Time in the WS layer</param>
+            <param name="ResponseResult">true=client was still connected, false= client was not connected </param>
         </member>
     </members>
 </doc>

@@ -9,16 +9,20 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WSRQ_QueryProcessor</RootNamespace>
     <AssemblyName>WSRQ_QueryProcessor</AssemblyName>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>O:\bin\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -26,7 +30,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -34,24 +38,26 @@
   <ItemGroup>
     <Reference Include="CommonComponents, Version=1.76.2828.24113, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>O:\bin\CommonComponents.dll</HintPath>
+      <HintPath>..\..\WSTCHQ_BE\CommonComponents\bin\CommonComponents.dll</HintPath>
     </Reference>
-    <Reference Include="CommonInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="CommonInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\WSTCHQ_BE\CommonInterfaces\bin\CommonInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="CryptoInterfaces, Version=1.0.2828.23438, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>O:\bin\CryptoInterfaces.dll</HintPath>
+      <HintPath>..\..\WSTCHQ_BE\CryptoInterfaces\obj\Debug\CryptoInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="KeyManager, Version=1.0.2824.28451, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\RTS_Builds\bin\KeyManager.dll</HintPath>
+      <HintPath>..\..\WSTCHQ_BE\KeyManager\bin\KeyManager.dll</HintPath>
     </Reference>
     <Reference Include="RTSStructures, Version=1.0.2845.33261, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\RTS_Builds\bin\RTSStructures.dll</HintPath>
+      <HintPath>..\..\WSTCHQ_BE\RTSStructures\bin\RTSStructures.dll</HintPath>
     </Reference>
     <Reference Include="SubscriberDBHelper, Version=1.0.2826.22641, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\RTS_Builds\bin\SubscriberDBHelper.dll</HintPath>
+      <HintPath>..\..\WSTCHQ_BE\SubscriberDBHelper\bin\SubscriberDBHelper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

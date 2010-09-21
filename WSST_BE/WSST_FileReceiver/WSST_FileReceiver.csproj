@@ -4,10 +4,14 @@
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{C93E3D50-89B8-47C9-9363-0698BE16AD87}</ProjectGuid>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ApplicationIcon>
@@ -32,7 +36,7 @@
     </UpgradeBackupLocation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>o:\bin\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <BaseAddress>285212672</BaseAddress>
     <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
@@ -54,7 +58,7 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <BaseAddress>285212672</BaseAddress>
     <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
@@ -79,20 +83,21 @@
   <ItemGroup>
     <Reference Include="CommonComponents">
       <Name>CommonComponents</Name>
-      <HintPath>O:\bin\CommonComponents.dll</HintPath>
+      <HintPath>..\..\WSTCHQ_BE\CommonComponents\bin\CommonComponents.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="CommonInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\WSTCHQ_BE\CommonInterfaces\bin\CommonInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="RTSStructures">
       <Name>RTSStructures</Name>
-      <HintPath>O:\bin\RTSStructures.dll</HintPath>
+      <HintPath>..\..\WSTCHQ_BE\RTSStructures\bin\RTSStructures.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SubscriberDBHelper">
       <Name>SubscriberDBHelper</Name>
-      <HintPath>O:\bin\SubscriberDBHelper.dll</HintPath>
+      <HintPath>..\..\WSTCHQ_BE\SubscriberDBHelper\bin\SubscriberDBHelper.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System">
@@ -107,12 +112,6 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-    <ProjectReference Include="..\StructToTable\StructToTable.csproj">
-      <Name>StructToTable</Name>
-      <Project>{09DE4F88-70C7-4556-85D3-B5FCC4BCDFF1}</Project>
-      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
-      <Private>False</Private>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs">

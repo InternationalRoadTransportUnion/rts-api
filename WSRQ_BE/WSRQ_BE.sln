@@ -9,23 +9,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSRQ_QueryProcessor", "WSRQ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSRQHostService", "WSRQHostService\WSRQHostService.csproj", "{F6CC03DA-39B0-48FD-B39A-52BA58687912}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WSTCHQ_BE", "WSTCHQ_BE", "{EA36A697-2064-4AAA-BF17-CB3A23ADB37A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonComponents", "..\WSTCHQ_BE\CommonComponents\CommonComponents.csproj", "{7786779D-6B79-4A51-A03E-2497DCFE2025}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonInterfaces", "..\WSTCHQ_BE\CommonInterfaces\CommonInterfaces.csproj", "{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoInterfaces", "..\WSTCHQ_BE\CryptoInterfaces\CryptoInterfaces.csproj", "{06D4C54B-A25A-4684-BC6C-192CEB970170}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyManager", "..\WSTCHQ_BE\KeyManager\KeyManager.csproj", "{5E093F16-E114-49BD-B1A8-C24036F3F328}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTSStructures", "..\WSTCHQ_BE\RTSStructures\RTSStructures.csproj", "{BBF126D5-CA34-4786-A61D-0B426EC0677B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriberDBHelper", "..\WSTCHQ_BE\SubscriberDBHelper\SubscriberDBHelper.csproj", "{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}"
+EndProject
 Global
-	GlobalSection(SourceCodeControl) = preSolution
-		SccNumberOfProjects = 5
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = WSRQ_QueryProcessor\\WSRQ_QueryProcessor.csproj
-		SccLocalPath1 = .
-		SccProjectFilePathRelativizedFromConnection1 = WSRQ_QueryProcessor\\
-		SccProjectUniqueName2 = WSRQHostService\\WSRQHostService.csproj
-		SccLocalPath2 = .
-		SccProjectFilePathRelativizedFromConnection2 = WSRQHostService\\
-		SccProjectUniqueName3 = WSRQNewRequest_Processor\\WSRQNewRequest_Processor.csproj
-		SccLocalPath3 = .
-		SccProjectFilePathRelativizedFromConnection3 = WSRQNewRequest_Processor\\
-		SccProjectUniqueName4 = WSRQNewRequest_ProcessorHostService\\WSRQNewRequest_ProcessorHostService.csproj
-		SccLocalPath4 = .
-		SccProjectFilePathRelativizedFromConnection4 = WSRQNewRequest_ProcessorHostService\\
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -47,8 +45,40 @@ Global
 		{F6CC03DA-39B0-48FD-B39A-52BA58687912}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6CC03DA-39B0-48FD-B39A-52BA58687912}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6CC03DA-39B0-48FD-B39A-52BA58687912}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7786779D-6B79-4A51-A03E-2497DCFE2025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7786779D-6B79-4A51-A03E-2497DCFE2025}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7786779D-6B79-4A51-A03E-2497DCFE2025}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7786779D-6B79-4A51-A03E-2497DCFE2025}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06D4C54B-A25A-4684-BC6C-192CEB970170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06D4C54B-A25A-4684-BC6C-192CEB970170}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06D4C54B-A25A-4684-BC6C-192CEB970170}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06D4C54B-A25A-4684-BC6C-192CEB970170}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E093F16-E114-49BD-B1A8-C24036F3F328}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E093F16-E114-49BD-B1A8-C24036F3F328}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E093F16-E114-49BD-B1A8-C24036F3F328}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E093F16-E114-49BD-B1A8-C24036F3F328}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBF126D5-CA34-4786-A61D-0B426EC0677B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBF126D5-CA34-4786-A61D-0B426EC0677B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBF126D5-CA34-4786-A61D-0B426EC0677B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBF126D5-CA34-4786-A61D-0B426EC0677B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7786779D-6B79-4A51-A03E-2497DCFE2025} = {EA36A697-2064-4AAA-BF17-CB3A23ADB37A}
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB} = {EA36A697-2064-4AAA-BF17-CB3A23ADB37A}
+		{06D4C54B-A25A-4684-BC6C-192CEB970170} = {EA36A697-2064-4AAA-BF17-CB3A23ADB37A}
+		{5E093F16-E114-49BD-B1A8-C24036F3F328} = {EA36A697-2064-4AAA-BF17-CB3A23ADB37A}
+		{BBF126D5-CA34-4786-A61D-0B426EC0677B} = {EA36A697-2064-4AAA-BF17-CB3A23ADB37A}
+		{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59} = {EA36A697-2064-4AAA-BF17-CB3A23ADB37A}
 	EndGlobalSection
 EndGlobal

@@ -13,6 +13,23 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AdminClientStandAloneSetup"
 	EndProjectSection
 EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB776E2C-851F-476F-90F7-9A83E03A425A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB776E2C-851F-476F-90F7-9A83E03A425A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB776E2C-851F-476F-90F7-9A83E03A425A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB776E2C-851F-476F-90F7-9A83E03A425A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B147186-6B33-44CC-A5FB-FF6268D185AB}.Debug|Any CPU.ActiveCfg = Debug
+		{0B147186-6B33-44CC-A5FB-FF6268D185AB}.Debug|Any CPU.Build.0 = Debug
+		{0B147186-6B33-44CC-A5FB-FF6268D185AB}.Release|Any CPU.ActiveCfg = Release
+		{0B147186-6B33-44CC-A5FB-FF6268D185AB}.Release|Any CPU.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 3
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
@@ -24,20 +41,5 @@ Global
 		SccProjectUniqueName2 = AdminClientStandAloneSetup\\AdminClientStandAloneSetup.vdproj
 		SccProjectName2 = AdminClientStandAloneSetup
 		SccLocalPath2 = AdminClientStandAloneSetup
-	EndGlobalSection
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EB776E2C-851F-476F-90F7-9A83E03A425A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EB776E2C-851F-476F-90F7-9A83E03A425A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EB776E2C-851F-476F-90F7-9A83E03A425A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EB776E2C-851F-476F-90F7-9A83E03A425A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0B147186-6B33-44CC-A5FB-FF6268D185AB}.Debug|Any CPU.ActiveCfg = Debug
-		{0B147186-6B33-44CC-A5FB-FF6268D185AB}.Release|Any CPU.ActiveCfg = Release
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

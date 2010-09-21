@@ -4,13 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 9.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIFCreation", "CIFCreation\CIFCreation.csproj", "{0BE7CE4F-AD72-4FBB-89F2-4349982E62C3}"
 EndProject
 Global
-	GlobalSection(SourceCodeControl) = preSolution
-		SccNumberOfProjects = 2
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = CIFCreation\\CIFCreation.csproj
-		SccLocalPath1 = .
-		SccProjectFilePathRelativizedFromConnection1 = CIFCreation\\
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

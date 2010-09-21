@@ -7,18 +7,12 @@
 "LanguageId" = "3:1033"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1033"
-"SccProjectName" = "8:SAK"
-"SccLocalPath" = "8:SAK"
-"SccAuxPath" = "8:SAK"
-"SccProvider" = "8:SAK"
+"SccProjectName" = "8:"
+"SccLocalPath" = "8:"
+"SccAuxPath" = "8:"
+"SccProvider" = "8:"
     "Hierarchy"
     {
-        "Entry"
-        {
-        "MsmKey" = "8:_08B1D763DDCD4784BF71CA6441BA9CEB"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
         "Entry"
         {
         "MsmKey" = "8:_101E5FBB62BC42E6BD3F40E0022CE247"
@@ -27,74 +21,74 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_81F5EC187E1CA429F49A05F95FF17729"
-        "OwnerKey" = "8:_08B1D763DDCD4784BF71CA6441BA9CEB"
+        "MsmKey" = "8:_2A7FE95C672C4B44CA7BCEA1F504E7FD"
+        "OwnerKey" = "8:_75FC8079DD36E6FB1986A02F721C7223"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_8BD3438F6A393A50F1E4251540E9820D"
-        "OwnerKey" = "8:_E242BE416B85C513E1427FC774DAA9E1"
+        "MsmKey" = "8:_2A7FE95C672C4B44CA7BCEA1F504E7FD"
+        "OwnerKey" = "8:_BA739C858E4A471796F00F79E948EE4F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_8BD3438F6A393A50F1E4251540E9820D"
-        "OwnerKey" = "8:_08B1D763DDCD4784BF71CA6441BA9CEB"
+        "MsmKey" = "8:_687489575CCECFE66A00A05CEC7A5280"
+        "OwnerKey" = "8:_BA739C858E4A471796F00F79E948EE4F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_982EC36C0777482C9A8BC45AEFAF037C"
+        "MsmKey" = "8:_75FC8079DD36E6FB1986A02F721C7223"
+        "OwnerKey" = "8:_BA739C858E4A471796F00F79E948EE4F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9558D0D8B1D60D28933D3384977C05C3"
+        "OwnerKey" = "8:_75FC8079DD36E6FB1986A02F721C7223"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9558D0D8B1D60D28933D3384977C05C3"
+        "OwnerKey" = "8:_BA739C858E4A471796F00F79E948EE4F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BA739C858E4A471796F00F79E948EE4F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C07B353897F645F112D8B202B0B49D2B"
-        "OwnerKey" = "8:_E242BE416B85C513E1427FC774DAA9E1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C07B353897F645F112D8B202B0B49D2B"
-        "OwnerKey" = "8:_08B1D763DDCD4784BF71CA6441BA9CEB"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E242BE416B85C513E1427FC774DAA9E1"
-        "OwnerKey" = "8:_08B1D763DDCD4784BF71CA6441BA9CEB"
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_687489575CCECFE66A00A05CEC7A5280"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_8BD3438F6A393A50F1E4251540E9820D"
+        "OwnerKey" = "8:_75FC8079DD36E6FB1986A02F721C7223"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C07B353897F645F112D8B202B0B49D2B"
+        "OwnerKey" = "8:_2A7FE95C672C4B44CA7BCEA1F504E7FD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E242BE416B85C513E1427FC774DAA9E1"
+        "OwnerKey" = "8:_9558D0D8B1D60D28933D3384977C05C3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_08B1D763DDCD4784BF71CA6441BA9CEB"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_81F5EC187E1CA429F49A05F95FF17729"
+        "OwnerKey" = "8:_BA739C858E4A471796F00F79E948EE4F"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -182,43 +176,12 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_08B1D763DDCD4784BF71CA6441BA9CEB"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:RTSTestClient, Version=1.110.3740.29029, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_08B1D763DDCD4784BF71CA6441BA9CEB"
-                    {
-                    "Name" = "8:RTSTestClient.exe"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:O:\\bin\\RTSTestClient.exe"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_5073A7ECD24747B3BE14DA139BDB2F31"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_101E5FBB62BC42E6BD3F40E0022CE247"
             {
             "SourcePath" = "8:O:\\bin\\RTSTestClient.exe.config"
             "TargetName" = "8:RTSTestClient.exe.config"
             "Tag" = "8:"
-            "Folder" = "8:_5073A7ECD24747B3BE14DA139BDB2F31"
+            "Folder" = "8:_AE15B8A696784230A5CAD3A7A4B1CACD"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -233,14 +196,45 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_81F5EC187E1CA429F49A05F95FF17729"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2A7FE95C672C4B44CA7BCEA1F504E7FD"
             {
             "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:TRUE"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CryptoInterfaces, Version=1.0.3916.30253, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_2A7FE95C672C4B44CA7BCEA1F504E7FD"
+                    {
+                    "Name" = "8:CryptoInterfaces.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:CryptoInterfaces.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_AE15B8A696784230A5CAD3A7A4B1CACD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_687489575CCECFE66A00A05CEC7A5280"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Microsoft.Web.Services2, Version=2.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
                 "ScatterAssemblies"
                 {
-                    "_81F5EC187E1CA429F49A05F95FF17729"
+                    "_687489575CCECFE66A00A05CEC7A5280"
                     {
                     "Name" = "8:Microsoft.Web.Services2.dll"
                     "Attributes" = "3:512"
@@ -249,7 +243,7 @@
             "SourcePath" = "8:Microsoft.Web.Services2.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_5073A7ECD24747B3BE14DA139BDB2F31"
+            "Folder" = "8:_AE15B8A696784230A5CAD3A7A4B1CACD"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -264,23 +258,23 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8BD3438F6A393A50F1E4251540E9820D"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_75FC8079DD36E6FB1986A02F721C7223"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:CryptoInterfaces, Version=1.0.3364.29704, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:CommonComponents, Version=1.76.3916.30575, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_8BD3438F6A393A50F1E4251540E9820D"
+                    "_75FC8079DD36E6FB1986A02F721C7223"
                     {
-                    "Name" = "8:CryptoInterfaces.DLL"
+                    "Name" = "8:CommonComponents.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:CryptoInterfaces.DLL"
+            "SourcePath" = "8:CommonComponents.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_5073A7ECD24747B3BE14DA139BDB2F31"
+            "Folder" = "8:_AE15B8A696784230A5CAD3A7A4B1CACD"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -295,74 +289,23 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_982EC36C0777482C9A8BC45AEFAF037C"
-            {
-            "SourcePath" = "8:O:\\bin\\RTSTestClient.pdb"
-            "TargetName" = "8:RTSTestClient.pdb"
-            "Tag" = "8:"
-            "Folder" = "8:_5073A7ECD24747B3BE14DA139BDB2F31"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C07B353897F645F112D8B202B0B49D2B"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9558D0D8B1D60D28933D3384977C05C3"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:CommonInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_C07B353897F645F112D8B202B0B49D2B"
+                    "_9558D0D8B1D60D28933D3384977C05C3"
                     {
-                    "Name" = "8:CommonInterfaces.DLL"
+                    "Name" = "8:CommonInterfaces.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:CommonInterfaces.DLL"
+            "SourcePath" = "8:CommonInterfaces.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_5073A7ECD24747B3BE14DA139BDB2F31"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E242BE416B85C513E1427FC774DAA9E1"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:CommonComponents, Version=1.76.3364.29705, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_E242BE416B85C513E1427FC774DAA9E1"
-                    {
-                    "Name" = "8:CommonComponents.DLL"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:CommonComponents.DLL"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_5073A7ECD24747B3BE14DA139BDB2F31"
+            "Folder" = "8:_AE15B8A696784230A5CAD3A7A4B1CACD"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -444,7 +387,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SetupRTSTestClient"
         "ProductCode" = "8:{03B5D0DA-508B-410B-9675-F921816F54CC}"
-        "PackageCode" = "8:{577EC4B3-B93F-483F-BA7C-38E919642E0A}"
+        "PackageCode" = "8:{1FD1DE59-CA66-42FD-A6D6-0859EFCA017F}"
         "UpgradeCode" = "8:{1DA13892-6E9F-46F0-A36E-232A8BB74681}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
@@ -962,6 +905,62 @@
         }
         "ProjectOutput"
         {
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_62B4584398B4416AAAC7354BE9C611BA"
+            {
+            "SourcePath" = "8:"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_AE15B8A696784230A5CAD3A7A4B1CACD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:Symbols"
+            "OutputProjectGuid" = "8:{E62CE39A-83E2-4B27-9D67-E856ADAEC64B}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_BA739C858E4A471796F00F79E948EE4F"
+            {
+            "SourcePath" = "8:..\\RTSTestClient\\obj\\Debug\\RTSTestClient.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_AE15B8A696784230A5CAD3A7A4B1CACD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:Built"
+            "OutputProjectGuid" = "8:{E62CE39A-83E2-4B27-9D67-E856ADAEC64B}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
         }
         "VJSharpPlugin"
         {

@@ -10,10 +10,14 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TIREPDG2B</RootNamespace>
     <AssemblyName>TIREPDG2B</AssemblyName>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,7 +48,7 @@
     <Reference Include="System.Web.Mobile" />
     <Reference Include="TIREPDInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>O:\bin\TIREPDInterfaces.dll</HintPath>
+      <HintPath>..\..\TIREPD_RTS\TIREPDInterfaces\bin\TIREPDInterfaces.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -84,4 +88,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>c:\Windows\Microsoft.NET\Framework\v3.5\MSBuild.exe $(ProjectPath) /t:ResolveReferences;_CopyWebApplication /p:Configuration=$(ConfigurationName);OutDir=$(ConfigurationName)\Published\bin\;WebProjectOutputDir=$(ConfigurationName)\Published\</PostBuildEvent>
+  </PropertyGroup>
 </Project>

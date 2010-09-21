@@ -4,20 +4,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoProvider", "CryptoPro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoHostService", "CryptoHostService\CryptoHostService.csproj", "{BB3AC323-555C-4048-A6D5-AEF5C25484F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonComponents", "..\WSTCHQ_BE\CommonComponents\CommonComponents.csproj", "{7786779D-6B79-4A51-A03E-2497DCFE2025}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoInterfaces", "..\WSTCHQ_BE\CryptoInterfaces\CryptoInterfaces.csproj", "{06D4C54B-A25A-4684-BC6C-192CEB970170}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonInterfaces", "..\WSTCHQ_BE\CommonInterfaces\CommonInterfaces.csproj", "{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WSTCHQ_BE", "WSTCHQ_BE", "{DBCFCB66-212E-48AD-8AE7-D2FC9C5C2B3B}"
+EndProject
 Global
-	GlobalSection(SourceCodeControl) = preSolution
-		SccNumberOfProjects = 3
-		SccLocalPath0 = .
-		CanCheckoutShared = false
-		SccProjectUniqueName1 = CryptoProvider\\CryptoProvider.csproj
-		SccLocalPath1 = .
-		CanCheckoutShared = false
-		SccProjectFilePathRelativizedFromConnection1 = CryptoProvider\\
-		SccProjectUniqueName2 = CryptoHostService\\CryptoHostService.csproj
-		SccLocalPath2 = .
-		CanCheckoutShared = false
-		SccProjectFilePathRelativizedFromConnection2 = CryptoHostService\\
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -31,8 +26,25 @@ Global
 		{BB3AC323-555C-4048-A6D5-AEF5C25484F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB3AC323-555C-4048-A6D5-AEF5C25484F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB3AC323-555C-4048-A6D5-AEF5C25484F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7786779D-6B79-4A51-A03E-2497DCFE2025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7786779D-6B79-4A51-A03E-2497DCFE2025}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7786779D-6B79-4A51-A03E-2497DCFE2025}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7786779D-6B79-4A51-A03E-2497DCFE2025}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06D4C54B-A25A-4684-BC6C-192CEB970170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06D4C54B-A25A-4684-BC6C-192CEB970170}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06D4C54B-A25A-4684-BC6C-192CEB970170}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06D4C54B-A25A-4684-BC6C-192CEB970170}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7786779D-6B79-4A51-A03E-2497DCFE2025} = {DBCFCB66-212E-48AD-8AE7-D2FC9C5C2B3B}
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB} = {DBCFCB66-212E-48AD-8AE7-D2FC9C5C2B3B}
+		{06D4C54B-A25A-4684-BC6C-192CEB970170} = {DBCFCB66-212E-48AD-8AE7-D2FC9C5C2B3B}
 	EndGlobalSection
 EndGlobal

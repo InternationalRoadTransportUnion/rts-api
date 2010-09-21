@@ -18,7 +18,67 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupRTSTestClientx86", "Se
 		Release.AspNetCompiler.Debug = "False"
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WSTCHQ_BE", "WSTCHQ_BE", "{E468BED1-E4F3-40B5-8357-806016A3A157}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoInterfaces", "..\WSTCHQ_BE\CryptoInterfaces\CryptoInterfaces.csproj", "{06D4C54B-A25A-4684-BC6C-192CEB970170}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonInterfaces", "..\WSTCHQ_BE\CommonInterfaces\CommonInterfaces.csproj", "{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonComponents", "..\WSTCHQ_BE\CommonComponents\CommonComponents.csproj", "{7786779D-6B79-4A51-A03E-2497DCFE2025}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E62CE39A-83E2-4B27-9D67-E856ADAEC64B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E62CE39A-83E2-4B27-9D67-E856ADAEC64B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E62CE39A-83E2-4B27-9D67-E856ADAEC64B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E62CE39A-83E2-4B27-9D67-E856ADAEC64B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA0369F1-7201-4AFF-B6B6-4C8FE0D3E2A9}.Debug|Any CPU.ActiveCfg = Debug
+		{DA0369F1-7201-4AFF-B6B6-4C8FE0D3E2A9}.Debug|Any CPU.Build.0 = Debug
+		{DA0369F1-7201-4AFF-B6B6-4C8FE0D3E2A9}.Release|Any CPU.ActiveCfg = Release
+		{8CF63FDF-A6A3-4973-AF18-BC563D14EE11}.Debug|Any CPU.ActiveCfg = Debug
+		{8CF63FDF-A6A3-4973-AF18-BC563D14EE11}.Debug|Any CPU.Build.0 = Debug
+		{8CF63FDF-A6A3-4973-AF18-BC563D14EE11}.Release|Any CPU.ActiveCfg = Release
+		{06D4C54B-A25A-4684-BC6C-192CEB970170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06D4C54B-A25A-4684-BC6C-192CEB970170}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06D4C54B-A25A-4684-BC6C-192CEB970170}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06D4C54B-A25A-4684-BC6C-192CEB970170}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7786779D-6B79-4A51-A03E-2497DCFE2025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7786779D-6B79-4A51-A03E-2497DCFE2025}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7786779D-6B79-4A51-A03E-2497DCFE2025}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7786779D-6B79-4A51-A03E-2497DCFE2025}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{06D4C54B-A25A-4684-BC6C-192CEB970170} = {E468BED1-E4F3-40B5-8357-806016A3A157}
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB} = {E468BED1-E4F3-40B5-8357-806016A3A157}
+		{7786779D-6B79-4A51-A03E-2497DCFE2025} = {E468BED1-E4F3-40B5-8357-806016A3A157}
+	EndGlobalSection
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 4
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
@@ -33,22 +93,5 @@ Global
 		SccProjectUniqueName3 = SetupRTSTestClientx86\\SetupRTSTestClientx86.vdproj
 		SccProjectName3 = SetupRTSTestClientx86
 		SccLocalPath3 = SetupRTSTestClientx86
-	EndGlobalSection
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E62CE39A-83E2-4B27-9D67-E856ADAEC64B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E62CE39A-83E2-4B27-9D67-E856ADAEC64B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E62CE39A-83E2-4B27-9D67-E856ADAEC64B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E62CE39A-83E2-4B27-9D67-E856ADAEC64B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DA0369F1-7201-4AFF-B6B6-4C8FE0D3E2A9}.Debug|Any CPU.ActiveCfg = Debug
-		{DA0369F1-7201-4AFF-B6B6-4C8FE0D3E2A9}.Release|Any CPU.ActiveCfg = Release
-		{8CF63FDF-A6A3-4973-AF18-BC563D14EE11}.Debug|Any CPU.ActiveCfg = Debug
-		{8CF63FDF-A6A3-4973-AF18-BC563D14EE11}.Release|Any CPU.ActiveCfg = Release
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

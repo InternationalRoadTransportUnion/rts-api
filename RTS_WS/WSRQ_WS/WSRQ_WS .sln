@@ -5,7 +5,24 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSRQ_WS", "WSRQ_WS.csproj",
 	ProjectSection(WebsiteProperties) = preProject
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "1033"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoInterfaces", "..\..\WSTCHQ_BE\CryptoInterfaces\CryptoInterfaces.csproj", "{06D4C54B-A25A-4684-BC6C-192CEB970170}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTSStructures", "..\..\WSTCHQ_BE\RTSStructures\RTSStructures.csproj", "{BBF126D5-CA34-4786-A61D-0B426EC0677B}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WSTCHQ_BE", "WSTCHQ_BE", "{2DD52858-258F-43B0-BA9D-4938BB1FC3EE}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
 	EndProjectSection
 EndProject
 Global
@@ -18,8 +35,20 @@ Global
 		{201B2638-5032-41A1-8558-1305180C7839}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{201B2638-5032-41A1-8558-1305180C7839}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{201B2638-5032-41A1-8558-1305180C7839}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06D4C54B-A25A-4684-BC6C-192CEB970170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06D4C54B-A25A-4684-BC6C-192CEB970170}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06D4C54B-A25A-4684-BC6C-192CEB970170}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06D4C54B-A25A-4684-BC6C-192CEB970170}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBF126D5-CA34-4786-A61D-0B426EC0677B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBF126D5-CA34-4786-A61D-0B426EC0677B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBF126D5-CA34-4786-A61D-0B426EC0677B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBF126D5-CA34-4786-A61D-0B426EC0677B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{06D4C54B-A25A-4684-BC6C-192CEB970170} = {2DD52858-258F-43B0-BA9D-4938BB1FC3EE}
+		{BBF126D5-CA34-4786-A61D-0B426EC0677B} = {2DD52858-258F-43B0-BA9D-4938BB1FC3EE}
 	EndGlobalSection
 EndGlobal
