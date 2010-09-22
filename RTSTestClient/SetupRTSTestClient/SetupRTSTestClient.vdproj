@@ -15,8 +15,8 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_101E5FBB62BC42E6BD3F40E0022CE247"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_105477177A894528EE35F353007C3D24"
+        "OwnerKey" = "8:_BA739C858E4A471796F00F79E948EE4F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -28,12 +28,6 @@
         "Entry"
         {
         "MsmKey" = "8:_2A7FE95C672C4B44CA7BCEA1F504E7FD"
-        "OwnerKey" = "8:_BA739C858E4A471796F00F79E948EE4F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_687489575CCECFE66A00A05CEC7A5280"
         "OwnerKey" = "8:_BA739C858E4A471796F00F79E948EE4F"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -64,7 +58,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_687489575CCECFE66A00A05CEC7A5280"
+        "OwnerKey" = "8:_BA739C858E4A471796F00F79E948EE4F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_105477177A894528EE35F353007C3D24"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -83,12 +83,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_9558D0D8B1D60D28933D3384977C05C3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BA739C858E4A471796F00F79E948EE4F"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -176,10 +170,21 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_101E5FBB62BC42E6BD3F40E0022CE247"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_105477177A894528EE35F353007C3D24"
             {
-            "SourcePath" = "8:O:\\bin\\RTSTestClient.exe.config"
-            "TargetName" = "8:RTSTestClient.exe.config"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.Web.Services2, Version=2.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+                "ScatterAssemblies"
+                {
+                    "_105477177A894528EE35F353007C3D24"
+                    {
+                    "Name" = "8:Microsoft.Web.Services2.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Microsoft.Web.Services2.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_AE15B8A696784230A5CAD3A7A4B1CACD"
             "Condition" = "8:"
@@ -193,14 +198,14 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2A7FE95C672C4B44CA7BCEA1F504E7FD"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:CryptoInterfaces, Version=1.0.3916.30253, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:CryptoInterfaces, Version=1.0.3917.13707, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_2A7FE95C672C4B44CA7BCEA1F504E7FD"
@@ -227,42 +232,11 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_687489575CCECFE66A00A05CEC7A5280"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Microsoft.Web.Services2, Version=2.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
-                "ScatterAssemblies"
-                {
-                    "_687489575CCECFE66A00A05CEC7A5280"
-                    {
-                    "Name" = "8:Microsoft.Web.Services2.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Microsoft.Web.Services2.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_AE15B8A696784230A5CAD3A7A4B1CACD"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_75FC8079DD36E6FB1986A02F721C7223"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:CommonComponents, Version=1.76.3916.30575, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:CommonComponents, Version=1.76.3917.19680, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_75FC8079DD36E6FB1986A02F721C7223"
@@ -387,7 +361,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SetupRTSTestClient"
         "ProductCode" = "8:{03B5D0DA-508B-410B-9675-F921816F54CC}"
-        "PackageCode" = "8:{1FD1DE59-CA66-42FD-A6D6-0859EFCA017F}"
+        "PackageCode" = "8:{50305409-4787-457E-8DB0-DCDC59D42D1F}"
         "UpgradeCode" = "8:{1DA13892-6E9F-46F0-A36E-232A8BB74681}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"

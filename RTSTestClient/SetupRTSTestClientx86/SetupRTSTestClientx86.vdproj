@@ -15,8 +15,32 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_449319650C9C4E24A80432FE88D64168"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_38AED01B84EBC040D9572A7FA5EC9909"
+        "OwnerKey" = "8:_6CBE844CA47668AC02F4775AFEE2F6AA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_38AED01B84EBC040D9572A7FA5EC9909"
+        "OwnerKey" = "8:_B863268D955A4B74BB2012B6DAB9E989"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6CBE844CA47668AC02F4775AFEE2F6AA"
+        "OwnerKey" = "8:_B863268D955A4B74BB2012B6DAB9E989"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_91AA73023170CE9C99B25B98E68B3401"
+        "OwnerKey" = "8:_6CBE844CA47668AC02F4775AFEE2F6AA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_91AA73023170CE9C99B25B98E68B3401"
+        "OwnerKey" = "8:_B863268D955A4B74BB2012B6DAB9E989"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -34,13 +58,31 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_B863268D955A4B74BB2012B6DAB9E989"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_9C30E3DED6158AFA9E48AF2B59B03A1F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B863268D955A4B74BB2012B6DAB9E989"
+        "OwnerKey" = "8:_6CBE844CA47668AC02F4775AFEE2F6AA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_91AA73023170CE9C99B25B98E68B3401"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_38AED01B84EBC040D9572A7FA5EC9909"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -128,10 +170,21 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_449319650C9C4E24A80432FE88D64168"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_38AED01B84EBC040D9572A7FA5EC9909"
             {
-            "SourcePath" = "8:O:\\bin\\RTSTestClient.exe.config"
-            "TargetName" = "8:RTSTestClient.exe.config"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CommonInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_38AED01B84EBC040D9572A7FA5EC9909"
+                    {
+                    "Name" = "8:CommonInterfaces.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:CommonInterfaces.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_212A64981BDE44858165379B2E34CE18"
             "Condition" = "8:"
@@ -145,7 +198,69 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6CBE844CA47668AC02F4775AFEE2F6AA"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CommonComponents, Version=1.76.3917.19680, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_6CBE844CA47668AC02F4775AFEE2F6AA"
+                    {
+                    "Name" = "8:CommonComponents.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:CommonComponents.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_212A64981BDE44858165379B2E34CE18"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_91AA73023170CE9C99B25B98E68B3401"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CryptoInterfaces, Version=1.0.3917.13707, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_91AA73023170CE9C99B25B98E68B3401"
+                    {
+                    "Name" = "8:CryptoInterfaces.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:CryptoInterfaces.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_212A64981BDE44858165379B2E34CE18"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9C30E3DED6158AFA9E48AF2B59B03A1F"
@@ -246,7 +361,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SetupRTSTestClientx86"
         "ProductCode" = "8:{7AF47B01-6336-454F-A501-3CAADC44F752}"
-        "PackageCode" = "8:{371F84CB-DCF9-4F79-8A50-D3FF4BD39999}"
+        "PackageCode" = "8:{ADADADE9-4C50-450C-856D-DB5F7DCE8ACD}"
         "UpgradeCode" = "8:{8BEFA1FE-2136-42F1-917D-B61A77053FEE}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
