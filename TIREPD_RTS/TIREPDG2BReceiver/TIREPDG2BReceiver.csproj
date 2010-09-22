@@ -46,7 +46,7 @@
     </Reference>
     <Reference Include="CryptoInterfaces, Version=1.0.3364.29704, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\WSTCHQ_BE\CryptoInterfaces\bin\Debug\CryptoInterfaces.dll</HintPath>
+      <HintPath>..\..\WSTCHQ_BE\CryptoInterfaces\bin\CryptoInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="RTSStructures, Version=1.0.3424.31326, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
