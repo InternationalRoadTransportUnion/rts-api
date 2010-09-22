@@ -81,25 +81,6 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommonComponents">
-      <Name>CommonComponents</Name>
-      <HintPath>..\..\WSTCHQ_BE\CommonComponents\bin\CommonComponents.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="CommonInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\WSTCHQ_BE\CommonInterfaces\bin\CommonInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="RTSStructures">
-      <Name>RTSStructures</Name>
-      <HintPath>..\..\WSTCHQ_BE\RTSStructures\bin\RTSStructures.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="SubscriberDBHelper">
-      <Name>SubscriberDBHelper</Name>
-      <HintPath>..\..\WSTCHQ_BE\SubscriberDBHelper\bin\SubscriberDBHelper.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -132,6 +113,22 @@
     <ProjectReference Include="..\..\WSRE_BE\StructToTable\StructToTable.csproj">
       <Project>{09DE4F88-70C7-4556-85D3-B5FCC4BCDFF1}</Project>
       <Name>StructToTable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\CommonComponents\CommonComponents.csproj">
+      <Project>{7786779D-6B79-4A51-A03E-2497DCFE2025}</Project>
+      <Name>CommonComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\CommonInterfaces\CommonInterfaces.csproj">
+      <Project>{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}</Project>
+      <Name>CommonInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\RTSStructures\RTSStructures.csproj">
+      <Project>{BBF126D5-CA34-4786-A61D-0B426EC0677B}</Project>
+      <Name>RTSStructures</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\SubscriberDBHelper\SubscriberDBHelper.csproj">
+      <Project>{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}</Project>
+      <Name>SubscriberDBHelper</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
