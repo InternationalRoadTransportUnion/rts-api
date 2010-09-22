@@ -81,37 +81,6 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommonComponents, Version=1.76.2852.32795, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\WSTCHQ_BE\CommonComponents\bin\CommonComponents.dll</HintPath>
-    </Reference>
-    <Reference Include="CommonInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\WSTCHQ_BE\CommonInterfaces\bin\CommonInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="CryptoInterfaces">
-      <Name>CryptoInterfaces</Name>
-      <HintPath>..\..\WSTCHQ_BE\CryptoInterfaces\bin\CryptoInterfaces.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="KeyManager">
-      <Name>KeyManager</Name>
-      <HintPath>..\..\WSTCHQ_BE\KeyManager\bin\KeyManager.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="RTSStructures, Version=1.0.2852.32796, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\WSTCHQ_BE\RTSStructures\bin\RTSStructures.dll</HintPath>
-    </Reference>
-    <Reference Include="StructToTable, Version=1.0.2840.30632, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\StructToTable\obj\Debug\StructToTable.dll</HintPath>
-    </Reference>
-    <Reference Include="SubscriberDBHelper">
-      <Name>SubscriberDBHelper</Name>
-      <HintPath>..\..\WSTCHQ_BE\SubscriberDBHelper\bin\SubscriberDBHelper.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -140,6 +109,34 @@
     <ProjectReference Include="..\..\CIFCreation\CIFCreation\CIFCreation.csproj">
       <Project>{0BE7CE4F-AD72-4FBB-89F2-4349982E62C3}</Project>
       <Name>CIFCreation %28CIFCreation\CIFCreation%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\CommonComponents\CommonComponents.csproj">
+      <Project>{7786779D-6B79-4A51-A03E-2497DCFE2025}</Project>
+      <Name>CommonComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\CommonInterfaces\CommonInterfaces.csproj">
+      <Project>{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}</Project>
+      <Name>CommonInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\CryptoInterfaces\CryptoInterfaces.csproj">
+      <Project>{06D4C54B-A25A-4684-BC6C-192CEB970170}</Project>
+      <Name>CryptoInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\KeyManager\KeyManager.csproj">
+      <Project>{5E093F16-E114-49BD-B1A8-C24036F3F328}</Project>
+      <Name>KeyManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\RTSStructures\RTSStructures.csproj">
+      <Project>{BBF126D5-CA34-4786-A61D-0B426EC0677B}</Project>
+      <Name>RTSStructures</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\SubscriberDBHelper\SubscriberDBHelper.csproj">
+      <Project>{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}</Project>
+      <Name>SubscriberDBHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StructToTable\StructToTable.csproj">
+      <Project>{09DE4F88-70C7-4556-85D3-B5FCC4BCDFF1}</Project>
+      <Name>StructToTable</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
