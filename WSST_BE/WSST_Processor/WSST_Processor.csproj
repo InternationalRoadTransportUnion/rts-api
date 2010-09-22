@@ -133,6 +133,10 @@
       <Project>{0BE7CE4F-AD72-4FBB-89F2-4349982E62C3}</Project>
       <Name>CIFCreation %28CIFCreation\CIFCreation%29</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\WSRE_BE\StructToTable\StructToTable.csproj">
+      <Project>{09DE4F88-70C7-4556-85D3-B5FCC4BCDFF1}</Project>
+      <Name>StructToTable</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
