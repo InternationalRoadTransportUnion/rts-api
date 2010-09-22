@@ -120,6 +120,10 @@
       <Project>{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}</Project>
       <Name>CommonInterfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\CryptoInterfaces\CryptoInterfaces.csproj">
+      <Project>{06D4C54B-A25A-4684-BC6C-192CEB970170}</Project>
+      <Name>CryptoInterfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\WSTCHQ_BE\KeyManager\KeyManager.csproj">
       <Project>{5E093F16-E114-49BD-B1A8-C24036F3F328}</Project>
       <Name>KeyManager</Name>
