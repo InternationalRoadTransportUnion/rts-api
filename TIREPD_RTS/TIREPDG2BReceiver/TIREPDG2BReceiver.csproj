@@ -36,22 +36,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommonComponents, Version=1.76.3364.29705, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\WSTCHQ_BE\CommonComponents\bin\CommonComponents.dll</HintPath>
-    </Reference>
-    <Reference Include="CommonInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\WSTCHQ_BE\CommonInterfaces\bin\CommonInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="CryptoInterfaces, Version=1.0.3364.29704, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\WSTCHQ_BE\CryptoInterfaces\bin\CryptoInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="RTSStructures, Version=1.0.3424.31326, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\WSTCHQ_BE\RTSStructures\bin\RTSStructures.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Remoting" />
@@ -64,13 +48,29 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\WSTCHQ_BE\CommonComponents\CommonComponents.csproj">
+      <Project>{7786779D-6B79-4A51-A03E-2497DCFE2025}</Project>
+      <Name>CommonComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\CommonInterfaces\CommonInterfaces.csproj">
+      <Project>{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}</Project>
+      <Name>CommonInterfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\WSTCHQ_BE\CryptEngine\CryptEngine.csproj">
       <Project>{DAD79E22-2139-4ECB-827E-8F7FB871F5D1}</Project>
       <Name>CryptEngine</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\CryptoInterfaces\CryptoInterfaces.csproj">
+      <Project>{06D4C54B-A25A-4684-BC6C-192CEB970170}</Project>
+      <Name>CryptoInterfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\WSTCHQ_BE\KeyManager\KeyManager.csproj">
       <Project>{5E093F16-E114-49BD-B1A8-C24036F3F328}</Project>
       <Name>KeyManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\RTSStructures\RTSStructures.csproj">
+      <Project>{BBF126D5-CA34-4786-A61D-0B426EC0677B}</Project>
+      <Name>RTSStructures</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\WSTCHQ_BE\SubscriberDBHelper\SubscriberDBHelper.csproj">
       <Project>{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}</Project>
