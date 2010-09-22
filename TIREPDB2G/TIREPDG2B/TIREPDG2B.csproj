@@ -60,6 +60,12 @@
     <Compile Include="TIREPDG2BServiceClassInterfaces.cs" />
     <Compile Include="TraceHelper.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\TIREPD_RTS\TIREPDInterfaces\TIREPDInterfaces.csproj">
+      <Project>{8D660BE3-CF1F-4831-822C-ABE38DEAD90C}</Project>
+      <Name>TIREPDInterfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v8.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
