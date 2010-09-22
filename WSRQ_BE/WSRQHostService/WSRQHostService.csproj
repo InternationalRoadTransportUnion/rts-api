@@ -82,13 +82,6 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommonComponents, Version=1.76.2832.25359, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\WSTCHQ_BE\CommonComponents\bin\CommonComponents.dll</HintPath>
-    </Reference>
-    <Reference Include="CommonInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\WSTCHQ_BE\CommonInterfaces\bin\CommonInterfaces.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -132,6 +125,16 @@
     <Content Include="WSWSRQ_Config.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WSTCHQ_BE\CommonComponents\CommonComponents.csproj">
+      <Project>{7786779D-6B79-4A51-A03E-2497DCFE2025}</Project>
+      <Name>CommonComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\CommonInterfaces\CommonInterfaces.csproj">
+      <Project>{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}</Project>
+      <Name>CommonInterfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
