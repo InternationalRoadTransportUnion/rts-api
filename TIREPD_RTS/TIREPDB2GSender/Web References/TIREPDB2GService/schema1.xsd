@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.iru.org" elementFormDefault="qualified" targetNamespace="http://www.iru.org" id="schema1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="TIREPDB2G">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="su" type="tns:TIREPDB2GUploadParams" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="TIREPDB2GUploadParams">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="SubscriberID" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CertificateID" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ESessionKey" type="xs:base64Binary" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SubscriberMessageID" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="InformationExchangeVersion" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MessageName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TimeSent" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MessageContent" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TIREPDB2GResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="TIREPDB2GResult" type="tns:TIREPDB2GUploadAck" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="TIREPDB2GUploadAck">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="HostID" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SubscriberMessageID" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ReturnCodeReason" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

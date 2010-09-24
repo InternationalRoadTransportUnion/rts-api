@@ -9,7 +9,10 @@
     <G2B_RemotingHelperSettings DBHelperFactoryPlugin="DBHelperFactory" G2BDBName="TIREPD_DB"
     SubscriberDBName="SubsciberDB" EncryptionKeysTable="EncryptionKeys"
     RemotingPort="9009" CryptoProviderEndpoint="tcp://localhost:9012/CryptoProvider.rem"
-    RemotingEndPoint="TIREPDG2BReceiver.rem"></G2B_RemotingHelperSettings>
+    RemotingEndPoint="TIREPDG2BReceiver.rem"
+    SchemaFilesPath="C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\RTS_Builds\bin\schemas"
+    MessageNamesList="TIRPreDeclaration,TIRPreDeclarationReceived,TIRPreDeclarationAccepted,TIRPreDeclarationReleased,TIRPreDeclarationRejected">
+    </G2B_RemotingHelperSettings>
   </Section>
 
   <Section name="DBHelperFactory">

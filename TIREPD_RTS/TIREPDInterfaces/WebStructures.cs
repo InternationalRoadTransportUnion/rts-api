@@ -151,7 +151,7 @@ namespace IRU.RTS.TIREPD
 
         private int returnCodeField;
 
-        private int returnCodeReasonField;
+        //private int returnCodeReasonField;
 
         /// <remarks/>
         public string HostID
@@ -193,17 +193,17 @@ namespace IRU.RTS.TIREPD
         }
 
         /// <remarks/>
-        public int ReturnCodeReason
-        {
-            get
-            {
-                return this.returnCodeReasonField;
-            }
-            set
-            {
-                this.returnCodeReasonField = value;
-            }
-        }
+        //public int ReturnCodeReason
+        //{
+        //    get
+        //    {
+        //        return this.returnCodeReasonField;
+        //    }
+        //    set
+        //    {
+        //        this.returnCodeReasonField = value;
+        //    }
+        //}
     }
 
 
@@ -354,7 +354,7 @@ namespace IRU.RTS.TIREPD
 
         private int returnCodeField;
 
-        private int returnCodeReasonField;
+        //private int returnCodeReasonField;
 
         /// <remarks/>
         public string HostID
@@ -395,18 +395,18 @@ namespace IRU.RTS.TIREPD
             }
         }
 
-        /// <remarks/>
-        public int ReturnCodeReason
-        {
-            get
-            {
-                return this.returnCodeReasonField;
-            }
-            set
-            {
-                this.returnCodeReasonField = value;
-            }
-        }
+        ///// <remarks/>
+        //public int ReturnCodeReason
+        //{
+        //    get
+        //    {
+        //        return this.returnCodeReasonField;
+        //    }
+        //    set
+        //    {
+        //        this.returnCodeReasonField = value;
+        //    }
+        //}
     }
 
 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:i0="http://www.iru.org" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.iru.org/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.iru.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://www.iru.org" location="http://localhost:8080/SMDWEBS/EPD/TIREPDB2G/TIREPDB2GService.asmx?wsdl=wsdl1" />
+  <wsdl:types>
+    <s:schema targetNamespace="http://www.iru.org/">
+      <s:import schemaLocation="http://localhost:8080/SMDWEBS/EPD/TIREPDB2G/TIREPDB2GService.asmx?schema=schema1" namespace="http://www.iru.org" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:service name="TIREPDB2GServiceClass">
+    <wsdl:port name="TIREPDB2GServiceClassSoap" binding="i0:TIREPDB2GServiceClassSoap">
+      <soap:address location="http://localhost:8080/SMDWEBS/EPD/TIREPDB2G/TIREPDB2GService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TIREPDB2GServiceClassSoap1" binding="i0:TIREPDB2GServiceClassSoap1">
+      <soap12:address location="http://localhost:8080/SMDWEBS/EPD/TIREPDB2G/TIREPDB2GService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

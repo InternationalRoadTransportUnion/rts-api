@@ -2,12 +2,52 @@
 Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIREPDG2BReceiver", "TIREPDG2BReceiver\TIREPDG2BReceiver.csproj", "{BF83D7D8-AB24-435D-A6EF-66C4C79BDB33}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIREPDInterfaces", "TIREPDInterfaces\TIREPDInterfaces.csproj", "{8D660BE3-CF1F-4831-822C-ABE38DEAD90C}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIREDPG2BRecvrHostService", "TIREDPG2BRecvrHostService\TIREDPG2BRecvrHostService.csproj", "{9C9DD04E-A604-4655-A9EC-9F630F2C0902}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TIREPDG2BHostServiceReceiverSetup", "TIREPDG2BHostServiceReceiverSetup\TIREPDG2BHostServiceReceiverSetup.vdproj", "{A91B9D9D-7A5C-4968-8C03-2C4689453CA9}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIREPDB2GSendHostService", "TIREPDB2GSendHostService\TIREPDB2GSendHostService.csproj", "{9330D032-2A8E-45E8-ADFB-DA1A0F443E0D}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIREPDB2GSender", "TIREPDB2GSender\TIREPDB2GSender.csproj", "{E0456A90-2D0C-412F-8E2E-8E05ACADDB04}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSender", "TestSender\TestSender.csproj", "{4455998E-7655-4EC0-9F2E-E03D9BE89FFE}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TIREPDB2GHostServiceSendSetup", "TIREPDB2GHostServiceSendSetup\TIREPDB2GHostServiceSendSetup.vdproj", "{985198EF-8B45-4A38-8778-B02B16B3648D}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WSTCHQ_BE", "WSTCHQ_BE", "{7A4B90C4-B295-41B4-9A8E-B77084BB4179}"
 EndProject
@@ -26,6 +66,36 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriberDBHelper", "..\WSTCHQ_BE\SubscriberDBHelper\SubscriberDBHelper.csproj", "{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}"
 EndProject
 Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://mt8808-02:8080/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = TIREPDG2BReceiver\\TIREPDG2BReceiver.csproj
+		SccProjectName1 = TIREPDG2BReceiver
+		SccLocalPath1 = TIREPDG2BReceiver
+		SccProjectUniqueName2 = TIREPDInterfaces\\TIREPDInterfaces.csproj
+		SccProjectName2 = TIREPDInterfaces
+		SccLocalPath2 = TIREPDInterfaces
+		SccProjectUniqueName3 = TIREDPG2BRecvrHostService\\TIREDPG2BRecvrHostService.csproj
+		SccProjectName3 = TIREDPG2BRecvrHostService
+		SccLocalPath3 = TIREDPG2BRecvrHostService
+		SccProjectUniqueName4 = TIREPDG2BHostServiceReceiverSetup\\TIREPDG2BHostServiceReceiverSetup.vdproj
+		SccProjectName4 = TIREPDG2BHostServiceReceiverSetup
+		SccLocalPath4 = TIREPDG2BHostServiceReceiverSetup
+		SccProjectUniqueName5 = TIREPDB2GSendHostService\\TIREPDB2GSendHostService.csproj
+		SccProjectName5 = TIREPDB2GSendHostService
+		SccLocalPath5 = TIREPDB2GSendHostService
+		SccProjectUniqueName6 = TIREPDB2GSender\\TIREPDB2GSender.csproj
+		SccProjectName6 = TIREPDB2GSender
+		SccLocalPath6 = TIREPDB2GSender
+		SccProjectUniqueName7 = TestSender\\TestSender.csproj
+		SccProjectName7 = TestSender
+		SccLocalPath7 = TestSender
+		SccProjectUniqueName8 = TIREPDB2GHostServiceSendSetup\\TIREPDB2GHostServiceSendSetup.vdproj
+		SccProjectName8 = TIREPDB2GHostServiceSendSetup
+		SccLocalPath8 = TIREPDB2GHostServiceSendSetup
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -75,6 +145,20 @@ Global
 		{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9330D032-2A8E-45E8-ADFB-DA1A0F443E0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9330D032-2A8E-45E8-ADFB-DA1A0F443E0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9330D032-2A8E-45E8-ADFB-DA1A0F443E0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9330D032-2A8E-45E8-ADFB-DA1A0F443E0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0456A90-2D0C-412F-8E2E-8E05ACADDB04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0456A90-2D0C-412F-8E2E-8E05ACADDB04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0456A90-2D0C-412F-8E2E-8E05ACADDB04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0456A90-2D0C-412F-8E2E-8E05ACADDB04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4455998E-7655-4EC0-9F2E-E03D9BE89FFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4455998E-7655-4EC0-9F2E-E03D9BE89FFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4455998E-7655-4EC0-9F2E-E03D9BE89FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4455998E-7655-4EC0-9F2E-E03D9BE89FFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{985198EF-8B45-4A38-8778-B02B16B3648D}.Debug|Any CPU.ActiveCfg = Debug
+		{985198EF-8B45-4A38-8778-B02B16B3648D}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

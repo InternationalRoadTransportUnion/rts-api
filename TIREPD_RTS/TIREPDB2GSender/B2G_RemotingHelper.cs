@@ -15,7 +15,7 @@ namespace IRU.RTS.TIREPD
     /// <summary>
     /// Summary description for Class1.
     /// </summary>
-    public class G2B_RemotingHelper : IRU.CommonInterfaces.IRunnable, IRU.CommonInterfaces.IPlugIn
+    public class B2G_RemotingHelper : IRU.CommonInterfaces.IRunnable, IRU.CommonInterfaces.IPlugIn
     {
         internal static IDBHelperFactory m_dbHelperFactoryPlugin;//="DBHelperFactory" 
 
@@ -32,11 +32,12 @@ namespace IRU.RTS.TIREPD
 
         private string m_PluginName;
 
-        private string m_SchemaFilesPath;
+        public static string m_SchemaFilesPath;
 
         public static string[] m_MessageNameArr;
+        public static System.Collections.Hashtable m_hsCountryISO_Subsc_Msg_Info = new System.Collections.Hashtable();
 
-        public G2B_RemotingHelper()
+        public B2G_RemotingHelper()
         {
             m_MessageNameArr = null;
             //
@@ -49,31 +50,8 @@ namespace IRU.RTS.TIREPD
         {
             //Register the processor class with Remoting system.
 
-            RemotingConfiguration.RegisterWellKnownServiceType(typeof(G2BReceiver), m_RemotingEndPoint, WellKnownObjectMode.SingleCall);
+            RemotingConfiguration.RegisterWellKnownServiceType(typeof(B2GSender), m_RemotingEndPoint, WellKnownObjectMode.SingleCall);
 
-//IE14    http://tempuri.org/XMLSchema.xsd
-//IE15    http://www.iru.org/TIREPD
-//IE29    http://tempuri.org/XMLSchema.xsd
-//IE16    http://tempuri.org/XMLSchema.xsd
-//IE28    http://tempuri.org/XMLSchema.xsd
-//IE928   ttp://tempuri.org/XMLSchema.xsd
-
-
-            //
-
-            //Read the schema files into XMLHelper
-            string QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE014.xsd";
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE015.xsd";
-            XMLValidationHelper.PopulateSchemas("http://www.iru.org/TIREPD", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE016.xsd";
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE028.xsd";
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE029.xsd";
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE928.xsd";
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
         }
 
         public void Stop()
@@ -87,25 +65,22 @@ namespace IRU.RTS.TIREPD
 
         public void Configure(IRU.CommonInterfaces.IPlugInManager PluginManager)
         {
-            // TODO:  Add G2B_RemotingHelper.Configure implementation
+            // TODO:  Add B2G_RemotingHelper.Configure implementation
 
             m_PluginManager = PluginManager;
+            XmlNode sectionNode = null; 
             try
             {
-                XmlNode sectionNode = m_PluginManager.GetConfigurationSection(
+                Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceWarning, "PluginName:" + m_PluginName);
+                sectionNode = m_PluginManager.GetConfigurationSection(
                     m_PluginName);
 
                 XmlNode parameterNode = XMLHelper.SelectSingleNode(sectionNode,
-                    "./G2B_RemotingHelperSettings");
+                    "./B2G_RemotingHelperSettings");
 
                 string sDBFactoryName = XMLHelper.GetAttributeNode(parameterNode,
                     "DBHelperFactoryPlugin").InnerText;
                 m_dbHelperFactoryPlugin = (IDBHelperFactory)m_PluginManager.GetPluginByName(sDBFactoryName);
-
-                //string sCacheName = XMLHelper.GetAttributeNode(parameterNode,
-                //    "InMemoryCachePlugin").InnerText;
-
-                //m_InMemoryCachePlugin = (ICache)m_PluginManager.GetPluginByName(sCacheName);
 
                 string sRemotingPort = XMLHelper.GetAttributeNode(parameterNode,
                     "RemotingPort").InnerText;
@@ -117,31 +92,42 @@ namespace IRU.RTS.TIREPD
                     "RemotingEndPoint").InnerText;
 
                 m_SchemaFilesPath = XMLHelper.GetAttributeNode(parameterNode,
-                    "SchemaFilesPath").InnerText;
+    "SchemaFilesPath").InnerText;
 
-                string sMessageNamesList = XMLHelper.GetAttributeNode(parameterNode,
-                "MessageNamesList").InnerText;
-                m_MessageNameArr = sMessageNamesList.Split(',');
+                string sCountryISO_SubscriberId_Info = XMLHelper.GetAttributeNode(parameterNode,
+    "CountryISO_SubscriberId_Info").InnerText;
 
+                string[] strListtemp = sCountryISO_SubscriberId_Info.Split(';');
+
+                foreach (string str in strListtemp)
+                {
+                    if (str.Trim() != "")
+                    {
+                        string[] strTemp = str.Split(',');
+                        m_hsCountryISO_Subsc_Msg_Info.Add(strTemp[0], strTemp);
+                    }
+                }
             }
             catch (ApplicationException e)
             {
                 Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
-                    "XMLNode not found in .Configure of G2B_RemotingHelper"
+                    "XMLNode not found in .Configure of B2G_RemotingHelper"
                     + e.Message);
                 throw e;
             }
             catch (ArgumentNullException e)
             {
+                Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, "PluginName:"+m_PluginName );
                 Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
-                    "XMLNode not found in .Configure of G2B_RemotingHelper"
+                    "XMLNode not found in .Configure of B2G_RemotingHelper"
                     + e.Message);
                 throw e;
             }
             catch (FormatException e)
             {
+                Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, "PluginName:" + m_PluginName);
                 Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceInfo,
-                    "Invalid value while formating an XMLNode in .Configure of G2B_RemotingHelper"
+                    "Invalid value while formating an XMLNode in .Configure of B2G_RemotingHelper"
                     + e.Message);
                 throw e;
             }
@@ -154,7 +140,7 @@ namespace IRU.RTS.TIREPD
             }
             else
             {
-                Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceWarning, " G2B_Remoting helper has not registered channels, expecting other plugin to register a remoting tcpchannel");
+                Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceWarning, " B2G_Remoting helper has not registered channels, expecting other plugin to register a remoting tcpchannel");
 
             }
 
