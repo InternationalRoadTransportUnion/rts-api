@@ -9,10 +9,14 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TIREPDB2GSender</RootNamespace>
     <AssemblyName>TIREPDB2GSender</AssemblyName>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,44 +36,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommonComponents, Version=1.76.3780.5299, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>O:\bin\CommonComponents.dll</HintPath>
-    </Reference>
-    <Reference Include="CommonInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>O:\bin\CommonInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="CryptEngine, Version=1.0.3780.5300, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>O:\bin\CryptEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="CryptoInterfaces, Version=1.0.3780.5299, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>O:\bin\CryptoInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="KeyManager, Version=1.0.3780.5300, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>O:\bin\KeyManager.dll</HintPath>
-    </Reference>
-    <Reference Include="RTSStructures, Version=1.0.3780.5300, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>O:\bin\RTSStructures.dll</HintPath>
-    </Reference>
-    <Reference Include="SubscriberDBHelper, Version=1.0.3780.5300, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>O:\bin\SubscriberDBHelper.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
-    <Reference Include="TIREPDInterfaces, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>O:\bin\TIREPDInterfaces.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="B2GSender.cs" />
@@ -122,6 +94,40 @@
     <None Include="Web References\TIREPDB2GService\TIREPDB2GUploadAck.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WSTCHQ_BE\CommonComponents\CommonComponents.csproj">
+      <Project>{7786779D-6B79-4A51-A03E-2497DCFE2025}</Project>
+      <Name>CommonComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\CommonInterfaces\CommonInterfaces.csproj">
+      <Project>{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}</Project>
+      <Name>CommonInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\CryptEngine\CryptEngine.csproj">
+      <Project>{DAD79E22-2139-4ECB-827E-8F7FB871F5D1}</Project>
+      <Name>CryptEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\CryptoInterfaces\CryptoInterfaces.csproj">
+      <Project>{06D4C54B-A25A-4684-BC6C-192CEB970170}</Project>
+      <Name>CryptoInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\KeyManager\KeyManager.csproj">
+      <Project>{5E093F16-E114-49BD-B1A8-C24036F3F328}</Project>
+      <Name>KeyManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\RTSStructures\RTSStructures.csproj">
+      <Project>{BBF126D5-CA34-4786-A61D-0B426EC0677B}</Project>
+      <Name>RTSStructures</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\SubscriberDBHelper\SubscriberDBHelper.csproj">
+      <Project>{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}</Project>
+      <Name>SubscriberDBHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TIREPDInterfaces\TIREPDInterfaces.csproj">
+      <Project>{8D660BE3-CF1F-4831-822C-ABE38DEAD90C}</Project>
+      <Name>TIREPDInterfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

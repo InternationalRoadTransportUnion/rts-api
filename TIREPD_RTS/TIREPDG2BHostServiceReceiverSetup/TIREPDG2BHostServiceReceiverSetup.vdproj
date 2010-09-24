@@ -7,16 +7,76 @@
 "LanguageId" = "3:1033"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1033"
-"SccProjectName" = "8:SAK"
-"SccLocalPath" = "8:SAK"
-"SccAuxPath" = "8:SAK"
-"SccProvider" = "8:SAK"
+"SccProjectName" = "8:"
+"SccLocalPath" = "8:"
+"SccAuxPath" = "8:"
+"SccProvider" = "8:"
     "Hierarchy"
     {
         "Entry"
         {
-        "MsmKey" = "8:_9737297CB48D481B9662451F70361401"
+        "MsmKey" = "8:_43D37842B03760481C016154FE463FBB"
+        "OwnerKey" = "8:_C600F4AA2B8A3FC1A0074BFEBF210E90"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_43D37842B03760481C016154FE463FBB"
+        "OwnerKey" = "8:_DFC34C6625B1370FDABCB5B3F92A2180"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_43D37842B03760481C016154FE463FBB"
+        "OwnerKey" = "8:_6E85D004EB5058163CD354A8228323F3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_43D37842B03760481C016154FE463FBB"
+        "OwnerKey" = "8:_4477B4D08CB048389A3EC2F07FA2D79A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_43D37842B03760481C016154FE463FBB"
+        "OwnerKey" = "8:_BF5302B4D76E49768859593C1F6DA8D6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4477B4D08CB048389A3EC2F07FA2D79A"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4BC4F2EA25BF23CD57E34C4E6CC510B2"
+        "OwnerKey" = "8:_4477B4D08CB048389A3EC2F07FA2D79A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6B609A8C02D90294EF29A1D7BCD2C08D"
+        "OwnerKey" = "8:_4477B4D08CB048389A3EC2F07FA2D79A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6E85D004EB5058163CD354A8228323F3"
+        "OwnerKey" = "8:_4477B4D08CB048389A3EC2F07FA2D79A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8CBA2AF81A5B9C406E1E9DABB8BF50EF"
+        "OwnerKey" = "8:_BF5302B4D76E49768859593C1F6DA8D6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8CBA2AF81A5B9C406E1E9DABB8BF50EF"
+        "OwnerKey" = "8:_4477B4D08CB048389A3EC2F07FA2D79A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -27,8 +87,104 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_D6CF6AA5DA864F44BA569247C7BE4739"
+        "MsmKey" = "8:_C600F4AA2B8A3FC1A0074BFEBF210E90"
+        "OwnerKey" = "8:_BF5302B4D76E49768859593C1F6DA8D6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C600F4AA2B8A3FC1A0074BFEBF210E90"
+        "OwnerKey" = "8:_DFC34C6625B1370FDABCB5B3F92A2180"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C600F4AA2B8A3FC1A0074BFEBF210E90"
+        "OwnerKey" = "8:_4477B4D08CB048389A3EC2F07FA2D79A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D7A431D6D2F2456CAEEEF0D00C63B724"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DFC34C6625B1370FDABCB5B3F92A2180"
+        "OwnerKey" = "8:_4477B4D08CB048389A3EC2F07FA2D79A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FAAC58248142680FC7EABEF2D34CC2DA"
+        "OwnerKey" = "8:_4477B4D08CB048389A3EC2F07FA2D79A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FAAC58248142680FC7EABEF2D34CC2DA"
+        "OwnerKey" = "8:_6E85D004EB5058163CD354A8228323F3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_BF5302B4D76E49768859593C1F6DA8D6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_4477B4D08CB048389A3EC2F07FA2D79A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_DFC34C6625B1370FDABCB5B3F92A2180"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_6B609A8C02D90294EF29A1D7BCD2C08D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_6E85D004EB5058163CD354A8228323F3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_FAAC58248142680FC7EABEF2D34CC2DA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_4BC4F2EA25BF23CD57E34C4E6CC510B2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_C600F4AA2B8A3FC1A0074BFEBF210E90"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_43D37842B03760481C016154FE463FBB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_8CBA2AF81A5B9C406E1E9DABB8BF50EF"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -116,9 +272,195 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9737297CB48D481B9662451F70361401"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_43D37842B03760481C016154FE463FBB"
             {
-            "SourcePath" = "8:O:\\bin\\TIREPDG2B_Config.xml"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CommonInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_43D37842B03760481C016154FE463FBB"
+                    {
+                    "Name" = "8:CommonInterfaces.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:CommonInterfaces.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_8D1271CA345549EE88DDFA9E83B5E4F5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4BC4F2EA25BF23CD57E34C4E6CC510B2"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CryptEngine, Version=1.0.3919.27539, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_4BC4F2EA25BF23CD57E34C4E6CC510B2"
+                    {
+                    "Name" = "8:CryptEngine.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:CryptEngine.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_8D1271CA345549EE88DDFA9E83B5E4F5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6B609A8C02D90294EF29A1D7BCD2C08D"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:RTSStructures, Version=1.0.3919.27539, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_6B609A8C02D90294EF29A1D7BCD2C08D"
+                    {
+                    "Name" = "8:RTSStructures.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:RTSStructures.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_8D1271CA345549EE88DDFA9E83B5E4F5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6E85D004EB5058163CD354A8228323F3"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:KeyManager, Version=1.0.3919.27539, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_6E85D004EB5058163CD354A8228323F3"
+                    {
+                    "Name" = "8:KeyManager.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:KeyManager.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_8D1271CA345549EE88DDFA9E83B5E4F5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8CBA2AF81A5B9C406E1E9DABB8BF50EF"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:TIREPDInterfaces, Version=1.0.0.1, Culture=neutral, PublicKeyToken=850293efc386663c, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_8CBA2AF81A5B9C406E1E9DABB8BF50EF"
+                    {
+                    "Name" = "8:TIREPDInterfaces.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:TIREPDInterfaces.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_8D1271CA345549EE88DDFA9E83B5E4F5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C600F4AA2B8A3FC1A0074BFEBF210E90"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CommonComponents, Version=1.76.3919.27538, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_C600F4AA2B8A3FC1A0074BFEBF210E90"
+                    {
+                    "Name" = "8:CommonComponents.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:CommonComponents.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_8D1271CA345549EE88DDFA9E83B5E4F5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D7A431D6D2F2456CAEEEF0D00C63B724"
+            {
+            "SourcePath" = "8:..\\TIREDPG2BRecvrHostService\\TIREPDG2B_Config.xml"
             "TargetName" = "8:TIREPDG2B_Config.xml"
             "Tag" = "8:"
             "Folder" = "8:_8D1271CA345549EE88DDFA9E83B5E4F5"
@@ -136,15 +478,20 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D6CF6AA5DA864F44BA569247C7BE4739"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DFC34C6625B1370FDABCB5B3F92A2180"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:TIREPDG2BReceiver, Version=1.0.0.37811, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:SubscriberDBHelper, Version=1.0.3919.27539, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_DFC34C6625B1370FDABCB5B3F92A2180"
+                    {
+                    "Name" = "8:SubscriberDBHelper.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
-            "SourcePath" = "8:O:\\bin\\TIREPDG2BReceiver.dll"
+            "SourcePath" = "8:SubscriberDBHelper.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_8D1271CA345549EE88DDFA9E83B5E4F5"
@@ -159,7 +506,38 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FAAC58248142680FC7EABEF2D34CC2DA"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CryptoInterfaces, Version=1.0.3919.27538, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_FAAC58248142680FC7EABEF2D34CC2DA"
+                    {
+                    "Name" = "8:CryptoInterfaces.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:CryptoInterfaces.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_8D1271CA345549EE88DDFA9E83B5E4F5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
         }
@@ -736,9 +1114,37 @@
         }
         "ProjectOutput"
         {
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_4477B4D08CB048389A3EC2F07FA2D79A"
+            {
+            "SourcePath" = "8:..\\TIREPDG2BReceiver\\obj\\Release\\TIREPDG2BReceiver.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_8D1271CA345549EE88DDFA9E83B5E4F5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:Built"
+            "OutputProjectGuid" = "8:{BF83D7D8-AB24-435D-A6EF-66C4C79BDB33}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_BF5302B4D76E49768859593C1F6DA8D6"
             {
-            "SourcePath" = "8:..\\TIREDPG2BRecvrHostService\\obj\\Debug\\TIREDPG2BRecvrHostService.exe"
+            "SourcePath" = "8:..\\TIREDPG2BRecvrHostService\\obj\\Release\\TIREDPG2BRecvrHostService.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_8D1271CA345549EE88DDFA9E83B5E4F5"
