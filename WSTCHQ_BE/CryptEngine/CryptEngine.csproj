@@ -110,7 +110,8 @@
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>c:\WINDOWS\Microsoft.NET\Framework\v3.5\MSBuild.exe $(ProjectDir)..\..\CryptDLL_CLI\CryptDLL_CLI\CryptDll_CLI.vcproj "/p:Configuration=Debug|x64"
+copy $(ProjectDir)..\..\CryptDLL_CLI\CryptDll_CLI\x64\Debug\CryptDll_CLID.dll $(TargetDir)CryptDllD.dll
+</PostBuildEvent>
   </PropertyGroup>
 </Project>
