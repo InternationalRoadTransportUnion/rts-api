@@ -4,25 +4,19 @@
         <name>TCHQ_Processor</name>
     </assembly>
     <members>
-        <member name="T:IRU.RTS.WSTCHQ.CWQuerys">
+        <member name="T:IRU.RTS.WSTCHQ.TCHQ_QueryProcessor">
             <summary>
-            CWQuerys is called to retrieve the CW Carnet Data. This data is returned in a Decrypted Hash Table.
+            Summary description for TCHQ_QueryProcessor.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "F:IRU.RTS.WSTCHQ.CWQuerys.m_idbHelper" -->
-        <!-- Badly formed XML comment ignored for member "M:IRU.RTS.WSTCHQ.CWQuerys.#ctor(IRU.CommonInterfaces.IDBHelper)" -->
-        <member name="M:IRU.RTS.WSTCHQ.CWQuerys.GetTIRCarnetQueryData(System.String)">
+        <member name="M:IRU.RTS.WSTCHQ.TCHQ_QueryProcessor.UpdateResponseResult(System.Int64,System.DateTime,System.Boolean)">
             <summary>
-            CWQuerys GetTIRCarnetQueryData - This is call to get the TIR Carnet Data.
+            Updates the RESPONSE_RESULT and time columns. The WEb Service Layer will call back this method after calling 
+            processquery and checking if the client is still connected
             </summary>
-            <param name="sTIR_Carnet_No"></param>
-            <returns></returns>
-        </member>
-        <!-- Badly formed XML comment ignored for member "M:IRU.RTS.WSTCHQ.CWQuerys.DecrpytCuteWISEResult(System.Collections.Hashtable,System.String)" -->
-        <member name="T:IRU.RTS.WSTCHQ.TCHQ_RemotingHelper">
-            <summary>
-            Summary description for Class1.
-            </summary>
+            <param name="QueryId"> Query ID , key to row in log table </param>
+            <param name="dtResponseSent">Time in the WS layer</param>
+            <param name="ResponseResult">true=client was still connected, false= client was not connected </param>
         </member>
         <member name="T:IRU.RTS.WSTCHQ.TCHQ_DBHelper">
             <summary>
@@ -123,19 +117,25 @@
             <param name="dtResponseSent"></param>
             <param name="ResponseResult"></param>
         </member>
-        <member name="T:IRU.RTS.WSTCHQ.TCHQ_QueryProcessor">
+        <member name="T:IRU.RTS.WSTCHQ.TCHQ_RemotingHelper">
             <summary>
-            Summary description for TCHQ_QueryProcessor.
+            Summary description for Class1.
             </summary>
         </member>
-        <member name="M:IRU.RTS.WSTCHQ.TCHQ_QueryProcessor.UpdateResponseResult(System.Int64,System.DateTime,System.Boolean)">
+        <member name="T:IRU.RTS.WSTCHQ.CWQuerys">
             <summary>
-            Updates the RESPONSE_RESULT and time columns. The WEb Service Layer will call back this method after calling 
-            processquery and checking if the client is still connected
+            CWQuerys is called to retrieve the CW Carnet Data. This data is returned in a Decrypted Hash Table.
             </summary>
-            <param name="QueryId"> Query ID , key to row in log table </param>
-            <param name="dtResponseSent">Time in the WS layer</param>
-            <param name="ResponseResult">true=client was still connected, false= client was not connected </param>
         </member>
+        <!-- Badly formed XML comment ignored for member "F:IRU.RTS.WSTCHQ.CWQuerys.m_idbHelper" -->
+        <!-- Badly formed XML comment ignored for member "M:IRU.RTS.WSTCHQ.CWQuerys.#ctor(IRU.CommonInterfaces.IDBHelper)" -->
+        <member name="M:IRU.RTS.WSTCHQ.CWQuerys.GetTIRCarnetQueryData(System.String)">
+            <summary>
+            CWQuerys GetTIRCarnetQueryData - This is call to get the TIR Carnet Data.
+            </summary>
+            <param name="sTIR_Carnet_No"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:IRU.RTS.WSTCHQ.CWQuerys.DecrpytCuteWISEResult(System.Collections.Hashtable,System.String)" -->
     </members>
 </doc>
