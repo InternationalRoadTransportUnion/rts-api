@@ -1,0 +1,59 @@
+<Config>
+	<Section name="PluginManager">
+	<Plugin name="DBHelperFactory" objectType="IRU.RTS.CommonComponents.DBHelperFactory, CommonComponents" isRunnable="false" />
+		<Plugin name="WSSTLogListener" objectType="IRU.RTS.AlertProcessor.LogListener, LogListener"
+			isRunnable="true" /> 
+		<Plugin name="CopyToLogListener" objectType="IRU.RTS.AlertProcessor.LogListener, LogListener"
+			isRunnable="true" />
+		<Plugin name="EmailNotificationHandler" objectType="IRU.RTS.NotificationHandlers.EmailNotifier, NotificationHandlers"
+			isRunnable="false" />
+
+	<Plugin name="InternalPeriodicReportsListener" objectType="IRU.RTS.AlertProcessor.PeriodicReportsListener, PeriodicReportListener"
+			isRunnable="true" />
+			
+		<Plugin name="CopyToPeriodicReportsListener" objectType="IRU.RTS.AlertProcessor.PeriodicReportsListener, PeriodicReportListener"
+			isRunnable="true" />
+
+
+
+
+	</Section>
+	<Section name="EmailNotificationHandler">
+		<EmailSettings SMTPServer="192.168.0.254" SMTPPort="587" SMTPServerUserID="" SMTPServerPassword="" FromEmailAddress="administrator@btstest.com" TempFolderLocation ="o:\"  ToEmailAddress="administrator@btstest.com"></EmailSettings>
+	</Section>
+	<Section name="WSSTLogListener">
+		<ListenerSettings DBToMonitor="WSST_Internal_DB" IDBHelperFactory="DBHelperFactory" INotificationHandler="EmailNotificationHandler" PollDelay="5">
+</ListenerSettings >
+	</Section>
+	<Section name="CopyToLogListener">
+		<ListenerSettings DBToMonitor="WSST_CopyToDB" IDBHelperFactory="DBHelperFactory" INotificationHandler="EmailNotificationHandler" PollDelay="5">
+</ListenerSettings >
+</Section>
+
+	<Section name="InternalPeriodicReportsListener">
+		<ListenerSettings DBToMonitor="WSST_Internal_DB" IDBHelperFactory="DBHelperFactory" INotificationHandler="EmailNotificationHandler" PollDelay="5">
+</ListenerSettings>
+	</Section>
+
+	<Section name="CopyToPeriodicReportsListener">
+		<ListenerSettings DBToMonitor="WSST_CopyToDB" IDBHelperFactory="DBHelperFactory" INotificationHandler="EmailNotificationHandler" PollDelay="5">
+</ListenerSettings>
+	</Section>
+
+
+	
+
+	<Section name="DBHelperFactory">
+		<ConnectionStrings>
+			<DB Name="WSST_Internal_DB">
+				<!-- Base64 encoded -->
+				<ConnectionString>SERVER=192.168.12.34;DATABASE=WSST_Internal_DB;uid=rtsuser;pwd=rtsuser;connect timeout =200</ConnectionString>
+			</DB>
+			<DB Name="WSST_CopyToDB">
+				<!-- Base64 encoded -->
+				<ConnectionString>SERVER=192.168.12.34;DATABASE=WSST_COPY_TO_DB;uid=rtsuser;pwd=rtsuser;connect timeout =200</ConnectionString>
+			</DB>
+		</ConnectionStrings>
+	</Section>
+</Config>
+
