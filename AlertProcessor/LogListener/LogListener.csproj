@@ -4,10 +4,14 @@
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F15DD849-34A6-49E4-A3E6-7E7804317C02}</ProjectGuid>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ApplicationIcon>
@@ -78,12 +82,6 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommonComponents">
-      <Name>CommonComponents</Name>
-      <HintPath>O:\bin\CommonComponents.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="CommonInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -101,6 +99,16 @@
     <Compile Include="LogListener.cs">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WSTCHQ_BE\CommonComponents\CommonComponents.csproj">
+      <Project>{7786779D-6B79-4A51-A03E-2497DCFE2025}</Project>
+      <Name>CommonComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\CommonInterfaces\CommonInterfaces.csproj">
+      <Project>{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}</Project>
+      <Name>CommonInterfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

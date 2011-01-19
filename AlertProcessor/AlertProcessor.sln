@@ -8,28 +8,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationHandlers", "Not
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTSAlertHostService", "RTSAlertHostService\RTSAlertHostService.csproj", "{F8976E5B-6D51-4152-AC28-483749758FB6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WSSTCHQ_BE", "WSSTCHQ_BE", "{A120406E-0808-4BD1-852F-5488E04A495B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonComponents", "..\WSTCHQ_BE\CommonComponents\CommonComponents.csproj", "{7786779D-6B79-4A51-A03E-2497DCFE2025}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonInterfaces", "..\WSTCHQ_BE\CommonInterfaces\CommonInterfaces.csproj", "{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoInterfaces", "..\WSTCHQ_BE\CryptoInterfaces\CryptoInterfaces.csproj", "{06D4C54B-A25A-4684-BC6C-192CEB970170}"
+EndProject
 Global
-	GlobalSection(SourceCodeControl) = preSolution
-		SccNumberOfProjects = 5
-		SccLocalPath0 = .
-		CanCheckoutShared = false
-		SccProjectUniqueName1 = LogListener\\LogListener.csproj
-		SccLocalPath1 = .
-		CanCheckoutShared = false
-		SccProjectFilePathRelativizedFromConnection1 = LogListener\\
-		SccProjectUniqueName2 = PeriodicReportListener\\PeriodicReportListener.csproj
-		SccLocalPath2 = .
-		CanCheckoutShared = false
-		SccProjectFilePathRelativizedFromConnection2 = PeriodicReportListener\\
-		SccProjectUniqueName3 = NotificationHandlers\\NotificationHandlers.csproj
-		SccLocalPath3 = .
-		CanCheckoutShared = false
-		SccProjectFilePathRelativizedFromConnection3 = NotificationHandlers\\
-		SccProjectUniqueName4 = RTSAlertHostService\\RTSAlertHostService.csproj
-		SccLocalPath4 = .
-		CanCheckoutShared = false
-		SccProjectFilePathRelativizedFromConnection4 = RTSAlertHostService\\
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -51,8 +38,25 @@ Global
 		{F8976E5B-6D51-4152-AC28-483749758FB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8976E5B-6D51-4152-AC28-483749758FB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8976E5B-6D51-4152-AC28-483749758FB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7786779D-6B79-4A51-A03E-2497DCFE2025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7786779D-6B79-4A51-A03E-2497DCFE2025}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7786779D-6B79-4A51-A03E-2497DCFE2025}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7786779D-6B79-4A51-A03E-2497DCFE2025}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06D4C54B-A25A-4684-BC6C-192CEB970170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06D4C54B-A25A-4684-BC6C-192CEB970170}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06D4C54B-A25A-4684-BC6C-192CEB970170}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06D4C54B-A25A-4684-BC6C-192CEB970170}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7786779D-6B79-4A51-A03E-2497DCFE2025} = {A120406E-0808-4BD1-852F-5488E04A495B}
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB} = {A120406E-0808-4BD1-852F-5488E04A495B}
+		{06D4C54B-A25A-4684-BC6C-192CEB970170} = {A120406E-0808-4BD1-852F-5488E04A495B}
 	EndGlobalSection
 EndGlobal
