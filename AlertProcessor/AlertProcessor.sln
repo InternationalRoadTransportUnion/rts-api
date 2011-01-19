@@ -1,0 +1,58 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogListener", "LogListener\LogListener.csproj", "{F15DD849-34A6-49E4-A3E6-7E7804317C02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeriodicReportListener", "PeriodicReportListener\PeriodicReportListener.csproj", "{D9EDDA73-6026-41CF-8561-D4D24E6E8419}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationHandlers", "NotificationHandlers\NotificationHandlers.csproj", "{396FFE46-1FE7-494C-90D8-9DB4672A1CA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTSAlertHostService", "RTSAlertHostService\RTSAlertHostService.csproj", "{F8976E5B-6D51-4152-AC28-483749758FB6}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 5
+		SccLocalPath0 = .
+		CanCheckoutShared = false
+		SccProjectUniqueName1 = LogListener\\LogListener.csproj
+		SccLocalPath1 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection1 = LogListener\\
+		SccProjectUniqueName2 = PeriodicReportListener\\PeriodicReportListener.csproj
+		SccLocalPath2 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection2 = PeriodicReportListener\\
+		SccProjectUniqueName3 = NotificationHandlers\\NotificationHandlers.csproj
+		SccLocalPath3 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection3 = NotificationHandlers\\
+		SccProjectUniqueName4 = RTSAlertHostService\\RTSAlertHostService.csproj
+		SccLocalPath4 = .
+		CanCheckoutShared = false
+		SccProjectFilePathRelativizedFromConnection4 = RTSAlertHostService\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F15DD849-34A6-49E4-A3E6-7E7804317C02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F15DD849-34A6-49E4-A3E6-7E7804317C02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F15DD849-34A6-49E4-A3E6-7E7804317C02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F15DD849-34A6-49E4-A3E6-7E7804317C02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9EDDA73-6026-41CF-8561-D4D24E6E8419}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9EDDA73-6026-41CF-8561-D4D24E6E8419}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9EDDA73-6026-41CF-8561-D4D24E6E8419}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9EDDA73-6026-41CF-8561-D4D24E6E8419}.Release|Any CPU.Build.0 = Release|Any CPU
+		{396FFE46-1FE7-494C-90D8-9DB4672A1CA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{396FFE46-1FE7-494C-90D8-9DB4672A1CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{396FFE46-1FE7-494C-90D8-9DB4672A1CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{396FFE46-1FE7-494C-90D8-9DB4672A1CA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8976E5B-6D51-4152-AC28-483749758FB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8976E5B-6D51-4152-AC28-483749758FB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8976E5B-6D51-4152-AC28-483749758FB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8976E5B-6D51-4152-AC28-483749758FB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
