@@ -36,6 +36,7 @@ namespace IRU.RTS.TIREPD
 
         public static string[] m_MessageNameArr;
         public static System.Collections.Hashtable m_hsCountryISO_Subsc_Msg_Info = new System.Collections.Hashtable();
+        public static System.Collections.Hashtable m_hsCountryISO_WebPathList = new System.Collections.Hashtable();
 
         public B2G_RemotingHelper()
         {
@@ -107,6 +108,20 @@ namespace IRU.RTS.TIREPD
                         m_hsCountryISO_Subsc_Msg_Info.Add(strTemp[0], strTemp);
                     }
                 }
+                string COUNTRYISO_WebPath_List = XMLHelper.GetAttributeNode(parameterNode,
+    "COUNTRYISO_WebPath_List").InnerText;
+
+                string[] strCOUNTRYISO_WebPath_Listtemp = COUNTRYISO_WebPath_List.Split(';');
+
+                foreach (string str in strCOUNTRYISO_WebPath_Listtemp)
+                {
+                    if (str.Trim() != "")
+                    {
+                        string[] strTemp = str.Split(',');
+                        m_hsCountryISO_WebPathList.Add(strTemp[0], strTemp);
+                    }
+                }
+
             }
             catch (ApplicationException e)
             {
