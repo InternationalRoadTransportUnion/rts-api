@@ -58,6 +58,9 @@ namespace IRU.RTS.TIREPD
                 node1.InnerText = su.CertificateID;
 
                 TIREPDB2GSender.TIREPDB2GService.TIREPDB2GServiceClass uploadClass = new TIREPDB2GSender.TIREPDB2GService.TIREPDB2GServiceClass();
+
+                uploadClass.Url = ((string[])(B2G_RemotingHelper.m_hsCountryISO_WebPathList[ISOCode]))[1];
+
                 TIREPDB2GSender.TIREPDB2GService.TIREPDB2GUploadAck tr;
                 uploadClass.Timeout = 10000000;
                 tr = uploadClass.TIREPDB2G(su);
