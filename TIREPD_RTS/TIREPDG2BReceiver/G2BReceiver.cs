@@ -97,8 +97,17 @@ namespace IRU.RTS.TIREPD
                 g2bRequestLogData.encryptedSessionKeyIn = G2BUploadParams.ESessionKey;
                 g2bRequestLogData.senderTCPAddress = SenderIP;
                 g2bRequestLogData.rowCreationTime = DateTime.Now;
-
-                if (G2BUploadParams.SubscriberMessageID.Length > 20 || G2BUploadParams.SubscriberMessageID.Trim() == "")
+                if (G2BUploadParams.SubscriberMessageID != null)
+                {
+                    if (G2BUploadParams.SubscriberMessageID.Length > 255 || G2BUploadParams.SubscriberMessageID.Trim() == "")
+                    {
+                        g2bRequestLogData.senderQueryID = "";
+                        g2bRequestLogData.returnCode = 1214;//1222;
+                        g2bRequestLogData.lastStep = 5;
+                        continueChecking = false;
+                    }
+                }
+                else
                 {
                     g2bRequestLogData.senderQueryID = "";
                     g2bRequestLogData.returnCode = 1214;//1222;
@@ -110,6 +119,10 @@ namespace IRU.RTS.TIREPD
             catch(Exception ex)
             {
                 Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, ex.Message + " - " + ex.StackTrace);
+                g2bRequestLogData.senderQueryID = "";
+                g2bRequestLogData.returnCode = 1214;//1222;
+                g2bRequestLogData.lastStep = 5;
+                continueChecking = false;
             }
             
 
@@ -233,30 +246,59 @@ namespace IRU.RTS.TIREPD
 
             if (continueChecking)
             {
-                if (G2BUploadParams.MessageName.Length == 0)
+                if (G2BUploadParams.MessageName != null)
+                {
+                    if (G2BUploadParams.MessageName.Length == 0)
+                    {
+                        g2bRequestLogData.returnCode = 1216;//1214;
+                        g2bRequestLogData.lastStep = 5;
+                        continueChecking = false;
+                        //g2bRequestLogData.encryptedQueryParams = null;
+
+                    }
+                    else
+                    {
+                        continueChecking = false;
+                        foreach (string strMsgName in G2B_RemotingHelper.m_MessageNameArr)
+                        {
+                            if (G2BUploadParams.MessageName == strMsgName)
+                            {
+                                continueChecking = true;
+                                break;
+                            }
+                        }
+                        if (continueChecking == false)
+                        {
+                            g2bRequestLogData.returnCode = 1216;//1214;
+                            g2bRequestLogData.lastStep = 5;
+
+                        }
+                    }
+                }
+                else
                 {
                     g2bRequestLogData.returnCode = 1216;//1214;
                     g2bRequestLogData.lastStep = 5;
                     continueChecking = false;
-                    //g2bRequestLogData.encryptedQueryParams = null;
-
+                }
+            }
+            if (continueChecking)
+            {
+                if (G2BUploadParams.TimeSent == null)
+                {
+                    g2bRequestLogData.returnCode = 1217;
+                    g2bRequestLogData.lastStep = 5;
+                    continueChecking = false;
+                    //g2bRequestLogData.encryptedSessionKeyIn = null;
                 }
                 else
                 {
-                    continueChecking = false;
-                    foreach (string strMsgName in G2B_RemotingHelper.m_MessageNameArr)
+                    if (G2BUploadParams.TimeSent == DateTime.MinValue)
                     {
-                        if (G2BUploadParams.MessageName == strMsgName)
-                        {
-                            continueChecking = true;
-                            break;
-                        }
-                    }
-                    if (continueChecking == false)
-                    {
-                        g2bRequestLogData.returnCode = 1216;//1214;
+                        g2bRequestLogData.returnCode = 1217;
                         g2bRequestLogData.lastStep = 5;
-
+                        continueChecking = false;
+                        //g2bRequestLogData.encryptedSessionKeyIn = null;
                     }
                 }
             }
@@ -677,6 +719,9 @@ namespace IRU.RTS.TIREPD
 
             try
             {
+                XmlDocument xdoc = new XmlDocument();
+                xdoc.LoadXml(g2bRequestLogData.decryptedQueryParamXML);
+                CreateFileInFolder(xdoc, G2BUploadParams.SubscriberID);
                 g2bRequestLogData.rowCreationTime = DateTime.Now;
                 g2bRequestLogData.lastStep = 99;
                 g2bRequestLogData.returnCode = 2;
@@ -686,6 +731,8 @@ namespace IRU.RTS.TIREPD
                 g2bDbHelper.LogRequestS99(g2bRequestLogData);
                 g2bDbHelper.LogSequenceStep(g2bRequestLogData.G2B_QueryID, 99, 2, "", g2bRequestLogData.rowCreationTime);
                 dbHelperG2B.CommitTransaction();
+
+                
             }
             catch (Exception ex)
             {
@@ -720,6 +767,45 @@ namespace IRU.RTS.TIREPD
             //TIREPDG2BUploadAck ack1 = new TIREPDG2BUploadAck();
 
             //return ack1;
+        }
+
+        private bool CreateFileInFolder(XmlDocument xdoc, string subscriberId)
+        {
+            bool bFoundPath = false;
+            bFoundPath = G2B_RemotingHelper.m_hsCountryISO_INMessagePath.Contains(subscriberId);
+            Random rnd;
+            if (bFoundPath)
+            {
+                try
+                {
+                    DateTime dtNow = DateTime.Now;
+                    rnd = new Random(dtNow.Millisecond);
+                    string sPathName = subscriberId + "_"
+                    + dtNow.Year.ToString().PadLeft(4, '0')
+                    + dtNow.Month.ToString().PadLeft(2, '0')
+                    + dtNow.Day.ToString().PadLeft(2, '0')
+                    + "_"
+                    + dtNow.Hour.ToString().PadLeft(2, '0')
+                    + dtNow.Minute.ToString().PadLeft(2, '0')
+                    + dtNow.Second.ToString().PadLeft(2, '0')
+                    + dtNow.Millisecond.ToString().PadLeft(3, '0')
+                    + "_"
+                    + rnd.Next(99999).ToString().PadLeft(5, '0')
+                    + ".xml";
+
+                    xdoc.Save(((string[])G2B_RemotingHelper.m_hsCountryISO_INMessagePath[subscriberId])[2] + @"\\" + sPathName);
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

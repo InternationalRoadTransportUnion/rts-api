@@ -4,14 +4,16 @@
     <Plugin name="G2B_RemotingHelperSettings" objectType="IRU.RTS.TIREPD.G2B_RemotingHelper, TIREPDG2BReceiver"
 			isRunnable="true" />
   </Section>
-  <Section name="G2B_RemotingHelper">
+  <Section name="G2B_RemotingHelperSettings">
 
     <G2B_RemotingHelperSettings DBHelperFactoryPlugin="DBHelperFactory" G2BDBName="TIREPD_DB"
     SubscriberDBName="SubsciberDB" EncryptionKeysTable="EncryptionKeys"
     RemotingPort="9009" CryptoProviderEndpoint="tcp://localhost:9012/CryptoProvider.rem"
     RemotingEndPoint="TIREPDG2BReceiver.rem"
     SchemaFilesPath="C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\RTS_Builds\bin\schemas"
-    MessageNamesList="TIRPreDeclaration,TIRPreDeclarationReceived,TIRPreDeclarationAccepted,TIRPreDeclarationReleased,TIRPreDeclarationRejected">
+    MessageNamesList="TIRPreDeclarationRecieved,TIRPreDeclarationError,TIRPreDeclarationAccepted,TIRPreDeclarationRejected,TIRPreDeclarationControlNotification,TIRPreDeclarationGuaranteeProblem,TIRPreDeclarationReleased,TIRPreDeclarationTransitRefused,TIRPreDeclarationCancellationReply,TIRPreDeclarationAmendmentAccepted,TIRPreDeclarationAmendmentRejected"
+    CountryISO_INMessagePath="BY,BLR_TEST,C:\TEMP\BY\IN;MD,DEMOP,C:\TEMP\MD\IN"> 
+      <!--CountryIso,SUBSCRIBERID,INPath;CountryISO,SUBSCRIBERID,InPath -->
     </G2B_RemotingHelperSettings>
   </Section>
 
@@ -29,3 +31,5 @@
     </ConnectionStrings>
   </Section>
 </Config>
+
+

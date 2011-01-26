@@ -64,7 +64,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="TIREPDG2B_Config.xml" />
+    <Content Include="TIREPDG2B_Config.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="EPDG2BRcvrHostServiceInstaller.resx">

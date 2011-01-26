@@ -35,6 +35,8 @@ namespace IRU.RTS.TIREPD
         private string m_SchemaFilesPath;
 
         public static string[] m_MessageNameArr;
+        
+        public static System.Collections.Hashtable m_hsCountryISO_INMessagePath = new System.Collections.Hashtable();
 
         public G2B_RemotingHelper()
         {
@@ -66,14 +68,39 @@ namespace IRU.RTS.TIREPD
             XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
             QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE015.xsd";
             XMLValidationHelper.PopulateSchemas("http://www.iru.org/TIREPD", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE016.xsd";
+            //QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE016.xsd";
+            //XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
+            //QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE028.xsd";
+            //XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
+            //QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE029.xsd";
+            //XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
+            //QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE928.xsd";
+            //XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
+
+            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE928.xsd"; 
             XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE028.xsd";
+            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE917.xsd"; 
             XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE029.xsd";
+            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE028.xsd"; 
             XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE928.xsd";
+            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE016.xsd"; 
             XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
+            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE060.xsd"; 
+            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
+            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE055.xsd"; 
+            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
+            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE029.xsd"; 
+            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
+            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE051.xsd"; 
+            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
+            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE009.xsd"; 
+            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
+            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE004.xsd"; 
+            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
+            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE005.xsd"; 
+            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);				
+
+
         }
 
         public void Stop()
@@ -123,6 +150,20 @@ namespace IRU.RTS.TIREPD
                 "MessageNamesList").InnerText;
                 m_MessageNameArr = sMessageNamesList.Split(',');
 
+                string [] sCtryIsoInMessagePath = XMLHelper.GetAttributeNode(parameterNode,
+                "CountryISO_INMessagePath").InnerText.Split(';');
+                foreach (string str in sCtryIsoInMessagePath)
+                {
+                    if (str.Trim().Length > 0)
+                    {
+                        string[] ctryPath = str.Split(',');
+                        if (ctryPath.Length == 3)
+                        {
+                            m_hsCountryISO_INMessagePath.Add(ctryPath[1], ctryPath);
+                        }
+                    }
+                }
+
             }
             catch (ApplicationException e)
             {
@@ -149,8 +190,15 @@ namespace IRU.RTS.TIREPD
             //register channels here so that more channels can be registered in config in other plugins
             if (m_RemotingPort != 0)
             {
-                TcpChannel chan = new TcpChannel(m_RemotingPort);
-                ChannelServices.RegisterChannel(chan);
+                BinaryServerFormatterSinkProvider provider = new BinaryServerFormatterSinkProvider();
+                provider.TypeFilterLevel = System.Runtime.Serialization.Formatters.TypeFilterLevel.Full;
+                // Creating the IDictionary to set the port on the channel instance.
+                System.Collections.IDictionary props = new System.Collections.Hashtable();
+                props["port"] = m_RemotingPort;
+
+                //TcpChannel chan = new TcpChannel(m_RemotingPort);
+                TcpChannel chan = new TcpChannel(props, null, provider);
+                ChannelServices.RegisterChannel(chan,false);
             }
             else
             {
