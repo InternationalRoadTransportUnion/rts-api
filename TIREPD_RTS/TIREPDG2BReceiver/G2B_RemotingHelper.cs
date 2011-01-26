@@ -2,6 +2,7 @@ using System;
 using System.Runtime.Remoting;
 using IRU.RTS;
 using System.Xml;
+using System.IO;
 using IRU.CommonInterfaces;
 using IRU.RTS.CommonComponents;
 using System.Runtime.Remoting.Services;
@@ -53,54 +54,14 @@ namespace IRU.RTS.TIREPD
 
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(G2BReceiver), m_RemotingEndPoint, WellKnownObjectMode.SingleCall);
 
-//IE14    http://tempuri.org/XMLSchema.xsd
-//IE15    http://www.iru.org/TIREPD
-//IE29    http://tempuri.org/XMLSchema.xsd
-//IE16    http://tempuri.org/XMLSchema.xsd
-//IE28    http://tempuri.org/XMLSchema.xsd
-//IE928   ttp://tempuri.org/XMLSchema.xsd
-
-
-            //
-
             //Read the schema files into XMLHelper
-            string QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE014.xsd";
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE015.xsd";
-            XMLValidationHelper.PopulateSchemas("http://www.iru.org/TIREPD", QuerySchemaPath);
-            //QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE016.xsd";
-            //XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            //QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE028.xsd";
-            //XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            //QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE029.xsd";
-            //XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            //QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE928.xsd";
-            //XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-
-            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE928.xsd"; 
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE917.xsd"; 
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE028.xsd"; 
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE016.xsd"; 
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE060.xsd"; 
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE055.xsd"; 
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE029.xsd"; 
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE051.xsd"; 
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE009.xsd"; 
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE004.xsd"; 
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE005.xsd"; 
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);				
-
-
+            DirectoryInfo schemasDirInfo = new DirectoryInfo(m_SchemaFilesPath);
+            FileInfo[] schemaFiles = schemasDirInfo.GetFiles("*.xsd");
+            foreach (FileInfo schemaFile in schemaFiles)
+            {
+                XMLValidationHelper.PopulateSchemas(null, schemaFile.FullName);
+            }
+            
         }
 
         public void Stop()
