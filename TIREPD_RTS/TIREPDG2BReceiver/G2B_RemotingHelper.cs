@@ -64,10 +64,10 @@ namespace IRU.RTS.TIREPD
             //
 
             //Read the schema files into XMLHelper
-            string QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE014.xsd";
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE015.xsd";
-            XMLValidationHelper.PopulateSchemas("http://www.iru.org/TIREPD", QuerySchemaPath);
+            //string QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE014.xsd";
+            //XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
+            //QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE015.xsd";
+            //XMLValidationHelper.PopulateSchemas("http://www.iru.org/TIREPD", QuerySchemaPath);
             //QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE016.xsd";
             //XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
             //QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE028.xsd";
@@ -77,29 +77,58 @@ namespace IRU.RTS.TIREPD
             //QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE928.xsd";
             //XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
 
-            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE928.xsd"; 
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE917.xsd"; 
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE028.xsd"; 
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE016.xsd"; 
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE060.xsd"; 
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE055.xsd"; 
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE029.xsd"; 
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE051.xsd"; 
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE009.xsd"; 
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE004.xsd"; 
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
-            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE005.xsd"; 
-            XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);				
+            //QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE928.xsd"; 
+            //XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
+            //QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE917.xsd"; 
+            //XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
+            //QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE028.xsd"; 
+            //XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
+            //QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE016.xsd"; 
+            //XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
+            //QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE060.xsd"; 
+            //XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
+            //QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE055.xsd"; 
+            //XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
+            //QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE029.xsd"; 
+            //XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
+            //QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE051.xsd"; 
+            //XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
+            //QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE009.xsd"; 
+            //XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
+            //QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE004.xsd"; 
+            //XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
+            //QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE005.xsd"; 
+            //XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);				
 
+            // per Mail from Matthieu
+            // But we do not read all schemas in the folder only the ones specified below.
+            string QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE014.xsd";
+            EPDXMLValidationHelper.PopulateSchemas(null, QuerySchemaPath, "IE014");
+            QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE015.xsd";
+            EPDXMLValidationHelper.PopulateSchemas(null, QuerySchemaPath, "IE015");
+
+            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE928.xsd";
+            EPDXMLValidationHelper.PopulateSchemas(null, QuerySchemaPath, "IE928");
+            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE917.xsd";
+            EPDXMLValidationHelper.PopulateSchemas(null, QuerySchemaPath, "IE917");
+            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE028.xsd";
+            EPDXMLValidationHelper.PopulateSchemas(null, QuerySchemaPath, "IE028");
+            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE016.xsd";
+            EPDXMLValidationHelper.PopulateSchemas(null, QuerySchemaPath, "IE016");
+            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE060.xsd";
+            EPDXMLValidationHelper.PopulateSchemas(null, QuerySchemaPath, "IE060");
+            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE055.xsd";
+            EPDXMLValidationHelper.PopulateSchemas(null, QuerySchemaPath, "IE055");
+            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE029.xsd";
+            EPDXMLValidationHelper.PopulateSchemas(null, QuerySchemaPath, "IE029");
+            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE051.xsd";
+            EPDXMLValidationHelper.PopulateSchemas(null, QuerySchemaPath, "IE051");
+            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE009.xsd";
+            EPDXMLValidationHelper.PopulateSchemas(null, QuerySchemaPath, "IE009");
+            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE004.xsd";
+            EPDXMLValidationHelper.PopulateSchemas(null, QuerySchemaPath, "IE004");
+            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE005.xsd";
+            EPDXMLValidationHelper.PopulateSchemas(null, QuerySchemaPath, "IE005");				
 
         }
 
