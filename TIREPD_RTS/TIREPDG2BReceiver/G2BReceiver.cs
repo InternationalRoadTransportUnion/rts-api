@@ -59,6 +59,7 @@ namespace IRU.RTS.TIREPD
         {
             bool continueChecking = true;
             G2BLogRequestStruct g2bRequestLogData = new G2BLogRequestStruct();
+            g2bRequestLogData.returnCode = 1200; //if nothing else is sent.
             SubscriberDetailsStruct subscriberDetails = new SubscriberDetailsStruct();
             RSACryptoKey sessionDecrKey = null;
             IDBHelper dbHelperG2B = null;
@@ -659,7 +660,7 @@ namespace IRU.RTS.TIREPD
             string sStep25ResultDesc = "";
             try
             {
-                XMLValidationHelper xvh = new XMLValidationHelper();
+                EPDXMLValidationHelper xvh = new EPDXMLValidationHelper();
                 if (!xvh.ValidateXML(g2bRequestLogData.decryptedQueryParamXML, out g2bRequestLogData.invalidQueryXMLReason))
                 {
                     //iStep25Result = GetTCHQueryXMLErrorCode(g2bRequestLogData.invalidQueryXMLReason, out g2bRequestLogData.invalidQueryXMLReason);

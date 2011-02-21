@@ -178,7 +178,7 @@ Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 9
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://mt8808-02:8080/
+		SccTeamFoundationServer = http://192.168.12.204:8080/tfs
 		SccLocalPath0 = .
 		SccProjectUniqueName1 = TIREPDG2BReceiver\\TIREPDG2BReceiver.csproj
 		SccProjectName1 = TIREPDG2BReceiver
@@ -189,20 +189,20 @@ Global
 		SccProjectUniqueName3 = TIREDPG2BRecvrHostService\\TIREDPG2BRecvrHostService.csproj
 		SccProjectName3 = TIREDPG2BRecvrHostService
 		SccLocalPath3 = TIREDPG2BRecvrHostService
-		SccProjectUniqueName4 = TIREPDG2BHostServiceReceiverSetup\\TIREPDG2BHostServiceReceiverSetup.vdproj
-		SccProjectName4 = TIREPDG2BHostServiceReceiverSetup
-		SccLocalPath4 = TIREPDG2BHostServiceReceiverSetup
-		SccProjectUniqueName5 = TIREPDB2GSendHostService\\TIREPDB2GSendHostService.csproj
-		SccProjectName5 = TIREPDB2GSendHostService
-		SccLocalPath5 = TIREPDB2GSendHostService
-		SccProjectUniqueName6 = TIREPDB2GSender\\TIREPDB2GSender.csproj
-		SccProjectName6 = TIREPDB2GSender
-		SccLocalPath6 = TIREPDB2GSender
-		SccProjectUniqueName7 = TestSender\\TestSender.csproj
-		SccProjectName7 = TestSender
-		SccLocalPath7 = TestSender
-		SccProjectUniqueName8 = TIREPDB2GHostServiceSendSetup\\TIREPDB2GHostServiceSendSetup.vdproj
-		SccProjectName8 = TIREPDB2GHostServiceSendSetup
-		SccLocalPath8 = TIREPDB2GHostServiceSendSetup
+		SccProjectUniqueName4 = TIREPDB2GSendHostService\\TIREPDB2GSendHostService.csproj
+		SccProjectName4 = TIREPDB2GSendHostService
+		SccLocalPath4 = TIREPDB2GSendHostService
+		SccProjectUniqueName5 = TIREPDB2GSender\\TIREPDB2GSender.csproj
+		SccProjectName5 = TIREPDB2GSender
+		SccLocalPath5 = TIREPDB2GSender
+		SccProjectUniqueName6 = TestSender\\TestSender.csproj
+		SccProjectName6 = TestSender
+		SccLocalPath6 = TestSender
+		SccProjectUniqueName7 = TIREPDB2GHostServiceSendSetup\\TIREPDB2GHostServiceSendSetup.vdproj
+		SccProjectName7 = TIREPDB2GHostServiceSendSetup
+		SccLocalPath7 = TIREPDB2GHostServiceSendSetup
+		SccProjectUniqueName8 = TIREPDG2BHostServiceReceiverSetup\\TIREPDG2BHostServiceReceiverSetup.vdproj
+		SccProjectName8 = TIREPDG2BHostServiceReceiverSetup
+		SccLocalPath8 = TIREPDG2BHostServiceReceiverSetup
 	EndGlobalSection
 EndGlobal

@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EPDXMLValidationHelper.cs" />
     <Compile Include="G2BReceiver.cs" />
     <Compile Include="G2B_DBHelper.cs" />
     <Compile Include="G2B_RemotingHelper.cs" />
