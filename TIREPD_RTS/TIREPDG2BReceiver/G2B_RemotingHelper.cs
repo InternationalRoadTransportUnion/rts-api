@@ -69,8 +69,6 @@ namespace IRU.RTS.TIREPD
             //XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
             //QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE015.xsd";
             //XMLValidationHelper.PopulateSchemas("http://www.iru.org/TIREPD", QuerySchemaPath);
-                XMLValidationHelper.PopulateSchemas(null, schemaFile.FullName);
-            }
             //QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE016.xsd";
             //XMLValidationHelper.PopulateSchemas("http://tempuri.org/XMLSchema.xsd", QuerySchemaPath);
             //QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE028.xsd";
