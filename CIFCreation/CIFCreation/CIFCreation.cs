@@ -434,7 +434,16 @@ namespace CIFCreation
                 }
 
 
-               
+                //RequestReplyType
+                tempo = "";
+                j = myRecord.IndexOf("RequestReplyType=\"");
+                if (j >= 0)
+                {
+                    tempo = myRecord.Substring(j + 18);
+                    x = tempo.IndexOf("\"");
+                    cifs.REQUESTREPLYTYPE = tempo.Substring(0, x);
+                }
+
 
                 
                 return cifs;
