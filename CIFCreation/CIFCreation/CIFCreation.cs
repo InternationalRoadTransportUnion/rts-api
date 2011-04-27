@@ -33,7 +33,7 @@ namespace CIFCreation
             XmlTextReader xr = null;
             string Head1,ext;
             ext = "";
-            byte[] line = Encoding.ASCII.GetBytes("");
+            byte[] line = Encoding.GetEncoding(1252).GetBytes("");
             XmlNodeList xl1;
             xl1 = null;
            #endregion
@@ -90,20 +90,20 @@ namespace CIFCreation
                         {
                             FileICC = cifs1.ICC;
                             Head1 = "UNH" + cifs1.ICC + "007" + cifs1.ICC + ":+:Web Services:+:ASCII:+:First Record. TIR DATA Sent by " + cifs1.SUBSCRIBERID + " CIF_01=" + FileName + ":+:UNT" + Environment.NewLine;
-                            line = Encoding.ASCII.GetBytes(Head1);
+                            line = Encoding.GetEncoding(1252).GetBytes(Head1);
                             fs1.Write(line, 0, line.Length);
                             Head1 = "UNH" + cifs1.ICC + "007" + cifs1.ICC + ":+:UNT" + Environment.NewLine;
-                            line = Encoding.ASCII.GetBytes(Head1);
+                            line = Encoding.GetEncoding(1252).GetBytes(Head1);
                             fs1.Write(line, 0, line.Length);
                             fs1.Write(line, 0, line.Length);
                         }
                         Head1 = "UNH" + cifs1.ICC + "007" + cifs1.ICC + ":+:TNO" + cifs1.TNO + "TE*:+:DCL" + cifs1.DCL + "DE*:+:CNL" + cifs1.CNL + "CE*:+:COF" + cifs1.COF + "CE*:+:DDI" + cifs1.DDI + "DE*:+:RND" + cifs1.RND + "RE*:+:PFD" + cifs1.PFD + "PE*:+:CWR" + cifs1.CWR + "CE*:+:COM" + cifs1.COM + "CE*:+:PIC" + cifs1.PIC + "PE*:+:UPG" + cifs1.UPG + "UE*:+:RBC" + cifs1.RBC + "RE*:+:VPN" + cifs1.VPN + "VE*:+:UNT" + Environment.NewLine;
-                        line = Encoding.ASCII.GetBytes(Head1);
+                        line = Encoding.GetEncoding(1252).GetBytes(Head1);
                         fs1.Write(line, 0, line.Length);
                         if (k ==xl1.Count - 1)
                         {
                             Head1 = "UNH" + cifs1.ICC + "007" + cifs1.ICC + ":+:End of File :+:EOF*+*+*+*+*+::::::+:UNT" + Environment.NewLine;
-                            line = Encoding.ASCII.GetBytes(Head1);
+                            line = Encoding.GetEncoding(1252).GetBytes(Head1);
                             fs1.Write(line, 0, line.Length);
 
                             fs1.Close();
@@ -138,10 +138,10 @@ namespace CIFCreation
                         {
                             FileICC = cifs1.ICC;
                             Head1 = "UNH" + cifs1.ICC + "007" + cifs1.ICC + ":+:Web Services:+:ASCII:+:First Record. TIR DATA Sent by " + cifs1.SUBSCRIBERID + " CIF_03=" + FileName + ":+:UNT" + Environment.NewLine;
-                            line = Encoding.ASCII.GetBytes(Head1);
+                            line = Encoding.GetEncoding(1252).GetBytes(Head1);
                             fs1.Write(line, 0, line.Length);
                             Head1 = "UNH" + cifs1.ICC + "007" + cifs1.ICC + ":+:UNT" + Environment.NewLine;
-                            line = Encoding.ASCII.GetBytes(Head1);
+                            line = Encoding.GetEncoding(1252).GetBytes(Head1);
                             fs1.Write(line, 0, line.Length);
                             fs1.Write(line, 0, line.Length);
                         }
@@ -158,13 +158,13 @@ namespace CIFCreation
                             cifs1.UPG = "Z"; //The customs say they have no information regarding this termination.
                         }
                         Head1 = "UNH" + cifs1.ICC + "007" + cifs1.ICC + ":+:TNO" + cifs1.TNO + "TE*:+:DCL" + cifs1.DCL + "DE*:+:CNL" + cifs1.CNL + "CE*:+:COF" + cifs1.COF + "CE*:+:DDI" + cifs1.DDI + "DE*:+:RND" + cifs1.RND + "RE*:+:PFD" + cifs1.PFD + "PE*:+:CWR" + cifs1.CWR + "CE*:+:COM" + cifs1.COM + "CE*:+:PIC" + cifs1.PIC + "PE*:+:UPG" + cifs1.UPG + "UE*:+:RBC" + cifs1.RBC + "RE*:+:VPN" + cifs1.VPN + "VE*:+:RID" + cifs1.REQUESTID + "RE*:+:UNT" + Environment.NewLine;
-                        line = Encoding.ASCII.GetBytes(Head1);
+                        line = Encoding.GetEncoding(1252).GetBytes(Head1);
                      
                         fs1.Write(line, 0, line.Length);
                         if (k == xl1.Count - 1)
                         {
                             Head1 = "UNH" + cifs1.ICC + "007" + cifs1.ICC + ":+:End of File :+:EOF*+*+*+*+*+::::::+:UNT" + Environment.NewLine;
-                            line = Encoding.ASCII.GetBytes(Head1);
+                            line = Encoding.GetEncoding(1252).GetBytes(Head1);
                             fs1.Write(line, 0, line.Length);
                             fs1.Close();
                         }
