@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Web;
 using System.Web.Services;
+using System.IO;
 using IRU.RTS;
 
 namespace SAFETIRUpload
@@ -48,6 +49,70 @@ namespace SAFETIRUpload
 		
 		#endregion
 
+
+        private void SniffRequest(string webmethod)
+        {
+            if (HttpContext.Current != null)
+            {
+                string sFileName = "";
+                try
+                {
+                    string sLogPath = System.Configuration.ConfigurationSettings.AppSettings["WSSTLogPath"] ?? String.Empty;
+                    if ((sLogPath.Length == 0)  || (!Directory.Exists(sLogPath)))
+                        return;
+                    string sLogIP = System.Configuration.ConfigurationSettings.AppSettings["WSSTLogIP"] ?? String.Empty;
+                    if (sLogIP.Length == 0)
+                        return;
+                    string[] sLogIPs = sLogIP.Split(new char[] { ';', ',' }, StringSplitOptions.RemoveEmptyEntries);
+                    bool bSniff = false;
+                    string sIPClient = HttpContext.Current.Request.UserHostAddress.ToString();
+                    foreach (string sIP in sLogIPs)
+                    {
+                        if (sIPClient.StartsWith(sIP.Trim()))
+                        {
+                            bSniff = true;
+                            break;
+                        }
+                    }
+
+                    if (bSniff)
+                    {
+                        sFileName = String.Format("WS_{0}_{1}_{2}_{3}.log", webmethod, sIPClient, DateTime.UtcNow.ToString("yyyyMMdd-hhmmssfff"), System.Threading.Thread.CurrentThread.ManagedThreadId.ToString("000000"));
+                        sFileName = Path.Combine(sLogPath, sFileName);
+                        using (Stream smReq = new FileStream(sFileName, FileMode.Create, FileAccess.Write, FileShare.ReadWrite))
+                        using (StreamWriter swReq = new StreamWriter(smReq))
+                        {
+                            foreach (string sKey in HttpContext.Current.Request.Headers.Keys)
+                            {
+                                swReq.Write(sKey + ": ");
+                                string sVals = "";
+                                foreach (string sVal in HttpContext.Current.Request.Headers.GetValues(sKey))
+                                {
+                                    sVals += sVal + "; ";
+                                }
+                                if (sVals.EndsWith("; "))
+                                    sVals = sVals.Substring(0, sVals.Length - 2);
+                                swReq.WriteLine(sVals);
+                            }
+                            swReq.WriteLine();
+                            swReq.Flush();
+                            long ilPos = HttpContext.Current.Request.InputStream.Position;
+                            HttpContext.Current.Request.InputStream.Position = 0;
+                            byte[] abBuffer = new byte[HttpContext.Current.Request.InputStream.Length];
+                            HttpContext.Current.Request.InputStream.Read(abBuffer, 0, abBuffer.Length);
+                            HttpContext.Current.Request.InputStream.Position = ilPos;
+                            smReq.Write(abBuffer, 0, abBuffer.Length);
+                            smReq.Flush();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceError, "Exception in WS " + webmethod + ": " + ex.Message + "\r\n" + ex.StackTrace);
+                }
+            }
+        }
+
 		// WEB SERVICE EXAMPLE
 		// The HelloWorld() example service returns the string Hello World
 		// To build, uncomment the following lines then save and build the project
@@ -62,6 +127,8 @@ namespace SAFETIRUpload
 				IWSSTFileReceiver iFileReceiver =  (IWSSTFileReceiver)Activator.GetObject(typeof(IRU.RTS.IWSSTFileReceiver), System.Configuration.ConfigurationSettings.AppSettings["WSSTFileReceiverEndPoint"]);
 				
 				string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
+
+                SniffRequest("WSST");
 
 				safeUploadAck = iFileReceiver.ProcessReceivedFile(su , senderIP);
 			}
@@ -90,6 +157,8 @@ namespace SAFETIRUpload
                 IWSREFileReceiver iFileReceiver = (IWSREFileReceiver)Activator.GetObject(typeof(IRU.RTS.IWSREFileReceiver), System.Configuration.ConfigurationSettings.AppSettings["WSREFileReceiverEndPoint"]);
 
                 string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
+
+                SniffRequest("WSRE");
 
                 reconcileReplyAck = iFileReceiver.ProcessReceivedFile(su, senderIP);
             }
