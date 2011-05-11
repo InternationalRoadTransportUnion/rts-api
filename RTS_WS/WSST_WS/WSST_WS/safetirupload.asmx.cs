@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Web;
 using System.Web.Services;
+using System.Net;
 using System.IO;
 using IRU.RTS;
 
@@ -68,7 +69,7 @@ namespace SAFETIRUpload
                     string sIPClient = HttpContext.Current.Request.UserHostAddress.ToString();
                     foreach (string sIP in sLogIPs)
                     {
-                        if (sIPClient.StartsWith(sIP.Trim()))
+                        if (sIPClient.StartsWith(sIP.Trim()) || sIP.StartsWith("all", StringComparison.InvariantCultureIgnoreCase))
                         {
                             bSniff = true;
                             break;
@@ -77,11 +78,12 @@ namespace SAFETIRUpload
 
                     if (bSniff)
                     {
-                        sFileName = String.Format("WS_{0}_{1}_{2}_{3}.log", webmethod, sIPClient, DateTime.UtcNow.ToString("yyyyMMdd-hhmmssfff"), System.Threading.Thread.CurrentThread.ManagedThreadId.ToString("000000"));
+                        sFileName = String.Format("WS_{0}_{1}_{2}_{3}.log", webmethod, sIPClient, DateTime.UtcNow.ToString("yyyyMMdd-HHmmssfff"), System.Threading.Thread.CurrentThread.ManagedThreadId.ToString("000000"));
                         sFileName = Path.Combine(sLogPath, sFileName);
                         using (Stream smReq = new FileStream(sFileName, FileMode.Create, FileAccess.Write, FileShare.ReadWrite))
                         using (StreamWriter swReq = new StreamWriter(smReq))
                         {
+                            swReq.WriteLine(HttpContext.Current.Request.HttpMethod + " " + HttpContext.Current.Request.Url.ToString() + " " + (HttpContext.Current.Request.ServerVariables["SERVER_PROTOCOL"] ?? String.Empty).ToString());
                             foreach (string sKey in HttpContext.Current.Request.Headers.Keys)
                             {
                                 swReq.Write(sKey + ": ");
