@@ -571,8 +571,10 @@ namespace IRU.RTS.WSWSRQ
 				}
                 if (continueChecking)
                 {
+                    /*
                     Regex r = new Regex(@"\s+");
                     sBody = r.Replace(sBody.Trim(), " ");
+                     */
                     byte[] baBody = System.Text.Encoding.Unicode.GetBytes(sBody);
 
                     if (!m_iCryptoOperations.VerifyHash(baBody, subscriberDetails.HashAlgo, null, baHash))
