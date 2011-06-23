@@ -37,6 +37,7 @@ namespace IRU.RTS.TIREPD
         public static string[] m_MessageNameArr;
         public static System.Collections.Hashtable m_hsCountryISO_Subsc_Msg_Info = new System.Collections.Hashtable();
         public static System.Collections.Hashtable m_hsCountryISO_WebPathList = new System.Collections.Hashtable();
+        public static System.Collections.Hashtable m_hsCountryISO_AdditionalParams = new System.Collections.Hashtable();
 
         public B2G_RemotingHelper()
         {
@@ -122,6 +123,28 @@ namespace IRU.RTS.TIREPD
                     }
                 }
 
+                #region Additional Country Parameters
+                string sCountryISO_AdditionalParams = XMLHelper.GetAttributeNode(parameterNode, "CountryISO_AdditionalParams").InnerText;
+
+                string[] asCountryISO_AddParams = sCountryISO_AdditionalParams.Split(';');
+
+                foreach (string sParams in asCountryISO_AddParams)
+                {
+                    System.Collections.Specialized.NameValueCollection nvcParams = new System.Collections.Specialized.NameValueCollection();
+
+                    string[] asTemp = sParams.Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (string sParamVal in asTemp)
+                    {
+                        string[] asParamVal = sParamVal.Split(new char[] {'='}, 2);
+                        if (asParamVal.Length ==  2)
+                        {
+                            nvcParams.Add(asParamVal[0], asParamVal[1]);
+                        }
+                    }
+
+                    m_hsCountryISO_AdditionalParams.Add(asTemp[0], nvcParams);
+                }
+                #endregion
             }
             catch (ApplicationException e)
             {
@@ -160,6 +183,19 @@ namespace IRU.RTS.TIREPD
             }
 
         }
+
+        #region Additional Country Parameters
+        public static string GetAdditionalParameterValue(string countryISOCode2, string parameterName)
+        {
+            if (m_hsCountryISO_AdditionalParams[countryISOCode2] is System.Collections.Specialized.NameValueCollection)
+            {
+                System.Collections.Specialized.NameValueCollection nvcParams = (System.Collections.Specialized.NameValueCollection)m_hsCountryISO_AdditionalParams[countryISOCode2];
+                return nvcParams[parameterName];
+            }
+
+            return null;
+        }
+        #endregion
 
         public void Unload()
         {
