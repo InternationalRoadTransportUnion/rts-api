@@ -22,7 +22,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>o:\bin\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -96,6 +96,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\WSTCHQ_BE\CertificateManager\CertificateManager.csproj">
+      <Project>{AA777D7C-D511-4409-A052-833CC196B924}</Project>
+      <Name>CertificateManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\WSTCHQ_BE\CommonComponents\CommonComponents.csproj">
       <Project>{7786779D-6B79-4A51-A03E-2497DCFE2025}</Project>
       <Name>CommonComponents</Name>

@@ -60,19 +60,51 @@ namespace IRU.RTS.TIREPD
                 TIREPDB2GSender.TIREPDB2GService.TIREPDB2GServiceClass uploadClass = new TIREPDB2GSender.TIREPDB2GService.TIREPDB2GServiceClass();
 
                 uploadClass.Url = ((string[])(B2G_RemotingHelper.m_hsCountryISO_WebPathList[ISOCode]))[1];
+                
+                #region Additional Country Parameters: SSL authentication + SSL server certificate policy
+                string sSSLAuthCertThumbprint = B2G_RemotingHelper.GetAdditionalParameterValue(ISOCode, "SSLAuthCertThumbprint");
+                string sSSLAcceptInvalidCert = B2G_RemotingHelper.GetAdditionalParameterValue(ISOCode, "SSLAcceptInvalidCert");
+                bool bSSLAcceptInvalidCert = true;
+                bSSLAcceptInvalidCert &= bool.TryParse(sSSLAcceptInvalidCert, out bSSLAcceptInvalidCert);
+                System.Security.Cryptography.X509Certificates.X509Certificate oSSLAuthCert = IRU.RTS.CertificateManager.CertificateUtil.GetX509CertificateFromLocalMachine(sSSLAuthCertThumbprint);
+                #endregion
 
-                TIREPDB2GSender.TIREPDB2GService.TIREPDB2GUploadAck tr;
-                uploadClass.Timeout = 10000000;
-                tr = uploadClass.TIREPDB2G(su);
+                if (bSSLAcceptInvalidCert)
+                {
+                    // force the validation of any X509 certificate
+                    System.Net.ServicePointManager.ServerCertificateValidationCallback += ValidateAnySSLCall;
+                }
 
-                node1 = xDocResponse.SelectSingleNode("EPDRTSReponse/Response/HostId");
-                node1.InnerText = tr.HostID;
+                try
+                {
+                    if (oSSLAuthCert != null)
+                    {
+                        // add a X509 client certificate for authentication with SSL 3.0
+                        uploadClass.ClientCertificates.Clear();
+                        uploadClass.ClientCertificates.Add(oSSLAuthCert);
+                    }                
 
-                node1 = xDocResponse.SelectSingleNode("EPDRTSReponse/Response/ResponseCode");
-                node1.InnerText = tr.ReturnCode.ToString();
+                    TIREPDB2GSender.TIREPDB2GService.TIREPDB2GUploadAck tr;
+                    uploadClass.Timeout = 10000000;
+                    tr = uploadClass.TIREPDB2G(su);
 
-                node1 = xDocResponse.SelectSingleNode("EPDRTSReponse/Response/SubscriberMessageId");
-                node1.InnerText = tr.SubscriberMessageID;
+                    node1 = xDocResponse.SelectSingleNode("EPDRTSReponse/Response/HostId");
+                    node1.InnerText = tr.HostID;
+
+                    node1 = xDocResponse.SelectSingleNode("EPDRTSReponse/Response/ResponseCode");
+                    node1.InnerText = tr.ReturnCode.ToString();
+
+                    node1 = xDocResponse.SelectSingleNode("EPDRTSReponse/Response/SubscriberMessageId");
+                    node1.InnerText = tr.SubscriberMessageID;
+                }
+                finally
+                {
+                    if (bSSLAcceptInvalidCert)
+                    {
+                        // remove the forced validation of any X509 certificate
+                        System.Net.ServicePointManager.ServerCertificateValidationCallback -= ValidateAnySSLCall;
+                    }
+                }
 
             }
             catch(Exception ex) 
@@ -86,6 +118,7 @@ namespace IRU.RTS.TIREPD
              sDocResponse = xDocResponse.OuterXml;
             return true;
         }
+
         public TIREPDB2GSender.TIREPDB2GService.TIREPDB2GUploadParams PrepareMessage(string sXmlIE15, string LRN, string sISO,ref string sMessage)
         {
             int iResult = 1;
@@ -163,6 +196,15 @@ namespace IRU.RTS.TIREPD
             }
 
             return su;
+        }
+
+        private static bool ValidateAnySSLCall(
+            object sender,
+            System.Security.Cryptography.X509Certificates.X509Certificate certificate,
+            System.Security.Cryptography.X509Certificates.X509Chain chain,
+            System.Net.Security.SslPolicyErrors sslPolicyErrors)
+        {
+            return true;
         }
     }
 }
