@@ -10,6 +10,7 @@ using System.Text;
 using Microsoft.Web.Services2.Security.X509 ;
 using System.Collections;
 using System.Threading;
+using System.Globalization;
 
 namespace IRU.RTS.Crypto
 {
@@ -83,8 +84,8 @@ namespace IRU.RTS.Crypto
 			CertPath= CertFolder +  "\\" + Subscriber + dtGenerated.ToString("yyyyMMddHHmmss")+".cer";
 			
 			//-len is important as on win2k it gens 512 bit keys 
-			CommandLine= " -r -pe -len 1024 -sk  " + keyContainer   +   " -n \"CN= IRU.org RTS, OU=Subscriber :" + Subscriber + " , O=IRU.org, E=" + EMail + "\"  -sr localmachine -ss IRUTEST -b "+StartDate.ToString("MM/dd/yyyy")  +" -e " + ExpiryDate.ToString("MM/dd/yyyy") + "  "  + CertPath; 
-            //CommandLine = " -r -pe -len 1024 -sk  " + keyContainer + " -n \"CN= IRU.org RTS, OU=Subscriber :" + Subscriber + " , O=IRU.org, E=" + EMail + "\"  -sr localmachine -ss IRUTEST -b " + StartDate.ToString("dd/MM/yyyy") + " -e " + ExpiryDate.ToString("dd/MM/yyyy") + "  " + CertPath; 
+            CultureInfo ciUS = new CultureInfo("en-US");
+			CommandLine = " -r -pe -len 1024 -n \"CN= IRU.org RTS, OU=Subscriber :" + Subscriber + " , O=IRU.org, E=" + EMail + "\"  -sr localmachine -ss IRUTEST -b "+StartDate.ToString("MM/dd/yyyy", ciUS)  +" -e " + ExpiryDate.ToString("MM/dd/yyyy", ciUS) + "  "  + CertPath; 
 
 			//overwrite the cert if already exists
 
