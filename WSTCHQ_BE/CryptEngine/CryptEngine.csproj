@@ -102,16 +102,18 @@
     <Compile Include="IRU_EncryptDecrypt.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="IRU_InvokeCryptDll.cs">
-      <SubType>Code</SubType>
-    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\IRU.Common.Crypto.Cipher\Cipher\IRU.Common.Crypto.Cipher.csproj">
+      <Project>{ED817754-244C-4FCD-B257-3803D29CF3AE}</Project>
+      <Name>IRU.Common.Crypto.Cipher</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <PostBuildEvent>c:\WINDOWS\Microsoft.NET\Framework\v3.5\MSBuild.exe $(ProjectDir)..\..\CryptDLL_CLI\CryptDLL_CLI\CryptDll_CLI.vcproj "/p:Configuration=Debug|x64"
-copy $(ProjectDir)..\..\CryptDLL_CLI\CryptDll_CLI\x64\Debug\CryptDll_CLID.dll $(TargetDir)CryptDllD.dll
-</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>
