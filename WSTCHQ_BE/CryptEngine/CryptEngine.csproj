@@ -82,6 +82,10 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IRU.Common.Crypto.Cipher, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\IRU.Common.Crypto.Cipher.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -102,12 +106,6 @@
     <Compile Include="IRU_EncryptDecrypt.cs">
       <SubType>Code</SubType>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\IRU.Common.Crypto.Cipher\Cipher\IRU.Common.Crypto.Cipher.csproj">
-      <Project>{ED817754-244C-4FCD-B257-3803D29CF3AE}</Project>
-      <Name>IRU.Common.Crypto.Cipher</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

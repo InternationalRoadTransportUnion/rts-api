@@ -102,12 +102,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertificateManager", "..\WS
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.Debug = "False"
 	EndProjectSection
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRU.Common.Crypto.Cipher", "..\IRU.Common.Crypto.Cipher\Cipher\IRU.Common.Crypto.Cipher.csproj", "{ED817754-244C-4FCD-B257-3803D29CF3AE}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -178,10 +172,6 @@ Global
 		{AA777D7C-D511-4409-A052-833CC196B924}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA777D7C-D511-4409-A052-833CC196B924}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA777D7C-D511-4409-A052-833CC196B924}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ED817754-244C-4FCD-B257-3803D29CF3AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ED817754-244C-4FCD-B257-3803D29CF3AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ED817754-244C-4FCD-B257-3803D29CF3AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ED817754-244C-4FCD-B257-3803D29CF3AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -195,36 +185,5 @@ Global
 		{BBF126D5-CA34-4786-A61D-0B426EC0677B} = {7A4B90C4-B295-41B4-9A8E-B77084BB4179}
 		{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59} = {7A4B90C4-B295-41B4-9A8E-B77084BB4179}
 		{AA777D7C-D511-4409-A052-833CC196B924} = {7A4B90C4-B295-41B4-9A8E-B77084BB4179}
-		{ED817754-244C-4FCD-B257-3803D29CF3AE} = {7A4B90C4-B295-41B4-9A8E-B77084BB4179}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 9
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://192.168.12.204:8080/tfs
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = TIREPDG2BReceiver\\TIREPDG2BReceiver.csproj
-		SccProjectName1 = TIREPDG2BReceiver
-		SccLocalPath1 = TIREPDG2BReceiver
-		SccProjectUniqueName2 = TIREPDInterfaces\\TIREPDInterfaces.csproj
-		SccProjectName2 = TIREPDInterfaces
-		SccLocalPath2 = TIREPDInterfaces
-		SccProjectUniqueName3 = TIREDPG2BRecvrHostService\\TIREDPG2BRecvrHostService.csproj
-		SccProjectName3 = TIREDPG2BRecvrHostService
-		SccLocalPath3 = TIREDPG2BRecvrHostService
-		SccProjectUniqueName4 = TIREPDB2GSendHostService\\TIREPDB2GSendHostService.csproj
-		SccProjectName4 = TIREPDB2GSendHostService
-		SccLocalPath4 = TIREPDB2GSendHostService
-		SccProjectUniqueName5 = TIREPDB2GSender\\TIREPDB2GSender.csproj
-		SccProjectName5 = TIREPDB2GSender
-		SccLocalPath5 = TIREPDB2GSender
-		SccProjectUniqueName6 = TestSender\\TestSender.csproj
-		SccProjectName6 = TestSender
-		SccLocalPath6 = TestSender
-		SccProjectUniqueName7 = TIREPDB2GHostServiceSendSetup\\TIREPDB2GHostServiceSendSetup.vdproj
-		SccProjectName7 = TIREPDB2GHostServiceSendSetup
-		SccLocalPath7 = TIREPDB2GHostServiceSendSetup
-		SccProjectUniqueName8 = TIREPDG2BHostServiceReceiverSetup\\TIREPDG2BHostServiceReceiverSetup.vdproj
-		SccProjectName8 = TIREPDG2BHostServiceReceiverSetup
-		SccLocalPath8 = TIREPDG2BHostServiceReceiverSetup
 	EndGlobalSection
 EndGlobal
