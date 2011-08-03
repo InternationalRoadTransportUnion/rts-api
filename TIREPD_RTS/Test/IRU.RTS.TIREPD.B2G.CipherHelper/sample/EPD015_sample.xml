@@ -1,0 +1,90 @@
+<EPD015>
+  <HEAHEA>
+    <RefNumHEA4>XF66182959P010029</RefNumHEA4>
+    <TypOfDecHEA24>TIR</TypOfDecHEA24>
+    <CouOfDesCodHEA30>BE</CouOfDesCodHEA30>
+    <CouOfDisCodHEA55>BY</CouOfDisCodHEA55>
+    <InlTraModHEA75>3</InlTraModHEA75>
+    <TraModAtBorHEA76>3</TraModAtBorHEA76>
+    <IdeOfMeaOfTraAtDHEA78>AAA123456</IdeOfMeaOfTraAtDHEA78>
+    <IdeOfMeaOfTraAtDHEA78LNG>EN</IdeOfMeaOfTraAtDHEA78LNG>
+    <NatOfMeaOfTraAtDHEA80>EE</NatOfMeaOfTraAtDHEA80>
+    <IdeOfMeaOfTraCroHEA85LNG>EN</IdeOfMeaOfTraCroHEA85LNG>
+    <NatOfMeaOfTraCroHEA87>EE</NatOfMeaOfTraCroHEA87>
+    <ConIndHEA96>1</ConIndHEA96>
+    <TotNumOfIteHEA305>1</TotNumOfIteHEA305>
+    <TotNumOfPacHEA306>4</TotNumOfPacHEA306>
+    <TotGroMasHEA307>2000.000</TotGroMasHEA307>
+    <DecDatHEA383>20110701</DecDatHEA383>
+    <DecPlaHEA394>Geneva</DecPlaHEA394>
+    <DecPlaHEA394LNG>EN</DecPlaHEA394LNG>
+  </HEAHEA>
+  <TRAPRIPC1>
+    <NamPC17>DASHOLDER Name</NamPC17>
+    <StrAndNumPC122>DASHOLDER ADD</StrAndNumPC122>
+    <PosCodPC123>DASCODE</PosCodPC123>
+    <CitPC124>DASHOLDER City</CitPC124>
+    <CouPC125>RU</CouPC125>
+    <NADLNGPC>EN</NADLNGPC>
+    <TINPC159>RUS05300077</TINPC159>
+  </TRAPRIPC1>
+  <TRACONCO1>
+    <NamCO17>CON 1 RUS name</NamCO17>
+    <StrAndNumCO122>CON 1 RUS str</StrAndNumCO122>
+    <PosCodCO123>CON1RUSCD</PosCodCO123>
+    <CitCO124>CON 1 RUS City</CitCO124>
+    <CouCO125>RU</CouCO125>
+    <NADLNGCO>RU</NADLNGCO>
+  </TRACONCO1>
+  <TRACONCE1>
+    <NamCE17>CEE 1 DEU name</NamCE17>
+    <StrAndNumCE122>CEE 1 DEU str</StrAndNumCE122>
+    <PosCodCE123>CEE1DEUCD</PosCodCE123>
+    <CitCE124>CEE 1 DEU City</CitCE124>
+    <CouCE125>DE</CouCE125>
+    <NADLNGCE>DE</NADLNGCE>
+  </TRACONCE1>
+  <CUSOFFDEPEPT>
+    <RefNumEPT1>11410</RefNumEPT1>
+  </CUSOFFDEPEPT>
+  <CUSOFFDESEST>
+    <RefNumEST1>13013</RefNumEST1>
+  </CUSOFFDESEST>
+  <GUAGUA>
+    <GuaTypGUA1>B</GuaTypGUA1>
+    <GUAREFREF>
+      <OthGuaRefREF4>XF66182959</OthGuaRefREF4>
+    </GUAREFREF>
+  </GUAGUA>
+  <GOOITEGDS>
+    <IteNumGDS7>1</IteNumGDS7>
+    <ComCodTarCodGDS10>721810</ComCodTarCodGDS10>
+    <GooDesGDS23>Nothing special</GooDesGDS23>
+    <GooDesGDS23LNG>EN</GooDesGDS23LNG>
+    <GroMasGDS46>2000.000</GroMasGDS46>
+    <PRODOCDC2>
+      <DocTypDC21>952</DocTypDC21>
+      <DocRefDC23>XF66182959</DocRefDC23>
+      <DocRefDCLNG>EN</DocRefDCLNG>
+    </PRODOCDC2>
+    <PRODOCDC2>
+      <DocTypDC21>705</DocTypDC21>
+      <DocRefDC23>MSCXX123456</DocRefDC23>
+      <DocRefDCLNG>EN</DocRefDCLNG>
+    </PRODOCDC2>
+    <PRODOCDC2>
+      <DocTypDC21>730</DocTypDC21>
+      <DocRefDC23>CMRXXXYYYZZ</DocRefDC23>
+      <DocRefDCLNG>SR</DocRefDCLNG>
+    </PRODOCDC2>
+    <CONNR2>
+      <ConNumNR21>MSCU1234566</ConNumNR21>
+    </CONNR2>
+    <PACGS2>
+      <MarNumOfPacGS21>STEEL001</MarNumOfPacGS21>
+      <MarNumOfPacGS21LNG>EN</MarNumOfPacGS21LNG>
+      <KinOfPacGS23>PX</KinOfPacGS23>
+      <NumOfPacGS24>4</NumOfPacGS24>
+    </PACGS2>
+  </GOOITEGDS>
+</EPD015>
