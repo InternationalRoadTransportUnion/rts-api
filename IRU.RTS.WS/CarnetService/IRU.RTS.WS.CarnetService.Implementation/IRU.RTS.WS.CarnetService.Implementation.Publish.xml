@@ -1,0 +1,38 @@
+<publishData>
+  <publishTarget publishUrl="http://localhost/RTS">
+    <file relUrl="Web.config" publishTime="09/12/2011 21:35:34" />
+    <file relUrl="bin/IRU.RTS.WS.CarnetService.Implementation.dll.config" publishTime="09/12/2011 21:35:34" />
+    <file relUrl="bin/IRU.RTS.WS.Common.Data.Current.dll" publishTime="09/12/2011 21:35:55" />
+    <file relUrl="bin/IRU.Common.WCF.Security.WSS.dll" publishTime="09/08/2011 14:14:44" />
+    <file relUrl="bin/IRU.RTS.WS.Common.Business.pdb" publishTime="09/12/2011 21:10:13" />
+    <file relUrl="bin/IRU.RTS.WS.Common.Business.dll" publishTime="09/12/2011 21:10:13" />
+    <file relUrl="bin/IRU.RTS.WS.Common.Data.dll" publishTime="09/12/2011 21:10:13" />
+    <file relUrl="bin/IRU.Common.WCF.Wsdl.dll" publishTime="09/12/2011 21:04:05" />
+    <file relUrl="bin/IRU.RTS.WS.Common.Model.dll" publishTime="09/12/2011 21:10:12" />
+    <file relUrl="bin/IRU.RTS.WS.CarnetService.Interface.pdb" publishTime="09/12/2011 21:10:13" />
+    <file relUrl="bin/IRU.RTS.WS.Common.Model.pdb" publishTime="09/12/2011 21:10:12" />
+    <file relUrl="bin/IRU.RTS.WS.CarnetService.Interface.dll" publishTime="09/12/2011 21:10:14" />
+    <file relUrl="bin/IRU.RTS.WS.Common.Data.Current.pdb" publishTime="09/12/2011 21:35:55" />
+    <file relUrl="bin/IRU.RTS.WS.Common.Data.pdb" publishTime="09/12/2011 21:10:13" />
+    <file relUrl="bin/IRU.RTS.WS.CarnetService.Implementation.dll" publishTime="09/12/2011 21:35:55" />
+    <file relUrl="bin/IRU.RTS.WS.CarnetService.Implementation.pdb" publishTime="09/12/2011 21:35:55" />
+  </publishTarget>
+  <publishTarget publishUrl="http://localhost/WCF">
+    <file relUrl="bin/IRU.RTS.WS.CarnetService.Interface.dll" publishTime="09/12/2011 18:53:16" />
+    <file relUrl="Web.config" publishTime="09/12/2011 17:24:44" />
+    <file relUrl="bin/IRU.RTS.WS.Common.Model.pdb" publishTime="09/12/2011 18:53:16" />
+    <file relUrl="bin/IRU.RTS.WS.CarnetService.Interface.pdb" publishTime="09/12/2011 18:53:16" />
+    <file relUrl="bin/IRU.RTS.WS.CarnetService.Implementation.pdb" publishTime="09/12/2011 18:53:17" />
+    <file relUrl="bin/IRU.RTS.WS.CarnetService.Implementation.dll" publishTime="09/12/2011 18:53:17" />
+    <file relUrl="bin/IRU.Common.WCF.Security.WSS.dll" publishTime="09/12/2011 17:19:13" />
+    <file relUrl="bin/IRU.RTS.WS.Common.Business.pdb" publishTime="09/12/2011 18:11:50" />
+    <file relUrl="bin/IRU.RTS.WS.Common.Data.Current.dll" publishTime="09/12/2011 18:53:16" />
+    <file relUrl="bin/IRU.RTS.WS.CarnetService.Implementation.dll.config" publishTime="09/12/2011 17:24:44" />
+    <file relUrl="bin/IRU.Common.WCF.Wsdl.dll" publishTime="09/12/2011 17:12:53" />
+    <file relUrl="bin/IRU.RTS.WS.Common.Data.pdb" publishTime="09/12/2011 18:11:50" />
+    <file relUrl="bin/IRU.RTS.WS.Common.Data.Current.pdb" publishTime="09/12/2011 18:53:16" />
+    <file relUrl="bin/IRU.RTS.WS.Common.Data.dll" publishTime="09/12/2011 18:11:50" />
+    <file relUrl="bin/IRU.RTS.WS.Common.Model.dll" publishTime="09/12/2011 18:53:16" />
+    <file relUrl="bin/IRU.RTS.WS.Common.Business.dll" publishTime="09/12/2011 18:11:50" />
+  </publishTarget>
+</publishData>
