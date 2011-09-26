@@ -657,13 +657,13 @@ namespace IRU.RTS.WS.Common.Model
 
         private System.DateTime fromField;
 
-        private System.DateTime toField;
-
-        private int countField;
-
         private bool fromFieldSpecified;
 
+        private System.DateTime toField;
+
         private bool toFieldSpecified;
+
+        private int countField;
 
         private bool countFieldSpecified;
 
@@ -680,6 +680,23 @@ namespace IRU.RTS.WS.Common.Model
                 {
                     this.fromField = value;
                     this.OnPropertyChanged("From");
+                }
+            }
+        }
+
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public virtual bool FromSpecified
+        {
+            get
+            {
+                return this.fromFieldSpecified;
+            }
+            set
+            {
+                if ((fromFieldSpecified.Equals(value) != true))
+                {
+                    this.fromFieldSpecified = value;
+                    this.OnPropertyChanged("FromSpecified");
                 }
             }
         }
@@ -701,6 +718,23 @@ namespace IRU.RTS.WS.Common.Model
             }
         }
 
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public virtual bool ToSpecified
+        {
+            get
+            {
+                return this.toFieldSpecified;
+            }
+            set
+            {
+                if ((toFieldSpecified.Equals(value) != true))
+                {
+                    this.toFieldSpecified = value;
+                    this.OnPropertyChanged("ToSpecified");
+                }
+            }
+        }
+
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public virtual int Count
         {
@@ -715,32 +749,6 @@ namespace IRU.RTS.WS.Common.Model
                     this.countField = value;
                     this.OnPropertyChanged("Count");
                 }
-            }
-        }
-
-        [XmlIgnore()]
-        public bool FromSpecified
-        {
-            get
-            {
-                return fromFieldSpecified;
-            }
-            set
-            {
-                fromFieldSpecified = value;
-            }
-        }
-
-        [XmlIgnore()]
-        public bool ToSpecified
-        {
-            get
-            {
-                return toFieldSpecified;
-            }
-            set
-            {
-                toFieldSpecified = value;
             }
         }
 

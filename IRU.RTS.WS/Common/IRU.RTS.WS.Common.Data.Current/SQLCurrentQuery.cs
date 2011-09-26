@@ -51,8 +51,7 @@ namespace IRU.RTS.WS.Common.Data.Current
 
                 using (SqlDataReader sdr = scmd.ExecuteReader())
                 {
-                    resultStoppedCarnets.Total.From = from;
-                    resultStoppedCarnets.Total.To = to;
+                    resultStoppedCarnets.Total.Count = -1;
                     resultStoppedCarnets.StoppedCarnets.Offset = -1; resultStoppedCarnets.StoppedCarnets.Offset = (int)offset;
                     resultStoppedCarnets.StoppedCarnets.EndReached = true;
 
