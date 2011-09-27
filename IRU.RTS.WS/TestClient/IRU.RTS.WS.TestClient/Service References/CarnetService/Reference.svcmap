@@ -17,12 +17,12 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost/rts?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://ws-test.iru.org/rts/services/CarnetService-1.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="CarnetService.wsdl" MetadataType="Wsdl" ID="6fdb1993-87d6-40ae-9e5f-8df30a09b33a" SourceId="1" SourceUrl="http://localhost/rts/?wsdl" />
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="dea90d4b-07c3-4959-bf53-44188ddec060" SourceId="1" SourceUrl="http://localhost/rts/?xsd=xsd1" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="8fda779e-0167-4133-80d2-548206ec9e30" SourceId="1" SourceUrl="http://localhost/rts/?xsd=xsd0" />
+    <MetadataFile FileName="CarnetService-1.xsd" MetadataType="Schema" ID="4f0613fc-f42c-4789-888f-e45fb1ea4d34" SourceId="1" SourceUrl="https://ws-test.iru.org/rts/services/CarnetService-1.svc?xsd=xsd1" />
+    <MetadataFile FileName="CarnetService-11.xsd" MetadataType="Schema" ID="ba64ff88-17fc-48e2-ba84-2842e67ded17" SourceId="1" SourceUrl="https://ws-test.iru.org/rts/services/CarnetService-1.svc?xsd=xsd0" />
+    <MetadataFile FileName="CarnetService1.wsdl" MetadataType="Wsdl" ID="e7d722a8-d7f7-4785-810c-aa156fb5cb02" SourceId="1" SourceUrl="https://ws-test.iru.org/rts/services/CarnetService-1.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

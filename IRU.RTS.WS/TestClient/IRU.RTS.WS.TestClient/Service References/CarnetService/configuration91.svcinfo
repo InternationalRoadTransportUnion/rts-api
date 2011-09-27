@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="Ss2BcjI+8ZY6Rah1KauYRjpyDtA=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="NobQwnPTABdEVAhJ1crMs37+J+Q=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="wsHttpBinding" name="WSHttpBinding_ICarnetService">
       <properties>
@@ -127,10 +127,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSHttpBinding_ICarnetService" contract="CarnetService.ICarnetService" bindingType="wsHttpBinding" address="http://iru2ntw0719.iruworld.org/RTS/IRU.RTS.WS.CarnetService.Implementation.CarnetService.svc" bindingConfiguration="WSHttpBinding_ICarnetService">
+    <endpoint name="WSHttpBinding_ICarnetService" contract="CarnetService.ICarnetService" bindingType="wsHttpBinding" address="http://ws-test.iruworld.org/rts/services/CarnetService-1.svc" bindingConfiguration="WSHttpBinding_ICarnetService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://iru2ntw0719.iruworld.org/RTS/IRU.RTS.WS.CarnetService.Implementation.CarnetService.svc</serializedValue>
+          <serializedValue>http://ws-test.iruworld.org/rts/services/CarnetService-1.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

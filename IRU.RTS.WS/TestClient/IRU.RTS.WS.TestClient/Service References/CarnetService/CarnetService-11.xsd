@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://rts.iru.org/services/CarnetService-1" elementFormDefault="qualified" targetNamespace="http://rts.iru.org/services/CarnetService-1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="?xsd=xsd1" namespace="http://rts.iru.org/model/carnet-1" />
+  <xs:import schemaLocation="CarnetService-1.svc?xsd=xsd1" namespace="http://rts.iru.org/model/carnet-1" />
   <xs:element name="GetInvalidatedCarnets">
     <xs:complexType>
       <xs:sequence>

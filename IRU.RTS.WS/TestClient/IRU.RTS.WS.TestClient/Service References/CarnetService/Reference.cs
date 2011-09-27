@@ -78,7 +78,11 @@ namespace IRU.RTS.WS.TestClient.CarnetService {
         
         private System.DateTime fromField;
         
+        private bool fromFieldSpecified;
+        
         private System.DateTime toField;
+        
+        private bool toFieldSpecified;
         
         private int countField;
         
@@ -95,6 +99,18 @@ namespace IRU.RTS.WS.TestClient.CarnetService {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool FromSpecified {
+            get {
+                return this.fromFieldSpecified;
+            }
+            set {
+                this.fromFieldSpecified = value;
+                this.RaisePropertyChanged("FromSpecified");
+            }
+        }
+        
+        /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public System.DateTime To {
             get {
@@ -103,6 +119,18 @@ namespace IRU.RTS.WS.TestClient.CarnetService {
             set {
                 this.toField = value;
                 this.RaisePropertyChanged("To");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ToSpecified {
+            get {
+                return this.toFieldSpecified;
+            }
+            set {
+                this.toFieldSpecified = value;
+                this.RaisePropertyChanged("ToSpecified");
             }
         }
         

@@ -15,8 +15,8 @@
     <xs:sequence minOccurs="1" maxOccurs="1">
       <xs:element minOccurs="1" maxOccurs="1" name="Total">
         <xs:complexType>
-          <xs:attribute name="From" type="xs:dateTime" use="required" />
-          <xs:attribute name="To" type="xs:dateTime" use="required" />
+          <xs:attribute name="From" type="xs:dateTime" use="optional" />
+          <xs:attribute name="To" type="xs:dateTime" use="optional" />
           <xs:attribute name="Count" type="xs:int" use="required" />
         </xs:complexType>
       </xs:element>
