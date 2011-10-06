@@ -37,9 +37,9 @@ SchemaFilesPath="D:\ApplicationData\RTS\TCHQ\Schemas"></TCHQ_RemotingHelperSetti
 				<!-- Base64 encoded -->
 				<ConnectionString>SERVER=SHAILESH42P;DATABASE=TCHQ_DB;uid=rtsuser;pwd=rtsuser;connect timeout =200</ConnectionString>
 			</DB>
-			<DB Name="CuteWiseDB">
+			<DB Name="CurrentDB">
 				<!-- Base64 encoded -->
-				<ConnectionString>bb4499ds0028740010038749020029....</ConnectionString>
+				<ConnectionString>SERVER=SHAILESH42P;DATABASE=Current;uid=rtsuser;pwd=rtsuser;connect timeout =200</ConnectionString>
 			</DB>
 			<DB Name="SubscriberDB">
 				<!-- Base64 encoded -->

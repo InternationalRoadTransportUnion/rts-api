@@ -157,6 +157,9 @@
     </Compile>
     <Content Include="WSTCHQ.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GetCarnetStatus.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>

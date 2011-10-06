@@ -6,6 +6,8 @@ using IRU.CryptEngine;
 using IRU.RTS.CommonComponents;
 using System.Data.SqlClient ;
 using System.Text ;
+using System.Reflection;
+using System.IO;
 
 namespace IRU.RTS.WSTCHQ
 {
@@ -47,12 +49,105 @@ namespace IRU.RTS.WSTCHQ
 
 		#region GetTIRCarnetQueryData
 		
-		/// <summary>
+        /// <summary>
 		/// CWQuerys GetTIRCarnetQueryData - This is call to get the TIR Carnet Data.
 		/// </summary>
 		/// <param name="sTIR_Carnet_No"></param>
 		/// <returns></returns>
-		public Hashtable GetTIRCarnetQueryData(string sTIR_Carnet_No)
+        public Hashtable GetTIRCarnetQueryData(string sTIR_Carnet_No)
+        {
+            
+            Int64 lTIR_Carnet_No = 0;
+            Hashtable ht = new Hashtable();
+            string sResult = "";
+
+            try
+            {
+                if (IRU_CheckTIRNo.CheckForValidCarnetNo(sTIR_Carnet_No))
+                {
+                    if (IRU_CheckTIRNo.CheckForCheckChar(sTIR_Carnet_No) == "NUMERIC")
+                        lTIR_Carnet_No = int.Parse(sTIR_Carnet_No.Trim());                    
+                    else if (IRU_CheckTIRNo.CheckForCheckChar(sTIR_Carnet_No) == "ALPHA")                    
+                        lTIR_Carnet_No = int.Parse((sTIR_Carnet_No.Trim().Substring(2)).ToString());                    
+
+                    if (lTIR_Carnet_No != 0)
+                    {                        
+                        string query;
+                        using (StreamReader reader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("TCHQ_Processor.GetCarnetStatus.sql")))
+                        {
+                            query = reader.ReadToEnd();
+                        }
+
+                        SqlCommand cmd = new SqlCommand(query);
+                        cmd.CommandTimeout = 500;
+                        cmd.Parameters.Add("@TIRNumber", SqlDbType.Int).Value = lTIR_Carnet_No;
+                        m_idbHelper.ConnectToDB();
+                        IDataReader dr = m_idbHelper.GetDataReader(cmd, CommandBehavior.SingleRow);
+
+                        dr.Read(); 
+                        sResult = dr["RESULT"].ToString().Trim();
+
+                        if (sResult.Trim() != "")
+                        {
+                            switch (sResult)
+                            {
+                                case "1":                                    
+                                    ht.Add("Carnet_Number", dr["TIRNumber"].ToString().Trim());
+                                    ht.Add("Assoc_Short_Name", dr["AssociationShortName"].ToString().Trim());
+                                    ht.Add("Validity_Date", (DateTime)dr["ExpiryDate"]);
+                                    ht.Add("No_Of_Terminations", dr["NoOfDischarges"].ToString().Trim());
+                                    ht.Add("Query_Result_Code", sResult);
+                                    ht.Add("Holder_ID", dr["I_HolderID"].ToString().Trim());
+                                    break;                                    
+                                case "2":                                    
+                                    ht.Add("Carnet_Number", dr["TIRNumber"].ToString().Trim());
+                                    ht.Add("Assoc_Short_Name", dr["AssociationShortName"].ToString().Trim());
+                                    ht.Add("Validity_Date", null);
+                                    ht.Add("No_Of_Terminations", dr["NoOfDischarges"].ToString().Trim());
+                                    ht.Add("Query_Result_Code", sResult);
+                                    ht.Add("Holder_ID", null);
+                                    break;                                    
+                                case "3":
+                                case "4":
+                                case "5":
+                                    ht.Add("Carnet_Number", dr["TIRNumber"].ToString().Trim());
+                                    ht.Add("Assoc_Short_Name", null);
+                                    ht.Add("Validity_Date", null);
+                                    ht.Add("No_Of_Terminations", null);
+                                    ht.Add("Query_Result_Code", sResult);
+                                    ht.Add("Holder_ID", null);
+                                    break;                                    
+                            }
+                        }                       
+                    }
+                }
+                else
+                {
+                    ht.Add("Carnet_Number", sTIR_Carnet_No);
+                    ht.Add("Assoc_Short_Name", null);
+                    ht.Add("Validity_Date", null);
+                    ht.Add("No_Of_Terminations", null);
+                    ht.Add("Query_Result_Code", "5");
+                    ht.Add("Holder_ID", null);
+                }                
+            }
+            catch (Exception e)
+            {
+                Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceWarning,
+                    "Invalid value whilst Retreiving the CW Carnets Data in TCHQ_Processor.CWQuerys.cs"
+                    + e.Message);
+                throw;
+            }
+            return ht;
+        }
+
+		/// <summary>        
+		/// CWQuerys GetTIRCarnetQueryData - This is call to get the TIR Carnet Data.
+		/// </summary>
+		/// <param name="sTIR_Carnet_No"></param>
+		/// <returns></returns>
+        [Obsolete]
+		public Hashtable GetTIRCarnetQueryDataCuteWise(string sTIR_Carnet_No)
 		{
 			IRU_EncryptDecrypt iru_EncryptDecrypt = new IRU_EncryptDecrypt();
 

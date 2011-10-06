@@ -885,11 +885,11 @@ namespace IRU.RTS.WSTCHQ
 //	<Carnet_Number>15042217</Carnet_Number>
 
 				#region Get IDBHelper instances from Plugin Manager
-				IDBHelper dbCutewise = TCHQ_RemotingHelper.m_dbHelperFactoryPlugin.GetDBHelper("CuteWiseDB") ;//  null; //dbhelper for tchqdb
+				IDBHelper dbCurrent = TCHQ_RemotingHelper.m_dbHelperFactoryPlugin.GetDBHelper("CurrentDB"); //dbhelper for current
 				#endregion
 
-				CWQuerys cwq = new CWQuerys(dbCutewise);
-				cwHashTable = cwq.GetTIRCarnetQueryData(tchqRequestLogData.tirCarnetNumber);
+				CWQuerys cq = new CWQuerys(dbCurrent);
+				cwHashTable = cq.GetTIRCarnetQueryData(tchqRequestLogData.tirCarnetNumber);
 
 				iCWResultCode =  int.Parse(cwHashTable["Query_Result_Code"].ToString());
 			
