@@ -27,6 +27,10 @@ CuteWiseDBName="CuteWiseDB" InMemoryCachePlugin = "InMemoryCache"  RemotingPort=
 				<!-- Base64 encoded -->
 				<ConnectionString>SERVER=DOCTOR43\I0;DATABASE=Current;uid=rtsuser;pwd=rtsuser;connect timeout =200</ConnectionString>
 			</DB>
+			<DB Name="DispatchDB">
+				<!-- Base64 encoded -->
+				<ConnectionString>SERVER=DOCTOR43\I0;DATABASE=Dispatch;uid=rtsuser;pwd=rtsuser;connect timeout =200</ConnectionString>
+			</DB>
 			<DB Name="SubscriberDB">
 				<!-- Base64 encoded -->
 				<ConnectionString>SERVER=DOCTOR43\I0;DATABASE=WS_Subscriber_db;uid=rtsuser;pwd=rtsuser;connect timeout =200</ConnectionString>

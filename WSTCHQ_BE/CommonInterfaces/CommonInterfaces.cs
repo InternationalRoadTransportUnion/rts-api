@@ -242,7 +242,14 @@ namespace IRU.CommonInterfaces
 		/// <param name="SQLStatement"></param>
 		/// <returns></returns>
 		object ExecuteScaler(string SQLStatement);
-		
+
+        /// <summary>
+        /// Executes the ExecuteScaler method and used to retrieve single value
+        /// </summary>
+        /// <param name="CommandObject">The SQL Command object on which the execute will be fired.</param>
+        /// <returns></returns>
+        object ExecuteScaler(IDbCommand CommandObject);
+
 		/// <summary>
 		/// IDisposable implementation. Close the Connection
 		/// </summary>

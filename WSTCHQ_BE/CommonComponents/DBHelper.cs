@@ -430,6 +430,28 @@ namespace IRU.RTS.CommonComponents
 			
 		}
 
+        /// <summary>
+        /// Executes the SqlStatment
+        /// </summary>
+        /// <param name="CommandObject">The command to execute</param>
+        /// <returns></returns>
+        public object ExecuteScaler(IDbCommand CommandObject)
+        {
+            CommandObject.Connection = m_sqlConnection;
+            if (m_isTransacted)
+            {
+                CommandObject.Transaction = m_sqlTransaction;
+            }
+            else
+            {
+
+            }
+
+            CommandObject.CommandTimeout = 500;
+
+            return CommandObject.ExecuteScalar();
+        }
+
 		/// <summary>
 		/// Closes the connection if open
 		/// </summary>

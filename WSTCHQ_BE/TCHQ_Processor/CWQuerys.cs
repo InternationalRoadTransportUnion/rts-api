@@ -66,12 +66,12 @@ namespace IRU.RTS.WSTCHQ
                 if (IRU_CheckTIRNo.CheckForValidCarnetNo(sTIR_Carnet_No))
                 {
                     if (IRU_CheckTIRNo.CheckForCheckChar(sTIR_Carnet_No) == "NUMERIC")
-                        lTIR_Carnet_No = int.Parse(sTIR_Carnet_No.Trim());                    
-                    else if (IRU_CheckTIRNo.CheckForCheckChar(sTIR_Carnet_No) == "ALPHA")                    
-                        lTIR_Carnet_No = int.Parse((sTIR_Carnet_No.Trim().Substring(2)).ToString());                    
+                        lTIR_Carnet_No = int.Parse(sTIR_Carnet_No.Trim());
+                    else if (IRU_CheckTIRNo.CheckForCheckChar(sTIR_Carnet_No) == "ALPHA")
+                        lTIR_Carnet_No = int.Parse((sTIR_Carnet_No.Trim().Substring(2)).ToString());
 
                     if (lTIR_Carnet_No != 0)
-                    {                        
+                    {
                         string query;
                         using (StreamReader reader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("TCHQ_Processor.GetCarnetStatus.sql")))
                         {
@@ -84,29 +84,29 @@ namespace IRU.RTS.WSTCHQ
                         m_idbHelper.ConnectToDB();
                         IDataReader dr = m_idbHelper.GetDataReader(cmd, CommandBehavior.SingleRow);
 
-                        dr.Read(); 
+                        dr.Read();
                         sResult = dr["RESULT"].ToString().Trim();
 
                         if (sResult.Trim() != "")
                         {
                             switch (sResult)
                             {
-                                case "1":                                    
+                                case "1":
                                     ht.Add("Carnet_Number", dr["TIRNumber"].ToString().Trim());
                                     ht.Add("Assoc_Short_Name", dr["AssociationShortName"].ToString().Trim());
                                     ht.Add("Validity_Date", (DateTime)dr["ExpiryDate"]);
-                                    ht.Add("No_Of_Terminations", dr["NoOfDischarges"].ToString().Trim());
+                                    ht.Add("No_Of_Terminations", GetNumberOfDischarges(lTIR_Carnet_No).ToString());
                                     ht.Add("Query_Result_Code", sResult);
                                     ht.Add("Holder_ID", dr["I_HolderID"].ToString().Trim());
-                                    break;                                    
-                                case "2":                                    
+                                    break;
+                                case "2":
                                     ht.Add("Carnet_Number", dr["TIRNumber"].ToString().Trim());
                                     ht.Add("Assoc_Short_Name", dr["AssociationShortName"].ToString().Trim());
                                     ht.Add("Validity_Date", null);
-                                    ht.Add("No_Of_Terminations", dr["NoOfDischarges"].ToString().Trim());
+                                    ht.Add("No_Of_Terminations", GetNumberOfDischarges(lTIR_Carnet_No).ToString());
                                     ht.Add("Query_Result_Code", sResult);
                                     ht.Add("Holder_ID", null);
-                                    break;                                    
+                                    break;
                                 case "3":
                                 case "4":
                                 case "5":
@@ -116,9 +116,9 @@ namespace IRU.RTS.WSTCHQ
                                     ht.Add("No_Of_Terminations", null);
                                     ht.Add("Query_Result_Code", sResult);
                                     ht.Add("Holder_ID", null);
-                                    break;                                    
+                                    break;
                             }
-                        }                       
+                        }
                     }
                 }
                 else
@@ -129,7 +129,7 @@ namespace IRU.RTS.WSTCHQ
                     ht.Add("No_Of_Terminations", null);
                     ht.Add("Query_Result_Code", "5");
                     ht.Add("Holder_ID", null);
-                }                
+                }
             }
             catch (Exception e)
             {
@@ -138,7 +138,34 @@ namespace IRU.RTS.WSTCHQ
                     + e.Message);
                 throw;
             }
+            finally
+            {
+                m_idbHelper.Close();
+            }
             return ht;
+        }
+
+        /// <summary>
+        /// Returns the number of discharges for a carnet.
+        /// </summary>
+        /// <param name="tirCarnetNumber">The carnet number.</param>
+        /// <returns>Returns the number of discharges for the given carnet.</returns>
+        public int GetNumberOfDischarges(Int64 tirCarnetNumber)
+        {
+            string NoOfDischargesQuery = "SELECT COUNT(*) FROM CAR_DISP_CARNETS with (nolock)  WHERE D_C_CARNET_NUMBER = @TIRNumber AND D_C_RECORD_STATE NOT IN (0,2,4,32,64,16384)";
+            IDBHelper dbDispatch = TCHQ_RemotingHelper.m_dbHelperFactoryPlugin.GetDBHelper("DispatchDB"); //dbhelper for current
+            SqlCommand cmdDisp = new SqlCommand(NoOfDischargesQuery);
+            cmdDisp.CommandTimeout = 500;
+            cmdDisp.Parameters.Add("@TIRNumber", SqlDbType.Int).Value = tirCarnetNumber;
+            try
+            {
+                dbDispatch.ConnectToDB();
+                return Convert.ToInt32(dbDispatch.ExecuteScaler(cmdDisp));
+            }
+            finally
+            {
+                dbDispatch.Close();
+            }
         }
 
 		/// <summary>        
