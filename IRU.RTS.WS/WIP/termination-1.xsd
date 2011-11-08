@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified"
+	targetNamespace="http://rts.iru.org/model/termination-1"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://rts.iru.org/model/termination-1"
+	xmlns:act="http://www.iru.org/model/tir-actor-1"
+	xmlns:car="http://rts.iru.org/model/carnet-1">
+	
+	<xs:import schemaLocation="carnet-1.xsd" namespace="http://rts.iru.org/model/carnet-1" />
+	<xs:import schemaLocation="tir-actor-1.xsd" namespace="http://www.iru.org/model/tir-actor-1" />
+
+	<xs:group name="CustomsLedgerEntryGroup">
+		<xs:sequence>
+			<xs:element name="CustomsLedgerEntryReference">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CustomsLedgerEntryDate" type="xs:dateTime" />
+		</xs:sequence>
+	</xs:group>
+
+	<xs:group name="CertificateOfTerminationGroup">
+		<xs:sequence>
+			<xs:element name="CertificateOfTerminationReference">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CertificateOfTerminationDate" type="xs:dateTime" />
+		</xs:sequence>
+	</xs:group>
+
+	<xs:complexType name="TIROperationTerminationType">
+		<xs:sequence>
+			<xs:element ref="car:TIRCarnetNumber" />
+			<xs:element ref="car:VoletPageNumber" />
+			
+			<xs:element ref="act:Customs" />
+			<xs:element name="CustomsOffice">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:group ref="CustomsLedgerEntryGroup" minOccurs="0"/>
+			<xs:group ref="CertificateOfTerminationGroup" minOccurs="0"/>
+			
+			<xs:element name="IsFinal" type="xs:boolean" />
+			<xs:element name="IsWithReservation"  type="xs:boolean" />
+			<xs:element name="CustomsComment"  minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="126" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PackageCount" type="xs:nonNegativeInteger" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="NewTIROperationTermination" type="TIROperationTerminationType"/>
+	<xs:element name="CancelledTIROperationTermination" type="TIROperationTerminationType"/>
+	
+	<xs:complexType name="UpdatedTIROperationTerminationType">
+		<xs:sequence>
+			<xs:element ref="CancelledTIROperationTermination"/>
+			<xs:element ref="NewTIROperationTermination"/>
+		</xs:sequence>
+ 	</xs:complexType>
+	 	
+ 	<xs:element name="UpdatedTIROperationTermination" type="UpdatedTIROperationTerminationType" />
+
+	<xs:complexType name="TIROperationTerminationsType">
+		<xs:sequence maxOccurs="unbounded">
+		<xs:choice>
+			<xs:element ref="NewTIROperationTermination" />
+			<xs:element ref="CancelledTIROperationTermination" />
+			<xs:element ref="UpdatedTIROperationTermination" />
+		</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="count" type="xs:nonNegativeInteger" />
+	</xs:complexType>
+
+	<xs:element name="TIROperationTerminations" type="TIROperationTerminationsType"/>
+
+	<xs:simpleType name="ReconciliationRequestReasonType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="MISSING"/>
+			<xs:enumeration value="DISCREPANCY"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="ReconciliationRequestIdType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="14" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="ReconciliationRequestType">
+		<xs:sequence>
+			<xs:element name="Id" type="reconciliationRequestIdType"/>
+			<xs:element name="Date" type="xs:dateTime" />
+			<xs:element name="ReminderCount" type="xs:nonNegativeInteger"/>
+			<xs:element name="Originator">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element ref="act:IRU"/>
+						<xs:element ref="act:Association"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Remark" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="126" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Reason" type="ReconciliationRequestReasonType"/>
+			<xs:element name="TIROperationTerminationToValidate" type="TIROperationTerminationType"/> 	
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="ReconciliationRequest" type="ReconciliationRequestType"/>
+
+	<xs:complexType name="ReconciliationRequestReplyType">
+		<xs:sequence>
+			<xs:element name="Id" type="ReconciliationRequestIdType"/>
+			<xs:element name="ReplyType">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="CONFIRMED"/>
+						<xs:enumeration value="CORRECTED"/>
+						<xs:enumeration value="NOT_FOUND"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CorrectedTIROperationTermination" type="TIROperationTerminationType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ReconciliationRequestRepliesType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="ReconciliationRequestReply" type="ReconciliationRequestReplyType" />
+		</xs:sequence>
+		<xs:attribute name="count" type="xs:nonNegativeInteger" />
+	</xs:complexType>
+
+	<xs:element name="ReconciliationRequestReplies" type="ReconciliationRequestRepliesType"/>
+
+</xs:schema>

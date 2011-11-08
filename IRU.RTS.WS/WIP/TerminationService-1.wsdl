@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions name="TerminationService"
+	targetNamespace="http://rts.iru.org/services/TerminationService-1"
+	xmlns:tns="http://rts.iru.org/services/TerminationService-1" 
+	xmlns:ter="http://rts.iru.org/model/termination-1"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" 
+	xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+	xmlns:wsa10="http://www.w3.org/2005/08/addressing">
+	<wsp:Policy wsu:Id="TerminationServiceUsingAddressingPolicy">
+		<wsp:ExactlyOne>
+			<wsp:All>
+				<wsaw:UsingAddressing />
+			</wsp:All>
+		</wsp:ExactlyOne>
+	</wsp:Policy>
+	<wsdl:types>
+		<xs:schema targetNamespace="http://rts.iru.org/services/TerminationService-1">
+			<xs:import schemaLocation="termination-1.xsd" namespace="http://rts.iru.org/model/termination-1" />
+
+			<xs:element name="transmitTIROperationTerminations">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="transmissionTime" type="xs:dateTime"/>
+						<xs:element name="transmissionId" type="xs:token" />
+						<xs:element ref="ter:TIROperationTerminations"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			<xs:element name="getReconciliationRequests">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="from" type="xs:dateTime" />
+						<xs:element minOccurs="0" name="to" type="xs:dateTime" />
+						<xs:element minOccurs="0" name="offset" type="xs:integer" />
+						<xs:element minOccurs="0" name="maxCount" type="xs:nonNegativeInteger" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+
+			<xs:complexType name="reconciliationRequestsType">
+				<xs:sequence>
+					<xs:element name="total">
+						<xs:complexType>
+							<xs:attribute name="from" type="xs:dateTime" use="optional" />
+							<xs:attribute name="to" type="xs:dateTime" use="optional" />
+							<xs:attribute name="count" type="xs:int" use="required" />
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="reconciliationRequests">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element ref="ter:ReconciliationRequest" minOccurs="0" maxOccurs="unbounded" />
+							</xs:sequence>
+							<xs:attribute name="offset" type="xs:int" use="required" />
+							<xs:attribute name="count" type="xs:int" use="required" />
+							<xs:attribute name="endReached" type="xs:boolean" use="required" />
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:element name="getReconciliationRequestsResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="getReconciliationRequestsResult" type="tns:reconciliationRequestsType" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			<xs:element name="transmitReconciliationRequestReplies">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="transmissionTime" type="xs:dateTime"/>
+						<xs:element name="transmissionId" type="xs:token" />
+						<xs:element ref="ter:ReconciliationRequestReplies" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+		</xs:schema>
+	</wsdl:types>
+	
+	<wsdl:message name="transmitTIROperationTerminations">
+		<wsdl:part name="parameters" element="tns:transmitTIROperationTerminations" />
+	</wsdl:message>
+	<wsdl:message name="transmitTIROperationTerminationsResponse" />
+
+	<wsdl:message name="getReconciliationRequests">
+		<wsdl:part name="parameters" element="tns:getReconciliationRequests" />
+	</wsdl:message>
+	<wsdl:message name="getReconciliationRequestsResponse">
+		<wsdl:part name="parameters" element="tns:getReconciliationRequestsResponse" />
+	</wsdl:message>
+	
+	<wsdl:message name="transmitReconciliationRequestReplies">
+		<wsdl:part name="parameters" element="tns:transmitReconciliationRequestReplies" />
+	</wsdl:message>
+	<wsdl:message name="transmitReconciliationRequestRepliesResponse"/>
+
+	<wsdl:portType name="TerminationServiceSEI">
+		<wsdl:operation name="transmitTIROperationTerminations">
+			<wsdl:input
+				wsaw:Action="http://rts.iru.org/services/TerminationService-1/transmitTIROperationTerminations"
+				message="tns:transmitTIROperationTerminations" />
+			<wsdl:output
+				wsaw:Action="http://rts.iru.org/services/TerminationService-1/transmitTIROperationTerminationsResponse"
+				message="tns:transmitTIROperationTerminationsResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="getReconciliationRequests">
+			<wsdl:input
+				wsaw:Action="http://rts.iru.org/services/TerminationService-1/getReconciliationRequests"
+				message="tns:getReconciliationRequests" />
+			<wsdl:output
+				wsaw:Action="http://rts.iru.org/services/TerminationService-1/getReconciliationRequestsResponse"
+				message="tns:getReconciliationRequestsResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="transmitReconciliationRequestReplies">
+			<wsdl:input
+				wsaw:Action="http://rts.iru.org/services/TerminationService-1/transmitReconciliationRequestReplies"
+				message="tns:transmitReconciliationRequestReplies" />
+			<wsdl:output
+				wsaw:Action="http://rts.iru.org/services/TerminationService-1/transmitReconciliationRequestRepliesResponse"
+				message="tns:transmitReconciliationRequestRepliesResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="TerminationServiceBinding" type="tns:TerminationServiceSEI">
+		<wsp:PolicyReference URI="#TerminationServiceUsingAddressingPolicy" />
+		<soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="transmitTIROperationTerminations">
+			<soap12:operation
+				soapAction="http://rts.iru.org/services/TerminationService-1/transmitTIROperationTerminations"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getReconciliationRequests">
+			<soap12:operation
+				soapAction="http://rts.iru.org/services/TerminationService-1/getReconciliationRequests"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="transmitReconciliationRequestReplies">
+			<soap12:operation
+				soapAction="http://rts.iru.org/services/TerminationService-1/transmitReconciliationRequestReplies"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="TerminationService">
+		<wsdl:port name="TerminationServicePort" binding="tns:TerminationServiceBinding">
+			<soap12:address
+				location="http://ws-test.iruworld.org/rts/services/TerminationService-1.svc" />
+			<wsa10:EndpointReference>
+				<wsa10:Address>http://ws-test.iruworld.org/rts/services/TerminationService-1.svc
+				</wsa10:Address>
+				<Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+					<Dns>localhost</Dns>
+				</Identity>
+			</wsa10:EndpointReference>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

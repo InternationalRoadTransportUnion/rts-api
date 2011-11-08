@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified"
+	targetNamespace="http://rts.iru.org/model/carnet-1" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:act="http://www.iru.org/model/tir-actor-1"
+	xmlns="http://rts.iru.org/model/carnet-1">
+
+	<xs:import schemaLocation="tir-actor-1.xsd" namespace="http://www.iru.org/model/tir-actor-1" />
+	
+	<xs:simpleType name="TIRCarnetNumberType">
+		<xs:restriction base="xs:token">
+			<xs:pattern value="[A-Z]{2}[0-9]{8}" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:element name="TIRCarnetNumber" type="TIRCarnetNumberType"/>
+
+	<xs:simpleType name="VoletPageNumberType">
+		<xs:restriction base="xs:positiveInteger">
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="12"/>
+			<xs:enumeration value="14"/>
+			<xs:enumeration value="16"/>
+			<xs:enumeration value="18"/>
+			<xs:enumeration value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:element name="VoletPageNumber" type="VoletPageNumberType"/>
+
+
+	<xs:complexType name="CarnetBaseType">
+		<xs:sequence>
+			<xs:element ref="TIRCarnetNumber"/>
+			<xs:element name="ExpiryDate" type="xs:date" />
+			<xs:element minOccurs="0" ref="act:Association" />
+			<xs:element minOccurs="0" ref="act:Holder" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="carnetStatusType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ISSUED_TO_ASSOCIATION" />
+			<xs:enumeration value="ISSUED_TO_HAULIER" />
+			<xs:enumeration value="RETURNED_TO_ASSOCIATION" />
+			<xs:enumeration value="RETURNED_TO_IRU" />
+			<xs:enumeration value="STOPPED" />
+			<xs:enumeration value="INCORRECT_NUMBER" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="CarnetType">
+		<xs:complexContent>
+			<xs:extension base="CarnetBaseType">
+				<xs:sequence>
+					<xs:element name="Status" type="CarnetStatusType"/>
+					<xs:element name="TIROperationTerminations">
+						<xs:complexType>
+							<xs:attribute name="count" type="xs:nonNegativeInteger" use="required"/>
+							<xs:attribute name="hasFinal" type="xs:boolean" use="required"/>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="InvalidationStatusType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DESTROYED" />
+			<xs:enumeration value="LOST" />
+			<xs:enumeration value="STOLEN" />
+			<xs:enumeration value="RETAINED" />
+			<xs:enumeration value="EXCLUDED" />
+			<xs:enumeration value="INVALIDATED" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="StoppedCarnetType">
+		<xs:complexContent>
+			<xs:extension base="CarnetBaseType">
+				<xs:sequence>
+					<xs:element name="DeclarationDate" type="xs:date" />
+					<xs:element name="InvalidationDate" type="xs:dateTime" />
+					<xs:element name="InvalidationStatus" type="InvalidationStatusType" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+
+</xs:schema>
