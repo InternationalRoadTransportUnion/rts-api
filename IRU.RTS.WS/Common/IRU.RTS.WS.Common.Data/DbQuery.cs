@@ -2,40 +2,42 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Data.SqlClient;
+using System.Data.Common;
 
 namespace IRU.RTS.WS.Common.Data
 {
-    public class SQLQuery: IDisposable
+    public class DbQuery: IDisposable
     {
-        protected SqlConnection _scon = null;
+        protected DbConnection _scon = null;
         protected int _scmdTimeout;
-        protected SQLCommandHelper _sqlCmdHlp;
+        protected DbCommandHelper _sqlCmdHlp;
 
-        public virtual SQLCommandHelper SQLCommandHelper
+        public virtual DbCommandHelper SQLCommandHelper
         {
             get { return _sqlCmdHlp; }
         }
 
-        public SQLQuery(string connectionString): this(connectionString, -1)
+        public DbQuery(DbConnection dbConnection)
+            : this(dbConnection, -1)
         {
         }
 
-        public SQLQuery(string connectionString, int commandTimeout)
+        public DbQuery(DbConnection dbConnection, int commandTimeout)
         {
-            _scon = new SqlConnection(connectionString);
+            _scon = dbConnection;
             _scmdTimeout = commandTimeout;
             AfterConstruction();
         }
 
         public virtual void AfterConstruction()
         {
-            _sqlCmdHlp = new SQLCommandHelper(this);
+            _sqlCmdHlp = new DbCommandHelper(this);
         }
 
-        protected virtual SqlCommand GetSqlCommand(string cmdText)
+        protected virtual DbCommand GetDbCommand(string cmdText)
         {
-            SqlCommand scmd = new SqlCommand(cmdText, _scon);
+            DbCommand scmd = _scon.CreateCommand();
+            scmd.CommandText = cmdText;
             if (_scmdTimeout > -1)
                 scmd.CommandTimeout = _scmdTimeout;
             if (_scon.State == System.Data.ConnectionState.Broken)
@@ -62,9 +64,9 @@ namespace IRU.RTS.WS.Common.Data
             return retVal;
         }
 
-        protected T GetValue<T>(SqlDataReader sqlDataReader, string columnName)
+        protected T GetValue<T>(DbDataReader dbDataReader, string columnName)
         {
-            object oVal = sqlDataReader[columnName];
+            object oVal = dbDataReader[columnName];
 
             if (oVal == DBNull.Value)
             {
@@ -84,6 +86,15 @@ namespace IRU.RTS.WS.Common.Data
             }
 
             return (T)oVal;
+        }
+
+        protected void AddParameter(DbCommand dbCommand, string parameterName, System.Data.DbType dbType, object value)
+        {
+            DbParameter dbp = dbCommand.CreateParameter();
+            dbp.ParameterName = parameterName;
+            dbp.DbType = dbType;
+            dbp.Value = value;
+            dbCommand.Parameters.Add(dbp);
         }
 
         #region IDisposable Members

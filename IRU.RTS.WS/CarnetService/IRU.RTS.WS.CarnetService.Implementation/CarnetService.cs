@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.ServiceModel.Description;
+using System.Data.SqlClient;
 using IRU.Common.WCF.Wsdl.Schema;
 using IRU.Common.WCF.Wsdl.Output;
 using IRU.RTS.WS.Common.Model;
@@ -24,7 +25,8 @@ namespace IRU.RTS.WS.CarnetService.Implementation
         {
             stoppedCarnetsType lsc = new stoppedCarnetsType();
 
-            using (SQLCurrentQuery sq = new SQLCurrentQuery())
+            SqlConnection scCurrent = new SqlConnection(Properties.Settings.Default.CurrentDB);
+            using (DbCurrentQuery sq = new DbCurrentQuery(scCurrent, Properties.Settings.Default.SQLCommandTimeout))
             {
                 if (from.Kind == DateTimeKind.Unspecified)
                     from = DateTime.SpecifyKind(from, DateTimeKind.Local);

@@ -7,11 +7,11 @@ using System.Reflection;
 
 namespace IRU.RTS.WS.Common.Data
 {
-    public class SQLCommandHelper
+    public class DbCommandHelper
     {
         private Assembly _callerAssembly;
 
-        public SQLCommandHelper(object caller)
+        public DbCommandHelper(object caller)
         {
             _callerAssembly = Assembly.GetAssembly(caller.GetType());
         }
