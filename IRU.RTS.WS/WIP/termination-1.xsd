@@ -105,7 +105,7 @@
 	
 	<xs:complexType name="ReconciliationRequestType">
 		<xs:sequence>
-			<xs:element name="Id" type="reconciliationRequestIdType"/>
+			<xs:element name="Id" type="ReconciliationRequestIdType"/>
 			<xs:element name="Date" type="xs:dateTime" />
 			<xs:element name="ReminderCount" type="xs:nonNegativeInteger"/>
 			<xs:element name="Originator">
