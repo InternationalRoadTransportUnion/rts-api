@@ -1,0 +1,15 @@
+﻿<Query xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.iru.org/TCHQuery">
+  <Envelope>
+    <Hash></Hash>
+  </Envelope>
+  <Body>
+    <Sender>RTSJAVA</Sender>
+    <SentTime></SentTime>
+    <Originator>003103</Originator>
+    <OriginTime></OriginTime>
+    <Password></Password>
+    <Query_Type>1</Query_Type>
+    <Query_Reason>1</Query_Reason>
+    <Carnet_Number>DX53982821</Carnet_Number>
+  </Body>
+</Query>
