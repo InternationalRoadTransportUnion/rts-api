@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions name="CarnetService"
+	targetNamespace="http://rts.iru.org/services/CarnetService-1"
+	xmlns:tns="http://rts.iru.org/services/CarnetService-1"
+  xmlns:car="http://rts.iru.org/model/carnet-1"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+	xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa10="http://www.w3.org/2005/08/addressing">
+  <wsp:Policy wsu:Id="CarnetServiceUsingAddressingPolicy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xs:schema targetNamespace="http://rts.iru.org/services/CarnetService-1" elementFormDefault="qualified">
+      
+      <xs:import schemaLocation="carnet-1.xsd" namespace="http://rts.iru.org/model/carnet-1" />
+        
+			<xs:element name="queryCarnet">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="car:TIRCarnetNumber" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+
+			<xs:element name="queryCarnetResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="TIRCarnet" type="car:CarnetType" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+
+
+			<xs:element name="getStoppedCarnets">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="from" type="xs:dateTime" />
+						<xs:element minOccurs="0" name="to" nillable="true" type="xs:dateTime" />
+						<xs:element minOccurs="0" name="offset" nillable="true" type="xs:int" />
+						<xs:element minOccurs="0" name="maxCount" nillable="true" type="xs:unsignedInt" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+
+			<xs:complexType name="stoppedCarnetsType">
+				<xs:sequence>
+					<xs:element name="total">
+						<xs:complexType>
+							<xs:attribute name="from" type="xs:dateTime" use="optional" />
+							<xs:attribute name="to" type="xs:dateTime" use="optional" />
+							<xs:attribute name="count" type="xs:int" use="required" />
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="stoppedCarnets">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element minOccurs="0" maxOccurs="unbounded" name="StoppedCarnet" type="car:StoppedCarnetType" />
+							</xs:sequence>
+							<xs:attribute name="offset" type="xs:int" use="required" />
+							<xs:attribute name="count" type="xs:int" use="required" />
+							<xs:attribute name="endReached" type="xs:boolean"
+								use="required" />
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:element name="getStoppedCarnetsResponse" type="tns:stoppedCarnetsType" />
+
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="queryCarnet">
+    <wsdl:part name="parameters" element="tns:queryCarnet" />
+  </wsdl:message>
+  <wsdl:message name="queryCarnetResponse">
+    <wsdl:part name="parameters" element="tns:queryCarnetResponse" />
+  </wsdl:message>
+  <wsdl:message name="getStoppedCarnets">
+    <wsdl:part name="parameters" element="tns:getStoppedCarnets" />
+  </wsdl:message>
+  <wsdl:message name="getStoppedCarnetsResponse">
+    <wsdl:part name="parameters" element="tns:getStoppedCarnetsResponse" />
+  </wsdl:message>
+
+  <wsdl:portType name="CarnetServiceSEI">
+    <wsdl:operation name="queryCarnet">
+      <wsdl:input
+				wsaw:Action="http://rts.iru.org/services/CarnetService-1/queryCarnet"
+				message="tns:queryCarnet" />
+      <wsdl:output
+				wsaw:Action="http://rts.iru.org/services/CarnetService-1/queryCarnetResponse"
+				message="tns:queryCarnetResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getStoppedCarnets">
+      <wsdl:input
+				wsaw:Action="http://rts.iru.org/services/CarnetService-1/getStoppedCarnets"
+				message="tns:getStoppedCarnets" />
+      <wsdl:output
+				wsaw:Action="http://rts.iru.org/services/CarnetService-1/getStoppedCarnetsResponse"
+				message="tns:getStoppedCarnetsResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CarnetServiceBinding" type="tns:CarnetServiceSEI">
+    <wsp:PolicyReference URI="#CarnetServiceUsingAddressingPolicy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="queryCarnet">
+      <soap12:operation
+				soapAction="http://rts.iru.org/services/CarnetService-1/queryCarnet"
+				style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStoppedCarnets">
+      <soap12:operation
+				soapAction="http://rts.iru.org/services/CarnetService-1/getStoppedCarnets"
+				style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CarnetService">
+    <wsdl:port name="CarnetServicePort" binding="tns:CarnetServiceBinding">
+      <soap12:address
+				location="http://ws-test.iruworld.org/rts/services/CarnetService-1.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://ws-test.iruworld.org/rts/services/CarnetService-1.svc</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
