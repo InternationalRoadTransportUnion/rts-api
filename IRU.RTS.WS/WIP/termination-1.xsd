@@ -61,7 +61,7 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="PackageCount" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="PackageCount" type="xs:unsignedInt" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -85,7 +85,7 @@
 			<xs:element ref="UpdatedTIROperationTermination" />
 		</xs:choice>
 		</xs:sequence>
-		<xs:attribute name="count" type="xs:nonNegativeInteger" />
+		<xs:attribute name="count" type="xs:unsignedInt" />
 	</xs:complexType>
 
 	<xs:element name="TIROperationTerminations" type="TIROperationTerminationsType"/>
@@ -107,7 +107,7 @@
 		<xs:sequence>
 			<xs:element name="Id" type="ReconciliationRequestIdType"/>
 			<xs:element name="Date" type="xs:dateTime" />
-			<xs:element name="ReminderCount" type="xs:nonNegativeInteger"/>
+			<xs:element name="ReminderCount" type="xs:unsignedInt"/>
 			<xs:element name="Originator">
 				<xs:complexType>
 					<xs:choice>
@@ -150,7 +150,7 @@
 		<xs:sequence maxOccurs="unbounded">
 			<xs:element name="ReconciliationRequestReply" type="ReconciliationRequestReplyType" />
 		</xs:sequence>
-		<xs:attribute name="count" type="xs:nonNegativeInteger" />
+		<xs:attribute name="count" type="xs:unsignedInt" />
 	</xs:complexType>
 
 	<xs:element name="ReconciliationRequestReplies" type="ReconciliationRequestRepliesType"/>

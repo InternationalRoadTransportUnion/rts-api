@@ -18,7 +18,7 @@
 		</wsp:ExactlyOne>
 	</wsp:Policy>
 	<wsdl:types>
-		<xs:schema targetNamespace="http://rts.iru.org/services/TerminationService-1">
+		<xs:schema targetNamespace="http://rts.iru.org/services/TerminationService-1" elementFormDefault="qualified">
 			<xs:import schemaLocation="termination-1.xsd" namespace="http://rts.iru.org/model/termination-1" />
 
 			<xs:element name="transmitTIROperationTerminations">
@@ -37,7 +37,7 @@
 						<xs:element name="from" type="xs:dateTime" />
 						<xs:element minOccurs="0" name="to" type="xs:dateTime" />
 						<xs:element minOccurs="0" name="offset" type="xs:integer" />
-						<xs:element minOccurs="0" name="maxCount" type="xs:nonNegativeInteger" />
+						<xs:element minOccurs="0" name="maxCount" type="xs:unsignedInt" />
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
