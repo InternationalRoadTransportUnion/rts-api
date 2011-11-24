@@ -53,6 +53,7 @@
 			<xs:group ref="CertificateOfTerminationGroup" minOccurs="0"/>
 			
 			<xs:element name="IsFinal" type="xs:boolean" />
+			<xs:element name="SequenceNumber" type="xs:unsignedByte" minOccurs="0"/>
 			<xs:element name="IsWithReservation"  type="xs:boolean" />
 			<xs:element name="CustomsComment"  minOccurs="0">
 				<xs:simpleType>
