@@ -1,4 +1,5 @@
 Dependencies
-CarnetService/IRU.RTS.WS.CarnetService.Interface/CarnetService-1/iso-3166-1-alpha-3.xsd
-CarnetService/IRU.RTS.WS.CarnetService.Interface/CarnetService-1/tir-actor-1.xsd
-CarnetService/IRU.RTS.WS.CarnetService.Interface/CarnetService-1/tir-carnet-1.xsd
+iso-3166-1-alpha-3.xsd
+tir-actor-1.xsd
+tir-carnet-1.xsd
+target/
