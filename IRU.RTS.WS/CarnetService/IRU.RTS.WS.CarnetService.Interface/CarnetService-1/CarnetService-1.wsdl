@@ -17,7 +17,7 @@
   <wsdl:types>
     <xs:schema targetNamespace="http://rts.iru.org/services/CarnetService-1" elementFormDefault="qualified">
       
-      <xs:import schemaLocation="carnet-1.xsd" namespace="http://rts.iru.org/model/carnet-1" />
+      <xs:import schemaLocation="rts-carnet-1.xsd" namespace="http://rts.iru.org/model/carnet-1" />
         
 			<xs:element name="queryCarnet">
 				<xs:complexType>

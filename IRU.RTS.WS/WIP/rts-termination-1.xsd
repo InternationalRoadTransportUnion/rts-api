@@ -6,7 +6,7 @@
 	xmlns:act="http://www.iru.org/model/tir-actor-1"
 	xmlns:car="http://rts.iru.org/model/carnet-1">
 	
-	<xs:import schemaLocation="carnet-1.xsd" namespace="http://rts.iru.org/model/carnet-1" />
+	<xs:import schemaLocation="rts-carnet-1.xsd" namespace="http://rts.iru.org/model/carnet-1" />
 	<xs:import schemaLocation="tir-actor-1.xsd" namespace="http://www.iru.org/model/tir-actor-1" />
 
 	<xs:group name="CustomsLedgerEntryGroup">

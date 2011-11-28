@@ -51,7 +51,7 @@
 								<include>tir-actor-1.xsd</include>
 								<include>iso-3166-1-alpha-3.xsd</include>
 								<include>tir-carnet-1.xsd</include>
-								<include>carnet-1.xsd</include>
+								<include>rts-carnet-1.xsd</include>
 							</includes>
 						</fileset>
 					</filesets>

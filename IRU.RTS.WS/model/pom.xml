@@ -51,6 +51,8 @@
 								<include>tir-actor-1.xsd</include>
 								<include>iso-3166-1-alpha-3.xsd</include>
 								<include>tir-carnet-1.xsd</include>
+								<include>rts-carnet-1.xsd</include>
+								<include>rts-termination-1.xsd</include>
 							</includes>
 						</fileset>
 					</filesets>
@@ -74,12 +76,12 @@
 								<resource>
 									<filtering>false</filtering>
 									<directory>../WIP</directory>
-									<includes><include>termination-1.xsd</include></includes>
+									<includes><include>rts-termination-1.xsd</include></includes>
 								</resource>
 								<resource>
 									<filtering>false</filtering>
 									<directory>../CarnetService/IRU.RTS.WS.CarnetService.Interface/CarnetService-1</directory>
-									<includes><include>carnet-1.xsd</include></includes>
+									<includes><include>rts-carnet-1.xsd</include></includes>
 								</resource>
 							</resources>
 						</configuration>
@@ -157,12 +159,12 @@
 						<configuration>
 							<artifacts>
 								<artifact>
-									<file>src/main/resources/carnet-1.xsd</file>
+									<file>src/main/resources/rts-carnet-1.xsd</file>
 									<type>xsd</type>
 									<classifier>carnet</classifier>
 								</artifact>
 								<artifact>
-									<file>src/main/resources/termination-1.xsd</file>
+									<file>src/main/resources/rts-termination-1.xsd</file>
 									<type>xsd</type>
 									<classifier>termination</classifier>
 								</artifact>
