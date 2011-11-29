@@ -91,10 +91,20 @@
 
 	<xs:element name="TIROperationTerminations" type="TIROperationTerminationsType"/>
 
+	<xs:complexType name="MissingTIROperationTerminationType">
+		<xs:sequence>
+			<xs:element ref="car:TIRCarnetNumber" />
+			<xs:element ref="car:VoletPageNumber" />
+			<xs:element ref="act:Customs" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="MissingTIROperationTermination" type="MissingTIROperationTerminationType"/>
+
 	<xs:simpleType name="ReconciliationRequestReasonType">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="MISSING"/>
 			<xs:enumeration value="DISCREPANCY"/>
+			<xs:enumeration value="MISSING"/>
 		</xs:restriction>
 	</xs:simpleType>
 	
@@ -125,7 +135,10 @@
 				</xs:simpleType>
 			</xs:element>
 			<xs:element name="Reason" type="ReconciliationRequestReasonType"/>
-			<xs:element name="TIROperationTerminationToValidate" type="TIROperationTerminationType"/> 	
+			<xs:choice>
+				<xs:element name="TIROperationTerminationToValidate" type="TIROperationTerminationType"/>
+				<xs:element ref="MissingTIROperationTermination"/>
+			</xs:choice> 	
 		</xs:sequence>
 	</xs:complexType>
 
