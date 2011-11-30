@@ -3,3 +3,9 @@ iso-3166-1-alpha-3.xsd
 tir-actor-1.xsd
 tir-carnet-1.xsd
 target/
+.project
+.classpath
+.settings/
+CarnetService/IRU.RTS.WS.CarnetService.Interface/CarnetService-1/rts-termination-1.xsd
+WIP/rts-carnet-1.xsd
+/model/src/
