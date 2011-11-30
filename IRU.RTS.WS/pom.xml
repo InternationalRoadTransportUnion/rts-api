@@ -32,9 +32,6 @@
 					<groupId>org.iru.maven.plugins</groupId>
 					<artifactId>maven-jaxbgenser-plugin</artifactId>
 					<version>1.0.0</version>
-					<configuration>
-						<globalBindings>globalBindings.xml</globalBindings>
-					</configuration>
 					<executions>
 						<execution>
 							<goals>

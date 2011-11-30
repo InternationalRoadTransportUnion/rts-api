@@ -92,6 +92,9 @@
 			<plugin>
 				<groupId>org.iru.maven.plugins</groupId>
 				<artifactId>maven-jaxbgenser-plugin</artifactId>
+				<configuration>
+					<globalBindings>globalBindings.xjb</globalBindings>
+				</configuration>
 			</plugin>
 
 

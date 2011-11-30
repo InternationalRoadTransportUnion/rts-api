@@ -61,8 +61,11 @@
 			<plugin>
 				<groupId>org.iru.maven.plugins</groupId>
 				<artifactId>maven-jaxbgenser-plugin</artifactId>
+				<configuration>
+					<globalBindings>globalBindings.xml</globalBindings>
+				</configuration>
 			</plugin>
-		
+					
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jaxws-maven-plugin</artifactId>
