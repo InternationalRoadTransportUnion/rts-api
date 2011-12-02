@@ -101,6 +101,15 @@
 
 	<xs:element name="MissingTIROperationTermination" type="MissingTIROperationTerminationType"/>
 
+	<!-- describe TIR operation termination data received at IRU -->
+	<xs:complexType name="ReceivedTIROperationTerminationType">
+		<xs:complexContent>
+			<xs:extension base="TIROperationTerminationType">
+				<xs:attribute name="receivedDate" type="xs:dateTime" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
 	<xs:simpleType name="ReconciliationRequestReasonType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="DISCREPANCY"/>
