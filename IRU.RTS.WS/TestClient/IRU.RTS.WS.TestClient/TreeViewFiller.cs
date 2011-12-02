@@ -18,7 +18,7 @@ namespace IRU.RTS.WS.TestClient
                 XmlDocument doc = new XmlDocument();
                 doc.LoadXml(xml);
 
-                TreeNode firstNode = new TreeNode("GetInvalidatedCarnetsResponse");
+                TreeNode firstNode = new TreeNode("Response");
 
                 //call function below to add TreeNodes to 'firstNode' from XmlNodes in 'doc'
                 doNodes(doc, firstNode.Nodes);

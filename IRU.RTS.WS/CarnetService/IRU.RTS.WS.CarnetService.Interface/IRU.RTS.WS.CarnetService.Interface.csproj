@@ -32,8 +32,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.ServiceModel">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
@@ -48,14 +52,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICarnetService.cs" />
+    <Compile Include="CarnetService-1\Association.cs" />
+    <Compile Include="CarnetService-1\CarnetBaseType.cs" />
+    <Compile Include="CarnetService-1\CarnetServiceSEI.cs" />
+    <Compile Include="CarnetService-1\CarnetStatusType.cs" />
+    <Compile Include="CarnetService-1\CarnetType.cs" />
+    <Compile Include="CarnetService-1\CarnetTypeTIROperationTerminations.cs" />
+    <Compile Include="CarnetService-1\getStoppedCarnetsRequest.cs" />
+    <Compile Include="CarnetService-1\getStoppedCarnetsResponse.cs" />
+    <Compile Include="CarnetService-1\HaulierType.cs" />
+    <Compile Include="CarnetService-1\ICarnetServiceSEI.cs" />
+    <Compile Include="CarnetService-1\InvalidationStatusType.cs" />
+    <Compile Include="CarnetService-1\queryCarnetRequest.cs" />
+    <Compile Include="CarnetService-1\queryCarnetResponse.cs" />
+    <Compile Include="CarnetService-1\stoppedCarnetsTypeStoppedCarnets.cs" />
+    <Compile Include="CarnetService-1\stoppedCarnetsTypeTotal.cs" />
+    <Compile Include="CarnetService-1\StoppedCarnetType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\IRU.RTS.WS.Common.Model\IRU.RTS.WS.Common.Model.csproj">
-      <Project>{29A04A14-9524-4006-BB71-B38606E94CC4}</Project>
-      <Name>IRU.RTS.WS.Common.Model</Name>
-    </ProjectReference>
+    <EmbeddedResource Include="CarnetService-1\rts-carnet-1.xsd" />
+    <EmbeddedResource Include="CarnetService-1\CarnetService-1.wsdl" />
+    <EmbeddedResource Include="CarnetService-1\iso-3166-1-alpha-3.xsd" />
+    <EmbeddedResource Include="CarnetService-1\tir-actor-1.xsd" />
+    <EmbeddedResource Include="CarnetService-1\tir-carnet-1.xsd" />
+    <None Include="output.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

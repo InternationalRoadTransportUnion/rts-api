@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IRU.Common.WCF.Behaviors, Version=1.2.0.0, Culture=neutral, PublicKeyToken=f01c97a8a42dad59, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\IRU.Common.WCF.Behaviors.dll</HintPath>
+    </Reference>
     <Reference Include="IRU.Common.WCF.Security.WSS, Version=1.1.0.0, Culture=neutral, PublicKeyToken=f01c97a8a42dad59, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Dependencies\IRU.Common.WCF.Security.WSS.dll</HintPath>
@@ -67,6 +71,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\IRU.RTS.WS.Common.Business\IRU.RTS.WS.Common.Business.csproj">
+      <Project>{6E7A5D46-7A5A-44B7-8E8D-682A468667C3}</Project>
+      <Name>IRU.RTS.WS.Common.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IRU.RTS.WS.CarnetService.Interface\IRU.RTS.WS.CarnetService.Interface.csproj">
       <Project>{8939FFE9-25C2-4CB9-A7E4-0FF81401D9F2}</Project>
       <Name>IRU.RTS.WS.CarnetService.Interface</Name>
@@ -78,10 +86,6 @@
     <ProjectReference Include="..\..\Common\IRU.RTS.WS.Common.Data\IRU.RTS.WS.Common.Data.csproj">
       <Project>{25D2AE1F-574C-49E7-B487-942D3AD8B3CD}</Project>
       <Name>IRU.RTS.WS.Common.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Common\IRU.RTS.WS.Common.Model\IRU.RTS.WS.Common.Model.csproj">
-      <Project>{29A04A14-9524-4006-BB71-B38606E94CC4}</Project>
-      <Name>IRU.RTS.WS.Common.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

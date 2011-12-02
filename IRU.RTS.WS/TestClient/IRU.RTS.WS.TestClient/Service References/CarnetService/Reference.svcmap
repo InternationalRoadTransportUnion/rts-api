@@ -17,12 +17,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://ws-test.iru.org/rts/services/CarnetService-1.svc?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:9080/?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="CarnetService-1.xsd" MetadataType="Schema" ID="4f0613fc-f42c-4789-888f-e45fb1ea4d34" SourceId="1" SourceUrl="https://ws-test.iru.org/rts/services/CarnetService-1.svc?xsd=xsd1" />
-    <MetadataFile FileName="CarnetService-11.xsd" MetadataType="Schema" ID="ba64ff88-17fc-48e2-ba84-2842e67ded17" SourceId="1" SourceUrl="https://ws-test.iru.org/rts/services/CarnetService-1.svc?xsd=xsd0" />
-    <MetadataFile FileName="CarnetService1.wsdl" MetadataType="Wsdl" ID="e7d722a8-d7f7-4785-810c-aa156fb5cb02" SourceId="1" SourceUrl="https://ws-test.iru.org/rts/services/CarnetService-1.svc?wsdl" />
+    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="0225c9dd-b0da-4a4d-bdb5-d1d4f886a8f7" SourceId="1" SourceUrl="http://localhost:9080/?xsd=xsd1" />
+    <MetadataFile FileName="item5.xsd" MetadataType="Schema" ID="de90fe21-d878-4ec9-93ea-dbadb06aa5f3" SourceId="1" SourceUrl="http://localhost:9080/?xsd=xsd3" />
+    <MetadataFile FileName="item6.xsd" MetadataType="Schema" ID="6d7fb8fa-6b9c-46b2-9205-8da68ef28313" SourceId="1" SourceUrl="http://localhost:9080/?xsd=xsd2" />
+    <MetadataFile FileName="CarnetService1.wsdl" MetadataType="Wsdl" ID="05e74f7e-466a-4ced-b296-6d0bd5591ab0" SourceId="1" SourceUrl="http://localhost:9080/?wsdl" />
+    <MetadataFile FileName="item7.xsd" MetadataType="Schema" ID="046bcbc4-7783-4600-9659-ce31f711dd0b" SourceId="1" SourceUrl="http://localhost:9080/?xsd=xsd4" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

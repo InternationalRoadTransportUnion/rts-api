@@ -2,7 +2,7 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="IRU.RTS.WS.CarnetService.Implementation.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="MaxCountOfCarnets" Type="System.Int32" Scope="Application">
+    <Setting Name="MaxCountOfCarnets" Type="System.UInt32" Scope="Application">
       <Value Profile="(Default)">1000</Value>
     </Setting>
     <Setting Name="MinTIRCarnetNumber" Type="System.Int32" Scope="Application">

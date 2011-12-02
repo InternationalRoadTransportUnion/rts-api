@@ -7,8 +7,8 @@ using System.Xml.Serialization;
 
 namespace IRU.RTS.WS.TestClient.CarnetService
 {
-    [XmlRoot(ElementName = "GetInvalidatedCarnetsResult")]
-    public partial class stoppedCarnetsType
+    [XmlRoot(ElementName = "getStoppedCarnetsResponse")]
+    public partial class getStoppedCarnetsResponse
     {
         public virtual string Serialize(System.Text.Encoding encoding)
         {

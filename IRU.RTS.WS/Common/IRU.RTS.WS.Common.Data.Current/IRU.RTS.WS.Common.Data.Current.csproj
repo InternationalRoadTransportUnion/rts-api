@@ -65,10 +65,6 @@
       <Project>{25D2AE1F-574C-49E7-B487-942D3AD8B3CD}</Project>
       <Name>IRU.RTS.WS.Common.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\IRU.RTS.WS.Common.Model\IRU.RTS.WS.Common.Model.csproj">
-      <Project>{29A04A14-9524-4006-BB71-B38606E94CC4}</Project>
-      <Name>IRU.RTS.WS.Common.Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\Settings.settings">

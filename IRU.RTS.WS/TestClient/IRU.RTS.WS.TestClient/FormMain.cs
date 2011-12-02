@@ -41,19 +41,21 @@ namespace IRU.RTS.WS.TestClient
 
         private void bnSearch_Click(object sender, EventArgs e)
         {
-            using (CarnetServiceClient csc = new CarnetServiceClient())
+            using (CarnetServiceSEIClient ws = new CarnetServiceSEIClient())
             {
-                csc.ClientCredentials.UserName.UserName = "test";
-                csc.ClientCredentials.UserName.Password = "test";
+                ws.ClientCredentials.UserName.UserName = "test";
+                ws.ClientCredentials.UserName.Password = "test";
 
                 DateTime dtFrom = dtpFrom.Value;
                 DateTime? dtTo = dtpTo.Enabled ? (DateTime?)dtpTo.Value : null;
                 int? iOffset = nudOffset.Enabled ? (int?) nudOffset.Value : null;
-                int? iCount = nudCount.Enabled ? (int?)nudCount.Value : null;
+                uint? iCount = nudCount.Enabled ? (uint?)nudCount.Value : null;
 
-                stoppedCarnetsType sct = csc.GetInvalidatedCarnets(dtFrom, dtTo, iOffset, iCount);
+                stoppedCarnetsTypeStoppedCarnets scCar;
+                stoppedCarnetsTypeTotal scTot = ws.getStoppedCarnets(dtFrom, dtTo, iOffset, iCount, out scCar);
+                getStoppedCarnetsResponse scResp = new getStoppedCarnetsResponse(scTot, scCar);
 
-                TreeViewFiller.populateTree(sct.Serialize(), tvResult);
+                TreeViewFiller.populateTree(scResp.Serialize(), tvResult);
             }
         }
     }

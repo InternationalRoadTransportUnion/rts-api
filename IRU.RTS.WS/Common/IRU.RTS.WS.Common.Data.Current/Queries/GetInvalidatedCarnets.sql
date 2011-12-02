@@ -5,8 +5,9 @@ with OrderedOrders as
 		ROW_NUMBER() OVER (ORDER BY s.s_c_creation_date asc) AS 'RowNumber'
 		,s.s_c_carnet_number as [Number]
 		,s.s_c_expiry_date as [ExpiryDate]
-		,a.c_xst_association_txt as [IssuingAssociation]
-		,s.s_c_holder as [Holder]
+		,i.c_i_association as [IssuingAssociation]
+		,a.c_xst_association_txt as [IssuingAssociationName]
+		,i.c_i_holder as [Holder]
 		,s.s_c_declare_date as [DateOfDeclaration]
 		,s.s_c_creation_date as [DateOfInvalidation]
 		,c.c_c_state as [MotiveCode]

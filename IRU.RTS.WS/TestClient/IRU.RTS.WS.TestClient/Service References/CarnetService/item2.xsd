@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:icc="http://www.iru.org/model/iso-3166-1-alpha-3" xmlns="http://www.iru.org/model/tir-actor-1" elementFormDefault="qualified" targetNamespace="http://www.iru.org/model/tir-actor-1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="?xsd=xsd4" namespace="http://www.iru.org/model/iso-3166-1-alpha-3" />
+  <xs:element name="IRU">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="Association">
+    <xs:complexType>
+      <xs:attribute name="id" type="xs:unsignedInt" use="required" />
+      <xs:attribute name="name" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="HaulierIdType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z]{3}/[0-9]+/[0-9]+" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="HaulierType">
+    <xs:attribute name="id" type="HaulierIdType" use="required" />
+    <xs:attribute name="name" type="xs:string" use="optional" />
+  </xs:complexType>
+  <xs:element name="Haulier" type="HaulierType" />
+  <xs:element name="Holder" type="HaulierType" />
+  <xs:element name="Customs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="CountryCode" type="icc:CountryCodeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

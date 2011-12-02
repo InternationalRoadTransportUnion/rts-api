@@ -6,6 +6,18 @@ using System.Data.Common;
 
 namespace IRU.RTS.WS.Common.Data
 {
+    public class DbDataReaderEventArgs : EventArgs
+    {
+        public DbDataReader DbDataReader { get; set; }
+
+        public DbDataReaderEventArgs(DbDataReader dbDataReader)
+        {
+            this.DbDataReader = dbDataReader;
+        }
+    }
+
+    public delegate void DbDataReaderExecutedDelegate(object sender, DbDataReaderEventArgs e);
+
     public class DbQuery: IDisposable
     {
         protected DbConnection _scon = null;
@@ -60,11 +72,23 @@ namespace IRU.RTS.WS.Common.Data
             {
                 retVal = Convert.ToInt32(value);
             }
+            else if (typeof(T) == typeof(uint))
+            {
+                retVal = Convert.ToUInt32(value);
+            }
+            else if (typeof(T) == typeof(int?))
+            {
+                retVal = Convert.ToInt32(value);
+            }
+            else if (typeof(T) == typeof(uint?))
+            {
+                retVal = Convert.ToUInt32(value);
+            }
             
             return retVal;
         }
 
-        protected T GetValue<T>(DbDataReader dbDataReader, string columnName)
+        public T GetValue<T>(DbDataReader dbDataReader, string columnName)
         {
             object oVal = dbDataReader[columnName];
 

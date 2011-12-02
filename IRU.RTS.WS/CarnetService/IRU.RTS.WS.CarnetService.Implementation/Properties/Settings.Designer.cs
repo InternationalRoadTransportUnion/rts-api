@@ -26,9 +26,9 @@ namespace IRU.RTS.WS.CarnetService.Implementation.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1000")]
-        public int MaxCountOfCarnets {
+        public uint MaxCountOfCarnets {
             get {
-                return ((int)(this["MaxCountOfCarnets"]));
+                return ((uint)(this["MaxCountOfCarnets"]));
             }
         }
         

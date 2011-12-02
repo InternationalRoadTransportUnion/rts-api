@@ -64,6 +64,7 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="getStoppedCarnetsResponseExtension.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormMain.resx">
@@ -93,7 +94,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="StoppedCarnetsExtension.cs" />
     <Compile Include="TreeViewFiller.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -109,12 +109,20 @@
     <None Include="Service References\CarnetService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\CarnetService\CarnetService-1.xsd" />
-    <None Include="Service References\CarnetService\CarnetService-11.xsd" />
     <None Include="Service References\CarnetService\CarnetService1.wsdl" />
-    <None Include="Service References\CarnetService\IRU.RTS.WS.TestClient.CarnetService.stoppedCarnetsType.datasource">
+    <None Include="Service References\CarnetService\IRU.RTS.WS.TestClient.CarnetService.CarnetType1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\CarnetService\IRU.RTS.WS.TestClient.CarnetService.stoppedCarnetsTypeStoppedCarnets1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CarnetService\IRU.RTS.WS.TestClient.CarnetService.stoppedCarnetsTypeTotal1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CarnetService\item4.xsd" />
+    <None Include="Service References\CarnetService\item5.xsd" />
+    <None Include="Service References\CarnetService\item6.xsd" />
+    <None Include="Service References\CarnetService\item7.xsd" />
     <None Include="Service References\CarnetService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
