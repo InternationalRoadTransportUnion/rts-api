@@ -43,8 +43,8 @@ namespace IRU.RTS.WS.TestClient
         {
             using (CarnetServiceSEIClient ws = new CarnetServiceSEIClient())
             {
-                ws.ClientCredentials.UserName.UserName = "test";
-                ws.ClientCredentials.UserName.Password = "test";
+                ws.ClientCredentials.UserName.UserName = Properties.Settings.Default.UserName;
+                ws.ClientCredentials.UserName.Password = Properties.Settings.Default.Password;
 
                 DateTime dtFrom = dtpFrom.Value;
                 DateTime? dtTo = dtpTo.Enabled ? (DateTime?)dtpTo.Value : null;

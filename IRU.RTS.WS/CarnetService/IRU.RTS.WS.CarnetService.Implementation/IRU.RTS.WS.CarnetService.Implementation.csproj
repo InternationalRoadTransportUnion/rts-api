@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CarnetService.cs" />
+    <Compile Include="CarnetServicePasswordValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -74,6 +75,10 @@
     <ProjectReference Include="..\..\Common\IRU.RTS.WS.Common.Business\IRU.RTS.WS.Common.Business.csproj">
       <Project>{6E7A5D46-7A5A-44B7-8E8D-682A468667C3}</Project>
       <Name>IRU.RTS.WS.Common.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\IRU.RTS.WS.Common.Data.WsSubscriber\IRU.RTS.WS.Common.Data.WsSubscriber.csproj">
+      <Project>{7366225C-600D-4630-8251-62AA676DF881}</Project>
+      <Name>IRU.RTS.WS.Common.Data.WsSubscriber</Name>
     </ProjectReference>
     <ProjectReference Include="..\IRU.RTS.WS.CarnetService.Interface\IRU.RTS.WS.CarnetService.Interface.csproj">
       <Project>{8939FFE9-25C2-4CB9-A7E4-0FF81401D9F2}</Project>
@@ -94,6 +99,9 @@
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CarnetService-1.svc" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

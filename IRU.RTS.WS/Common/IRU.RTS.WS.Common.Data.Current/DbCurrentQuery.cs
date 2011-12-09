@@ -8,7 +8,7 @@ using IRU.RTS.WS.Common.Data;
 
 namespace IRU.RTS.WS.Common.Data.Current
 {
-    public class DbCurrentQuery : DbQuery, IDisposable
+    public class DbCurrentQuery : DbQuery
     {
         public DbCurrentQuery(DbConnection dbConnection)
             : base(dbConnection, -1)

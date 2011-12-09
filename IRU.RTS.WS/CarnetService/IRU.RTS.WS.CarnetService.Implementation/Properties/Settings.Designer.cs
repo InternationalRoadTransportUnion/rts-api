@@ -43,9 +43,18 @@ namespace IRU.RTS.WS.CarnetService.Implementation.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("60000")]
+        public int SQLCommandTimeout {
+            get {
+                return ((int)(this["SQLCommandTimeout"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost\\MSSQLSERVER_2K8;Initial Catalog=Current;User ID=devsvc;Pass" +
-            "word=SvcDev11")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Application Name=http://rts.iru.org/services/CarnetService-1;Data Source=localhos" +
+            "t\\MSSQLSERVER_2K8;Initial Catalog=Current;Integrated Security=SSPI")]
         public string CurrentDB {
             get {
                 return ((string)(this["CurrentDB"]));
@@ -54,10 +63,12 @@ namespace IRU.RTS.WS.CarnetService.Implementation.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("60000")]
-        public int SQLCommandTimeout {
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Application Name=http://rts.iru.org/services/CarnetService-1;Data Source=localhos" +
+            "t\\MSSQLSERVER_2K8;Initial Catalog=WS_SUBSCRIBER_DB;Integrated Security=SSPI")]
+        public string WsSubscriberDB {
             get {
-                return ((int)(this["SQLCommandTimeout"]));
+                return ((string)(this["WsSubscriberDB"]));
             }
         }
     }

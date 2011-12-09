@@ -1,0 +1,1 @@
+<%@ ServiceHost Service="IRU.RTS.WS.CarnetService.Implementation.CarnetService" %>
