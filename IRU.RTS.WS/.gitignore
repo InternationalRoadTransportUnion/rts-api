@@ -11,3 +11,5 @@ iso-4217.xsd
 *.*proj.user
 *.Publish.xml
 /model/src/
+CarnetService/IRU.RTS.WS.CarnetService.Interface/CarnetService-1/rts-termination-1.xsd
+TerminationService/IRU.RTS.WS.TerminationService.Interface/TerminationService-1/rts-carnet-1.xsd
