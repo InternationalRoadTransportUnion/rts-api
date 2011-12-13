@@ -75,7 +75,7 @@
 							<resources>
 								<resource>
 									<filtering>false</filtering>
-									<directory>../WIP</directory>
+									<directory>../TerminationService/IRU.RTS.WS.TerminationService.Interface/TerminationService-1</directory>
 									<includes><include>rts-termination-1.xsd</include></includes>
 								</resource>
 								<resource>
