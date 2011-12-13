@@ -20,7 +20,7 @@ wget http://apps.charybdis.iruworld.org/swf/artifactory/libs-release-local/org/i
 move /y iru-schemas-1.2-tir-actor.xsd CarnetService\IRU.RTS.WS.CarnetService.Interface\CarnetService-1\tir-actor-1.xsd
 
 wget http://apps.charybdis.iruworld.org/swf/artifactory/libs-release-local/org/iru/common/iru-schemas/1.2/iru-schemas-1.2-tir-carnet.xsd
-move /y iru-schemas-1.1-tir-carnet.xsd CarnetService\IRU.RTS.WS.CarnetService.Interface\CarnetService-1\tir-carnet-1.xsd
+move /y iru-schemas-1.2-tir-carnet.xsd CarnetService\IRU.RTS.WS.CarnetService.Interface\CarnetService-1\tir-carnet-1.xsd
 
 wget http://apps.charybdis.iruworld.org/swf/artifactory/libs-release-local/org/iru/common/iru-schemas/1.2/iru-schemas-1.2-iso-3166-1-alpha-3.xsd
 move /y iru-schemas-1.2-iso-3166-1-alpha-3.xsd TerminationService\IRU.RTS.WS.TerminationService.Interface\TerminationService-1\iso-3166-1-alpha-3.xsd
