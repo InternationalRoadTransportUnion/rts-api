@@ -34,10 +34,10 @@
 			<xs:element name="getReconciliationRequests">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="from" type="xs:dateTime" />
-						<xs:element minOccurs="0" name="to" type="xs:dateTime" />
-						<xs:element minOccurs="0" name="offset" type="xs:integer" />
-						<xs:element minOccurs="0" name="maxCount" type="xs:unsignedInt" />
+            <xs:element name="from" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="to" nillable="true" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="offset" nillable="true" type="xs:int"/>
+            <xs:element minOccurs="0" name="maxCount" nillable="true" type="xs:unsignedInt"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -170,8 +170,7 @@
 			<soap12:address
 				location="http://ws-test.iruworld.org/rts/services/TerminationService-1.svc" />
 			<wsa10:EndpointReference>
-				<wsa10:Address>http://ws-test.iruworld.org/rts/services/TerminationService-1.svc
-				</wsa10:Address>
+				<wsa10:Address>http://ws-test.iruworld.org/rts/services/TerminationService-1.svc</wsa10:Address>
 				<Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
 					<Dns>localhost</Dns>
 				</Identity>
