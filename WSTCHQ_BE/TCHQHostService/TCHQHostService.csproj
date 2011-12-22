@@ -110,6 +110,10 @@
       <Project>{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
+    <ProjectReference Include="..\TCHQ_Processor\TCHQ_Processor.csproj">
+      <Project>{FFB77A89-28E2-46CB-B3DD-EFED10FACFFD}</Project>
+      <Name>TCHQ_Processor</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -130,7 +134,9 @@
       <DependentUpon>QueryHostServiceInstaller.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Content Include="WSTCHQ_Config.xml" />
+    <Content Include="WSTCHQ_Config.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

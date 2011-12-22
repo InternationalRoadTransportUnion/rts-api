@@ -1,0 +1,149 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iru.org/SafeTIRReconciliation"
+	xmlns="http://www.iru.org/SafeTIRReconciliation" elementFormDefault="qualified"  version="1.0.0">
+	<xs:element name="ReconciliationQuery">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Envelope" type="EnvelopeType" />
+				<xs:element name="Body" type="ReconciliationQueryBodyType" />
+			</xs:sequence>
+		<xs:attribute name="Sender_Document_Version" type="xs:string" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SafeTIR">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Envelope" type="EnvelopeType" />
+				<xs:element name="Body" type="SafeTIRBodyType" />
+			</xs:sequence>
+		<xs:attribute name="Sender_Document_Version" type="xs:string" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="ReconciliationQueryBodyType">
+		<xs:sequence>
+			<xs:element name="SentTime" type="xs:dateTime" />
+			<xs:element name="Password" type="PasswordType" minOccurs="0" maxOccurs="1" />
+			<xs:element name="QueryType" type="QueryType" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SafeTIRBodyType">
+		<xs:sequence>
+			<xs:element name="NumberOfRecords" type="xs:int" />
+			<xs:element name="RequestRecords" type="RequestRecords" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EnvelopeType">
+		<xs:sequence>
+			<xs:element name="Hash" type="HashType" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="PasswordType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="32" />
+			<xs:maxLength value="255" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="QueryType">
+		<!-- 
+			1 = All new requests. -->
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="1" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="RequestRecords">
+		<xs:sequence>
+			<xs:element name="RequestRecord" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="RequestID" type="RequestIDType" use="required" />
+					<xs:attribute name="RequestDate" type="xs:date" use="required" />
+					<xs:attribute name="RequestReminderNum" type="xs:int" use="required" />
+					<xs:attribute name="RequestDataSource" type="RequestDataSourceType" use="required" />
+					<xs:attribute name="TNO" type="TNOType" use="required" />
+					<xs:attribute name="ICC" type="ICCType" use="required" />
+					<xs:attribute name="DCL" type="xs:date" use="optional" />
+					<xs:attribute name="CNL" type="CNLType" use="optional" />
+					<xs:attribute name="COF" type="COFType" use="required" />
+					<xs:attribute name="DDI" type="xs:date" use="optional" />
+					<xs:attribute name="RND" type="RNDType" use="optional" />
+					<xs:attribute name="PFD" type="PFDType" use="optional" />
+					<xs:attribute name="CWR" type="CWRType" use="optional" />
+					<xs:attribute name="VPN" type="VPNType" use="optional" />
+					<xs:attribute name="COM" type="COMType" use="optional" />
+					<xs:attribute name="RBC" type="RBCType" use="optional" />
+					<xs:attribute name="PIC" type="xs:nonNegativeInteger" use="optional" />
+					<xs:attribute name="RequestRemark" type="RequestRemarkType" use="optional" />
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="RequestIDType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="14" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RequestDataSourceType">
+		<!-- 
+			0 = SafeTIR data. 
+			1 = TIR Carnet data. -->
+		<xs:restriction base="xs:int">
+      <xs:enumeration value="0" />
+      <xs:enumeration value="1" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TNOType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Z]{2}[0-9]{8}" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ICCType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CNLType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="255" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="COFType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="255" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RNDType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="255" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PFDType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="255" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CWRType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="255" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VPNType">
+		<xs:restriction base="xs:positiveInteger">
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="COMType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="126" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RBCType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="255" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RequestRemarkType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="126" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HashType">
+		<xs:restriction base="xs:base64Binary"></xs:restriction>
+	</xs:simpleType>
+</xs:schema>

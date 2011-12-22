@@ -84,10 +84,9 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Web.Services2">
-      <Name>Microsoft.Web.Services2</Name>
-      <HintPath>C:\Program Files\Microsoft WSE\v2.0\Microsoft.Web.Services2.dll</HintPath>
-      <AssemblyFolderKey>hklm\microsoft wse 2.0</AssemblyFolderKey>
+    <Reference Include="Microsoft.Web.Services2, Version=2.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Microsoft.Web.Services2.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Name>System</Name>
@@ -120,6 +119,9 @@
     <Content Include="App.ico" />
     <Content Include="bin\Debug\QueryTemplate.xml" />
     <Content Include="bin\Debug\RTSTestClient.xml" />
+    <Content Include="QueryTemplate.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Web References\TIREPDB2G\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

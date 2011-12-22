@@ -20,7 +20,7 @@
     <RemoteDebugEnabled>false</RemoteDebugEnabled>
     <RemoteDebugMachine>
     </RemoteDebugMachine>
-    <StartAction>Program</StartAction>
+    <StartAction>Project</StartAction>
     <StartArguments>
     </StartArguments>
     <StartPage>
@@ -28,7 +28,8 @@
     <StartProgram>O:\bin\RTSTestClient.exe</StartProgram>
     <StartURL>
     </StartURL>
-    <StartWorkingDirectory>o:\bin</StartWorkingDirectory>
+    <StartWorkingDirectory>
+    </StartWorkingDirectory>
     <StartWithIE>false</StartWithIE>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">

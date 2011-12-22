@@ -59,6 +59,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCHQHostService", "TCHQHost
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.Debug = "False"
 	EndProjectSection
+	ProjectSection(ProjectDependencies) = postProject
+		{FFB77A89-28E2-46CB-B3DD-EFED10FACFFD} = {FFB77A89-28E2-46CB-B3DD-EFED10FACFFD}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriberDBHelper", "SubscriberDBHelper\SubscriberDBHelper.csproj", "{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}"
 	ProjectSection(WebsiteProperties) = preProject

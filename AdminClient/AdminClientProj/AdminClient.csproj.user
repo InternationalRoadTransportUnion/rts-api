@@ -20,7 +20,7 @@
     <RemoteDebugEnabled>false</RemoteDebugEnabled>
     <RemoteDebugMachine>
     </RemoteDebugMachine>
-    <StartAction>Program</StartAction>
+    <StartAction>Project</StartAction>
     <StartArguments>
     </StartArguments>
     <StartPage>
@@ -28,7 +28,8 @@
     <StartProgram>O:\bin\AdminClient.exe</StartProgram>
     <StartURL>
     </StartURL>
-    <StartWorkingDirectory>O:\bin</StartWorkingDirectory>
+    <StartWorkingDirectory>
+    </StartWorkingDirectory>
     <StartWithIE>true</StartWithIE>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">

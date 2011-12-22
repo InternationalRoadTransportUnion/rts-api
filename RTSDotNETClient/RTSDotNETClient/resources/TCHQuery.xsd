@@ -1,0 +1,77 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://www.iru.org/TCHQuery" xmlns:Qry="http://www.iru.org/TCHQuery"
+elementFormDefault="qualified">
+   <xs:element name="Query">
+       <xs:complexType>
+          <xs:sequence>
+              <xs:element name="Envelope" type="Qry:EnvelopeType" />
+              <xs:element name="Body" type="Qry:BodyType" />
+          </xs:sequence>
+       </xs:complexType>
+   </xs:element>
+   <xs:complexType name="EnvelopeType">
+       <xs:sequence>
+          <xs:element name="Hash" type="Qry:HashType" />
+       </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="BodyType">
+          <xs:sequence>
+              <xs:element name="Sender" type="Qry:SenderType"/>
+              <xs:element name="SentTime" type="xs:dateTime"/>
+              <xs:element name="Originator" type="Qry:OriginatorType"/>
+              <xs:element name="OriginTime" type="xs:dateTime"/>
+              <xs:element name="Password" type="Qry:PasswordType" minOccurs="0"
+maxOccurs="1"/>
+              <xs:element name="Query_Type" type="Qry:QueryType"/>
+              <xs:element name="Query_Reason" type="Qry:QueryReasonType"/>
+              <xs:element name="Carnet_Number" type="Qry:CarnetNumberType"/>
+          </xs:sequence>
+       </xs:complexType>
+   <xs:simpleType name="SenderType">
+       <xs:restriction base ="xs:string">
+          <xs:minLength value="1"/>
+          <xs:maxLength value="255"/>
+       </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="OriginatorType">
+       <xs:restriction base ="xs:string">
+          <xs:minLength value="1"/>
+          <xs:maxLength value="30"/>
+       </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="PasswordType">
+       <xs:restriction base ="xs:string">
+          <xs:minLength value="32"/>
+          <xs:maxLength value="255"/>
+       </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="QueryType">
+       <!--
+          1=CarnetHolder.
+          Currently there is only one type of query.
+          But this is included for expansion -->
+       <xs:restriction base="xs:int">
+          <xs:enumeration value="1" />
+       </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="QueryReasonType">
+       <!-- 1=Entry, 2=Exit, 3=Termination, 4=Opening, 5=Other -->
+       <xs:restriction base="xs:int">
+          <xs:enumeration value="1" />
+          <xs:enumeration value="2" />
+          <xs:enumeration value="3" />
+          <xs:enumeration value="4" />
+          <xs:enumeration value="5" />
+       </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="CarnetNumberType">
+       <xs:restriction base="xs:string">
+          <xs:pattern value="[A-Z]{2}[0-9]{8}" />
+       </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="HashType">
+       <xs:restriction base ="xs:base64Binary">
+       </xs:restriction>
+   </xs:simpleType>
+</xs:schema>
+

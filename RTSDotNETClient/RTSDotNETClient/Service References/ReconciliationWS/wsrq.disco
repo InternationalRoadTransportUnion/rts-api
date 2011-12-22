@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://apps-test.iru.org/rts2/wsrq_ws/wsrq.asmx?wsdl" docRef="https://apps-test.iru.org/rts2/wsrq_ws/wsrq.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://apps-test.iru.org/rts2/wsrq_ws/wsrq.asmx" xmlns:q1="http://www.iru.org" binding="q1:ReconciliationQueryServiceClassSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://apps-test.iru.org/rts2/wsrq_ws/wsrq.asmx" xmlns:q2="http://www.iru.org" binding="q2:ReconciliationQueryServiceClassSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

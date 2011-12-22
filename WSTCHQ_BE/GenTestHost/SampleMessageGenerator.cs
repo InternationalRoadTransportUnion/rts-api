@@ -63,81 +63,82 @@ namespace GenTestHost
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.txtInFile = new System.Windows.Forms.TextBox();
-			this.cmdGenerateQuery = new System.Windows.Forms.Button();
-			this.label1 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.txtIRUKeyID = new System.Windows.Forms.TextBox();
-			this.groupBox1.SuspendLayout();
-			this.SuspendLayout();
-			// 
-			// groupBox1
-			// 
-			this.groupBox1.Controls.Add(this.txtIRUKeyID);
-			this.groupBox1.Controls.Add(this.label2);
-			this.groupBox1.Controls.Add(this.label1);
-			this.groupBox1.Controls.Add(this.cmdGenerateQuery);
-			this.groupBox1.Controls.Add(this.txtInFile);
-			this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.groupBox1.Location = new System.Drawing.Point(0, 0);
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(520, 96);
-			this.groupBox1.TabIndex = 0;
-			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Generate Query Message";
-			// 
-			// txtInFile
-			// 
-			this.txtInFile.Location = new System.Drawing.Point(104, 24);
-			this.txtInFile.Name = "txtInFile";
-			this.txtInFile.Size = new System.Drawing.Size(256, 20);
-			this.txtInFile.TabIndex = 0;
-			this.txtInFile.Text = "o:\\bin\\TCHQuery.xml";
-			// 
-			// cmdGenerateQuery
-			// 
-			this.cmdGenerateQuery.Location = new System.Drawing.Point(360, 24);
-			this.cmdGenerateQuery.Name = "cmdGenerateQuery";
-			this.cmdGenerateQuery.Size = new System.Drawing.Size(80, 24);
-			this.cmdGenerateQuery.TabIndex = 1;
-			this.cmdGenerateQuery.Text = "Generate";
-			this.cmdGenerateQuery.Click += new System.EventHandler(this.cmdGenerateQuery_Click);
-			// 
-			// label1
-			// 
-			this.label1.Location = new System.Drawing.Point(8, 24);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(80, 24);
-			this.label1.TabIndex = 2;
-			this.label1.Text = "Input File";
-			// 
-			// label2
-			// 
-			this.label2.Location = new System.Drawing.Point(8, 56);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(80, 24);
-			this.label2.TabIndex = 3;
-			this.label2.Text = "IRU Key ID";
-			// 
-			// txtIRUKeyID
-			// 
-			this.txtIRUKeyID.Location = new System.Drawing.Point(104, 56);
-			this.txtIRUKeyID.Name = "txtIRUKeyID";
-			this.txtIRUKeyID.Size = new System.Drawing.Size(256, 20);
-			this.txtIRUKeyID.TabIndex = 4;
-			this.txtIRUKeyID.Text = "84876C0463A38DF2FD64F3C90E1EABF01C77B3ED";
-			// 
-			// SampleMessageGenerator
-			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(520, 266);
-			this.Controls.Add(this.groupBox1);
-			this.Name = "SampleMessageGenerator";
-			this.Text = "SampleMessageGenerator";
-			this.Load += new System.EventHandler(this.SampleMessageGenerator_Load);
-			this.groupBox1.ResumeLayout(false);
-			this.ResumeLayout(false);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtIRUKeyID = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmdGenerateQuery = new System.Windows.Forms.Button();
+            this.txtInFile = new System.Windows.Forms.TextBox();
+            this.groupBox1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtIRUKeyID);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.cmdGenerateQuery);
+            this.groupBox1.Controls.Add(this.txtInFile);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(520, 96);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Generate Query Message";
+            // 
+            // txtIRUKeyID
+            // 
+            this.txtIRUKeyID.Location = new System.Drawing.Point(104, 56);
+            this.txtIRUKeyID.Name = "txtIRUKeyID";
+            this.txtIRUKeyID.Size = new System.Drawing.Size(256, 20);
+            this.txtIRUKeyID.TabIndex = 4;
+            this.txtIRUKeyID.Text = "7255da9b7ca76b9c1486127596c1a2103bb60a28";
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(8, 56);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(80, 24);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "IRU Key ID";
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(8, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 24);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Input File";
+            // 
+            // cmdGenerateQuery
+            // 
+            this.cmdGenerateQuery.Location = new System.Drawing.Point(360, 24);
+            this.cmdGenerateQuery.Name = "cmdGenerateQuery";
+            this.cmdGenerateQuery.Size = new System.Drawing.Size(80, 24);
+            this.cmdGenerateQuery.TabIndex = 1;
+            this.cmdGenerateQuery.Text = "Generate";
+            this.cmdGenerateQuery.Click += new System.EventHandler(this.cmdGenerateQuery_Click);
+            // 
+            // txtInFile
+            // 
+            this.txtInFile.Location = new System.Drawing.Point(104, 24);
+            this.txtInFile.Name = "txtInFile";
+            this.txtInFile.Size = new System.Drawing.Size(256, 20);
+            this.txtInFile.TabIndex = 0;
+            this.txtInFile.Text = "C:\\Users\\npuzin\\Desktop\\RTS\\NewQueryMessage2.xml";
+            // 
+            // SampleMessageGenerator
+            // 
+            this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+            this.ClientSize = new System.Drawing.Size(520, 266);
+            this.Controls.Add(this.groupBox1);
+            this.Name = "SampleMessageGenerator";
+            this.Text = "SampleMessageGenerator";
+            this.Load += new System.EventHandler(this.SampleMessageGenerator_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.ResumeLayout(false);
 
 		}
 		#endregion
