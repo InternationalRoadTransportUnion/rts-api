@@ -51,6 +51,8 @@ namespace RTSDotNETClient.WSRQ
 
             Global.Trace(string.Format("WSRQ RESPONSE: RETURN_CODE={0} ({1})\r\n{2}\r\n", (int)returnCode, returnCode, respStr));
 
+            respStr = respStr.Replace(" DDI=\"\"", "");
+
             return QueryResponseFactory.Deserialize<Response>(respStr, Response.Xsd);
 
         }
