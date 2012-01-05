@@ -21,8 +21,7 @@ namespace RTSDotNETClient.TestClient
             InitializeComponent();
             Global.LoadConfiguration();
             this.appDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-            openFileDialogPfx.InitialDirectory = appDirectory;
-            openFileDialogCer.InitialDirectory = appDirectory;
+
             InitTestData();
             InitTrace();
         }

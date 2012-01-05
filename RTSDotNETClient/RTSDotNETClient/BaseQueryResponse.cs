@@ -19,7 +19,7 @@ namespace RTSDotNETClient
 
     public class BaseQueryResponse
     {        
-        public static string Xsd;
+        protected string xsd;
         public Envelope Envelope { get; set; }
 
         public BaseQueryResponse()
@@ -68,7 +68,7 @@ namespace RTSDotNETClient
                         if (vea.Severity == XmlSeverityType.Error)
                             throw new Exception(vea.Message);
                     });
-                    Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(Assembly.GetExecutingAssembly().GetName().Name + ".resources." + Xsd);
+                    Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(Assembly.GetExecutingAssembly().GetName().Name + ".resources." + xsd);
                     config.Schemas.Add(null, XmlReader.Create(stream));
 
                     StringReader sr = new StringReader(xml);

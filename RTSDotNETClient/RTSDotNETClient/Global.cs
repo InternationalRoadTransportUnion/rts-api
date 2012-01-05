@@ -2,6 +2,7 @@
 
 namespace RTSDotNETClient
 {
+
     public class Global
     {
         public static bool TraceEnabled { get; set; }

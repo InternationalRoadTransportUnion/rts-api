@@ -1,18 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.ServiceModel;
-using System.Xml.Serialization;
-using System.IO;
-using System.Security.Cryptography.X509Certificates;
-using System.Diagnostics;
 
 namespace RTSDotNETClient.TCHQ
 {
+
+    /// <summary>
+    /// The HolderQueryClient class allows to query the TCHQ Web Service
+    /// in order to retrieve some information related to a TIR Carnet (status, holder, association, etc)
+    /// </summary>
     public class HolderQueryClient : BaseWSClient
     {
-
+        /// <summary>
+        /// Send a query to the TCHQ Web Service to retrieve some information related to a TIR Carnet (status, holder, association, etc)
+        /// </summary>
+        /// <param name="query">The query object</param>
+        /// <returns>The response returned by the TCHQ Web Service</returns>
         public Response QueryCarnet(Query query)
         {
             SanityChecks();

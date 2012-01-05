@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using RTSDotNETClient.WSRE;
 using System.Configuration;
+using System.IO;
 
 namespace RTSDotNETClient.TestClient
 {
@@ -113,6 +114,18 @@ namespace RTSDotNETClient.TestClient
         {
             string columnName = (sender as DataGridView).Columns[e.ColumnIndex].HeaderText;
             MessageBox.Show(this, string.Format("Column {0}: {1}", columnName,  e.Exception.Message), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void btLoadQuery_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string xml = File.ReadAllText(openFileDialog1.FileName);
+                Query q = QueryResponseFactory.Deserialize<Query>(xml, Query.Xsd);
+                records.Clear();
+                foreach (RequestReplyRecord rec in q.Body.RequestReplyRecords)
+                    records.Add(rec);
+            }
         }
 
     }

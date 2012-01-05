@@ -21,12 +21,19 @@ namespace RTSDotNETClient.WSRE
     [XmlRoot("SafeTIR", Namespace = "http://www.iru.org/SafeTIRUpload")]
     public class Query : BaseQueryResponse
     {
-        public Query() 
-        {
-            Xsd = "SafeTIRUpload.xsd";
-        }
+        public const string Xsd = "SafeTIRUpload.xsd";
         public Body Body = new Body();
 
+        /// <summary>
+        /// Customs Authorities Internal Value, not used by the IRU
+        /// </summary>
+        [XmlAttribute("Sender_Document_Version")]
+        public string SenderDocumentVersion { get; set; }
+
+        public Query()
+        {
+            this.xsd = Xsd;
+        }
     }
 
     public class Body

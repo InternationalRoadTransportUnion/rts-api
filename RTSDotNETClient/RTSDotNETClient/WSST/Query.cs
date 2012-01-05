@@ -23,12 +23,13 @@ namespace RTSDotNETClient.WSST
     [XmlRoot("SafeTIR", Namespace = "http://www.iru.org/SafeTIRUpload")]
     public class Query : BaseQueryResponse
     {
-        public Query() 
-        {
-            Xsd = "SafeTIRUpload.xsd";
-        }
+        public const string Xsd = "SafeTIRUpload.xsd";
         public Body Body = new Body();
 
+        public Query()
+        {
+            this.xsd = Xsd;
+        }
     }
 
     public class Body

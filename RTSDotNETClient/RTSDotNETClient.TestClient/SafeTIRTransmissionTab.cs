@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using RTSDotNETClient.WSST;
 using System.Configuration;
+using System.IO;
 
 namespace RTSDotNETClient.TestClient
 {
@@ -17,7 +18,7 @@ namespace RTSDotNETClient.TestClient
 
         public SafeTIRTransmissionTab()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
         private void InitComboBoxEnum(string colName, Type type)
@@ -41,7 +42,7 @@ namespace RTSDotNETClient.TestClient
             InitComboBoxEnum("CWR", typeof(CWR));
             InitComboBoxEnum("RBC", typeof(RBC));
             InitComboBoxEnum("UPG", typeof(UPG));
-            InitTestData();            
+            InitTestData();
         }
 
         private void InitTestData()
@@ -117,6 +118,18 @@ namespace RTSDotNETClient.TestClient
             r.RBC = RBC.CarnetRetained;
             r.PIC = 0;
             records.Add(r);        
+        }
+
+        private void btLoadQuery_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {                
+                string xml = File.ReadAllText(openFileDialog1.FileName);
+                Query q = QueryResponseFactory.Deserialize<Query>(xml, Query.Xsd);
+                records.Clear();
+                foreach (Record rec in q.Body.SafeTIRRecords)
+                    records.Add(rec);
+            }
         }
 
     }

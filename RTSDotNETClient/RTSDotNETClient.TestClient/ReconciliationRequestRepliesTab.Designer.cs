@@ -33,6 +33,8 @@
             this.btSend = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btAddTestRecord = new System.Windows.Forms.Button();
+            this.btLoadQuery = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,9 +71,9 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(17, 69);
+            this.dataGridView1.Location = new System.Drawing.Point(17, 55);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(534, 248);
+            this.dataGridView1.Size = new System.Drawing.Size(534, 262);
             this.dataGridView1.TabIndex = 19;
             this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
             // 
@@ -86,11 +88,28 @@
             this.btAddTestRecord.Visible = false;
             this.btAddTestRecord.Click += new System.EventHandler(this.btAddTestRecord_Click);
             // 
+            // btLoadQuery
+            // 
+            this.btLoadQuery.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btLoadQuery.Location = new System.Drawing.Point(450, 26);
+            this.btLoadQuery.Name = "btLoadQuery";
+            this.btLoadQuery.Size = new System.Drawing.Size(101, 23);
+            this.btLoadQuery.TabIndex = 21;
+            this.btLoadQuery.Text = "Load Query";
+            this.btLoadQuery.UseVisualStyleBackColor = true;
+            this.btLoadQuery.Click += new System.EventHandler(this.btLoadQuery_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.DefaultExt = "xml";
+            this.openFileDialog1.Filter = "XML Files | *.xml";
+            // 
             // ReconciliationRequestRepliesTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.btLoadQuery);
             this.Controls.Add(this.btAddTestRecord);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btSend);
@@ -112,5 +131,7 @@
         private System.Windows.Forms.Button btSend;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btAddTestRecord;
+        private System.Windows.Forms.Button btLoadQuery;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
