@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ServiceModel;
+using System.Security.Cryptography.X509Certificates;
 
 namespace RTSDotNETClient.TCHQ
 {
@@ -10,6 +11,8 @@ namespace RTSDotNETClient.TCHQ
     /// </summary>
     public class HolderQueryClient : BaseWSClient
     {
+        public X509Certificate2 PrivateCertificate { get; set; }        
+        
         /// <summary>
         /// Send a query to the TCHQ Web Service to retrieve some information related to a TIR Carnet (status, holder, association, etc)
         /// </summary>
@@ -18,6 +21,8 @@ namespace RTSDotNETClient.TCHQ
         public Response QueryCarnet(Query query)
         {
             SanityChecks();
+            if (this.PrivateCertificate == null)
+                throw new Exception("The private certificate is missing.");
 
             query.CalculateHash();
             string queryStr = query.Serialize();

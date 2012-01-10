@@ -7,24 +7,6 @@ using System.Xml.Serialization;
 namespace RTSDotNETClient
 {
     /// <summary>
-    /// Partial or Final Discharge
-    /// </summary>
-    public enum PFD
-    {
-        /// <summary>
-        /// Final Discharge
-        /// </summary>
-        [XmlEnum("FD")]
-        FinalDischarge,
-
-        /// <summary>
-        /// Partial Discharge
-        /// </summary>
-        [XmlEnum("PD")]
-        PartialDischarge
-    }
-
-    /// <summary>
     /// Discharge with or without Reservation. 
     /// </summary>
     public enum CWR

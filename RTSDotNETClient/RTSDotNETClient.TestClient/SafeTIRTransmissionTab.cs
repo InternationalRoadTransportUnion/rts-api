@@ -37,8 +37,7 @@ namespace RTSDotNETClient.TestClient
         {
             if (this.DesignMode)
                 return;
-            dataGridView1.DataSource = records;
-            InitComboBoxEnum("PFD", typeof(PFD));
+            dataGridView1.DataSource = records;            
             InitComboBoxEnum("CWR", typeof(CWR));
             InitComboBoxEnum("RBC", typeof(RBC));
             InitComboBoxEnum("UPG", typeof(UPG));
@@ -72,13 +71,11 @@ namespace RTSDotNETClient.TestClient
                 query.Body.TCN = records.Count;
                 query.Body.Version = "1.0.0";
                 query.Body.UploadType = UploadType.DataUpload;
-                query.Body.SentTime = DateTime.Now;
-                query.CalculateHash();
+                query.Body.SentTime = DateTime.Now;                
 
                 SafeTIRTransmissionClient cli = new SafeTIRTransmissionClient();
                 cli.WebServiceUrl = Global.SafeTirUploadWSUrl;
-                cli.PublicCertificate = EncryptionHelper.GetCertificateFromFile(Program.MainForm.CerFile);
-                cli.PrivateCertificate = EncryptionHelper.GetCertificateFromFile(Program.MainForm.PfxFile);
+                cli.PublicCertificate = EncryptionHelper.GetCertificateFromFile(Program.MainForm.CerFile);                
                 cli.Send(query);
                 records.Clear();
 
@@ -112,7 +109,7 @@ namespace RTSDotNETClient.TestClient
             r.CNL = "007222";
             r.COF = "10225000";
             r.DDI = DateTime.Now.Date;
-            r.PFD = PFD.FinalDischarge;
+            r.PFD = "FD";
             r.CWR = CWR.OK;
             r.VPN = 4;
             r.RBC = RBC.CarnetRetained;

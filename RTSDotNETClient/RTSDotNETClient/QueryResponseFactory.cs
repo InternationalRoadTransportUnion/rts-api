@@ -14,7 +14,7 @@ namespace RTSDotNETClient
             try
             {
                 XmlReaderSettings config = new XmlReaderSettings();
-                if (Global.XsdValidationEnabled)
+                if (!Global.XsdValidationDisabled)
                 {
                     config.ValidationType = ValidationType.Schema;
                     config.ValidationEventHandler += new ValidationEventHandler(delegate(object sender, ValidationEventArgs vea)

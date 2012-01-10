@@ -62,7 +62,7 @@ namespace RTSDotNETClient.WSST
         [XmlAttribute("RND")]
         public string RND {get;set;}
         [XmlAttribute("PFD")]
-        public PFD PFD {get;set;}
+        public string PFD {get;set;}
         [XmlAttribute("CWR")]
         public CWR CWR {get;set;}
         [XmlAttribute("VPN")]

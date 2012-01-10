@@ -128,7 +128,6 @@
             // 
             this.tbPfxFile.Location = new System.Drawing.Point(16, 93);
             this.tbPfxFile.Name = "tbPfxFile";
-            this.tbPfxFile.ReadOnly = true;
             this.tbPfxFile.Size = new System.Drawing.Size(571, 20);
             this.tbPfxFile.TabIndex = 2;
             // 
@@ -136,7 +135,6 @@
             // 
             this.tbCerFile.Location = new System.Drawing.Point(16, 46);
             this.tbCerFile.Name = "tbCerFile";
-            this.tbCerFile.ReadOnly = true;
             this.tbCerFile.Size = new System.Drawing.Size(571, 20);
             this.tbCerFile.TabIndex = 0;
             // 
@@ -148,7 +146,6 @@
             // openFileDialogPfx
             // 
             this.openFileDialogPfx.DefaultExt = "pfx";
-            this.openFileDialogPfx.FileName = "openFileDialog2";
             this.openFileDialogPfx.Filter = ".pfx files|*.pfx|All files|*.*";
             // 
             // tabControl

@@ -46,8 +46,7 @@ namespace RTSDotNETClient.TestClient
                 query.Body.Originator = tbOriginator.Text;
                 query.Body.QueryType = QueryType.CarnetHolder;
                 query.Body.QueryReason = QueryReason.Entry;
-                query.Body.CarnetNumber = tbTirCarnet.Text;
-                query.CalculateHash();
+                query.Body.CarnetNumber = tbTirCarnet.Text;                
 
                 // call the web service
                 HolderQueryClient holderQueryClient = new HolderQueryClient();

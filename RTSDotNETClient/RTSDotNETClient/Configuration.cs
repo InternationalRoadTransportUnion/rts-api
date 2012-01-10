@@ -14,11 +14,11 @@ namespace RTSDotNETClient
             get { return (Boolean)this["TraceEnabled"]; }
             set { this["TraceEnabled"] = value; }
         }
-        [ConfigurationProperty("XsdValidationEnabled", DefaultValue = "true", IsRequired = false)]
-        public Boolean XsdValidationEnabled
+        [ConfigurationProperty("XsdValidationDisabled", DefaultValue = "false", IsRequired = false)]
+        public Boolean XsdValidationDisabled
         {
-            get { return (Boolean)this["XsdValidationEnabled"]; }
-            set { this["XsdValidationEnabled"] = value; }
+            get { return (Boolean)this["XsdValidationDisabled"]; }
+            set { this["XsdValidationDisabled"] = value; }
         }
         [ConfigurationProperty("TirCarnetQueryWSUrl", DefaultValue = "", IsRequired = false)]
         public string TirCarnetQueryWSUrl

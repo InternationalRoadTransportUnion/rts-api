@@ -25,8 +25,7 @@ namespace RTSDotNETClient.TestClient
         {
             if (this.DesignMode)
                 return;
-            dataGridView1.DataSource = records;
-            InitComboBoxEnum("PFD", typeof(PFD));
+            dataGridView1.DataSource = records;            
             InitComboBoxEnum("CWR", typeof(CWR));
             InitComboBoxEnum("RBC", typeof(RBC));
             InitComboBoxEnum("RequestReplyType", typeof(RequestReplyType));
@@ -56,13 +55,11 @@ namespace RTSDotNETClient.TestClient
 
                 Query query = new Query();
                 query.Body.RequestReplyRecords = records.ToList<RequestReplyRecord>();                
-                query.Body.NumberOfRecords = records.Count;
-                query.CalculateHash();
+                query.Body.NumberOfRecords = records.Count;                
 
                 ReconciliationRequestRepliesClient cli = new ReconciliationRequestRepliesClient();
                 cli.WebServiceUrl = Global.SafeTirUploadWSUrl;
-                cli.PublicCertificate = EncryptionHelper.GetCertificateFromFile(Program.MainForm.CerFile);
-                cli.PrivateCertificate = EncryptionHelper.GetCertificateFromFile(Program.MainForm.PfxFile);
+                cli.PublicCertificate = EncryptionHelper.GetCertificateFromFile(Program.MainForm.CerFile);                
                 cli.Send(query);
                 records.Clear();
 
@@ -102,7 +99,7 @@ namespace RTSDotNETClient.TestClient
             r.CNL = "007222";
             r.COF = "10225000";
             r.DDI = DateTime.Now.Date;
-            r.PFD = PFD.FinalDischarge;
+            r.PFD = "FD";
             r.CWR = CWR.OK;
             r.VPN = 4;
             r.RBC = RBC.CarnetRetained;

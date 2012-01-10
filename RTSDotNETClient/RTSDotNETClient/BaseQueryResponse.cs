@@ -27,7 +27,7 @@ namespace RTSDotNETClient
             this.Envelope = new Envelope();
         }
 
-        public void CalculateHash()
+        internal void CalculateHash()
         {
             if (this.Envelope.Hash == null)
                 this.Envelope.Hash = "";
@@ -57,7 +57,7 @@ namespace RTSDotNETClient
                 }
             }
 
-            if (Global.XsdValidationEnabled)
+            if (!Global.XsdValidationDisabled)
             {
                 try
                 {

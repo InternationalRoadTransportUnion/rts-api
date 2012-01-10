@@ -135,7 +135,7 @@ namespace RTSDotNETClient.WSRQ
         /// Partial/Final Discharge
         /// </summary>
         [XmlAttribute("PFD")]
-        public PFD PFD { get; set; }
+        public string PFD { get; set; }
 
         /// <summary>
         /// Discharge with or without Reservation. (If Discharge is without reservation, the string “OK” will be used; if with Reserva-tion, one character string, “R”, will be used.)

@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\RTSDotNETClient.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
@@ -57,7 +58,6 @@
     <Compile Include="BaseWSClient.cs" />
     <Compile Include="CommonEnums.cs" />
     <Compile Include="Configuration.cs" />
-    <Compile Include="DateTimeExtension.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="EncryptionHelper.cs" />
     <Compile Include="QueryResponseFactory.cs" />
@@ -155,6 +155,9 @@
     <None Include="Service References\SafeTIRUploadWS\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="copyright">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Diagram.cd" />
     <None Include="Service References\SafeTIRUploadWS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>

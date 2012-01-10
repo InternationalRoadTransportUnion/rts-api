@@ -9,9 +9,13 @@ namespace RTSDotNETClient.WSRQ
     {
         private const String InformationExchangeVersion = "1.0.0";
 
+        public X509Certificate2 PrivateCertificate { get; set; }   
+
         public Response DownloadReconciliationRequests(string subscriberID, Query query)
         {
             SanityChecks();
+            if (this.PrivateCertificate == null)
+                throw new Exception("The private certificate is missing.");
 
             query.CalculateHash();
             string queryStr = query.Serialize();

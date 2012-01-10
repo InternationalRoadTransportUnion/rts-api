@@ -41,8 +41,7 @@ namespace RTSDotNETClient.TestClient
                 Query query = new Query();
                 query.Body.SentTime = DateTime.Now;
                 query.Body.QueryType = QueryType.AllNewRequests;
-                query.SenderDocumentVersion = "nico";
-                query.CalculateHash();
+                query.SenderDocumentVersion = "nico";                
 
                 ReconciliationClient reconciliationClient = new ReconciliationClient();
                 reconciliationClient.WebServiceUrl = Global.ReconciliationWSUrl;
