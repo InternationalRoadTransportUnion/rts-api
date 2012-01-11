@@ -6,12 +6,25 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace RTSDotNETClient
 {
+    /// <summary>
+    /// The base class for web service clients
+    /// </summary>
     public class BaseWSClient
     {
+        /// <summary>
+        /// The web service url
+        /// </summary>
         public string WebServiceUrl { get; set; }
+
+        /// <summary>
+        /// The public certificate used for encryption
+        /// </summary>
         public X509Certificate2 PublicCertificate { get; set; }        
 
-        protected void SanityChecks()
+        /// <summary>
+        /// Performs some sanity checks
+        /// </summary>
+        public void SanityChecks()
         {
             if (string.IsNullOrEmpty(this.WebServiceUrl))
                 throw new Exception("The WebServiceUrl is missing.");

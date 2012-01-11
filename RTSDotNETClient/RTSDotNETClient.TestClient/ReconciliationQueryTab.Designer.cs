@@ -34,6 +34,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.lblCount = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbMessageId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,10 +94,28 @@
             this.lblCount.TabIndex = 18;
             this.lblCount.Text = "0";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(279, 23);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(70, 13);
+            this.label9.TabIndex = 28;
+            this.label9.Text = "Message ID :";
+            // 
+            // tbMessageId
+            // 
+            this.tbMessageId.Location = new System.Drawing.Point(282, 41);
+            this.tbMessageId.Name = "tbMessageId";
+            this.tbMessageId.Size = new System.Drawing.Size(237, 20);
+            this.tbMessageId.TabIndex = 27;
+            // 
             // ReconciliationQueryTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.tbMessageId);
             this.Controls.Add(this.lblCount);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
@@ -119,6 +139,8 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblCount;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tbMessageId;
 
     }
 }

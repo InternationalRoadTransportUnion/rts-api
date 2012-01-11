@@ -7,9 +7,16 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace RTSDotNETClient.WSST
 {
+    /// <summary>
+    /// The SafeTIRTransmissionClient class allows to transmit SafeTir data to IRU
+    /// </summary>
     public class SafeTIRTransmissionClient : BaseWSClient
     {
 
+        /// <summary>
+        /// Transmit SafeTir data to IRU
+        /// </summary>
+        /// <param name="query">The query object</param>
         public void Send(Query query)
         {
             SanityChecks();
@@ -31,7 +38,7 @@ namespace RTSDotNETClient.WSST
             SafeTIRUploadWS.SafeTirUploadSoapClient ws = new SafeTIRUploadWS.SafeTirUploadSoapClient(binding, remoteAddress);
             SafeTIRUploadWS.SafeTIRUploadParams request = new SafeTIRUploadWS.SafeTIRUploadParams();
             request.SubscriberID = query.Body.SubscriberID;
-            request.Sender_MessageID = DateTime.UtcNow.ToString("'XXX'yyMMddHHmmssfff");
+            request.Sender_MessageID = query.Body.SenderMessageID;
             request.MessageTag = encrypted.Thumbprint;
             request.ESessionKey = encrypted.SessionKey;
             request.safeTIRUploadData = encrypted.Encrypted;

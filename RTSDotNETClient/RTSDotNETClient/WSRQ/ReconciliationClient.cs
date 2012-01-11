@@ -5,13 +5,26 @@ using System.ServiceModel;
 
 namespace RTSDotNETClient.WSRQ
 {
+    /// <summary>
+    /// The ReconciliationClient class allows to download from IRU the reconciliation requests 
+    /// </summary>
     public class ReconciliationClient : BaseWSClient
     {
         private const String InformationExchangeVersion = "1.0.0";
 
+        /// <summary>
+        /// The private certificate used for decryption of the response
+        /// </summary>
         public X509Certificate2 PrivateCertificate { get; set; }   
 
-        public Response DownloadReconciliationRequests(string subscriberID, Query query)
+        /// <summary>
+        /// Download the reconciliation requests from IRU
+        /// </summary>
+        /// <param name="query">The query object</param>
+        /// <param name="subscriberID">The subscriber ID</param>        
+        /// <param name="messageId">The message id (required element allowing the IRU to report message processing failures back to the sender)</param>
+        /// <returns>Returns a response object</returns>
+        public Response DownloadReconciliationRequests(Query query, string subscriberID, string messageId)
         {
             SanityChecks();
             if (this.PrivateCertificate == null)
@@ -37,7 +50,7 @@ namespace RTSDotNETClient.WSRQ
             request.Body = new ReconciliationWS.WSRQRequestBody();
             request.Body.su = new ReconciliationWS.ReconciliationQuery();
             request.Body.su.SubscriberID = subscriberID;
-            request.Body.su.Sender_MessageID = DateTime.UtcNow.ToString("'XXX'yyMMddHHmmssfff");
+            request.Body.su.Sender_MessageID = messageId;
             request.Body.su.MessageTag = encrypted.Thumbprint;
             request.Body.su.ESessionKey = encrypted.SessionKey;
             request.Body.su.ReconciliationQueryData = encrypted.Encrypted;

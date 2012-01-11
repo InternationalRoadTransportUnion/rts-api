@@ -6,11 +6,19 @@ using System.ServiceModel;
 
 namespace RTSDotNETClient.WSRE
 {
+    /// <summary>
+    /// The ReconciliationRequestRepliesClient class allows to transmit reconciliation request replies to IRU 
+    /// </summary>
     public class ReconciliationRequestRepliesClient : BaseWSClient
     {
         private const String InformationExchangeVersion = "2.0.0";
 
-        public void Send(Query query)
+        /// <summary>
+        /// Transmit the reconciliation request replies to IRU
+        /// </summary>
+        /// <param name="query">The query to be sent</param>
+        /// <param name="messageId">The message id (required element allowing the IRU to report message processing failures back to the sender)</param>
+        public void Send(Query query, string messageId)
         {
             SanityChecks();
 
@@ -31,7 +39,7 @@ namespace RTSDotNETClient.WSRE
             SafeTIRUploadWS.SafeTirUploadSoapClient ws = new SafeTIRUploadWS.SafeTirUploadSoapClient(binding, remoteAddress);
             SafeTIRUploadWS.SafeTIRReconParams request = new SafeTIRUploadWS.SafeTIRReconParams();
             request.SubscriberID = "RTSJAVA";
-            request.Sender_MessageID = DateTime.UtcNow.ToString("'XXX'yyMMddHHmmssfff");
+            request.Sender_MessageID = messageId;
             request.MessageTag = encrypted.Thumbprint;
             request.ESessionKey = encrypted.SessionKey;
             request.SafeTIRReconData = encrypted.Encrypted;

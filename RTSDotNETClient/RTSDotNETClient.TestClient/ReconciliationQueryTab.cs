@@ -25,6 +25,7 @@ namespace RTSDotNETClient.TestClient
         {
 #if DEBUG
             tbSender.Text = "RTSJAVA";
+            tbMessageId.Text = "123456789";
 #endif
         }
 
@@ -40,14 +41,13 @@ namespace RTSDotNETClient.TestClient
 
                 Query query = new Query();
                 query.Body.SentTime = DateTime.Now;
-                query.Body.QueryType = QueryType.AllNewRequests;
-                query.SenderDocumentVersion = "nico";                
+                query.Body.QueryType = QueryType.AllNewRequests;            
 
                 ReconciliationClient reconciliationClient = new ReconciliationClient();
                 reconciliationClient.WebServiceUrl = Global.ReconciliationWSUrl;
                 reconciliationClient.PublicCertificate = EncryptionHelper.GetCertificateFromFile(Program.MainForm.CerFile);
                 reconciliationClient.PrivateCertificate = EncryptionHelper.GetCertificateFromFile(Program.MainForm.PfxFile);
-                Response response = reconciliationClient.DownloadReconciliationRequests(tbSender.Text, query);
+                Response response = reconciliationClient.DownloadReconciliationRequests(query, tbSender.Text, tbMessageId.Text);
 
                 // update UI
                 dataGridView1.DataSource = response.Body.RequestRecords;

@@ -49,6 +49,7 @@ namespace RTSDotNETClient.TestClient
 #if DEBUG
             btAddTestRecord.Visible = true;
             tbSender.Text = "RTSJAVA";
+            tbMessageId.Text = "123456789";
             AddTestRecord();
 #endif
         }
@@ -72,10 +73,11 @@ namespace RTSDotNETClient.TestClient
                 query.Body.Version = "1.0.0";
                 query.Body.UploadType = UploadType.DataUpload;
                 query.Body.SentTime = DateTime.Now;                
+                query.Body.SenderMessageID = tbMessageId.Text;
 
                 SafeTIRTransmissionClient cli = new SafeTIRTransmissionClient();
                 cli.WebServiceUrl = Global.SafeTirUploadWSUrl;
-                cli.PublicCertificate = EncryptionHelper.GetCertificateFromFile(Program.MainForm.CerFile);                
+                cli.PublicCertificate = EncryptionHelper.GetCertificateFromFile(Program.MainForm.CerFile);
                 cli.Send(query);
                 records.Clear();
 

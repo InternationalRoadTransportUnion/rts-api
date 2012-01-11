@@ -12,22 +12,44 @@ using System.Xml.Serialization;
 namespace RTSDotNETClient
 {
     
+    /// <summary>
+    /// The envelope of queries or responses
+    /// </summary>
     public class Envelope 
     {
+        /// <summary>
+        /// The hash of the query / response body
+        /// </summary>
         public string Hash { get; set; }
     }
 
+    /// <summary>
+    /// The base class of web service queries and responses
+    /// </summary>
     public class BaseQueryResponse
     {        
+        /// <summary>
+        /// The xml schema definition file that defines the structure of the query or response
+        /// </summary>
         protected string xsd;
+
+        /// <summary>
+        /// The envelope of the query of response
+        /// </summary>
         public Envelope Envelope { get; set; }
 
+        /// <summary>
+        /// The default constructor
+        /// </summary>
         public BaseQueryResponse()
         {
             this.Envelope = new Envelope();
         }
 
-        internal void CalculateHash()
+        /// <summary>
+        /// Calculates the hash of the query / response body and stores it in the property Envelope.Hash
+        /// </summary>
+        public void CalculateHash()
         {
             if (this.Envelope.Hash == null)
                 this.Envelope.Hash = "";
@@ -44,6 +66,10 @@ namespace RTSDotNETClient
                 throw new Exception("Body not found!");
         }
 
+        /// <summary>
+        /// Serialize the query or response
+        /// </summary>
+        /// <returns></returns>
         public string Serialize()
         {
             XmlSerializer ser = new XmlSerializer(this.GetType());

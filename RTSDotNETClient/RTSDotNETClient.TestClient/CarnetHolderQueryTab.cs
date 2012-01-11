@@ -27,6 +27,7 @@ namespace RTSDotNETClient.TestClient
             tbSender.Text = "RTSJAVA";
             tbOriginator.Text = "test";
             tbTirCarnet.Text = "AX66950772";
+            tbQueryId.Text = "123456789";
 #endif
         }
 
@@ -53,7 +54,7 @@ namespace RTSDotNETClient.TestClient
                 holderQueryClient.WebServiceUrl = Global.TirCarnetQueryWSUrl;
                 holderQueryClient.PublicCertificate = EncryptionHelper.GetCertificateFromFile(Program.MainForm.CerFile);
                 holderQueryClient.PrivateCertificate = EncryptionHelper.GetCertificateFromFile(Program.MainForm.PfxFile);
-                Response response = holderQueryClient.QueryCarnet(query);
+                Response response = holderQueryClient.QueryCarnet(query, tbQueryId.Text);
 
                 UpdateUI(response);
             }

@@ -22,6 +22,9 @@ namespace RTSDotNETClient.WSRQ
         TirCarnet=2
     }
 
+    /// <summary>
+    /// The response object returned by the WSRQ web service
+    /// </summary>
     [XmlRoot("SafeTIR", Namespace = "http://www.iru.org/SafeTIRReconciliation")]
     public class Response : BaseQueryResponse
     {
@@ -138,7 +141,7 @@ namespace RTSDotNETClient.WSRQ
         public string PFD { get; set; }
 
         /// <summary>
-        /// Discharge with or without Reservation. (If Discharge is without reservation, the string “OK” will be used; if with Reserva-tion, one character string, “R”, will be used.)
+        /// Discharge with or without Reservation. (If Discharge is without reservation, the string "OK" will be used; if with Reserva-tion, one character string, "R", will be used.)
         /// </summary>
         [XmlAttribute("CWR")]
         public CWR CWR {get;set;}

@@ -35,6 +35,8 @@
             this.btAddTestRecord = new System.Windows.Forms.Button();
             this.btLoadQuery = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbMessageId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,9 +73,9 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(17, 55);
+            this.dataGridView1.Location = new System.Drawing.Point(17, 112);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(534, 262);
+            this.dataGridView1.Size = new System.Drawing.Size(534, 205);
             this.dataGridView1.TabIndex = 19;
             this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
             // 
@@ -104,11 +106,29 @@
             this.openFileDialog1.DefaultExt = "xml";
             this.openFileDialog1.Filter = "XML Files | *.xml";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(14, 60);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(70, 13);
+            this.label9.TabIndex = 28;
+            this.label9.Text = "Message ID :";
+            // 
+            // tbMessageId
+            // 
+            this.tbMessageId.Location = new System.Drawing.Point(17, 78);
+            this.tbMessageId.Name = "tbMessageId";
+            this.tbMessageId.Size = new System.Drawing.Size(237, 20);
+            this.tbMessageId.TabIndex = 27;
+            // 
             // ReconciliationRequestRepliesTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.tbMessageId);
             this.Controls.Add(this.btLoadQuery);
             this.Controls.Add(this.btAddTestRecord);
             this.Controls.Add(this.dataGridView1);
@@ -133,5 +153,7 @@
         private System.Windows.Forms.Button btAddTestRecord;
         private System.Windows.Forms.Button btLoadQuery;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tbMessageId;
     }
 }

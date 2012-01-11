@@ -11,14 +11,18 @@ namespace RTSDotNETClient.TCHQ
     /// </summary>
     public class HolderQueryClient : BaseWSClient
     {
+        /// <summary>
+        /// The private certificate used for decryption of the response
+        /// </summary>
         public X509Certificate2 PrivateCertificate { get; set; }        
         
         /// <summary>
         /// Send a query to the TCHQ Web Service to retrieve some information related to a TIR Carnet (status, holder, association, etc)
         /// </summary>
         /// <param name="query">The query object</param>
+        /// <param name="queryId">The query id (optional value the sender may use to track this message)</param>
         /// <returns>The response returned by the TCHQ Web Service</returns>
-        public Response QueryCarnet(Query query)
+        public Response QueryCarnet(Query query, string queryId)
         {
             SanityChecks();
             if (this.PrivateCertificate == null)
@@ -42,7 +46,7 @@ namespace RTSDotNETClient.TCHQ
             request.Body = new CarnetHolderQueryWS.WSTCHQRequestBody();
             request.Body.su = new CarnetHolderQueryWS.TIRHolderQuery();
             request.Body.su.SubscriberID = query.Body.Sender;
-            request.Body.su.Query_ID = DateTime.UtcNow.ToString("'XXX'yyMMddHHmmssfff");
+            request.Body.su.Query_ID = queryId;
             request.Body.su.MessageTag = encrypted.Thumbprint;
             request.Body.su.ESessionKey = encrypted.SessionKey;
             request.Body.su.TIRCarnetHolderQueryParams = encrypted.Encrypted;

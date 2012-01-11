@@ -7,8 +7,18 @@ using System.Xml.Serialization;
 
 namespace RTSDotNETClient
 {
+    /// <summary>
+    /// A factory class to deserialize query and response objects from a xml string
+    /// </summary>
     public class QueryResponseFactory
     {
+        /// <summary>
+        /// Deserialization of a query or response object
+        /// </summary>
+        /// <typeparam name="T">The query or response type</typeparam>
+        /// <param name="xml">The xml to be deserialized</param>
+        /// <param name="xsd">The xml schema definition file used to validate the xml</param>
+        /// <returns>Returns a query or response object</returns>
         public static T Deserialize<T>(string xml, string xsd)
         {
             try

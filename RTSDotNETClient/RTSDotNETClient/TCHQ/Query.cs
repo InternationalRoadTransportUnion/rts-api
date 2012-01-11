@@ -16,6 +16,9 @@ namespace RTSDotNETClient.TCHQ
     /// </summary>
     public enum QueryType
     {
+        /// <summary>
+        /// Carnet Holder
+        /// </summary>
         [XmlEnum("1")]
         CarnetHolder = 1
     }
@@ -25,14 +28,33 @@ namespace RTSDotNETClient.TCHQ
     /// </summary>
     public enum QueryReason
     {
+        /// <summary>
+        /// Entry
+        /// </summary>
         [XmlEnum("1")]
         Entry = 1,
+
+        /// <summary>
+        /// Exit
+        /// </summary>
         [XmlEnum("2")]
         Exit = 2,
+        
+        /// <summary>
+        /// Termination
+        /// </summary>
         [XmlEnum("3")]
         Termination = 3,
+        
+        /// <summary>
+        /// Opening
+        /// </summary>
         [XmlEnum("4")]
         Opening = 4,
+        
+        /// <summary>
+        /// Other
+        /// </summary>
         [XmlEnum("5")]
         Other = 5
     }

@@ -37,6 +37,7 @@ namespace RTSDotNETClient.TestClient
 #if DEBUG
             btAddTestRecord.Visible = true;
             tbSender.Text = "RTSJAVA";
+            tbMessageId.Text = "123456789";
             AddTestRecord();
 #endif
         }
@@ -60,7 +61,7 @@ namespace RTSDotNETClient.TestClient
                 ReconciliationRequestRepliesClient cli = new ReconciliationRequestRepliesClient();
                 cli.WebServiceUrl = Global.SafeTirUploadWSUrl;
                 cli.PublicCertificate = EncryptionHelper.GetCertificateFromFile(Program.MainForm.CerFile);                
-                cli.Send(query);
+                cli.Send(query, tbMessageId.Text);
                 records.Clear();
 
                 MessageBox.Show("Data sent", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
