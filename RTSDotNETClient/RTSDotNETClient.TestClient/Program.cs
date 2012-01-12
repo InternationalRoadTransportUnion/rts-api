@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace RTSDotNETClient.TestClient
 {
@@ -34,6 +35,16 @@ namespace RTSDotNETClient.TestClient
             get
             {
                 return (MainForm) Application.OpenForms[0];
+            }
+        }
+
+        public static bool LoadTestData
+        {
+            get
+            {
+                if (ConfigurationManager.AppSettings["LoadTestData"] == null)
+                    return false;
+                return bool.Parse(ConfigurationManager.AppSettings["LoadTestData"]);
             }
         }
     }

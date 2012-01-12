@@ -23,12 +23,13 @@ namespace RTSDotNETClient.TestClient
 
         private void InitTestData()
         {
-#if DEBUG            
-            tbSender.Text = "RTSJAVA";
-            tbOriginator.Text = "test";
-            tbTirCarnet.Text = "AX66950772";
-            tbQueryId.Text = "123456789";
-#endif
+            if (Program.LoadTestData)
+            {
+                tbSender.Text = "RTSJAVA";
+                tbOriginator.Text = "test";
+                tbTirCarnet.Text = "AX66950772";
+                tbQueryId.Text = "123456789";
+            }
         }
 
         private void btnCarnetHolderQuery_Click(object sender, EventArgs e)

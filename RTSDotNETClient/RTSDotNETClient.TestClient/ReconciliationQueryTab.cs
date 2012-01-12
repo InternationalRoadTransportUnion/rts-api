@@ -23,10 +23,11 @@ namespace RTSDotNETClient.TestClient
 
         private void InitTestData()
         {
-#if DEBUG
-            tbSender.Text = "RTSJAVA";
-            tbMessageId.Text = "123456789";
-#endif
+            if (Program.LoadTestData)
+            {
+                tbSender.Text = "RTSJAVA";
+                tbMessageId.Text = "123456789";
+            }
         }
 
         private void btnReconciliationQuery_Click(object sender, EventArgs e)

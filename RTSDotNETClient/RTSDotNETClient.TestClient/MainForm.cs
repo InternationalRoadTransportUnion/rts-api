@@ -10,11 +10,10 @@ using System.Diagnostics;
 namespace RTSDotNETClient.TestClient
 {
     public partial class MainForm : Form
-    {        
+    {
+        private string appDirectory;
         public string CerFile { get { return tbCerFile.Text; } }
         public string PfxFile { get { return tbPfxFile.Text; } }
-
-        private string appDirectory;
 
         public MainForm()
         {
@@ -36,10 +35,11 @@ namespace RTSDotNETClient.TestClient
 
         private void InitTestData()
         {
-#if DEBUG
-            tbPfxFile.Text = Path.Combine(appDirectory, "certificates\\RTSJAVA_recv.pfx");
-            tbCerFile.Text = Path.Combine(appDirectory, "certificates\\RTSJAVA_send.cer");
-#endif
+            if (Program.LoadTestData)
+            {
+                tbPfxFile.Text = Path.Combine(appDirectory, "certificates\\RTSJAVA_recv.pfx");
+                tbCerFile.Text = Path.Combine(appDirectory, "certificates\\RTSJAVA_send.cer");
+            }
         }
 
         private void btnCerFile_Click(object sender, EventArgs e)

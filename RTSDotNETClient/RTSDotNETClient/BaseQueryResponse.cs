@@ -24,7 +24,7 @@ namespace RTSDotNETClient
     }
 
     /// <summary>
-    /// The base class of web service queries and responses
+    /// The base class for web service queries and responses
     /// </summary>
     public class BaseQueryResponse
     {        

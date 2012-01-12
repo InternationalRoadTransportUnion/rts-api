@@ -30,7 +30,7 @@ namespace RTSDotNETClient
     }
 
     /// <summary>
-    /// The exception thrown when a xml validation fails
+    /// The exception thrown when a xsd validation fails
     /// </summary>
     public class XsdValidationException : Exception
     {

@@ -24,7 +24,7 @@ namespace RTSDotNETClient
         /// <summary>
         /// Performs some sanity checks
         /// </summary>
-        public void SanityChecks()
+        protected void SanityChecks()
         {
             if (string.IsNullOrEmpty(this.WebServiceUrl))
                 throw new Exception("The WebServiceUrl is missing.");

@@ -14,7 +14,7 @@ namespace RTSDotNETClient
         public static bool TraceEnabled { get; set; }
 
         /// <summary>
-        /// Performs or not the xsd validation of the queries and responses
+        /// Performs or not the xsd validation of the queries and responses (default is false) 
         /// </summary>
         public static bool XsdValidationDisabled { get; set; }
 

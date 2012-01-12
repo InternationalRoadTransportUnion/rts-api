@@ -7,7 +7,7 @@ using System.Configuration;
 namespace RTSDotNETClient
 {
     /// <summary>
-    /// The definition ot the RTSDotNETClient configuration section
+    /// The definition of the RTSDotNETClient configuration section
     /// </summary>
     public class Configuration : ConfigurationSection
     {
@@ -22,7 +22,7 @@ namespace RTSDotNETClient
         }
 
         /// <summary>
-        /// Performs or not the xsd validation of the queries and responses
+        /// Performs or not the xsd validation of the queries and responses (default is false) 
         /// </summary>
         [ConfigurationProperty("XsdValidationDisabled", DefaultValue = "false", IsRequired = false)]
         public Boolean XsdValidationDisabled

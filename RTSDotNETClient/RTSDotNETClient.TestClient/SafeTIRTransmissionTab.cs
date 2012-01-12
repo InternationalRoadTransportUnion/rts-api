@@ -46,12 +46,13 @@ namespace RTSDotNETClient.TestClient
 
         private void InitTestData()
         {
-#if DEBUG
-            btAddTestRecord.Visible = true;
-            tbSender.Text = "RTSJAVA";
-            tbMessageId.Text = "123456789";
-            AddTestRecord();
-#endif
+            if (Program.LoadTestData)
+            {
+                btAddTestRecord.Visible = true;
+                tbSender.Text = "RTSJAVA";
+                tbMessageId.Text = "123456789";
+                AddTestRecord();
+            }
         }
 
         private void btSend_Click(object sender, EventArgs e)
