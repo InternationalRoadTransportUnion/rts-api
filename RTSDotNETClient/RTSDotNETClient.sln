@@ -5,6 +5,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTSDotNETClient.TestClient"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTSDotNETClient", "RTSDotNETClient\RTSDotNETClient.csproj", "{66F35255-B409-461B-BEA4-892D404E88A7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Help", "Help", "{6B3B8D3C-9FB9-40BF-8B8F-830267C7EA5B}"
+	ProjectSection(SolutionItems) = preProject
+		Help\Documentation.shfbproj = Help\Documentation.shfbproj
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

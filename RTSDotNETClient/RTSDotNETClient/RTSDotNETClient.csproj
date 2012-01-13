@@ -30,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\RTSDotNETClient.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -159,9 +160,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Diagram.cd" />
-    <None Include="Documentation.chm">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="Service References\SafeTIRUploadWS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -169,6 +167,9 @@
     <None Include="Service References\SafeTIRUploadWS\RTSDotNETClient.SafeTIRUploadWS.SafeTIRUploadAck.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Documentation.shfbproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
