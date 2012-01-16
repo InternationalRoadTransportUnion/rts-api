@@ -133,10 +133,10 @@ namespace IRU.RTS.WSTCHQ
 			tchqRequestLogData.senderTCPAddress = SenderIP;
 			tchqRequestLogData.rowCreationTime = DateTime.Now ;
 
-			if(tirHolderQueryData.Query_ID.Length > 20)
+			if(tirHolderQueryData.Query_ID.Length > 255)
 			{
 				tchqRequestLogData.senderQueryID = "";
-				tchqRequestLogData.returnCode = 1222;
+				tchqRequestLogData.returnCode = 1232;
 				tchqRequestLogData.lastStep = 5; 
 				continueChecking = false;
 			}
