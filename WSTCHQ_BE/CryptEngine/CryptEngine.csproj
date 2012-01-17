@@ -84,7 +84,7 @@
   <ItemGroup>
     <Reference Include="IRU.Common.Crypto.Cipher, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\IRU.Common.Crypto.Cipher.dll</HintPath>
+      <HintPath>..\..\Dependencies\IRU.Common.Crypto.Cipher.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Name>System</Name>

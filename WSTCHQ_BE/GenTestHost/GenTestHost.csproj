@@ -97,44 +97,45 @@
       <Name>System.XML</Name>
     </Reference>
     <ProjectReference Include="..\CommonComponents\CommonComponents.csproj">
-      <Project>{7786779D-6B79-4A51-A03E-2497DCFE2025}</Project>
       <Name>CommonComponents</Name>
+      <Project>{7786779D-6B79-4A51-A03E-2497DCFE2025}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\CommonInterfaces\CommonInterfaces.csproj">
       <Name>CommonInterfaces</Name>
       <Project>{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
-      <Private>True</Private>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\CryptoInterfaces\CryptoInterfaces.csproj">
       <Name>CryptoInterfaces</Name>
       <Project>{06D4C54B-A25A-4684-BC6C-192CEB970170}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
-      <Private>True</Private>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\KeyManager\KeyManager.csproj">
       <Name>KeyManager</Name>
       <Project>{5E093F16-E114-49BD-B1A8-C24036F3F328}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
-      <Private>True</Private>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\RTSStructures\RTSStructures.csproj">
       <Name>RTSStructures</Name>
       <Project>{BBF126D5-CA34-4786-A61D-0B426EC0677B}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
-      <Private>True</Private>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\TCHQ_Processor\TCHQ_Processor.csproj">
-      <Project>{FFB77A89-28E2-46CB-B3DD-EFED10FACFFD}</Project>
       <Name>TCHQ_Processor</Name>
+      <Project>{FFB77A89-28E2-46CB-B3DD-EFED10FACFFD}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <Content Include="App.ico" />
-    <Content Include="WSTCHQ_SMD.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

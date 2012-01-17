@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRU.RTS.CipherHelper.TCHQ.ConsoleDemoClient", "TCHQ.ConsoleDemoClient\IRU.RTS.CipherHelper.TCHQ.ConsoleDemoClient.csproj", "{F084DC06-10FA-4670-BAC7-1F5570F8BB96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRU.RTS.Helper", "IRU.RTS.Helper\IRU.RTS.Helper.csproj", "{6D30AE81-6894-4880-80E2-BAD5A92A65FA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRU.RTS.Helper.Sample", "IRU.RTS.Helper.Sample\IRU.RTS.Helper.Sample.csproj", "{29D2E516-7BED-4A31-8197-01E45F18D433}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,14 +13,6 @@ Global
 		{F084DC06-10FA-4670-BAC7-1F5570F8BB96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F084DC06-10FA-4670-BAC7-1F5570F8BB96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F084DC06-10FA-4670-BAC7-1F5570F8BB96}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6D30AE81-6894-4880-80E2-BAD5A92A65FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6D30AE81-6894-4880-80E2-BAD5A92A65FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6D30AE81-6894-4880-80E2-BAD5A92A65FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6D30AE81-6894-4880-80E2-BAD5A92A65FA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{29D2E516-7BED-4A31-8197-01E45F18D433}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{29D2E516-7BED-4A31-8197-01E45F18D433}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{29D2E516-7BED-4A31-8197-01E45F18D433}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{29D2E516-7BED-4A31-8197-01E45F18D433}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

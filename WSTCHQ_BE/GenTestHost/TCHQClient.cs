@@ -133,7 +133,7 @@ namespace GenTestHost
 			this.txtKeyID.Name = "txtKeyID";
 			this.txtKeyID.Size = new System.Drawing.Size(384, 20);
 			this.txtKeyID.TabIndex = 3;
-            this.txtKeyID.Text = "7255da9b7ca76b9c1486127596c1a2103bb60a28";
+			this.txtKeyID.Text = "DBD92419709D76332AB11775BF0FEAD302B34620";
 			// 
 			// label1
 			// 
@@ -149,7 +149,7 @@ namespace GenTestHost
 			this.txtFilePath.Name = "txtFilePath";
 			this.txtFilePath.Size = new System.Drawing.Size(384, 20);
 			this.txtFilePath.TabIndex = 1;
-			this.txtFilePath.Text = @"C:\Users\npuzin\Desktop\RTS\NewQueryMessage2.xml";
+			this.txtFilePath.Text = "o:\\bin\\TCHQuery.xml";
 			// 
 			// cmdCall
 			// 
@@ -203,8 +203,8 @@ namespace GenTestHost
 			fs2.Close();
 
 			TIRHolderQuery tirHolderData = new TIRHolderQuery();
-            tirHolderData.Query_ID = "1674677";
-            tirHolderData.SubscriberID = "UNCTADtest";
+			tirHolderData.Query_ID = "Q1"; 
+			tirHolderData.SubscriberID = "FCS";
 			tirHolderData.MessageTag = txtKeyID.Text ;
 			tirHolderData.TIRCarnetHolderQueryParams = byEncrParams;
 			tirHolderData.ESessionKey = byEncrKey;

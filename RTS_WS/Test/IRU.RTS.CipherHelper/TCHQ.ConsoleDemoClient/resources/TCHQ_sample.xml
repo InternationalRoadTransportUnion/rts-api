@@ -4,9 +4,10 @@
   </Envelope>
   <Body>
     <Sender>RTSJAVA</Sender>
-    <SentTime>2011-12-01T15:36:52Z</SentTime>
+    <SentTime></SentTime>
     <Originator>003103</Originator>
-    <OriginTime>2011-12-01T15:36:52Z</OriginTime>
+    <OriginTime></OriginTime>
+    <Password></Password>
     <Query_Type>1</Query_Type>
     <Query_Reason>1</Query_Reason>
     <Carnet_Number>DX53982821</Carnet_Number>
