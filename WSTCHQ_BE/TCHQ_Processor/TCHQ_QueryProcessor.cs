@@ -1351,7 +1351,7 @@ namespace IRU.RTS.WSTCHQ
 				}
 				else if(sErrNode.Trim().ToUpper() == "SENDER")
 				{
-					iTCHQueryInvalidReasonNo = 1212;
+					iTCHQueryInvalidReasonNo = 1242;
 				}
 				else if(sErrNode.Trim().ToUpper() == "SENTTIME")
 				{
