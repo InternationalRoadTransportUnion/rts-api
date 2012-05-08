@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.ServiceModel;
 using System.Security;
-using System.Data.SqlClient;
 using IRU.Common.WCF.Security.WSS.PasswordDigest;
-using IRU.RTS.WS.Common.Data;
+using IRU.Common.EnterpriseLibrary.Data;
 using IRU.RTS.WS.Common.Data.WsSubscriber;
 
 namespace IRU.RTS.WS.CarnetService.Implementation
@@ -17,30 +16,26 @@ namespace IRU.RTS.WS.CarnetService.Implementation
         private string _methodAction;
         private int _methodId;
 
-        private void GetSubscriberEncryptionKeysBySubscriberExecuted(object sender, DbDataReaderEventArgs e)
+        private void GetSubscriberEncryptionKeysBySubscriberExecuted(object sender, DataReaderEventArgs e)
         {
-            DbQuery dq = (DbQuery)sender;
-
-            while (e.DbDataReader.Read())
+            while (e.DataReader.Read())
             {
-                string sPassword = dq.GetValue<string>(e.DbDataReader, "ENCRYPTION_KEY_ID");
-                bool bKeyActive = dq.GetValue<bool>(e.DbDataReader, "KEY_ACTIVE");
-                DateTime dtExpiration = dq.GetValue<DateTime>(e.DbDataReader, "CERT_EXPIRY_DATE");
+                string sPassword = e.DataReader.GetValue<string>("ENCRYPTION_KEY_ID");
+                bool bKeyActive = e.DataReader.GetValue<bool>("KEY_ACTIVE");
+                DateTime dtExpiration = e.DataReader.GetValue<DateTime>("CERT_EXPIRY_DATE");
 
                 if ((bKeyActive) && (dtExpiration.CompareTo(DateTime.Now) >= 0))
                     _password = sPassword;
             }
         }
 
-        private void GetServiceMethodsBySubscriberAndServiceExecuted(object sender, DbDataReaderEventArgs e)
+        private void GetServiceMethodsBySubscriberAndServiceExecuted(object sender, DataReaderEventArgs e)
         {
-            DbQuery dq = (DbQuery)sender;
-
-            while (e.DbDataReader.Read())
+            while (e.DataReader.Read())
             {
-                bool bServiceActive = dq.GetValue<bool>(e.DbDataReader, "ACTIVE");
-                bool bMethodActive = dq.GetValue<bool>(e.DbDataReader, "METHOD_ACTIVE");
-                int iMethodId = dq.GetValue<int>(e.DbDataReader, "METHOD_ID");                
+                bool bServiceActive = e.DataReader.GetValue<bool>("ACTIVE");
+                bool bMethodActive = e.DataReader.GetValue<bool>("METHOD_ACTIVE");
+                int iMethodId = e.DataReader.GetValue<int>("METHOD_ID");                
                 
                 if ((bServiceActive) && (bMethodActive) && (iMethodId == _methodId))
                     return;
@@ -68,8 +63,7 @@ namespace IRU.RTS.WS.CarnetService.Implementation
                     _methodId = 2;
             }
            
-            SqlConnection scWsSubscriber = new SqlConnection(Properties.Settings.Default.WsSubscriberDB);
-            using (DbWsSubscriberQuery sq = new DbWsSubscriberQuery(scWsSubscriber, Properties.Settings.Default.SQLCommandTimeout))
+            using (DbQueries sq = new DbQueries())
             {
                 sq.GetSubscriberEncryptionKeysBySubscriber(userName, GetSubscriberEncryptionKeysBySubscriberExecuted);
                 sq.GetServiceMethodsBySubscriberAndService(userName, "CarnetService-1", GetServiceMethodsBySubscriberAndServiceExecuted);

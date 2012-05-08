@@ -87,10 +87,6 @@
     <EmbeddedResource Include="TerminationService-1\rts-termination-1.xsd" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="TerminationService-1\tir-actor-1.xsd" />
-    <EmbeddedResource Include="TerminationService-1\tir-carnet-1.xsd" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="TerminationService-1\iso-3166-1-alpha-3.xsd" />
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +94,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="output.config" />
+    <None Include="TerminationService-1\TerminationService-1.wbs" />
+    <EmbeddedResource Include="TerminationService-1\tir-actor-1.xsd" />
+    <EmbeddedResource Include="TerminationService-1\tir-carnet-1.xsd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

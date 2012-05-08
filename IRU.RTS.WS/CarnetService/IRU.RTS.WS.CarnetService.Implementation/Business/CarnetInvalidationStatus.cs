@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using IRU.RTS.WS.CarnetService.Interface;
 
-namespace IRU.RTS.WS.Common.Business
+namespace IRU.RTS.WS.CarnetService.Implementation.Business
 {
     public enum CarnetInvalidationStatus
     {
@@ -55,6 +56,26 @@ namespace IRU.RTS.WS.Common.Business
                 case 99:
                 default:
                     return CarnetInvalidationStatus.INVALIDATED;
+            }
+        }
+
+        public static InvalidationStatusType AsInvalidationStatusType(this CarnetInvalidationStatus val)
+        {
+            switch (val)
+            {
+                case CarnetInvalidationStatus.DESTROYED:
+                    return InvalidationStatusType.DESTROYED;
+                case CarnetInvalidationStatus.LOST:
+                    return InvalidationStatusType.LOST;
+                case CarnetInvalidationStatus.STOLEN:
+                    return InvalidationStatusType.STOLEN;
+                case CarnetInvalidationStatus.RETAINED:
+                    return InvalidationStatusType.RETAINED;
+                case CarnetInvalidationStatus.EXCLUDED:
+                    return InvalidationStatusType.EXCLUDED;
+                case CarnetInvalidationStatus.INVALIDATED:
+                default:
+                    return InvalidationStatusType.INVALIDATED;
             }
         }
     }

@@ -4,65 +4,62 @@ using System.Linq;
 using System.Text;
 using System.ServiceModel;
 using System.ServiceModel.Description;
-using System.Data.SqlClient;
 using IRU.Common.WCF.Wsdl.Schema;
 using IRU.Common.WCF.Wsdl.Output;
-using IRU.RTS.WS.Common.Business;
-using IRU.RTS.WS.Common.Data;
+using IRU.Common.EnterpriseLibrary.Data;
 using IRU.RTS.WS.Common.Data.Current;
 using IRU.RTS.WS.CarnetService.Interface;
+using IRU.RTS.WS.CarnetService.Implementation.Business;
 
 namespace IRU.RTS.WS.CarnetService.Implementation
 {
     [ServiceBehavior(AddressFilterMode = AddressFilterMode.Any, Namespace = "http://rts.iru.org/services/CarnetService-1")]
-    [WsdlReplacer("IRU.RTS.WS.CarnetService.Interface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "CarnetService_1.CarnetService-1.wsdl", false)]
-    [XsdReplacer(new string[] {"IRU.RTS.WS.CarnetService.Interface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"}, new string[] {"CarnetService_1.rts-carnet-1.xsd", "CarnetService_1.tir-carnet-1.xsd", "CarnetService_1.tir-actor-1.xsd", "CarnetService_1.iso-3166-1-alpha-3.xsd"})]
+    [WsdlReplacer("IRU.RTS.WS.CarnetService.Interface, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null", "CarnetService_1.CarnetService-1.wsdl", false)]
+    [XsdReplacer(new string[] {"IRU.RTS.WS.CarnetService.Interface, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null"}, new string[] {"CarnetService_1.rts-carnet-1.xsd", "CarnetService_1.tir-carnet-1.xsd", "CarnetService_1.tir-actor-1.xsd", "CarnetService_1.iso-3166-1-alpha-3.xsd"})]
     public class CarnetService : CarnetServiceSEI
     {
         private getStoppedCarnetsResponse _stoppedCarnetsResponse;
 
-        private void GetInvalidatedCarnetsExecuted(object sender, DbDataReaderEventArgs e)
+        private void GetInvalidatedCarnetsExecuted(object sender, DataReaderEventArgs e)
         {
-            DbQuery dq = (DbQuery)sender;
-
             int iRec = 0;
-            while (e.DbDataReader.Read())
+            while (e.DataReader.Read())
             {
-                iRec = dq.GetValue<int>(e.DbDataReader, "RowNumber");
+                iRec = e.DataReader.GetValue<int>("RowNumber");
 
                 StoppedCarnetType sc = new StoppedCarnetType();
 
-                sc.TIRCarnetNumber = dq.GetValue<TIRCarnet>(e.DbDataReader, "Number").CarnetNumber;
-                sc.ExpiryDate = dq.GetValue<DateTime>(e.DbDataReader, "ExpiryDate");
-                uint? uiAssocId = dq.GetValue<uint?>(e.DbDataReader, "IssuingAssociation");
+                sc.TIRCarnetNumber = new TIRCarnet(e.DataReader.GetValue<string>("Number")).CarnetNumber;
+                sc.ExpiryDate = e.DataReader.GetValue<DateTime>("ExpiryDate");
+                uint? uiAssocId = e.DataReader.GetValue<uint?>("IssuingAssociation");
                 if (uiAssocId.HasValue)
                 {
                     sc.Association = new Association();
                     sc.Association.id = uiAssocId.Value;
-                    sc.Association.name = dq.GetValue<string>(e.DbDataReader, "IssuingAssociationName");
+                    sc.Association.name = e.DataReader.GetValue<string>("IssuingAssociationName");
                     if (sc.Association.name != null)
                         sc.Association.name = sc.Association.name.Trim();
                 }
-                string sHolderId = dq.GetValue<string>(e.DbDataReader, "Holder");
+                string sHolderId = e.DataReader.GetValue<string>("Holder");
                 if (!String.IsNullOrEmpty(sHolderId))
                 {
                     sc.Holder = new HaulierType();
                     sc.Holder.id = sHolderId.Trim();
                 }
-                sc.DeclarationDate = dq.GetValue<DateTime>(e.DbDataReader, "DateOfDeclaration");
-                sc.InvalidationDate = dq.GetValue<DateTime>(e.DbDataReader, "DateOfInvalidation");
-                sc.InvalidationStatus = dq.GetValue<CarnetInvalidationStatus>(e.DbDataReader, "MotiveCode").AsInvalidationStatusType();
+                sc.DeclarationDate = e.DataReader.GetValue<DateTime>("DateOfDeclaration");
+                sc.InvalidationDate = e.DataReader.GetValue<DateTime>("DateOfInvalidation");
+                sc.InvalidationStatus = e.DataReader.GetValue<int>("MotiveCode").AsCarnetInvalidationStatus().AsInvalidationStatusType();
 
                 _stoppedCarnetsResponse.stoppedCarnets.StoppedCarnet.Add(sc);
             }
             _stoppedCarnetsResponse.stoppedCarnets.count = _stoppedCarnetsResponse.stoppedCarnets.StoppedCarnet.Count;
 
-            if ((e.DbDataReader.NextResult()) && (e.DbDataReader.Read()))
+            if ((e.DataReader.NextResult()) && (e.DataReader.Read()))
             {
-                _stoppedCarnetsResponse.total.count = dq.GetValue<int>(e.DbDataReader, "CountOfFoundStoppedCarnets");
-                _stoppedCarnetsResponse.total.from = dq.GetValue<DateTime>(e.DbDataReader, "MinOfDateOfInvalidation");
+                _stoppedCarnetsResponse.total.count = e.DataReader.GetValue<int>("CountOfFoundStoppedCarnets");
+                _stoppedCarnetsResponse.total.from = e.DataReader.GetValue<DateTime>("MinOfDateOfInvalidation");
                 _stoppedCarnetsResponse.total.fromSpecified = !_stoppedCarnetsResponse.total.from.Equals(DateTime.MinValue);
-                _stoppedCarnetsResponse.total.to = dq.GetValue<DateTime>(e.DbDataReader, "MaxOfDateOfInvalidation");
+                _stoppedCarnetsResponse.total.to = e.DataReader.GetValue<DateTime>("MaxOfDateOfInvalidation");
                 _stoppedCarnetsResponse.total.toSpecified = !_stoppedCarnetsResponse.total.to.Equals(DateTime.MinValue);
                 _stoppedCarnetsResponse.stoppedCarnets.endReached = (iRec == _stoppedCarnetsResponse.total.count);
             }
@@ -79,8 +76,7 @@ namespace IRU.RTS.WS.CarnetService.Implementation
         {
             _stoppedCarnetsResponse = new getStoppedCarnetsResponse();
 
-            SqlConnection scCurrent = new SqlConnection(Properties.Settings.Default.CurrentDB);
-            using (DbCurrentQuery sq = new DbCurrentQuery(scCurrent, Properties.Settings.Default.SQLCommandTimeout))
+            using (DbQueries sq = new DbQueries())
             {
                 if (request.from.Kind == DateTimeKind.Unspecified)
                     request.from = DateTime.SpecifyKind(request.from, DateTimeKind.Local);

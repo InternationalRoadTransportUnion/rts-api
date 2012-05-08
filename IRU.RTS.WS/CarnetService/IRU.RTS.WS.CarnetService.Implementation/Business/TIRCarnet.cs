@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace IRU.RTS.WS.Common.Business
+namespace IRU.RTS.WS.CarnetService.Implementation.Business
 {
     public class TIRCarnet
     {

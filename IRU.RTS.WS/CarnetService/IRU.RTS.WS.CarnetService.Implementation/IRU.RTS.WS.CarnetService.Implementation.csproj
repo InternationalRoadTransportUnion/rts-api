@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IRU.Common.EnterpriseLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f01c97a8a42dad59, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\IRU.Common.EnterpriseLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="IRU.Common.WCF.Behaviors, Version=1.2.0.0, Culture=neutral, PublicKeyToken=f01c97a8a42dad59, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Dependencies\IRU.Common.WCF.Behaviors.dll</HintPath>
@@ -62,6 +66,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\CarnetInvalidationStatus.cs" />
+    <Compile Include="Business\TIRCarnet.cs" />
     <Compile Include="CarnetService.cs" />
     <Compile Include="CarnetServicePasswordValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,10 +78,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\IRU.RTS.WS.Common.Business\IRU.RTS.WS.Common.Business.csproj">
-      <Project>{6E7A5D46-7A5A-44B7-8E8D-682A468667C3}</Project>
-      <Name>IRU.RTS.WS.Common.Business</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Common\IRU.RTS.WS.Common.Data.WsSubscriber\IRU.RTS.WS.Common.Data.WsSubscriber.csproj">
       <Project>{7366225C-600D-4630-8251-62AA676DF881}</Project>
       <Name>IRU.RTS.WS.Common.Data.WsSubscriber</Name>
@@ -87,10 +89,6 @@
     <ProjectReference Include="..\..\Common\IRU.RTS.WS.Common.Data.Current\IRU.RTS.WS.Common.Data.Current.csproj">
       <Project>{E7A04FBF-B3E8-4E2A-A18A-93D6A2DC56B3}</Project>
       <Name>IRU.RTS.WS.Common.Data.Current</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Common\IRU.RTS.WS.Common.Data\IRU.RTS.WS.Common.Data.csproj">
-      <Project>{25D2AE1F-574C-49E7-B487-942D3AD8B3CD}</Project>
-      <Name>IRU.RTS.WS.Common.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

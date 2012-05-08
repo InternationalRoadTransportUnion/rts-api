@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IRU.Common.EnterpriseLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f01c97a8a42dad59, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\IRU.Common.EnterpriseLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -51,20 +57,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="DbCurrentQuery.cs" />
+    <Compile Include="DbQueries.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Queries\GetInvalidatedCarnets.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\IRU.RTS.WS.Common.Business\IRU.RTS.WS.Common.Business.csproj">
-      <Project>{6E7A5D46-7A5A-44B7-8E8D-682A468667C3}</Project>
-      <Name>IRU.RTS.WS.Common.Business</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IRU.RTS.WS.Common.Data\IRU.RTS.WS.Common.Data.csproj">
-      <Project>{25D2AE1F-574C-49E7-B487-942D3AD8B3CD}</Project>
-      <Name>IRU.RTS.WS.Common.Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\Settings.settings">

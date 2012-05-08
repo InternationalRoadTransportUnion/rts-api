@@ -12,7 +12,7 @@ namespace IRU.RTS.WS.TerminationService.Interface
         public System.DateTime transmissionTime;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://rts.iru.org/services/TerminationService-1", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(DataType="token")]
+        [System.Xml.Serialization.XmlElementAttribute(DataType="token", Namespace="http://rts.iru.org/services/TerminationService-1")]
         public string transmissionId;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://rts.iru.org/model/termination-1", Order=2)]

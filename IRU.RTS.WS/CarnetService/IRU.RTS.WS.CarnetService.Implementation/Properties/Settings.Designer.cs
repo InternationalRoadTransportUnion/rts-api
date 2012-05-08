@@ -40,36 +40,5 @@ namespace IRU.RTS.WS.CarnetService.Implementation.Properties {
                 return ((int)(this["MinTIRCarnetNumber"]));
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("60000")]
-        public int SQLCommandTimeout {
-            get {
-                return ((int)(this["SQLCommandTimeout"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Application Name=http://rts.iru.org/services/CarnetService-1;Data Source=localhos" +
-            "t\\MSSQLSERVER_2K8;Initial Catalog=Current;Integrated Security=SSPI")]
-        public string CurrentDB {
-            get {
-                return ((string)(this["CurrentDB"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Application Name=http://rts.iru.org/services/CarnetService-1;Data Source=localhos" +
-            "t\\MSSQLSERVER_2K8;Initial Catalog=WS_SUBSCRIBER_DB;Integrated Security=SSPI")]
-        public string WsSubscriberDB {
-            get {
-                return ((string)(this["WsSubscriberDB"]));
-            }
-        }
     }
 }
