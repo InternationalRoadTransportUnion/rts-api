@@ -30,6 +30,15 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+
+			<xs:element name="transmitTIROperationTerminationsResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="transmissionTime" type="xs:dateTime"/>
+						<xs:element name="success" type="xs:boolean" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 			
 			<xs:element name="getReconciliationRequests">
 				<xs:complexType>
@@ -88,7 +97,9 @@
 	<wsdl:message name="transmitTIROperationTerminations">
 		<wsdl:part name="parameters" element="tns:transmitTIROperationTerminations" />
 	</wsdl:message>
-	<wsdl:message name="transmitTIROperationTerminationsResponse" />
+	<wsdl:message name="transmitTIROperationTerminationsResponse">
+		<wsdl:part name="parameters" element="tns:transmitTIROperationTerminationsResponse" />
+	</wsdl:message>
 
 	<wsdl:message name="getReconciliationRequests">
 		<wsdl:part name="parameters" element="tns:getReconciliationRequests" />
