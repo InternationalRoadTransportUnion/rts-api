@@ -76,6 +76,7 @@
     <EmbeddedResource Include="CarnetService-1\iso-3166-1-alpha-3.xsd" />
     <EmbeddedResource Include="CarnetService-1\tir-actor-1.xsd" />
     <EmbeddedResource Include="CarnetService-1\tir-carnet-1.xsd" />
+    <None Include="CarnetService-1\CarnetService-1.wbs" />
     <None Include="output.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -53,7 +53,7 @@
       <xs:enumeration value="NOR" />
       <xs:enumeration value="POL" />
       <xs:enumeration value="PRT" />
-      <xs:enumeration value="ROK" />
+      <xs:enumeration value="KOR" />
       <xs:enumeration value="ROU" />
       <xs:enumeration value="RUS" />
       <xs:enumeration value="SRB" />

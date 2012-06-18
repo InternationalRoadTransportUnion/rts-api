@@ -14,8 +14,8 @@ using IRU.RTS.WS.CarnetService.Implementation.Business;
 namespace IRU.RTS.WS.CarnetService.Implementation
 {
     [ServiceBehavior(AddressFilterMode = AddressFilterMode.Any, Namespace = "http://rts.iru.org/services/CarnetService-1")]
-    [WsdlReplacer("IRU.RTS.WS.CarnetService.Interface, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null", "CarnetService_1.CarnetService-1.wsdl", false)]
-    [XsdReplacer(new string[] {"IRU.RTS.WS.CarnetService.Interface, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null"}, new string[] {"CarnetService_1.rts-carnet-1.xsd", "CarnetService_1.tir-carnet-1.xsd", "CarnetService_1.tir-actor-1.xsd", "CarnetService_1.iso-3166-1-alpha-3.xsd"})]
+    [WsdlReplacer("IRU.RTS.WS.CarnetService.Interface, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null", "CarnetService_1.CarnetService-1.wsdl", false)]
+    [XsdReplacer(new string[] {"IRU.RTS.WS.CarnetService.Interface, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null"}, new string[] {"CarnetService_1.rts-carnet-1.xsd", "CarnetService_1.tir-carnet-1.xsd", "CarnetService_1.tir-actor-1.xsd", "CarnetService_1.iso-3166-1-alpha-3.xsd"})]
     public class CarnetService : CarnetServiceSEI
     {
         private getStoppedCarnetsResponse _stoppedCarnetsResponse;

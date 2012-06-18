@@ -7,7 +7,7 @@ namespace IRU.RTS.WS.TerminationService.Interface
     public interface ITerminationServiceSEI
     {
         
-        // CODEGEN: Generating message contract since the operation transmitTIROperationTerminations is neither RPC nor document wrapped.
+        // CODEGEN: Parameter 'transmissionId' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://rts.iru.org/services/TerminationService-1/transmitTIROperationTerminations" +
             "", ReplyAction="http://rts.iru.org/services/TerminationService-1/transmitTIROperationTerminations" +
             "Response")]

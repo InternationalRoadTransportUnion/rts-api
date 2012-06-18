@@ -2,13 +2,21 @@
 <xs:schema xmlns="http://www.iru.org/model/tir-carnet-1" elementFormDefault="qualified" targetNamespace="http://www.iru.org/model/tir-carnet-1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:simpleType name="TIRCarnetNumberType">
     <xs:restriction base="xs:token">
-      <xs:pattern value="[A-Z]{2}[0-9]{8}" />
+      <xs:pattern value="[A-Z]{0,2}[0-9]+" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="VoletPageNumberType">
     <xs:restriction base="xs:unsignedByte">
       <xs:minInclusive value="1" />
       <xs:maxInclusive value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="VoletCountType">
+    <xs:restriction base="xs:unsignedByte">
+      <xs:enumeration value="4" />
+      <xs:enumeration value="6" />
+      <xs:enumeration value="14" />
+      <xs:enumeration value="20" />
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>
