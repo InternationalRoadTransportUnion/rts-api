@@ -1,0 +1,23 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <StartAction>Program</StartAction>
+    <StartArguments>/service:"IRU.RTS.WS.CarnetService.Implementation.dll" /config:"IRU.RTS.WS.CarnetService.Implementation.dll.config"</StartArguments>
+    <StartProgram>WcfSvcHost.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <StartAction>Program</StartAction>
+    <StartArguments>/service:"IRU.RTS.WS.CarnetService.Implementation.dll" /config:"IRU.RTS.WS.CarnetService.Implementation.config"</StartArguments>
+    <StartProgram>WcfSvcHost.exe</StartProgram>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{3D9AD99F-2412-4246-B90B-4EAA41C64699}">
+        <WcfProjectProperties>
+          <PublishCopyOption>RunFiles</PublishCopyOption>
+          <PublishTargetLocation>http://localhost/RTS</PublishTargetLocation>
+          <PublishDeleteAllFiles>False</PublishDeleteAllFiles>
+        </WcfProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
