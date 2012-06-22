@@ -64,13 +64,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ServiceContractProtectionLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TerminationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Configurations\app.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>	
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IRU.RTS.WS.TerminationService.Interface\IRU.RTS.WS.TerminationService.Interface.csproj">
