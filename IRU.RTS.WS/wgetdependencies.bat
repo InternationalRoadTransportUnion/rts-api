@@ -4,14 +4,14 @@ REM Download dependencies on artifactory and rename them accordingly
 
 mkdir Dependencies
 
-wget http://apps.charybdis.iruworld.org/swf/artifactory/libs-release-local/org/iru/common/wcf/security/wss/1.3.5.0/wss-1.3.5.0-3.5.dll
-move /y wss-1.3.5.0-3.5.dll Dependencies\IRU.Common.WCF.Security.WSS.dll
+wget http://apps.charybdis.iruworld.org/swf/artifactory/libs-release-local/org/iru/common/wcf/security/wss/1.3.6.0/wss-1.3.6.0-3.5.dll
+move /y wss-1.3.6.0-3.5.dll Dependencies\IRU.Common.WCF.Security.WSS.dll
 
-wget http://apps.charybdis.iruworld.org/swf/artifactory/libs-release-local/org/iru/common/wcf/wsdl/1.3.5.0/wsdl-1.3.5.0-3.5.dll
-move /y wsdl-1.3.5.0-3.5.dll Dependencies\IRU.Common.WCF.Wsdl.dll
+wget http://apps.charybdis.iruworld.org/swf/artifactory/libs-release-local/org/iru/common/wcf/wsdl/1.3.6.0/wsdl-1.3.6.0-3.5.dll
+move /y wsdl-1.3.6.0-3.5.dll Dependencies\IRU.Common.WCF.Wsdl.dll
 
-wget http://apps.charybdis.iruworld.org/swf/artifactory/libs-release-local/org/iru/common/wcf/behaviors/1.3.5.0/behaviors-1.3.5.0-3.5.dll
-move /y behaviors-1.3.5.0-3.5.dll Dependencies\IRU.Common.WCF.Behaviors.dll
+wget http://apps.charybdis.iruworld.org/swf/artifactory/libs-release-local/org/iru/common/wcf/behaviors/1.3.6.0/behaviors-1.3.6.0-3.5.dll
+move /y behaviors-1.3.6.0-3.5.dll Dependencies\IRU.Common.WCF.Behaviors.dll
 
 wget http://apps.charybdis.iruworld.org/swf/artifactory/libs-release-local/org/iru/common/entlib/1.0.1.0/entlib-1.0.1.0-3.5.dll
 move /y entlib-1.0.1.0-3.5.dll Dependencies\IRU.Common.EnterpriseLibrary.dll
