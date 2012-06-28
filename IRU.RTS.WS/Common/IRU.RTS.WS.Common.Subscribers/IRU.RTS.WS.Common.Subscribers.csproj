@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{7366225C-600D-4630-8251-62AA676DF881}</ProjectGuid>
+    <ProjectGuid>{6C841C89-04EA-4A9E-BCBE-E3DA82379C52}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IRU.RTS.WS.Common.Data.WsSubscriber</RootNamespace>
-    <AssemblyName>IRU.RTS.WS.Common.Data.WsSubscriber</AssemblyName>
+    <RootNamespace>IRU.RTS.WS.Common.Subscribers</RootNamespace>
+    <AssemblyName>IRU.RTS.WS.Common.Subscribers</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -51,21 +51,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbQueries.cs" />
+    <Compile Include="CertificatesStore.cs" />
+    <Compile Include="ICertGetter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RTSClientCertGetter.cs" />
+    <Compile Include="RTSPlusClientCertGetter.cs" />
+    <Compile Include="RTSPlusServerCertGetter.cs" />
+    <Compile Include="RTSServerCertGetter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Queries\GetSubscriberEncryptionKeysBySubscriber.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Queries\GetServiceMethodsBySubscriberAndService.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Queries\GetAllSubscriberEncryptionKeys.sql" />
-    <EmbeddedResource Include="Queries\GetAllIRUEncryptionsKeys.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Queries\GetAllRtsplusSignatureKeys.sql" />
+    <ProjectReference Include="..\IRU.RTS.WS.Common.Data.WsSubscriber\IRU.RTS.WS.Common.Data.WsSubscriber.csproj">
+      <Project>{7366225C-600D-4630-8251-62AA676DF881}</Project>
+      <Name>IRU.RTS.WS.Common.Data.WsSubscriber</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

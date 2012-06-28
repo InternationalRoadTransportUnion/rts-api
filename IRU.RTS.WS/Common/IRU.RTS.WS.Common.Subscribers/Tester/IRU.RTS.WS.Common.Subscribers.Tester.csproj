@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{7366225C-600D-4630-8251-62AA676DF881}</ProjectGuid>
+    <ProjectGuid>{8D690BD9-A536-43A9-848C-BC75E2AECA75}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IRU.RTS.WS.Common.Data.WsSubscriber</RootNamespace>
-    <AssemblyName>IRU.RTS.WS.Common.Data.WsSubscriber</AssemblyName>
+    <RootNamespace>IRU.RTS.WS.Common.Subscribers.Tester</RootNamespace>
+    <AssemblyName>IRU.RTS.WS.Common.Subscribers.Tester</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,12 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IRU.Common.EnterpriseLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f01c97a8a42dad59, processorArchitecture=MSIL">
+    <Reference Include="nunit.framework, Version=2.6.0.11240, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dependencies\IRU.Common.EnterpriseLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -51,21 +48,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbQueries.cs" />
+    <Compile Include="UnitTestCertificates.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Queries\GetSubscriberEncryptionKeysBySubscriber.sql" />
+    <ProjectReference Include="..\IRU.RTS.WS.Common.Subscribers.csproj">
+      <Project>{6C841C89-04EA-4A9E-BCBE-E3DA82379C52}</Project>
+      <Name>IRU.RTS.WS.Common.Subscribers</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Queries\GetServiceMethodsBySubscriberAndService.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Queries\GetAllSubscriberEncryptionKeys.sql" />
-    <EmbeddedResource Include="Queries\GetAllIRUEncryptionsKeys.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Queries\GetAllRtsplusSignatureKeys.sql" />
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -35,6 +35,36 @@ namespace IRU.RTS.WS.Common.Data.WsSubscriber
             db.ExecuteReader(dataReaderExecuted, dbc);
         }
 
+        public void GetAllIRUEncryptionsKeys(DataReaderExecutedDelegate dataReaderExecuted)
+        {
+            Database db = DatabaseFactory.CreateDatabase("WsSubscriber");
+
+            string sSql = db.GetSqlStringFromResource("Queries.GetAllIRUEncryptionsKeys.sql");
+            DbCommand dbc = db.GetSqlStringCommand(sSql);
+
+            db.ExecuteReader(dataReaderExecuted, dbc);
+        }
+
+        public void GetAllSubscriberEncryptionKeys(DataReaderExecutedDelegate dataReaderExecuted)
+        {
+            Database db = DatabaseFactory.CreateDatabase("WsSubscriber");
+
+            string sSql = db.GetSqlStringFromResource("Queries.GetAllSubscriberEncryptionKeys.sql");
+            DbCommand dbc = db.GetSqlStringCommand(sSql);
+
+            db.ExecuteReader(dataReaderExecuted, dbc);
+        }
+
+        public void GetAllRtsplusSignatureKeys(DataReaderExecutedDelegate dataReaderExecuted)
+        {
+            Database db = DatabaseFactory.CreateDatabase("WsSubscriber");
+
+            string sSql = db.GetSqlStringFromResource("Queries.GetAllRtsplusSignatureKeys.sql");
+            DbCommand dbc = db.GetSqlStringCommand(sSql);
+
+            db.ExecuteReader(dataReaderExecuted, dbc);
+        }
+
         #region IDisposable Members
 
         public void Dispose()
