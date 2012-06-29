@@ -68,9 +68,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyServiceCredentials\MyX509CertificateValidator.cs" />
     <Compile Include="MyServiceCredentials\MyX509SecurityTokenProvider.cs" />
     <Compile Include="MyServiceCredentials\MyCertificateAuthorizationManager.cs" />
-    <Compile Include="MyServiceCredentials\MyCertificatesStore.cs" />
+    <Compile Include="MyServiceCredentials\MySubscribersCertificateStore.cs" />
     <Compile Include="MyServiceCredentials\MyServiceCredentialsConfigHandler.cs" />
     <Compile Include="MyServiceCredentials\MyServiceCredentialsSecurityTokenManager.cs" />
     <Compile Include="ProtectionLevel\ServiceProtectionLevelEnpointBehaviorExtension.cs" />

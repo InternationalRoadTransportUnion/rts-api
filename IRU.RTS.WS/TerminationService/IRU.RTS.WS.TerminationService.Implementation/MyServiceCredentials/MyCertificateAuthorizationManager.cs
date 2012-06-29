@@ -10,7 +10,7 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
 {
     public class MyCertificateAuthorizationManager : ServiceAuthorizationManager
     {
-        string[] OurClientsCertificatesStore = new MyCertificatesStore().ClientsCertificatesThumprints();
+        MySubscribersCertificateStore mySubscribersCertificateStore = new MySubscribersCertificateStore();
 
         protected override bool CheckAccessCore(OperationContext operationContext)
         {
@@ -24,19 +24,7 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
             //          - CERT_SIGN_CLIENT_CERT
             //          - IRU.Common.Messaging from@somewhere.com (test)
 
-            // try change default ServiceCertificate according to Subscriber's service certificate 
-            // define in Db for this operation context subscriber's client certificate...
-
-            if (thumbprint=="E0CAEA178DF21DB20A48296BDB3A9E74DE7DB81E")
-            {
-                operationContext.Host.Credentials.ServiceCertificate.SetCertificate(
-                                                            StoreLocation.CurrentUser,
-                                                            StoreName.My,
-                                                            X509FindType.FindBySubjectName,
-                                                            "IRU.Common.Messaging to@somewhere.com (test)");
-            }
-
-            return OurClientsCertificatesStore.Contains(thumbprint);
+            return mySubscribersCertificateStore.IsValidClientCertificate(thumbprint);
         }
 
         private string GetCertificateThumbprint(OperationContext operationContext)

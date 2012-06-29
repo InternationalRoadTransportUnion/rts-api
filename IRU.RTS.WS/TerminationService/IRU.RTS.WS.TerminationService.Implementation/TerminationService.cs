@@ -17,6 +17,8 @@ namespace IRU.RTS.WS.TerminationService.Implementation
     {
         public override transmitTIROperationTerminationsResponse transmitTIROperationTerminations(transmitTIROperationTerminationsRequest request)
         {
+            // empty implementation!
+            
             transmitTIROperationTerminationsResponse res = new transmitTIROperationTerminationsResponse();
             
             res.transmissionTime = DateTime.Now;
@@ -27,7 +29,13 @@ namespace IRU.RTS.WS.TerminationService.Implementation
 
         public override getReconciliationRequestsResponse getReconciliationRequests(getReconciliationRequestsRequest request)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+
+            // empty implementation!
+
+            getReconciliationRequestsResponse res = new getReconciliationRequestsResponse();
+
+            return res;
         }
 
         public override transmitReconciliationRequestRepliesResponse transmitReconciliationRequestReplies(transmitReconciliationRequestRepliesRequest request)

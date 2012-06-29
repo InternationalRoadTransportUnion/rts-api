@@ -46,39 +46,24 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
         private static X509Certificate2 GetServiceCertificateFromSubscriberStore(string subscriberIdentityName)
         {
             //TODO: implement using SUBSCRIBER database instead of Windows Certificate Store
-            string serviceCertSubjectName = null;
+            MySubscribersCertificateStore mySubscribersCertificateStore = new MySubscribersCertificateStore();
 
-            if (subscriberIdentityName.Contains("IRU.Common.Messaging from@somewhere.com (test)"))
-            {
-                serviceCertSubjectName = "IRU.Common.Messaging to@somewhere.com (test)";
-            }
+            // MSDN Note: http://msdn.microsoft.com/en-us/library/system.servicemodel.servicesecuritycontext.primaryidentity(v=vs.90).aspx 
+            // The primary identity is obtained from the credentials used to authenticate the current user. 
+            // If the credential is an X.509 certificate, the identity is a concatenation of the subject name 
+            // and the thumbprint (in that order). The subject name is separated from the thumbprint 
+            // with a semicolon and a space. If the subject field of the certificate is null, 
+            // the primary identity includes just a semicolon, a space, and the thumbprint.
+            string clientCertThumbprint = subscriberIdentityName.Split(new string[] {"; "}, StringSplitOptions.None)[1];
 
-            if (serviceCertSubjectName == null)
+            string serviceCertThumbprint = mySubscribersCertificateStore.GetServiceCertificateThumbprintFromClientOne(clientCertThumbprint);
+
+            if (serviceCertThumbprint == null)
             {
                 return null;
             }
 
-            // Get the certificate store for the current user.
-            X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
-            try
-            {
-                store.Open(OpenFlags.ReadOnly);
-
-                // Place all certificates in an X509Certificate2Collection object.
-                X509Certificate2Collection certCollection = store.Certificates;
-                // If using a certificate with a trusted root you do not need to FindByTimeValid, instead:
-                // currentCerts.Find(X509FindType.FindBySubjectDistinguishedName, certName, true);
-                X509Certificate2Collection currentCerts = certCollection.Find(X509FindType.FindByTimeValid, DateTime.Now, false);
-                X509Certificate2Collection signingCert = currentCerts.Find(X509FindType.FindBySubjectName, serviceCertSubjectName, false);
-                if (signingCert.Count == 0)
-                    return null;
-                // Return the first certificate in the collection, has the right name and is current.
-                return signingCert[0];
-            }
-            finally
-            {
-                store.Close();
-            }
+            return mySubscribersCertificateStore.GetCertificateFromStore(serviceCertThumbprint);
         }
 
     }

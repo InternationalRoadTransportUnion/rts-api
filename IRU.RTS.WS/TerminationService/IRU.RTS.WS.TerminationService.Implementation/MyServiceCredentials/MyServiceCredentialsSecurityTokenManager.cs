@@ -22,27 +22,27 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
 
         public override SecurityTokenProvider CreateSecurityTokenProvider(SecurityTokenRequirement tokenRequirement)
         {
-            // Return your implementation of SecurityTokenProvider, if required.
-            // This implementation delegates to the base class.
-            //return base.CreateSecurityTokenProvider(tokenRequirement);
-
-            // Return your implementation of the SecurityTokenProvider based on the 
-            // tokenRequirement argument.
             SecurityTokenProvider result = null;
-            if (tokenRequirement.TokenType == SecurityTokenTypes.X509Certificate)
-            {
-                MessageDirection direction = tokenRequirement.GetProperty<MessageDirection>(
-                    ServiceModelSecurityTokenRequirement.MessageDirectionProperty);
 
-                if (direction == MessageDirection.Input)
+            if (credentials.UseSubscriberCertificateDatabase)
+            {
+                // Return your implementation of the SecurityTokenProvider based on the 
+                // tokenRequirement argument.
+                if (tokenRequirement.TokenType == SecurityTokenTypes.X509Certificate)
                 {
-                    if (tokenRequirement.KeyUsage == SecurityKeyUsage.Exchange)
+                    MessageDirection direction = tokenRequirement.GetProperty<MessageDirection>(
+                        ServiceModelSecurityTokenRequirement.MessageDirectionProperty);
+
+                    if (direction == MessageDirection.Input)
                     {
-                        result = new MyX509SecurityTokenProvider(credentials.ServiceCertificate.Certificate);
+                        if (tokenRequirement.KeyUsage == SecurityKeyUsage.Exchange)
+                        {
+                            result = new MyX509SecurityTokenProvider(credentials.ServiceCertificate.Certificate);
+                        }
                     }
                 }
             }
-
+            // in case of no customization: return the base default SecurityTokenProvider
             if (result == null)
             {
                 result = base.CreateSecurityTokenProvider(tokenRequirement);
