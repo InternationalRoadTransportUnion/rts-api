@@ -67,6 +67,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Queries\GetAllRtsplusSignatureKeys.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Queries\InsertRtsplusSignatureKeyForSubscriber.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Queries\ActivateRtsplusSignatureKeyForSubscriber.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

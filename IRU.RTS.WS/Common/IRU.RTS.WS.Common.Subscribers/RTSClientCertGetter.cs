@@ -19,7 +19,7 @@ namespace IRU.RTS.WS.Common.Subscribers
                 byte[] abCert = e.DataReader.GetValue<byte[]>("CERT_BLOB");
                 if ((abCert != null) && (abCert.Length > 0))
                 {
-                    X509Certificate2 x5c = new X509Certificate2(abCert);
+                    X509Certificate2WithRtsSubscriber x5c = new X509Certificate2WithRtsSubscriber(e.DataReader.GetValue<string>("SUBSCRIBER_ID"), abCert);
                     _certCollection.Add(x5c);
                 }
             }
@@ -35,7 +35,7 @@ namespace IRU.RTS.WS.Common.Subscribers
 
             using (DbQueries dq = new DbQueries())
             {
-                dq.GetAllSubscriberEncryptionKeys(QueryExecuted);
+                dq.GetAllSubscriberEncryptionKeys(true, QueryExecuted);
             }
         }
 

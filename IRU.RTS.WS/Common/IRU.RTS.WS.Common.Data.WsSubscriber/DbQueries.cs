@@ -35,34 +35,67 @@ namespace IRU.RTS.WS.Common.Data.WsSubscriber
             db.ExecuteReader(dataReaderExecuted, dbc);
         }
 
-        public void GetAllIRUEncryptionsKeys(DataReaderExecutedDelegate dataReaderExecuted)
+        public void GetAllIRUEncryptionsKeys(bool onlyActive, DataReaderExecutedDelegate dataReaderExecuted)
         {
             Database db = DatabaseFactory.CreateDatabase("WsSubscriber");
 
             string sSql = db.GetSqlStringFromResource("Queries.GetAllIRUEncryptionsKeys.sql");
             DbCommand dbc = db.GetSqlStringCommand(sSql);
+            db.AddInParameter(dbc, "OnlyActive", System.Data.DbType.Boolean, onlyActive);
 
             db.ExecuteReader(dataReaderExecuted, dbc);
         }
 
-        public void GetAllSubscriberEncryptionKeys(DataReaderExecutedDelegate dataReaderExecuted)
+        public void GetAllSubscriberEncryptionKeys(bool onlyActive, DataReaderExecutedDelegate dataReaderExecuted)
         {
             Database db = DatabaseFactory.CreateDatabase("WsSubscriber");
 
             string sSql = db.GetSqlStringFromResource("Queries.GetAllSubscriberEncryptionKeys.sql");
             DbCommand dbc = db.GetSqlStringCommand(sSql);
+            db.AddInParameter(dbc, "OnlyActive", System.Data.DbType.Boolean, onlyActive);
 
             db.ExecuteReader(dataReaderExecuted, dbc);
         }
 
-        public void GetAllRtsplusSignatureKeys(DataReaderExecutedDelegate dataReaderExecuted)
+        public void GetAllRtsplusSignatureKeys(bool onlyActive, DataReaderExecutedDelegate dataReaderExecuted)
         {
             Database db = DatabaseFactory.CreateDatabase("WsSubscriber");
 
-            string sSql = db.GetSqlStringFromResource("Queries.GetAllRtsplusSignatureKeys.sql");
+            string sSql = db.GetSqlStringFromResource("Queries.GetAllRtsplusSignatureKeys.sql");            
             DbCommand dbc = db.GetSqlStringCommand(sSql);
+            db.AddInParameter(dbc, "OnlyActive", System.Data.DbType.Boolean, onlyActive);
 
             db.ExecuteReader(dataReaderExecuted, dbc);
+        }
+
+        public void InsertRtsplusSignatureKeyForSubscriber(string subscriberId, DateTime validFrom, DateTime validTo, string thumbprint, byte[] certBlob, string privateKeyXml)
+        {
+            Database db = DatabaseFactory.CreateDatabase("WsSubscriber");
+
+            string sSql = db.GetSqlStringFromResource("Queries.InsertRtsplusSignatureKeyForSubscriber.sql");
+            DbCommand dbc = db.GetSqlStringCommand(sSql);
+            db.AddInParameter(dbc, "SubscriberId", System.Data.DbType.String, subscriberId);
+            db.AddInParameter(dbc, "ValidFrom", System.Data.DbType.DateTime, validFrom);
+            db.AddInParameter(dbc, "ValidTo", System.Data.DbType.DateTime, validTo);
+            db.AddInParameter(dbc, "Thumbprint", System.Data.DbType.String, thumbprint);
+            db.AddInParameter(dbc, "CertBlob", System.Data.DbType.Binary, certBlob);
+            db.AddInParameter(dbc, "PrivateKey", System.Data.DbType.Xml, privateKeyXml);
+            db.AddInParameter(dbc, "KeyActive", System.Data.DbType.Boolean, false);
+
+            db.ExecuteNonQuery(dbc);
+        }
+
+        public void ActivateRtsplusSignatureKeyForSubscriber(string subscriberId, string thumbprint, bool serverCertificate)
+        {
+            Database db = DatabaseFactory.CreateDatabase("WsSubscriber");
+
+            string sSql = db.GetSqlStringFromResource("Queries.ActivateRtsplusSignatureKeyForSubscriber.sql");
+            DbCommand dbc = db.GetSqlStringCommand(sSql);
+            db.AddInParameter(dbc, "SubscriberId", System.Data.DbType.String, subscriberId);
+            db.AddInParameter(dbc, "Thumbprint", System.Data.DbType.String, thumbprint);
+            db.AddInParameter(dbc, "ServerCertificate", System.Data.DbType.Boolean, serverCertificate);
+
+            db.ExecuteNonQuery(dbc);
         }
 
         #region IDisposable Members
