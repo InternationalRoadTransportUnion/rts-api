@@ -19,10 +19,6 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
                 return false;
             }
             string thumbprint = GetCertificateThumbprint(operationContext);
-            // TODO: Check the thumbprint against your database, then return true if found, otherwise false  
-            //  -> hard coded comparison to our list of possible client certificates thumbprints:
-            //          - CERT_SIGN_CLIENT_CERT
-            //          - IRU.Common.Messaging from@somewhere.com (test)
 
             return mySubscribersCertificateStore.IsValidClientCertificate(thumbprint);
         }

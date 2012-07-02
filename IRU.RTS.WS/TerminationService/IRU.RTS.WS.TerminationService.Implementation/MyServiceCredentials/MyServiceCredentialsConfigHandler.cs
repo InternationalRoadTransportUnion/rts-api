@@ -10,18 +10,19 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
     public class MyServiceCredentialsConfigHandler : ServiceCredentialsElement
     {
         ConfigurationPropertyCollection properties;
+        private const string KDefaultServiceCertificateThumbprintPropertyName = "defaultServiceCertificateThumbprint";
 
         public override Type BehaviorType
         {
             get { return typeof(MyServiceCredentials); }
         }
 
-        public bool UseSubscriberCertificateDatabase
+        public string DefaultServiceCertificateThumbprint
         {
-            get { return (bool)base["useSubscriberCertificateDatabase"]; }
+            get { return (string)base[KDefaultServiceCertificateThumbprintPropertyName]; }
             set
             {
-                base["useSubscriberCertificateDatabase"] = value;
+                base[KDefaultServiceCertificateThumbprintPropertyName] = value;
             }
         }
 
@@ -33,12 +34,12 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
                 {
                     ConfigurationPropertyCollection properties = base.Properties;
                     properties.Add(new ConfigurationProperty(
-                        "useSubscriberCertificateDatabase",
-                        typeof(Boolean),
-                        false,
+                        KDefaultServiceCertificateThumbprintPropertyName,
+                        typeof(String),
                         null,
                         null,
-                        ConfigurationPropertyOptions.None));
+                        null,
+                        ConfigurationPropertyOptions.IsRequired));
                     this.properties = properties;
                 }
                 return this.properties;
@@ -47,8 +48,7 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
 
         protected override object CreateBehavior()
         {
-            MyServiceCredentials creds = new MyServiceCredentials();
-            creds.UseSubscriberCertificateDatabase = UseSubscriberCertificateDatabase;
+            MyServiceCredentials creds = new MyServiceCredentials(DefaultServiceCertificateThumbprint);
             base.ApplyConfiguration(creds);
             return creds;
         }

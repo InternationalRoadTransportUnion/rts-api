@@ -13,11 +13,15 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
 {
     internal class MyX509SecurityTokenProvider : SecurityTokenProvider
     {
-        X509Certificate2 defaultCertificate;
+        X509Certificate2 _defaultCertificate;
 
-        public MyX509SecurityTokenProvider(X509Certificate2 certificate)
+        public MyX509SecurityTokenProvider(X509Certificate2 defaultCertificate)
         {
-            this.defaultCertificate = certificate;
+            if (defaultCertificate == null)
+            {
+                throw new ArgumentNullException("defaultCertificate");
+            }
+            this._defaultCertificate = defaultCertificate;
         }
 
         protected override SecurityToken GetTokenCore(TimeSpan timeout)
@@ -38,14 +42,13 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
 
             if (result == null)
             {
-                result = new X509SecurityToken(defaultCertificate);
+                result = new X509SecurityToken(_defaultCertificate);
             }
             return result;
         }
 
         private static X509Certificate2 GetServiceCertificateFromSubscriberStore(string subscriberIdentityName)
         {
-            //TODO: implement using SUBSCRIBER database instead of Windows Certificate Store
             MySubscribersCertificateStore mySubscribersCertificateStore = new MySubscribersCertificateStore();
 
             // MSDN Note: http://msdn.microsoft.com/en-us/library/system.servicemodel.servicesecuritycontext.primaryidentity(v=vs.90).aspx 
@@ -63,7 +66,7 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
                 return null;
             }
 
-            return mySubscribersCertificateStore.GetCertificateFromStore(serviceCertThumbprint);
+            return mySubscribersCertificateStore.GetServiceCertificateFromStore(serviceCertThumbprint);
         }
 
     }

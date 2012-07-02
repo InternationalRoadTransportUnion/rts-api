@@ -11,37 +11,32 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
 {
     public class MyServiceCredentials : ServiceCredentials
     {
-        bool useSubscriberCertificateDatabase;
+        string _defaultServiceCertificateThumbprint;
 
-        public MyServiceCredentials()
+        public MyServiceCredentials(string defaultServiceCertificateThumbprint)
         {
             // set default Service certificate
-            // TODO: get it from SUBSCRIBER database
 
-            // from fake Subcriber store (file implementation)
+            if (defaultServiceCertificateThumbprint == null)
+            {
+                throw new ArgumentNullException("defaultServiceCertificateThumbprint");
+            }
+            // get it from SUBSCRIBER database
             MySubscribersCertificateStore mySubscribersCertificateStore = new MySubscribersCertificateStore();
-            this.ServiceCertificate.Certificate = mySubscribersCertificateStore.GetCertificateFromStore("90A9FA8B3118DA540DBBB5C3CF525FBB5E8140D5");
-
-            //// ELSE
-            //// from Windows store...
-            //this.ServiceCertificate.SetCertificate(
-            //    StoreLocation.CurrentUser,
-            //    StoreName.My,
-            //    X509FindType.FindBySubjectName,
-            //    "TEST_CERT_SIGN_SERVER_CERT");
+            this.ServiceCertificate.Certificate = mySubscribersCertificateStore.GetServiceCertificateFromStore(defaultServiceCertificateThumbprint);
         }
 
         protected MyServiceCredentials(MyServiceCredentials other)
             : base(other)
         {
-            this.useSubscriberCertificateDatabase = other.useSubscriberCertificateDatabase;
+            this._defaultServiceCertificateThumbprint = other._defaultServiceCertificateThumbprint;
         }
 
-        public bool UseSubscriberCertificateDatabase
+        public string DefaultServiceCertificateThumbprint
         {
             get
             {
-                return this.useSubscriberCertificateDatabase;
+                return this._defaultServiceCertificateThumbprint;
             }
             set
             {
@@ -49,7 +44,7 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
                 {
                     throw new ArgumentNullException("value");
                 }
-                this.useSubscriberCertificateDatabase = value;
+                this._defaultServiceCertificateThumbprint = value;
             }
         }
 

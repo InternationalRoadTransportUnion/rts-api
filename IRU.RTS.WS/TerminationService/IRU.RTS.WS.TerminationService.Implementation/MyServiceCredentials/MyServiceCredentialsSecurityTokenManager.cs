@@ -24,24 +24,22 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
         {
             SecurityTokenProvider result = null;
 
-            if (credentials.UseSubscriberCertificateDatabase)
+            // Return your implementation of the SecurityTokenProvider based on the 
+            // tokenRequirement argument.
+            if (tokenRequirement.TokenType == SecurityTokenTypes.X509Certificate)
             {
-                // Return your implementation of the SecurityTokenProvider based on the 
-                // tokenRequirement argument.
-                if (tokenRequirement.TokenType == SecurityTokenTypes.X509Certificate)
-                {
-                    MessageDirection direction = tokenRequirement.GetProperty<MessageDirection>(
-                        ServiceModelSecurityTokenRequirement.MessageDirectionProperty);
+                MessageDirection direction = tokenRequirement.GetProperty<MessageDirection>(
+                    ServiceModelSecurityTokenRequirement.MessageDirectionProperty);
 
-                    if (direction == MessageDirection.Input)
+                if (direction == MessageDirection.Input)
+                {
+                    if (tokenRequirement.KeyUsage == SecurityKeyUsage.Exchange)
                     {
-                        if (tokenRequirement.KeyUsage == SecurityKeyUsage.Exchange)
-                        {
-                            result = new MyX509SecurityTokenProvider(credentials.ServiceCertificate.Certificate);
-                        }
+                        result = new MyX509SecurityTokenProvider(credentials.ServiceCertificate.Certificate);
                     }
                 }
             }
+
             // in case of no customization: return the base default SecurityTokenProvider
             if (result == null)
             {
