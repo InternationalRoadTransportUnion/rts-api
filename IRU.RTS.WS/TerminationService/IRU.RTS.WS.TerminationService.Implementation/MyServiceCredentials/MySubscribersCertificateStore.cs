@@ -9,7 +9,7 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
 {
     public class MySubscribersCertificateStore
     {
-        private X509Certificate2 GetValidClientCertificate(string thumbprint)
+        public X509Certificate2 GetValidClientCertificate(string thumbprint)
         {
             // get certificate from SUBSCRIBER db Store:
             X509Certificate2Collection certsCli = CertificatesStore.GetCertificates(CertStore.RTS_PLUS, CertUsage.Client);
@@ -18,6 +18,15 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
 
             if (certsCliMatching.Count == 1)
                 return certsCliMatching[0];
+            else
+                return null;
+        }
+
+        public string GetClientSubscriberId(string thumbprint)
+        {
+            X509Certificate2 x2c = GetValidClientCertificate(thumbprint);
+            if (x2c != null)
+                return x2c.SubscriberId();
             else
                 return null;
         }

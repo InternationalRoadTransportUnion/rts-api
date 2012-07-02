@@ -20,6 +20,10 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
             }
             string thumbprint = GetCertificateThumbprint(operationContext);
 
+            string sRTSSubscriberId = mySubscribersCertificateStore.GetClientSubscriberId(thumbprint);
+            if (!String.IsNullOrEmpty(sRTSSubscriberId))
+                operationContext.ServiceSecurityContext.AuthorizationContext.Properties.Add("RTS_SUBSCRIBER_ID", sRTSSubscriberId);
+
             return mySubscribersCertificateStore.IsValidClientCertificate(thumbprint);
         }
 

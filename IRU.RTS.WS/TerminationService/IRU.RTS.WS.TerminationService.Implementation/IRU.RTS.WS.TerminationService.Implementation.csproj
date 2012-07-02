@@ -47,6 +47,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Dependencies\IRU.Common.WCF.Wsdl.dll</HintPath>
     </Reference>
+    <Reference Include="RTSDotNETClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\RTSDotNETClient.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core">
@@ -74,15 +78,26 @@
     <Compile Include="MyServiceCredentials\MySubscribersCertificateStore.cs" />
     <Compile Include="MyServiceCredentials\MyServiceCredentialsConfigHandler.cs" />
     <Compile Include="MyServiceCredentials\MyServiceCredentialsSecurityTokenManager.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="ProtectionLevel\ServiceProtectionLevelEnpointBehaviorExtension.cs" />
     <Compile Include="ProtectionLevel\ServiceProtectionLevelEnpointBehavior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MyServiceCredentials\MyServiceCredentials.cs" />
     <Compile Include="TerminationService.cs" />
+    <Compile Include="RTSClient\RTSClientWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Configurations\app.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Link>app.config</Link>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

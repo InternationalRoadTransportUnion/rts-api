@@ -17,25 +17,20 @@ namespace IRU.RTS.WS.TerminationService.Implementation
     {
         public override transmitTIROperationTerminationsResponse transmitTIROperationTerminations(transmitTIROperationTerminationsRequest request)
         {
-            // empty implementation!
-            
-            transmitTIROperationTerminationsResponse res = new transmitTIROperationTerminationsResponse();
-            
-            res.transmissionTime = DateTime.Now;
-            res.success = true;
+            object oCallerSubscriberId;
+            string sCallerSubscriberId = null;
+            if (!OperationContext.Current.ServiceSecurityContext.AuthorizationContext.Properties.TryGetValue("RTS_SUBSCRIBER_ID", out oCallerSubscriberId))
+                sCallerSubscriberId = (string)oCallerSubscriberId;
+            RTSClient.RTSClientWrapper rtsClient = new RTSClient.RTSClientWrapper(sCallerSubscriberId, new Uri(Properties.Settings.Default.WsUrlWSST), Properties.Settings.Default.SubscriberIdWSST);
 
+            transmitTIROperationTerminationsResponse res = rtsClient.SendTerminations(request);
+            
             return res;
         }
 
         public override getReconciliationRequestsResponse getReconciliationRequests(getReconciliationRequestsRequest request)
         {
-            //throw new NotImplementedException();
-
-            // empty implementation!
-
-            getReconciliationRequestsResponse res = new getReconciliationRequestsResponse();
-
-            return res;
+            throw new NotImplementedException();
         }
 
         public override transmitReconciliationRequestRepliesResponse transmitReconciliationRequestReplies(transmitReconciliationRequestRepliesRequest request)
