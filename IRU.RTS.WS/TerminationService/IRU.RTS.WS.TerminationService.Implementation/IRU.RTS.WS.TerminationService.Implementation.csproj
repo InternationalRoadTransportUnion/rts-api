@@ -86,6 +86,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\IRU.RTS.WS.Common.Subscribers\IRU.RTS.WS.Common.Subscribers.csproj">
+      <Project>{6C841C89-04EA-4A9E-BCBE-E3DA82379C52}</Project>
+      <Name>IRU.RTS.WS.Common.Subscribers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IRU.RTS.WS.TerminationService.Interface\IRU.RTS.WS.TerminationService.Interface.csproj">
       <Project>{172F5E95-92E5-4909-B831-2E950083098C}</Project>
       <Name>IRU.RTS.WS.TerminationService.Interface</Name>

@@ -22,7 +22,7 @@ namespace IRU.RTS.WS.Common.Subscribers
         }
     }
 
-    static class X509Certificate2Extension
+    public static class X509Certificate2Extension
     {
         public static string SubscriberId(this X509Certificate2 certificate)
         {
@@ -31,6 +31,19 @@ namespace IRU.RTS.WS.Common.Subscribers
             if (certificate is X509Certificate2WithRtsSubscriber)
             {
                 res = ((X509Certificate2WithRtsSubscriber)certificate).SubscriberId;
+            }
+
+            return res;
+        }
+
+        public static X509Certificate2Collection FindBySubscriberId(this X509Certificate2Collection certificates, string subscriberId)
+        {
+            X509Certificate2Collection res = new X509Certificate2Collection();
+
+            foreach (X509Certificate2 cert in certificates)
+            {
+                if (String.Equals(subscriberId, cert.SubscriberId(), StringComparison.InvariantCultureIgnoreCase))
+                    res.Add(cert);
             }
 
             return res;

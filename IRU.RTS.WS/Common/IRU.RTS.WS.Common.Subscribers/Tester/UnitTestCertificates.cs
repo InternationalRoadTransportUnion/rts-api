@@ -75,6 +75,18 @@ namespace IRU.RTS.WS.Common.Subscribers.Tester
             Assert.Greater(certs.Count, 0);
         }
 
+        [Test]
+        public void T007_PairRTSPlusClientServerCertificates()
+        {
+            X509Certificate2Collection crsCli = CertificatesStore.GetCertificates(CertStore.RTS_PLUS, CertUsage.Client);
+            Assert.Greater(crsCli.Count, 0);
+            X509Certificate2 crCli = crsCli[0];
+
+            X509Certificate2Collection crsSrv = CertificatesStore.GetCertificates(CertStore.RTS_PLUS, CertUsage.Server);
+            X509Certificate2Collection crsSrvPaired = crsSrv.FindBySubscriberId(crCli.SubscriberId());
+            Assert.AreEqual(crsSrvPaired.Count, 1);
+        }
+
         #region IDisposable Members
 
         public void Dispose()
