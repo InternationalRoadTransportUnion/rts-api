@@ -63,7 +63,7 @@ namespace IRU.RTS.WS.TerminationService.Implementation.RTSClient
             res.PFD = termination.IsFinal ? "FD" : "PD";
             res.CWR = termination.IsWithReservation ? CWR.WithReservation : CWR.OK;
             res.COM = termination.CustomsComment;
-            res.PIC = termination.PackageCountSpecified ? (int)termination.PackageCount : 0 /* TODO: Handle Null value correctly */;
+            res.PIC = termination.PackageCountSpecified ? (uint?)termination.PackageCount : null;
             res.UPG = isNewRecord ? UPG.New : UPG.CancelDelete;
 
             return res;
