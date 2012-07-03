@@ -14,13 +14,16 @@ namespace IRU.RTS.WS.TerminationService.Implementation.RTSClient
     {
         private SafeTIRTransmissionClient _rtsWSST;
         private X509Certificate2 _serverCert, _clientCert;
+        private string _callerSubscriberId;
 
         public RTSClientWrapper(string callerSubscriberId, Uri webServiceWSST, string rtsSubscriberId)
         {
             _rtsWSST = new SafeTIRTransmissionClient();
             
             _rtsWSST.WebServiceUrl = webServiceWSST.ToString();
-            
+
+            _callerSubscriberId = callerSubscriberId;
+
             DateTime dtNow = DateTime.Now;
             X509Certificate2Collection x2cClients = CertificatesStore.GetCertificates(CertStore.RTS, CertUsage.Client);
             X509Certificate2Collection x2cServers = CertificatesStore.GetCertificates(CertStore.RTS, CertUsage.Server);
@@ -76,7 +79,7 @@ namespace IRU.RTS.WS.TerminationService.Implementation.RTSClient
             query.Body.Version = "1.0.0";
             query.Body.UploadType = UploadType.DataUpload;
             query.Body.SentTime = terminations.transmissionTime;
-            query.Body.SenderMessageID = String.Format("{0}@{1}", terminations.transmissionId, _clientCert.SubscriberId());
+            query.Body.SenderMessageID = String.Format("{0}@{1}", terminations.transmissionId, _callerSubscriberId);
             query.Body.SafeTIRRecords = new List<Record>();
 
             for (int i = 0; i < terminations.TIROperationTerminations.count; i++)

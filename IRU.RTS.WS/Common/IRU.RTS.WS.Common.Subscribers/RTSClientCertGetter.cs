@@ -19,7 +19,8 @@ namespace IRU.RTS.WS.Common.Subscribers
                 byte[] abCert = e.DataReader.GetValue<byte[]>("CERT_BLOB");
                 if ((abCert != null) && (abCert.Length > 0))
                 {
-                    X509Certificate2WithRtsSubscriber x5c = new X509Certificate2WithRtsSubscriber(e.DataReader.GetValue<string>("SUBSCRIBER_ID"), abCert);
+                    X509Certificate2 x5c = new X509Certificate2(abCert);
+                    x5c.FriendlyName = e.DataReader.GetValue<string>("SUBSCRIBER_ID");
                     _certCollection.Add(x5c);
                 }
             }

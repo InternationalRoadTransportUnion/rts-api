@@ -29,22 +29,25 @@ namespace IRU.RTS.WS.Common.Subscribers
 
                 if ((abCert != null) && (abCert.Length > 0))
                 {
-                    X509Certificate2WithRtsSubscriber x5c = null;
+                    X509Certificate2 x5c = null;
 
                     if ((_certUsage == CertUsage.Client) && (sPrivateKeyXml == null))
                     {
-                        x5c = new X509Certificate2WithRtsSubscriber(e.DataReader.GetValue<string>("SUBSCRIBER_ID"), abCert);                        
+                        x5c = new X509Certificate2(abCert);                        
                     }
                     else if ((_certUsage == CertUsage.Server) && (sPrivateKeyXml != null))
                     {
-                        x5c = new X509Certificate2WithRtsSubscriber(e.DataReader.GetValue<string>("SUBSCRIBER_ID"), abCert);
+                        x5c = new X509Certificate2(abCert);
                         AsymmetricAlgorithm aa = AsymmetricAlgorithm.Create();
                         aa.FromXmlString(sPrivateKeyXml.ToString());
                         x5c.PrivateKey = aa;
                     }
 
                     if (x5c != null)
+                    {
+                        x5c.FriendlyName = e.DataReader.GetValue<string>("SUBSCRIBER_ID");
                         _certCollection.Add(x5c);
+                    }
                 }
             }
         }

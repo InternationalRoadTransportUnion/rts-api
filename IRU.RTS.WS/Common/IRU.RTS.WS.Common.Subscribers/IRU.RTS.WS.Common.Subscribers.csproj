@@ -62,7 +62,7 @@
     <Compile Include="RTSPlusCertAdder.cs" />
     <Compile Include="RTSPlusCertGetter.cs" />
     <Compile Include="RTSServerCertGetter.cs" />
-    <Compile Include="X509Certificate2WithRtsSubscriber.cs" />
+    <Compile Include="X509Certificate2RTSExtension.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IRU.RTS.WS.Common.Data.WsSubscriber\IRU.RTS.WS.Common.Data.WsSubscriber.csproj">
