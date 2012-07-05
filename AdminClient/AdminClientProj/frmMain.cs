@@ -54,11 +54,11 @@ namespace IRU.RTS.AdminClient
 		private System.Windows.Forms.MenuItem mnuSyncDB_Export;
 		private System.Windows.Forms.MenuItem mnuSyncDB_Import;
 		private System.Windows.Forms.MenuItem mnuExit;
-		private System.Windows.Forms.MenuItem mnuReports_MR_PR_Modify;
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private System.ComponentModel.Container components = null;
+        private System.Windows.Forms.MenuItem mnuReports_MR_PR_Modify;
+        private MenuItem mnuKM_RTS;
+        private MenuItem mnuKM_RTSPLUS;
+        private MenuItem mnuKM_RTSPLUS_MKS;
+        private IContainer components;
 
 		public frmMain()
 		{
@@ -96,215 +96,242 @@ namespace IRU.RTS.AdminClient
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.mnuMain = new System.Windows.Forms.MainMenu();
-			this.mnuACU = new System.Windows.Forms.MenuItem();
-			this.mnuACU_Add = new System.Windows.Forms.MenuItem();
-			this.mnuACU_Modify = new System.Windows.Forms.MenuItem();
-			this.mnuSubs = new System.Windows.Forms.MenuItem();
-			this.mnuSubs_Add = new System.Windows.Forms.MenuItem();
-			this.mnuSubs_Modify = new System.Windows.Forms.MenuItem();
-			this.mnuKM = new System.Windows.Forms.MenuItem();
-			this.mnuKM_GIK = new System.Windows.Forms.MenuItem();
-			this.mnuKM_MIKS = new System.Windows.Forms.MenuItem();
-			this.mnuKM_SKS = new System.Windows.Forms.MenuItem();
-			this.mnuKM_USC = new System.Windows.Forms.MenuItem();
-			this.mnuReports = new System.Windows.Forms.MenuItem();
-			this.mnuReports_VR = new System.Windows.Forms.MenuItem();
-			this.mnuReports_VR_PR = new System.Windows.Forms.MenuItem();
-			this.mnuReports_VR_DR = new System.Windows.Forms.MenuItem();
-			this.mnuReports_MR = new System.Windows.Forms.MenuItem();
-			this.mnuReports_MR_PR = new System.Windows.Forms.MenuItem();
-			this.mnuReports_MR_PR_Add = new System.Windows.Forms.MenuItem();
-			this.mnuReports_MR_PR_Modify = new System.Windows.Forms.MenuItem();
-			this.mnuAlerts = new System.Windows.Forms.MenuItem();
-			this.mnuSyncDB = new System.Windows.Forms.MenuItem();
-			this.mnuSyncDB_Export = new System.Windows.Forms.MenuItem();
-			this.mnuSyncDB_Import = new System.Windows.Forms.MenuItem();
-			this.mnuExit = new System.Windows.Forms.MenuItem();
-			// 
-			// mnuMain
-			// 
-			this.mnuMain.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																					this.mnuACU,
-																					this.mnuSubs,
-																					this.mnuKM,
-																					this.mnuReports,
-																					this.mnuAlerts,
-																					this.mnuSyncDB,
-																					this.mnuExit});
-			// 
-			// mnuACU
-			// 
-			this.mnuACU.Index = 0;
-			this.mnuACU.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																				   this.mnuACU_Add,
-																				   this.mnuACU_Modify});
-			this.mnuACU.Text = "Admin Client Users";
-			// 
-			// mnuACU_Add
-			// 
-			this.mnuACU_Add.Index = 0;
-			this.mnuACU_Add.Text = "Add";
-			this.mnuACU_Add.Click += new System.EventHandler(this.menuItem17_Click);
-			// 
-			// mnuACU_Modify
-			// 
-			this.mnuACU_Modify.Index = 1;
-			this.mnuACU_Modify.Text = "Modify";
-			this.mnuACU_Modify.Click += new System.EventHandler(this.menuItem18_Click);
-			// 
-			// mnuSubs
-			// 
-			this.mnuSubs.Index = 1;
-			this.mnuSubs.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																					this.mnuSubs_Add,
-																					this.mnuSubs_Modify});
-			this.mnuSubs.Text = "Subscribers";
-			// 
-			// mnuSubs_Add
-			// 
-			this.mnuSubs_Add.Index = 0;
-			this.mnuSubs_Add.Text = "Add";
-			this.mnuSubs_Add.Click += new System.EventHandler(this.menuItem15_Click);
-			// 
-			// mnuSubs_Modify
-			// 
-			this.mnuSubs_Modify.Index = 1;
-			this.mnuSubs_Modify.Text = "Modify";
-			this.mnuSubs_Modify.Click += new System.EventHandler(this.menuItem16_Click);
-			// 
-			// mnuKM
-			// 
-			this.mnuKM.Index = 2;
-			this.mnuKM.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																				  this.mnuKM_GIK,
-																				  this.mnuKM_MIKS,
-																				  this.mnuKM_SKS,
-																				  this.mnuKM_USC});
-			this.mnuKM.Text = "Key Management";
-			// 
-			// mnuKM_GIK
-			// 
-			this.mnuKM_GIK.Index = 0;
-			this.mnuKM_GIK.Text = "Generate IRU Key";
-			this.mnuKM_GIK.Click += new System.EventHandler(this.menuItem5_Click);
-			// 
-			// mnuKM_MIKS
-			// 
-			this.mnuKM_MIKS.Index = 1;
-			this.mnuKM_MIKS.Text = "Manage IRU Key Status";
-			this.mnuKM_MIKS.Click += new System.EventHandler(this.menuItem6_Click);
-			// 
-			// mnuKM_SKS
-			// 
-			this.mnuKM_SKS.Index = 2;
-			this.mnuKM_SKS.Text = "Subscriber Key Status";
-			this.mnuKM_SKS.Click += new System.EventHandler(this.menuItem11_Click);
-			// 
-			// mnuKM_USC
-			// 
-			this.mnuKM_USC.Index = 3;
-			this.mnuKM_USC.Text = "(Temp) Upload Subs Cert";
-			this.mnuKM_USC.Click += new System.EventHandler(this.menuItem14_Click);
-			// 
-			// mnuReports
-			// 
-			this.mnuReports.Index = 3;
-			this.mnuReports.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																					   this.mnuReports_VR,
-																					   this.mnuReports_MR});
-			this.mnuReports.Text = "Reports";
-			// 
-			// mnuReports_VR
-			// 
-			this.mnuReports_VR.Index = 0;
-			this.mnuReports_VR.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																						  this.mnuReports_VR_PR,
-																						  this.mnuReports_VR_DR});
-			this.mnuReports_VR.Text = "View Reports";
-			// 
-			// mnuReports_VR_PR
-			// 
-			this.mnuReports_VR_PR.Index = 0;
-			this.mnuReports_VR_PR.Text = "Performance Reports";
-			this.mnuReports_VR_PR.Click += new System.EventHandler(this.mnuReports_VR_PR_Click);
-			// 
-			// mnuReports_VR_DR
-			// 
-			this.mnuReports_VR_DR.Index = 1;
-			this.mnuReports_VR_DR.Text = "Diagnostic Reports";
-			this.mnuReports_VR_DR.Click += new System.EventHandler(this.mnuReports_VR_DR_Click);
-			// 
-			// mnuReports_MR
-			// 
-			this.mnuReports_MR.Index = 1;
-			this.mnuReports_MR.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																						  this.mnuReports_MR_PR});
-			this.mnuReports_MR.Text = "Manage Reports";
-			// 
-			// mnuReports_MR_PR
-			// 
-			this.mnuReports_MR_PR.Index = 0;
-			this.mnuReports_MR_PR.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																							 this.mnuReports_MR_PR_Add,
-																							 this.mnuReports_MR_PR_Modify});
-			this.mnuReports_MR_PR.Text = "Periodic reports";
-			// 
-			// mnuReports_MR_PR_Add
-			// 
-			this.mnuReports_MR_PR_Add.Index = 0;
-			this.mnuReports_MR_PR_Add.Text = "Add";
-			this.mnuReports_MR_PR_Add.Click += new System.EventHandler(this.mnuReports_MR_PR_Add_Click);
-			// 
-			// mnuReports_MR_PR_Modify
-			// 
-			this.mnuReports_MR_PR_Modify.Index = 1;
-			this.mnuReports_MR_PR_Modify.Text = "Modify";
-			this.mnuReports_MR_PR_Modify.Click += new System.EventHandler(this.mnuReports_MR_PR_Modify_Click);
-			// 
-			// mnuAlerts
-			// 
-			this.mnuAlerts.Index = 4;
-			this.mnuAlerts.Text = "Alerts";
-			this.mnuAlerts.Click += new System.EventHandler(this.mnuAlerts_Click);
-			// 
-			// mnuSyncDB
-			// 
-			this.mnuSyncDB.Index = 5;
-			this.mnuSyncDB.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																					  this.mnuSyncDB_Export,
-																					  this.mnuSyncDB_Import});
-			this.mnuSyncDB.Text = "SynchDB";
-			// 
-			// mnuSyncDB_Export
-			// 
-			this.mnuSyncDB_Export.Index = 0;
-			this.mnuSyncDB_Export.Text = "Export Subscriber DB";
-			this.mnuSyncDB_Export.Click += new System.EventHandler(this.mnuSyncDB_Export_Click);
-			// 
-			// mnuSyncDB_Import
-			// 
-			this.mnuSyncDB_Import.Index = 1;
-			this.mnuSyncDB_Import.Text = "Import Subscriber DB";
-			this.mnuSyncDB_Import.Click += new System.EventHandler(this.mnuSyncDB_Import_Click);
-			// 
-			// mnuExit
-			// 
-			this.mnuExit.Index = 6;
-			this.mnuExit.Text = "Exit";
-			this.mnuExit.Click += new System.EventHandler(this.menuItem4_Click);
-			// 
-			// frmMain
-			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(768, 417);
-			this.IsMdiContainer = true;
-			this.Menu = this.mnuMain;
-			this.Name = "frmMain";
-			this.Text = "RTS Admin Client";
-			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-			this.Closing += new System.ComponentModel.CancelEventHandler(this.frmMain_Closing);
-			this.Load += new System.EventHandler(this.frmMain_Load);
+            this.components = new System.ComponentModel.Container();
+            this.mnuMain = new System.Windows.Forms.MainMenu(this.components);
+            this.mnuACU = new System.Windows.Forms.MenuItem();
+            this.mnuACU_Add = new System.Windows.Forms.MenuItem();
+            this.mnuACU_Modify = new System.Windows.Forms.MenuItem();
+            this.mnuSubs = new System.Windows.Forms.MenuItem();
+            this.mnuSubs_Add = new System.Windows.Forms.MenuItem();
+            this.mnuSubs_Modify = new System.Windows.Forms.MenuItem();
+            this.mnuKM = new System.Windows.Forms.MenuItem();
+            this.mnuKM_GIK = new System.Windows.Forms.MenuItem();
+            this.mnuKM_MIKS = new System.Windows.Forms.MenuItem();
+            this.mnuKM_SKS = new System.Windows.Forms.MenuItem();
+            this.mnuKM_USC = new System.Windows.Forms.MenuItem();
+            this.mnuReports = new System.Windows.Forms.MenuItem();
+            this.mnuReports_VR = new System.Windows.Forms.MenuItem();
+            this.mnuReports_VR_PR = new System.Windows.Forms.MenuItem();
+            this.mnuReports_VR_DR = new System.Windows.Forms.MenuItem();
+            this.mnuReports_MR = new System.Windows.Forms.MenuItem();
+            this.mnuReports_MR_PR = new System.Windows.Forms.MenuItem();
+            this.mnuReports_MR_PR_Add = new System.Windows.Forms.MenuItem();
+            this.mnuReports_MR_PR_Modify = new System.Windows.Forms.MenuItem();
+            this.mnuAlerts = new System.Windows.Forms.MenuItem();
+            this.mnuSyncDB = new System.Windows.Forms.MenuItem();
+            this.mnuSyncDB_Export = new System.Windows.Forms.MenuItem();
+            this.mnuSyncDB_Import = new System.Windows.Forms.MenuItem();
+            this.mnuExit = new System.Windows.Forms.MenuItem();
+            this.mnuKM_RTS = new System.Windows.Forms.MenuItem();
+            this.mnuKM_RTSPLUS = new System.Windows.Forms.MenuItem();
+            this.mnuKM_RTSPLUS_MKS = new System.Windows.Forms.MenuItem();
+            this.SuspendLayout();
+            // 
+            // mnuMain
+            // 
+            this.mnuMain.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.mnuACU,
+            this.mnuSubs,
+            this.mnuKM,
+            this.mnuReports,
+            this.mnuAlerts,
+            this.mnuSyncDB,
+            this.mnuExit});
+            // 
+            // mnuACU
+            // 
+            this.mnuACU.Index = 0;
+            this.mnuACU.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.mnuACU_Add,
+            this.mnuACU_Modify});
+            this.mnuACU.Text = "Admin Client Users";
+            // 
+            // mnuACU_Add
+            // 
+            this.mnuACU_Add.Index = 0;
+            this.mnuACU_Add.Text = "Add";
+            this.mnuACU_Add.Click += new System.EventHandler(this.menuItem17_Click);
+            // 
+            // mnuACU_Modify
+            // 
+            this.mnuACU_Modify.Index = 1;
+            this.mnuACU_Modify.Text = "Modify";
+            this.mnuACU_Modify.Click += new System.EventHandler(this.menuItem18_Click);
+            // 
+            // mnuSubs
+            // 
+            this.mnuSubs.Index = 1;
+            this.mnuSubs.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.mnuSubs_Add,
+            this.mnuSubs_Modify});
+            this.mnuSubs.Text = "Subscribers";
+            // 
+            // mnuSubs_Add
+            // 
+            this.mnuSubs_Add.Index = 0;
+            this.mnuSubs_Add.Text = "Add";
+            this.mnuSubs_Add.Click += new System.EventHandler(this.menuItem15_Click);
+            // 
+            // mnuSubs_Modify
+            // 
+            this.mnuSubs_Modify.Index = 1;
+            this.mnuSubs_Modify.Text = "Modify";
+            this.mnuSubs_Modify.Click += new System.EventHandler(this.menuItem16_Click);
+            // 
+            // mnuKM
+            // 
+            this.mnuKM.Index = 2;
+            this.mnuKM.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.mnuKM_RTS,
+            this.mnuKM_RTSPLUS});
+            this.mnuKM.Text = "Key Management";
+            // 
+            // mnuKM_GIK
+            // 
+            this.mnuKM_GIK.Index = 0;
+            this.mnuKM_GIK.Text = "Generate IRU Key";
+            this.mnuKM_GIK.Click += new System.EventHandler(this.menuItem5_Click);
+            // 
+            // mnuKM_MIKS
+            // 
+            this.mnuKM_MIKS.Index = 1;
+            this.mnuKM_MIKS.Text = "Manage IRU Key Status";
+            this.mnuKM_MIKS.Click += new System.EventHandler(this.menuItem6_Click);
+            // 
+            // mnuKM_SKS
+            // 
+            this.mnuKM_SKS.Index = 2;
+            this.mnuKM_SKS.Text = "Subscriber Key Status";
+            this.mnuKM_SKS.Click += new System.EventHandler(this.menuItem11_Click);
+            // 
+            // mnuKM_USC
+            // 
+            this.mnuKM_USC.Index = 3;
+            this.mnuKM_USC.Text = "(Temp) Upload Subs Cert";
+            this.mnuKM_USC.Click += new System.EventHandler(this.menuItem14_Click);
+            // 
+            // mnuReports
+            // 
+            this.mnuReports.Index = 3;
+            this.mnuReports.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.mnuReports_VR,
+            this.mnuReports_MR});
+            this.mnuReports.Text = "Reports";
+            // 
+            // mnuReports_VR
+            // 
+            this.mnuReports_VR.Index = 0;
+            this.mnuReports_VR.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.mnuReports_VR_PR,
+            this.mnuReports_VR_DR});
+            this.mnuReports_VR.Text = "View Reports";
+            // 
+            // mnuReports_VR_PR
+            // 
+            this.mnuReports_VR_PR.Index = 0;
+            this.mnuReports_VR_PR.Text = "Performance Reports";
+            this.mnuReports_VR_PR.Click += new System.EventHandler(this.mnuReports_VR_PR_Click);
+            // 
+            // mnuReports_VR_DR
+            // 
+            this.mnuReports_VR_DR.Index = 1;
+            this.mnuReports_VR_DR.Text = "Diagnostic Reports";
+            this.mnuReports_VR_DR.Click += new System.EventHandler(this.mnuReports_VR_DR_Click);
+            // 
+            // mnuReports_MR
+            // 
+            this.mnuReports_MR.Index = 1;
+            this.mnuReports_MR.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.mnuReports_MR_PR});
+            this.mnuReports_MR.Text = "Manage Reports";
+            // 
+            // mnuReports_MR_PR
+            // 
+            this.mnuReports_MR_PR.Index = 0;
+            this.mnuReports_MR_PR.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.mnuReports_MR_PR_Add,
+            this.mnuReports_MR_PR_Modify});
+            this.mnuReports_MR_PR.Text = "Periodic reports";
+            // 
+            // mnuReports_MR_PR_Add
+            // 
+            this.mnuReports_MR_PR_Add.Index = 0;
+            this.mnuReports_MR_PR_Add.Text = "Add";
+            this.mnuReports_MR_PR_Add.Click += new System.EventHandler(this.mnuReports_MR_PR_Add_Click);
+            // 
+            // mnuReports_MR_PR_Modify
+            // 
+            this.mnuReports_MR_PR_Modify.Index = 1;
+            this.mnuReports_MR_PR_Modify.Text = "Modify";
+            this.mnuReports_MR_PR_Modify.Click += new System.EventHandler(this.mnuReports_MR_PR_Modify_Click);
+            // 
+            // mnuAlerts
+            // 
+            this.mnuAlerts.Index = 4;
+            this.mnuAlerts.Text = "Alerts";
+            this.mnuAlerts.Click += new System.EventHandler(this.mnuAlerts_Click);
+            // 
+            // mnuSyncDB
+            // 
+            this.mnuSyncDB.Index = 5;
+            this.mnuSyncDB.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.mnuSyncDB_Export,
+            this.mnuSyncDB_Import});
+            this.mnuSyncDB.Text = "SynchDB";
+            // 
+            // mnuSyncDB_Export
+            // 
+            this.mnuSyncDB_Export.Index = 0;
+            this.mnuSyncDB_Export.Text = "Export Subscriber DB";
+            this.mnuSyncDB_Export.Click += new System.EventHandler(this.mnuSyncDB_Export_Click);
+            // 
+            // mnuSyncDB_Import
+            // 
+            this.mnuSyncDB_Import.Index = 1;
+            this.mnuSyncDB_Import.Text = "Import Subscriber DB";
+            this.mnuSyncDB_Import.Click += new System.EventHandler(this.mnuSyncDB_Import_Click);
+            // 
+            // mnuExit
+            // 
+            this.mnuExit.Index = 6;
+            this.mnuExit.Text = "Exit";
+            this.mnuExit.Click += new System.EventHandler(this.menuItem4_Click);
+            // 
+            // mnuKM_RTS
+            // 
+            this.mnuKM_RTS.Index = 0;
+            this.mnuKM_RTS.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.mnuKM_GIK,
+            this.mnuKM_MIKS,
+            this.mnuKM_SKS,
+            this.mnuKM_USC});
+            this.mnuKM_RTS.Text = "RTS";
+            // 
+            // mnuKM_RTSPLUS
+            // 
+            this.mnuKM_RTSPLUS.Index = 1;
+            this.mnuKM_RTSPLUS.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.mnuKM_RTSPLUS_MKS});
+            this.mnuKM_RTSPLUS.Text = "RTS+";
+            // 
+            // mnuKM_RTSPLUS_MKS
+            // 
+            this.mnuKM_RTSPLUS_MKS.Index = 0;
+            this.mnuKM_RTSPLUS_MKS.Text = "Manage Keystore";
+            this.mnuKM_RTSPLUS_MKS.Click += new System.EventHandler(this.mnuKM_RTSPLUS_MKS_Click);
+            // 
+            // frmMain
+            // 
+            this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+            this.ClientSize = new System.Drawing.Size(768, 417);
+            this.IsMdiContainer = true;
+            this.Menu = this.mnuMain;
+            this.Name = "frmMain";
+            this.Text = "RTS Admin Client";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmMain_Load);
+            this.Closing += new System.ComponentModel.CancelEventHandler(this.frmMain_Closing);
+            this.ResumeLayout(false);
 
 		}
 		#endregion
@@ -413,6 +440,7 @@ m_htMenuRights.Add(	301	,mnuKM_GIK	);
 m_htMenuRights.Add(	302	,mnuKM_MIKS	);
 m_htMenuRights.Add(	303	,mnuKM_SKS	);
 m_htMenuRights.Add(304, mnuKM_USC);
+m_htMenuRights.Add(305, mnuKM_RTSPLUS_MKS);
 
 m_htMenuRights.Add(	400	,mnuReports	);
 m_htMenuRights.Add(	401	,mnuReports_VR	);
@@ -543,5 +571,12 @@ m_htMenuRights.Add(	602	,mnuSyncDB_Import	);
 			fPerfReports.Show();
 		
 		}
+
+        private void mnuKM_RTSPLUS_MKS_Click(object sender, EventArgs e)
+        {
+            frmRTSPlusKeystore fRTSPlusKeystore = new frmRTSPlusKeystore();
+            fRTSPlusKeystore.MdiParent = this;
+            fRTSPlusKeystore.Show();
+        }
 	}
 }

@@ -6,10 +6,10 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace IRU.RTS.WS.Common.Subscribers
 {
-    public interface ICertActivator
+    public interface ICertDeactivator
     {
         string UserId { get; set; }
 
-        void ActivateCertificate(X509Certificate2 certificate);
+        void DeactivateCertificate(X509Certificate2 certificate);
     }
 }

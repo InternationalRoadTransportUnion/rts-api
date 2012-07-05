@@ -15,7 +15,7 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_E58BD1E9EF7E4DFFB130C279BC6B0BF3"
+        "MsmKey" = "8:_7969EC1CCB294331A4348DC406199B7A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -110,9 +110,9 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E58BD1E9EF7E4DFFB130C279BC6B0BF3"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7969EC1CCB294331A4348DC406199B7A"
             {
-            "SourcePath" = "8:C:\\Program Files\\Microsoft.NET\\SDK\\v2.0 64bit\\Bin\\makecert.exe"
+            "SourcePath" = "8:..\\Dependencies\\makecert.exe"
             "TargetName" = "8:makecert.exe"
             "Tag" = "8:"
             "Folder" = "8:_68085CC6DA474D18B67A55CEE1126239"
@@ -158,6 +158,7 @@
         "MsiBootstrapper"
         {
         "LangId" = "3:1033"
+        "RequiresElevation" = "11:FALSE"
         }
         "Product"
         {
@@ -794,9 +795,6 @@
                 {
                 }
             }
-        }
-        "VJSharpPlugin"
-        {
         }
     }
 }

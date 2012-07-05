@@ -18,9 +18,13 @@ namespace IRU.RTS.WS.Common.Subscribers
         {
             _certUsage = certUsage;
             _subscriberId = subscriberId;
+
+            UserId = null;
         }
 
         #region ICertActivator Members
+
+        public string UserId { get; set; }
 
         public void ActivateCertificate(X509Certificate2 certificate)
         {
@@ -45,7 +49,7 @@ namespace IRU.RTS.WS.Common.Subscribers
                             break;
                     }
 
-                    dq.ActivateRtsplusSignatureKeyForSubscriber(_subscriberId, certificate.Thumbprint, serverCert);
+                    dq.ActivateRtsplusSignatureKeyForSubscriber(UserId, _subscriberId, certificate.Thumbprint, serverCert);
                 }
                 catch (Exception ex)
                 {

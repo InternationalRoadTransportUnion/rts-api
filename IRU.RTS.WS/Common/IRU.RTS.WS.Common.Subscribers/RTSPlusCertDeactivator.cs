@@ -9,12 +9,12 @@ using IRU.RTS.WS.Common.Data.WsSubscriber;
 
 namespace IRU.RTS.WS.Common.Subscribers
 {
-    public class RTSPlusCertAdder: ICertAdder
+    public class RTSPlusCertDeactivator: ICertDeactivator
     {
         private CertUsage _certUsage;
         private string _subscriberId;
 
-        public RTSPlusCertAdder(CertUsage certUsage, string subscriberId)
+        public RTSPlusCertDeactivator(CertUsage certUsage, string subscriberId)
         {
             _certUsage = certUsage;
             _subscriberId = subscriberId;
@@ -22,11 +22,11 @@ namespace IRU.RTS.WS.Common.Subscribers
             UserId = null;
         }
 
-        #region ICertAdder Members
+        #region ICertActivator Members
 
         public string UserId { get; set; }
 
-        public void AddCertificate(X509Certificate2 certificate)
+        public void DeactivateCertificate(X509Certificate2 certificate)
         {
             if (certificate == null)
                 throw new ArgumentNullException("certificate");
@@ -35,24 +35,25 @@ namespace IRU.RTS.WS.Common.Subscribers
             {
                 try
                 {
-                    string sPrivKeyXml = null;
+                    bool serverCert = false;
 
                     switch (_certUsage)
                     {
                         case CertUsage.Client:
+                            serverCert = false;
                             break;
                         case CertUsage.Server:
                             if (certificate.PrivateKey == null)
                                 throw new NullReferenceException(String.Format("A private key must be set for Certificate [{0}].", certificate.Thumbprint));
-                            sPrivKeyXml = certificate.PrivateKey.ToXmlString(true);
+                            serverCert = true;
                             break;
                     }
 
-                    dq.InsertRtsplusSignatureKeyForSubscriber(UserId, _subscriberId, certificate.NotBefore, certificate.NotAfter, certificate.Thumbprint, certificate.Export(X509ContentType.Cert), sPrivKeyXml);
+                    dq.DeactivateRtsplusSignatureKeyForSubscriber(UserId, _subscriberId, certificate.Thumbprint, serverCert);
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception(String.Format("Can not insert RTS+ {0} Certificate [{1}].", _certUsage, certificate.Thumbprint), ex);
+                    throw new Exception(String.Format("Can not deactivate RTS+ {0} Certificate [{1}].", _certUsage, certificate.Thumbprint), ex);
                 }
             }
         }

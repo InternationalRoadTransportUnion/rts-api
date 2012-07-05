@@ -8,7 +8,7 @@ BEGIN TRY
 	
 	UPDATE dbo.RTSPLUS_SIGNATURE_KEYS
 	SET
-		KEY_ACTIVE = 1
+		KEY_ACTIVE = 0
 		,LAST_UPDATE_USERID = @UserId
 		,LAST_UPDATE_DATETIME = getDate()
 	WHERE
@@ -24,22 +24,6 @@ BEGIN TRY
 	
 	IF (@RowCount = 0)
 		RAISERROR (N'No record updated', 10, 1)
-	ELSE
-	BEGIN
-		UPDATE dbo.RTSPLUS_SIGNATURE_KEYS
-		SET
-			KEY_ACTIVE = 0
-			,LAST_UPDATE_USERID = @UserId
-			,LAST_UPDATE_DATETIME = getDate()
-		WHERE
-			(
-				(@ServerCertificate = 0 AND PRIVATE_KEY IS NULL)
-				OR
-				(@ServerCertificate = 1 AND PRIVATE_KEY IS NOT NULL)
-			)
-			AND SUBSCRIBER_ID = @SubscriberId
-			AND THUMBPRINT <> @Thumbprint	
-	END
 END TRY
 BEGIN CATCH
 DECLARE @ErrorMessage NVARCHAR(4000);

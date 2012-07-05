@@ -12,12 +12,6 @@ namespace IRU.RTS.WS.Common.Subscribers
     public class RTSPlusCertGetter : ICertGetter
     {
         private CertUsage _certUsage;
-
-        public RTSPlusCertGetter(CertUsage certUsage)
-        {
-            _certUsage = certUsage;
-        }
-
         private X509Certificate2Collection _certCollection;
 
         private void QueryExecuted(object sender, DataReaderEventArgs e)
@@ -52,7 +46,15 @@ namespace IRU.RTS.WS.Common.Subscribers
             }
         }
 
+        public RTSPlusCertGetter(CertUsage certUsage)
+        {
+            _certUsage = certUsage;
+            OnlyActive = true;
+        }
+
         #region ICertGetter Members
+
+        public bool OnlyActive { get; set; }
 
         public void GetCertificates(ref X509Certificate2Collection certCollection)
         {
@@ -62,7 +64,7 @@ namespace IRU.RTS.WS.Common.Subscribers
 
             using (DbQueries dq = new DbQueries())
             {
-                dq.GetAllRtsplusSignatureKeys(true, QueryExecuted);
+                dq.GetAllRtsplusSignatureKeys(OnlyActive, QueryExecuted);
             }
         }
 

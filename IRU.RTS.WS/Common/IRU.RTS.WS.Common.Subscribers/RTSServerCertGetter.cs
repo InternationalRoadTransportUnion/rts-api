@@ -52,7 +52,14 @@ namespace IRU.RTS.WS.Common.Subscribers
             }
         }
 
+        public RTSServerCertGetter()
+        {
+            OnlyActive = true;
+        }
+
         #region ICertGetter Members
+
+        public bool OnlyActive { get; set; }
 
         public void GetCertificates(ref X509Certificate2Collection certCollection)
         {
@@ -62,7 +69,7 @@ namespace IRU.RTS.WS.Common.Subscribers
 
             using (DbQueries dq = new DbQueries())
             {
-                dq.GetAllIRUEncryptionsKeys(true, QueryExecuted);
+                dq.GetAllIRUEncryptionsKeys(OnlyActive, QueryExecuted);
             }
         }
 

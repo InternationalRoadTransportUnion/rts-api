@@ -8,6 +8,8 @@ namespace IRU.RTS.WS.Common.Subscribers
 {
     public interface ICertGetter
     {
+        bool OnlyActive { get; set; }
+
         void GetCertificates(ref X509Certificate2Collection certCollection);
     }
 }

@@ -53,7 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CertificatesStore.cs" />
+    <Compile Include="RTSPlusCertDeactivator.cs" />
     <Compile Include="ICertActivator.cs" />
+    <Compile Include="ICertDeactivator.cs" />
     <Compile Include="ICertGetter.cs" />
     <Compile Include="ICertAdder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

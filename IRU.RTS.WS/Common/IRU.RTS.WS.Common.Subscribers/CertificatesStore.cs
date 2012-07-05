@@ -100,6 +100,25 @@ namespace IRU.RTS.WS.Common.Subscribers
                 else
                     throw new NotSupportedException("Only the RTS+ Store is supported.");
             }
-        } 
+        }
+
+        static public void DeactivateCertificate(CertStore certStore, CertUsage certUsage, string subscriberId, X509Certificate2 certificate)
+        {
+            using (CacheManagerFactory cmf = new CacheManagerFactory())
+            {
+                ICacheManager icm = cmf.Create("RtsCache");
+
+                string sCacheKey = String.Format("Certificates#{0}#{1}", certStore, certUsage);
+
+                if (certStore == CertStore.RTS_PLUS)
+                {
+                    ICertDeactivator ica = new RTSPlusCertDeactivator(certUsage, subscriberId);
+                    ica.DeactivateCertificate(certificate);
+                    icm.Remove(sCacheKey);
+                }
+                else
+                    throw new NotSupportedException("Only the RTS+ Store is supported.");
+            }
+        }
     }
 }
