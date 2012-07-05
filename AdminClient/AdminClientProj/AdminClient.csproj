@@ -87,11 +87,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\IRU.RTS.WS\Dependencies\IRU.Common.EnterpriseLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Web.Services2">
-      <Name>Microsoft.Web.Services2</Name>
-      <HintPath>C:\Program Files\Microsoft WSE\v2.0\Microsoft.Web.Services2.dll</HintPath>
-      <AssemblyFolderKey>hklm\microsoft wse 2.0</AssemblyFolderKey>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
