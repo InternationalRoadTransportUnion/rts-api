@@ -105,10 +105,13 @@ namespace IRU.RTS.AdminClient
             this.mnuSubs_Add = new System.Windows.Forms.MenuItem();
             this.mnuSubs_Modify = new System.Windows.Forms.MenuItem();
             this.mnuKM = new System.Windows.Forms.MenuItem();
+            this.mnuKM_RTS = new System.Windows.Forms.MenuItem();
             this.mnuKM_GIK = new System.Windows.Forms.MenuItem();
             this.mnuKM_MIKS = new System.Windows.Forms.MenuItem();
             this.mnuKM_SKS = new System.Windows.Forms.MenuItem();
             this.mnuKM_USC = new System.Windows.Forms.MenuItem();
+            this.mnuKM_RTSPLUS = new System.Windows.Forms.MenuItem();
+            this.mnuKM_RTSPLUS_MKS = new System.Windows.Forms.MenuItem();
             this.mnuReports = new System.Windows.Forms.MenuItem();
             this.mnuReports_VR = new System.Windows.Forms.MenuItem();
             this.mnuReports_VR_PR = new System.Windows.Forms.MenuItem();
@@ -122,9 +125,6 @@ namespace IRU.RTS.AdminClient
             this.mnuSyncDB_Export = new System.Windows.Forms.MenuItem();
             this.mnuSyncDB_Import = new System.Windows.Forms.MenuItem();
             this.mnuExit = new System.Windows.Forms.MenuItem();
-            this.mnuKM_RTS = new System.Windows.Forms.MenuItem();
-            this.mnuKM_RTSPLUS = new System.Windows.Forms.MenuItem();
-            this.mnuKM_RTSPLUS_MKS = new System.Windows.Forms.MenuItem();
             this.SuspendLayout();
             // 
             // mnuMain
@@ -186,6 +186,16 @@ namespace IRU.RTS.AdminClient
             this.mnuKM_RTSPLUS});
             this.mnuKM.Text = "Key Management";
             // 
+            // mnuKM_RTS
+            // 
+            this.mnuKM_RTS.Index = 0;
+            this.mnuKM_RTS.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.mnuKM_GIK,
+            this.mnuKM_MIKS,
+            this.mnuKM_SKS,
+            this.mnuKM_USC});
+            this.mnuKM_RTS.Text = "RTS";
+            // 
             // mnuKM_GIK
             // 
             this.mnuKM_GIK.Index = 0;
@@ -209,6 +219,19 @@ namespace IRU.RTS.AdminClient
             this.mnuKM_USC.Index = 3;
             this.mnuKM_USC.Text = "(Temp) Upload Subs Cert";
             this.mnuKM_USC.Click += new System.EventHandler(this.menuItem14_Click);
+            // 
+            // mnuKM_RTSPLUS
+            // 
+            this.mnuKM_RTSPLUS.Index = 1;
+            this.mnuKM_RTSPLUS.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.mnuKM_RTSPLUS_MKS});
+            this.mnuKM_RTSPLUS.Text = "RTS+";
+            // 
+            // mnuKM_RTSPLUS_MKS
+            // 
+            this.mnuKM_RTSPLUS_MKS.Index = 0;
+            this.mnuKM_RTSPLUS_MKS.Text = "Manage Keystore";
+            this.mnuKM_RTSPLUS_MKS.Click += new System.EventHandler(this.mnuKM_RTSPLUS_MKS_Click);
             // 
             // mnuReports
             // 
@@ -297,29 +320,6 @@ namespace IRU.RTS.AdminClient
             this.mnuExit.Text = "Exit";
             this.mnuExit.Click += new System.EventHandler(this.menuItem4_Click);
             // 
-            // mnuKM_RTS
-            // 
-            this.mnuKM_RTS.Index = 0;
-            this.mnuKM_RTS.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.mnuKM_GIK,
-            this.mnuKM_MIKS,
-            this.mnuKM_SKS,
-            this.mnuKM_USC});
-            this.mnuKM_RTS.Text = "RTS";
-            // 
-            // mnuKM_RTSPLUS
-            // 
-            this.mnuKM_RTSPLUS.Index = 1;
-            this.mnuKM_RTSPLUS.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.mnuKM_RTSPLUS_MKS});
-            this.mnuKM_RTSPLUS.Text = "RTS+";
-            // 
-            // mnuKM_RTSPLUS_MKS
-            // 
-            this.mnuKM_RTSPLUS_MKS.Index = 0;
-            this.mnuKM_RTSPLUS_MKS.Text = "Manage Keystore";
-            this.mnuKM_RTSPLUS_MKS.Click += new System.EventHandler(this.mnuKM_RTSPLUS_MKS_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
@@ -327,7 +327,7 @@ namespace IRU.RTS.AdminClient
             this.IsMdiContainer = true;
             this.Menu = this.mnuMain;
             this.Name = "frmMain";
-            this.Text = "RTS Admin Client";
+            this.Text = "RTS & RTS+ Admin Client";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.Closing += new System.ComponentModel.CancelEventHandler(this.frmMain_Closing);

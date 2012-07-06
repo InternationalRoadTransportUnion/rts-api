@@ -24,11 +24,16 @@ namespace IRU.RTS.WS.Common.Subscribers
     {
         static public X509Certificate2Collection GetCertificates(CertStore certStore, CertUsage certUsage)
         {
+            return GetCertificates(certStore, certUsage, true);
+        }
+
+        static public X509Certificate2Collection GetCertificates(CertStore certStore, CertUsage certUsage, bool onlyActive)
+        {
             using (CacheManagerFactory cmf = new CacheManagerFactory())
             {
                 ICacheManager icm = cmf.Create("RtsCache");
 
-                string sCacheKey = String.Format("Certificates#{0}#{1}", certStore, certUsage);
+                string sCacheKey = String.Format("Certificates#{0}#{1}#{2}", certStore, certUsage, onlyActive);
                 X509Certificate2Collection res = (X509Certificate2Collection)icm.GetData(sCacheKey);
 
                 if (res == null)
@@ -55,7 +60,10 @@ namespace IRU.RTS.WS.Common.Subscribers
                     }
 
                     if (cg != null)
+                    {
+                        cg.OnlyActive = onlyActive;                        
                         cg.GetCertificates(ref res);
+                    }
 
                     icm.Add(sCacheKey, res, CacheItemPriority.Normal, null, new SlidingTime(TimeSpan.FromMinutes(5)));
                 }
@@ -66,6 +74,11 @@ namespace IRU.RTS.WS.Common.Subscribers
 
         static public void AddCertificate(CertStore certStore, CertUsage certUsage, string subscriberId, X509Certificate2 certificate)
         {
+            AddCertificate(certStore, certUsage, subscriberId, certificate, null);
+        }
+
+        static public void AddCertificate(CertStore certStore, CertUsage certUsage, string subscriberId, X509Certificate2 certificate, string userId)
+        {
             using (CacheManagerFactory cmf = new CacheManagerFactory())
             {
                 ICacheManager icm = cmf.Create("RtsCache");
@@ -75,8 +88,10 @@ namespace IRU.RTS.WS.Common.Subscribers
                 if (certStore == CertStore.RTS_PLUS)
                 {
                     ICertAdder ica = new RTSPlusCertAdder(certUsage, subscriberId);
+                    ica.UserId = userId;
                     ica.AddCertificate(certificate);
-                    icm.Remove(sCacheKey);
+                    icm.Remove(String.Format("{0}#{1}", sCacheKey, true));
+                    icm.Remove(String.Format("{0}#{1}", sCacheKey, false));
                 }
                 else
                     throw new NotSupportedException("Only the RTS+ Store is supported.");
@@ -84,6 +99,11 @@ namespace IRU.RTS.WS.Common.Subscribers
         }
 
         static public void ActivateCertificate(CertStore certStore, CertUsage certUsage, string subscriberId, X509Certificate2 certificate)
+        {
+            ActivateCertificate(certStore, certUsage, subscriberId, certificate, null);
+        }
+
+        static public void ActivateCertificate(CertStore certStore, CertUsage certUsage, string subscriberId, X509Certificate2 certificate, string userId)
         {
             using (CacheManagerFactory cmf = new CacheManagerFactory())
             {
@@ -94,8 +114,10 @@ namespace IRU.RTS.WS.Common.Subscribers
                 if (certStore == CertStore.RTS_PLUS)
                 {
                     ICertActivator ica = new RTSPlusCertActivator(certUsage, subscriberId);
+                    ica.UserId = userId;
                     ica.ActivateCertificate(certificate);
-                    icm.Remove(sCacheKey);
+                    icm.Remove(String.Format("{0}#{1}", sCacheKey, true));
+                    icm.Remove(String.Format("{0}#{1}", sCacheKey, false));
                 }
                 else
                     throw new NotSupportedException("Only the RTS+ Store is supported.");
@@ -103,6 +125,11 @@ namespace IRU.RTS.WS.Common.Subscribers
         }
 
         static public void DeactivateCertificate(CertStore certStore, CertUsage certUsage, string subscriberId, X509Certificate2 certificate)
+        {
+            DeactivateCertificate(certStore, certUsage, subscriberId, certificate, null);
+        }
+
+        static public void DeactivateCertificate(CertStore certStore, CertUsage certUsage, string subscriberId, X509Certificate2 certificate, string userId)
         {
             using (CacheManagerFactory cmf = new CacheManagerFactory())
             {
@@ -113,8 +140,10 @@ namespace IRU.RTS.WS.Common.Subscribers
                 if (certStore == CertStore.RTS_PLUS)
                 {
                     ICertDeactivator ica = new RTSPlusCertDeactivator(certUsage, subscriberId);
+                    ica.UserId = userId;
                     ica.DeactivateCertificate(certificate);
-                    icm.Remove(sCacheKey);
+                    icm.Remove(String.Format("{0}#{1}", sCacheKey, true));
+                    icm.Remove(String.Format("{0}#{1}", sCacheKey, false));
                 }
                 else
                     throw new NotSupportedException("Only the RTS+ Store is supported.");

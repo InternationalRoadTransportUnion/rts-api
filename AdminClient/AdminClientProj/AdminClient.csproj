@@ -185,6 +185,11 @@
     <Compile Include="PerformanceReports.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddModifyUserRights.resx">
       <DependentUpon>AddModifyUserRights.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -268,8 +273,14 @@
       <DependentUpon>PerformanceReports.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="App.config" />
     <Content Include="App.ico" />
+    <None Include="Resources\mailbox_outgoing_32.png" />
+    <None Include="Resources\mailbox_incoming_32.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\IRU.RTS.WS\Common\IRU.RTS.WS.Common.Data.WsSubscriber\IRU.RTS.WS.Common.Data.WsSubscriber.csproj">
