@@ -35,6 +35,7 @@ namespace IRU.RTS.AdminClient
 		private System.Windows.Forms.ColumnHeader col_LastUpdatedDate;
 
 		private System.Windows.Forms.SaveFileDialog sfd;
+        private ColumnHeader col_CERT_EXPIRY_DATE;
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -76,211 +77,222 @@ namespace IRU.RTS.AdminClient
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.gpSelectSubscriber = new System.Windows.Forms.GroupBox();
-			this.dtnSelectSubscriber = new System.Windows.Forms.Button();
-			this.cboSubscriber = new System.Windows.Forms.ComboBox();
-			this.label1 = new System.Windows.Forms.Label();
-			this.gpCertificates = new System.Windows.Forms.GroupBox();
-			this.lvwCertificates = new System.Windows.Forms.ListView();
-			this.col_ThumbPrint = new System.Windows.Forms.ColumnHeader();
-			this.col_ACTIVE_STATUS = new System.Windows.Forms.ColumnHeader();
-			this.col_DISTRIBUTED_TO = new System.Windows.Forms.ColumnHeader();
-			this.col_CertIsCurrent = new System.Windows.Forms.ColumnHeader();
-			this.col_Distribution_Date = new System.Windows.Forms.ColumnHeader();
-			this.col_ActiveStatusReason = new System.Windows.Forms.ColumnHeader();
-			this.col_LastUpdatedBy = new System.Windows.Forms.ColumnHeader();
-			this.col_LastUpdatedDate = new System.Windows.Forms.ColumnHeader();
-			this.gpButtons = new System.Windows.Forms.GroupBox();
-			this.Cancel = new System.Windows.Forms.Button();
-			this.btnExport = new System.Windows.Forms.Button();
-			this.btnMarkInactive = new System.Windows.Forms.Button();
-			this.btnMarkActive = new System.Windows.Forms.Button();
-			this.sfd = new System.Windows.Forms.SaveFileDialog();
-			this.gpSelectSubscriber.SuspendLayout();
-			this.gpCertificates.SuspendLayout();
-			this.gpButtons.SuspendLayout();
-			this.SuspendLayout();
-			// 
-			// gpSelectSubscriber
-			// 
-			this.gpSelectSubscriber.Controls.Add(this.dtnSelectSubscriber);
-			this.gpSelectSubscriber.Controls.Add(this.cboSubscriber);
-			this.gpSelectSubscriber.Controls.Add(this.label1);
-			this.gpSelectSubscriber.Dock = System.Windows.Forms.DockStyle.Top;
-			this.gpSelectSubscriber.Location = new System.Drawing.Point(0, 0);
-			this.gpSelectSubscriber.Name = "gpSelectSubscriber";
-			this.gpSelectSubscriber.Size = new System.Drawing.Size(824, 56);
-			this.gpSelectSubscriber.TabIndex = 0;
-			this.gpSelectSubscriber.TabStop = false;
-			// 
-			// dtnSelectSubscriber
-			// 
-			this.dtnSelectSubscriber.Location = new System.Drawing.Point(272, 16);
-			this.dtnSelectSubscriber.Name = "dtnSelectSubscriber";
-			this.dtnSelectSubscriber.Size = new System.Drawing.Size(112, 24);
-			this.dtnSelectSubscriber.TabIndex = 2;
-			this.dtnSelectSubscriber.Text = "Select";
-			this.dtnSelectSubscriber.Click += new System.EventHandler(this.dtnSelectSubscriber_Click);
-			// 
-			// cboSubscriber
-			// 
-			this.cboSubscriber.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cboSubscriber.Location = new System.Drawing.Point(144, 16);
-			this.cboSubscriber.Name = "cboSubscriber";
-			this.cboSubscriber.Size = new System.Drawing.Size(112, 21);
-			this.cboSubscriber.TabIndex = 1;
-			// 
-			// label1
-			// 
-			this.label1.Location = new System.Drawing.Point(24, 16);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(104, 24);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "Subscriber ";
-			// 
-			// gpCertificates
-			// 
-			this.gpCertificates.Controls.Add(this.lvwCertificates);
-			this.gpCertificates.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.gpCertificates.Location = new System.Drawing.Point(0, 56);
-			this.gpCertificates.Name = "gpCertificates";
-			this.gpCertificates.Size = new System.Drawing.Size(824, 278);
-			this.gpCertificates.TabIndex = 1;
-			this.gpCertificates.TabStop = false;
-			// 
-			// lvwCertificates
-			// 
-			this.lvwCertificates.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-																							  this.col_ThumbPrint,
-																							  this.col_ACTIVE_STATUS,
-																							  this.col_DISTRIBUTED_TO,
-																							  this.col_CertIsCurrent,
-																							  this.col_Distribution_Date,
-																							  this.col_ActiveStatusReason,
-																							  this.col_LastUpdatedBy,
-																							  this.col_LastUpdatedDate});
-			this.lvwCertificates.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.lvwCertificates.FullRowSelect = true;
-			this.lvwCertificates.Location = new System.Drawing.Point(3, 16);
-			this.lvwCertificates.MultiSelect = false;
-			this.lvwCertificates.Name = "lvwCertificates";
-			this.lvwCertificates.Size = new System.Drawing.Size(818, 259);
-			this.lvwCertificates.TabIndex = 0;
-			this.lvwCertificates.View = System.Windows.Forms.View.Details;
-			this.lvwCertificates.SelectedIndexChanged += new System.EventHandler(this.lvwCertificates_SelectedIndexChanged);
-			// 
-			// col_ThumbPrint
-			// 
-			this.col_ThumbPrint.Text = "Thumb Print";
-			this.col_ThumbPrint.Width = 179;
-			// 
-			// col_ACTIVE_STATUS
-			// 
-			this.col_ACTIVE_STATUS.Text = "Active Status";
-			this.col_ACTIVE_STATUS.Width = 99;
-			// 
-			// col_DISTRIBUTED_TO
-			// 
-			this.col_DISTRIBUTED_TO.Text = "Distributed To";
-			this.col_DISTRIBUTED_TO.Width = 117;
-			// 
-			// col_CertIsCurrent
-			// 
-			this.col_CertIsCurrent.Text = "Current Certificate";
-			this.col_CertIsCurrent.Width = 111;
-			// 
-			// col_Distribution_Date
-			// 
-			this.col_Distribution_Date.Text = "Distribution Date";
-			this.col_Distribution_Date.Width = 133;
-			// 
-			// col_ActiveStatusReason
-			// 
-			this.col_ActiveStatusReason.Text = "Status reason";
-			this.col_ActiveStatusReason.Width = 143;
-			// 
-			// col_LastUpdatedBy
-			// 
-			this.col_LastUpdatedBy.Text = "Last Updated By";
-			this.col_LastUpdatedBy.Width = 161;
-			// 
-			// col_LastUpdatedDate
-			// 
-			this.col_LastUpdatedDate.Text = "Last Updated Date";
-			// 
-			// gpButtons
-			// 
-			this.gpButtons.Controls.Add(this.Cancel);
-			this.gpButtons.Controls.Add(this.btnExport);
-			this.gpButtons.Controls.Add(this.btnMarkInactive);
-			this.gpButtons.Controls.Add(this.btnMarkActive);
-			this.gpButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.gpButtons.Location = new System.Drawing.Point(0, 254);
-			this.gpButtons.Name = "gpButtons";
-			this.gpButtons.Size = new System.Drawing.Size(824, 80);
-			this.gpButtons.TabIndex = 2;
-			this.gpButtons.TabStop = false;
-			// 
-			// Cancel
-			// 
-			this.Cancel.Location = new System.Drawing.Point(16, 40);
-			this.Cancel.Name = "Cancel";
-			this.Cancel.Size = new System.Drawing.Size(112, 24);
-			this.Cancel.TabIndex = 3;
-			this.Cancel.Text = "Cancel";
-			this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
-			// 
-			// btnExport
-			// 
-			this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnExport.Location = new System.Drawing.Point(664, 40);
-			this.btnExport.Name = "btnExport";
-			this.btnExport.Size = new System.Drawing.Size(120, 24);
-			this.btnExport.TabIndex = 2;
-			this.btnExport.Text = "Export .Cer";
-			this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
-			// 
-			// btnMarkInactive
-			// 
-			this.btnMarkInactive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnMarkInactive.Enabled = false;
-			this.btnMarkInactive.Location = new System.Drawing.Point(528, 40);
-			this.btnMarkInactive.Name = "btnMarkInactive";
-			this.btnMarkInactive.Size = new System.Drawing.Size(112, 24);
-			this.btnMarkInactive.TabIndex = 1;
-			this.btnMarkInactive.Text = "Mark Inactive";
-			this.btnMarkInactive.Click += new System.EventHandler(this.btnMarkInactive_Click);
-			// 
-			// btnMarkActive
-			// 
-			this.btnMarkActive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnMarkActive.Enabled = false;
-			this.btnMarkActive.Location = new System.Drawing.Point(376, 40);
-			this.btnMarkActive.Name = "btnMarkActive";
-			this.btnMarkActive.Size = new System.Drawing.Size(112, 24);
-			this.btnMarkActive.TabIndex = 0;
-			this.btnMarkActive.Text = "Mark Active";
-			this.btnMarkActive.Click += new System.EventHandler(this.btnMarkActive_Click);
-			// 
-			// sfd
-			// 
-			this.sfd.DefaultExt = "cer";
-			this.sfd.Title = "Select Folder and Certificate File Name";
-			// 
-			// ManageIRUKeyStatus
-			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(824, 334);
-			this.Controls.Add(this.gpButtons);
-			this.Controls.Add(this.gpCertificates);
-			this.Controls.Add(this.gpSelectSubscriber);
-			this.Name = "ManageIRUKeyStatus";
-			this.Text = "Manage IRU Keys";
-			this.Load += new System.EventHandler(this.ManageIRUKeyStatus_Load);
-			this.gpSelectSubscriber.ResumeLayout(false);
-			this.gpCertificates.ResumeLayout(false);
-			this.gpButtons.ResumeLayout(false);
-			this.ResumeLayout(false);
+            this.gpSelectSubscriber = new System.Windows.Forms.GroupBox();
+            this.dtnSelectSubscriber = new System.Windows.Forms.Button();
+            this.cboSubscriber = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.gpCertificates = new System.Windows.Forms.GroupBox();
+            this.lvwCertificates = new System.Windows.Forms.ListView();
+            this.col_ThumbPrint = new System.Windows.Forms.ColumnHeader();
+            this.col_ACTIVE_STATUS = new System.Windows.Forms.ColumnHeader();
+            this.col_DISTRIBUTED_TO = new System.Windows.Forms.ColumnHeader();
+            this.col_CertIsCurrent = new System.Windows.Forms.ColumnHeader();
+            this.col_Distribution_Date = new System.Windows.Forms.ColumnHeader();
+            this.col_ActiveStatusReason = new System.Windows.Forms.ColumnHeader();
+            this.col_LastUpdatedBy = new System.Windows.Forms.ColumnHeader();
+            this.col_LastUpdatedDate = new System.Windows.Forms.ColumnHeader();
+            this.gpButtons = new System.Windows.Forms.GroupBox();
+            this.Cancel = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.btnMarkInactive = new System.Windows.Forms.Button();
+            this.btnMarkActive = new System.Windows.Forms.Button();
+            this.sfd = new System.Windows.Forms.SaveFileDialog();
+            this.col_CERT_EXPIRY_DATE = new System.Windows.Forms.ColumnHeader();
+            this.gpSelectSubscriber.SuspendLayout();
+            this.gpCertificates.SuspendLayout();
+            this.gpButtons.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // gpSelectSubscriber
+            // 
+            this.gpSelectSubscriber.Controls.Add(this.dtnSelectSubscriber);
+            this.gpSelectSubscriber.Controls.Add(this.cboSubscriber);
+            this.gpSelectSubscriber.Controls.Add(this.label1);
+            this.gpSelectSubscriber.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gpSelectSubscriber.Location = new System.Drawing.Point(0, 0);
+            this.gpSelectSubscriber.Name = "gpSelectSubscriber";
+            this.gpSelectSubscriber.Size = new System.Drawing.Size(824, 56);
+            this.gpSelectSubscriber.TabIndex = 0;
+            this.gpSelectSubscriber.TabStop = false;
+            // 
+            // dtnSelectSubscriber
+            // 
+            this.dtnSelectSubscriber.Location = new System.Drawing.Point(272, 16);
+            this.dtnSelectSubscriber.Name = "dtnSelectSubscriber";
+            this.dtnSelectSubscriber.Size = new System.Drawing.Size(112, 24);
+            this.dtnSelectSubscriber.TabIndex = 2;
+            this.dtnSelectSubscriber.Text = "Select";
+            this.dtnSelectSubscriber.Click += new System.EventHandler(this.dtnSelectSubscriber_Click);
+            // 
+            // cboSubscriber
+            // 
+            this.cboSubscriber.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSubscriber.Location = new System.Drawing.Point(144, 16);
+            this.cboSubscriber.Name = "cboSubscriber";
+            this.cboSubscriber.Size = new System.Drawing.Size(112, 21);
+            this.cboSubscriber.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(24, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 24);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Subscriber ";
+            // 
+            // gpCertificates
+            // 
+            this.gpCertificates.Controls.Add(this.lvwCertificates);
+            this.gpCertificates.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gpCertificates.Location = new System.Drawing.Point(0, 56);
+            this.gpCertificates.Name = "gpCertificates";
+            this.gpCertificates.Size = new System.Drawing.Size(824, 278);
+            this.gpCertificates.TabIndex = 1;
+            this.gpCertificates.TabStop = false;
+            // 
+            // lvwCertificates
+            // 
+            this.lvwCertificates.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvwCertificates.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.col_ThumbPrint,
+            this.col_ACTIVE_STATUS,
+            this.col_DISTRIBUTED_TO,
+            this.col_CertIsCurrent,
+            this.col_CERT_EXPIRY_DATE,
+            this.col_Distribution_Date,
+            this.col_ActiveStatusReason,
+            this.col_LastUpdatedBy,
+            this.col_LastUpdatedDate});
+            this.lvwCertificates.FullRowSelect = true;
+            this.lvwCertificates.Location = new System.Drawing.Point(3, 16);
+            this.lvwCertificates.MultiSelect = false;
+            this.lvwCertificates.Name = "lvwCertificates";
+            this.lvwCertificates.Size = new System.Drawing.Size(818, 183);
+            this.lvwCertificates.TabIndex = 0;
+            this.lvwCertificates.UseCompatibleStateImageBehavior = false;
+            this.lvwCertificates.View = System.Windows.Forms.View.Details;
+            this.lvwCertificates.SelectedIndexChanged += new System.EventHandler(this.lvwCertificates_SelectedIndexChanged);
+            // 
+            // col_ThumbPrint
+            // 
+            this.col_ThumbPrint.Text = "Thumb Print";
+            this.col_ThumbPrint.Width = 179;
+            // 
+            // col_ACTIVE_STATUS
+            // 
+            this.col_ACTIVE_STATUS.Text = "Active Status";
+            this.col_ACTIVE_STATUS.Width = 99;
+            // 
+            // col_DISTRIBUTED_TO
+            // 
+            this.col_DISTRIBUTED_TO.Text = "Distributed To";
+            this.col_DISTRIBUTED_TO.Width = 100;
+            // 
+            // col_CertIsCurrent
+            // 
+            this.col_CertIsCurrent.Text = "Current Certificate";
+            this.col_CertIsCurrent.Width = 100;
+            // 
+            // col_Distribution_Date
+            // 
+            this.col_Distribution_Date.Text = "Distribution Date";
+            this.col_Distribution_Date.Width = 133;
+            // 
+            // col_ActiveStatusReason
+            // 
+            this.col_ActiveStatusReason.Text = "Status reason";
+            this.col_ActiveStatusReason.Width = 143;
+            // 
+            // col_LastUpdatedBy
+            // 
+            this.col_LastUpdatedBy.Text = "Last Updated By";
+            this.col_LastUpdatedBy.Width = 161;
+            // 
+            // col_LastUpdatedDate
+            // 
+            this.col_LastUpdatedDate.Text = "Last Updated Date";
+            this.col_LastUpdatedDate.Width = 130;
+            // 
+            // gpButtons
+            // 
+            this.gpButtons.Controls.Add(this.Cancel);
+            this.gpButtons.Controls.Add(this.btnExport);
+            this.gpButtons.Controls.Add(this.btnMarkInactive);
+            this.gpButtons.Controls.Add(this.btnMarkActive);
+            this.gpButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gpButtons.Location = new System.Drawing.Point(0, 254);
+            this.gpButtons.Name = "gpButtons";
+            this.gpButtons.Size = new System.Drawing.Size(824, 80);
+            this.gpButtons.TabIndex = 2;
+            this.gpButtons.TabStop = false;
+            // 
+            // Cancel
+            // 
+            this.Cancel.Location = new System.Drawing.Point(16, 40);
+            this.Cancel.Name = "Cancel";
+            this.Cancel.Size = new System.Drawing.Size(112, 24);
+            this.Cancel.TabIndex = 3;
+            this.Cancel.Text = "Cancel";
+            this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
+            // 
+            // btnExport
+            // 
+            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExport.Location = new System.Drawing.Point(664, 40);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(120, 24);
+            this.btnExport.TabIndex = 2;
+            this.btnExport.Text = "Export .Cer";
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // btnMarkInactive
+            // 
+            this.btnMarkInactive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMarkInactive.Enabled = false;
+            this.btnMarkInactive.Location = new System.Drawing.Point(528, 40);
+            this.btnMarkInactive.Name = "btnMarkInactive";
+            this.btnMarkInactive.Size = new System.Drawing.Size(112, 24);
+            this.btnMarkInactive.TabIndex = 1;
+            this.btnMarkInactive.Text = "Mark Inactive";
+            this.btnMarkInactive.Click += new System.EventHandler(this.btnMarkInactive_Click);
+            // 
+            // btnMarkActive
+            // 
+            this.btnMarkActive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMarkActive.Enabled = false;
+            this.btnMarkActive.Location = new System.Drawing.Point(376, 40);
+            this.btnMarkActive.Name = "btnMarkActive";
+            this.btnMarkActive.Size = new System.Drawing.Size(112, 24);
+            this.btnMarkActive.TabIndex = 0;
+            this.btnMarkActive.Text = "Mark Active";
+            this.btnMarkActive.Click += new System.EventHandler(this.btnMarkActive_Click);
+            // 
+            // sfd
+            // 
+            this.sfd.DefaultExt = "cer";
+            this.sfd.Title = "Select Folder and Certificate File Name";
+            // 
+            // col_CERT_EXPIRY_DATE
+            // 
+            this.col_CERT_EXPIRY_DATE.Text = "Expiration Date";
+            this.col_CERT_EXPIRY_DATE.Width = 130;
+            // 
+            // ManageIRUKeyStatus
+            // 
+            this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+            this.ClientSize = new System.Drawing.Size(824, 334);
+            this.Controls.Add(this.gpButtons);
+            this.Controls.Add(this.gpCertificates);
+            this.Controls.Add(this.gpSelectSubscriber);
+            this.Name = "ManageIRUKeyStatus";
+            this.Text = "Manage IRU Keys";
+            this.Load += new System.EventHandler(this.ManageIRUKeyStatus_Load);
+            this.gpSelectSubscriber.ResumeLayout(false);
+            this.gpCertificates.ResumeLayout(false);
+            this.gpButtons.ResumeLayout(false);
+            this.ResumeLayout(false);
 
 		}
 		#endregion
@@ -348,11 +360,8 @@ namespace IRU.RTS.AdminClient
 			lvwCertificates.Items.Clear();
 			foreach (DataRow dr in m_KeysDataSet.Tables["Keys"].Rows)
 			{
-
-
-				ListViewItem lItem = new ListViewItem(new string[] {dr["ENCRYPTION_KEY_ID"].ToString(),dr["KEY_ACTIVE"].ToString(),dr["DISTRIBUTED_TO"].ToString(),dr["CERT_IS_CURRENT"].ToString(),dr["DISTRIBUTION_DATE"].ToString(),dr["KEY_ACTIVE_REASON"].ToString(),dr["LAST_UPDATE_USERID"].ToString(),dr["LAST_UPDATE_TIME"].ToString()});
+                ListViewItem lItem = new ListViewItem(new string[] { dr["ENCRYPTION_KEY_ID"].ToString(), dr["KEY_ACTIVE"].ToString(), dr["DISTRIBUTED_TO"].ToString(), dr["CERT_IS_CURRENT"].ToString(), dr["CERT_EXPIRY_DATE"].ToString(), dr["DISTRIBUTION_DATE"].ToString(), dr["KEY_ACTIVE_REASON"].ToString(), dr["LAST_UPDATE_USERID"].ToString(), dr["LAST_UPDATE_TIME"].ToString() });
 				lvwCertificates.Items.Add(lItem);
-			
 			}
 
 			
