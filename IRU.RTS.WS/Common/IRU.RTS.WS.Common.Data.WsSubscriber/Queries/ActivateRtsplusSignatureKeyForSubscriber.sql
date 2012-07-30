@@ -19,6 +19,7 @@ BEGIN TRY
 		)
 		AND SUBSCRIBER_ID = @SubscriberId
 		AND THUMBPRINT = @Thumbprint
+		AND VALID_TO >= CONVERT(DATE,getDate())
 		
 	SET @RowCount = @@ROWCOUNT
 	

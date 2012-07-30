@@ -444,7 +444,7 @@ namespace IRU.RTS.AdminClient
 
 			DateTime expDate = (DateTime)drSelected[0]["CERT_EXPIRY_DATE"];
 
-			if (expDate<DateTime.Now)
+            if ((NewStatus == 1) && (expDate < DateTime.Now))
 			{
 				MessageBox.Show("Certificate already expired. Cannot continue");
 				return;
