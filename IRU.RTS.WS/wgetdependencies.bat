@@ -16,8 +16,8 @@ move /y behaviors-1.3.6.0-3.5.dll Dependencies\IRU.Common.WCF.Behaviors.dll
 wget http://apps.charybdis.iruworld.org/swf/artifactory/libs-release-local/org/iru/common/entlib/1.0.1.0/entlib-1.0.1.0-3.5.dll
 move /y entlib-1.0.1.0-3.5.dll Dependencies\IRU.Common.EnterpriseLibrary.dll
 
-wget http://apps.charybdis.iruworld.org/swf/artifactory/libs-release-local/org/iru/rts/rtsdotnet-client/1.0.0.0/rtsdotnet-client-1.0.0.0-3.5.dll
-move /y rtsdotnet-client-1.0.0.0-3.5.dll Dependencies\RTSDotNETClient.dll
+wget http://apps.charybdis.iruworld.org/swf/artifactory/libs-release-local/org/iru/rts/rtsdotnet-client/1.1.0.0/rtsdotnet-client-1.1.0.0-3.5.dll
+move /y rtsdotnet-client-1.1.0.0-3.5.dll Dependencies\RTSDotNETClient.dll
 
 wget http://apps.charybdis.iruworld.org/swf/artifactory/libs-release-local/org/iru/common/iru-schemas/1.3/iru-schemas-1.3-iso-3166-1-alpha-3.xsd
 move /y iru-schemas-1.3-iso-3166-1-alpha-3.xsd CarnetService\IRU.RTS.WS.CarnetService.Interface\CarnetService-1\iso-3166-1-alpha-3.xsd
