@@ -1,0 +1,20 @@
+﻿INSERT INTO [dbo].[WS_CALLS]
+   ([SubscriberId]
+   ,[RequestIpAddress]
+   ,[RequestAction]
+   ,[RequestContent]
+   ,[RequestDateTime]
+   ,[ReplyAction]
+   ,[ReplyContent]
+   ,[ReplyDateTime]
+   ,[CreationDateTime])
+VALUES
+   (@SubscriberId
+   ,@RequestIpAddress
+   ,@RequestAction
+   ,@RequestContent
+   ,@RequestDateTime
+   ,@ReplyAction
+   ,@ReplyContent
+   ,@ReplyDateTime
+   ,getdate())

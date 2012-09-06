@@ -101,6 +101,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\IRU.RTS.WS.Common.Logging\IRU.RTS.WS.Common.Logging.csproj">
+      <Project>{C9CA3812-A4AC-4E28-8E39-F0E729E657A7}</Project>
+      <Name>IRU.RTS.WS.Common.Logging</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Common\IRU.RTS.WS.Common.Subscribers\IRU.RTS.WS.Common.Subscribers.csproj">
       <Project>{6C841C89-04EA-4A9E-BCBE-E3DA82379C52}</Project>
       <Name>IRU.RTS.WS.Common.Subscribers</Name>

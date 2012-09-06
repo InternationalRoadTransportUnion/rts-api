@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("IRU.RTS.WS.TerminationService.Interface")]
-[assembly: AssemblyDescription("Definition of the RTS+ Web Service about Termination")]
+[assembly: AssemblyTitle("IRU.RTS.WS.Common.Logging")]
+[assembly: AssemblyDescription("Common WCF Logging facility used in RTS Web Services")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("IRU")]
-[assembly: AssemblyProduct("IRU.RTS.WS.TerminationService.Interface")]
-[assembly: AssemblyCopyright("Copyright © IRU 2011-2012")]
+[assembly: AssemblyProduct("IRU.RTS.WS.Common.Logging")]
+[assembly: AssemblyCopyright("Copyright © IRU 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c3b84543-ad0c-4ad3-b6c0-40deef83e278")]
+[assembly: Guid("bee02052-382e-4b25-9496-712d30139ee0")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -53,6 +53,9 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.IdentityModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.ServiceModel">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
@@ -81,6 +84,10 @@
     <ProjectReference Include="..\..\Common\IRU.RTS.WS.Common.Data.WsSubscriber\IRU.RTS.WS.Common.Data.WsSubscriber.csproj">
       <Project>{7366225C-600D-4630-8251-62AA676DF881}</Project>
       <Name>IRU.RTS.WS.Common.Data.WsSubscriber</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\IRU.RTS.WS.Common.Logging\IRU.RTS.WS.Common.Logging.csproj">
+      <Project>{C9CA3812-A4AC-4E28-8E39-F0E729E657A7}</Project>
+      <Name>IRU.RTS.WS.Common.Logging</Name>
     </ProjectReference>
     <ProjectReference Include="..\IRU.RTS.WS.CarnetService.Interface\IRU.RTS.WS.CarnetService.Interface.csproj">
       <Project>{8939FFE9-25C2-4CB9-A7E4-0FF81401D9F2}</Project>

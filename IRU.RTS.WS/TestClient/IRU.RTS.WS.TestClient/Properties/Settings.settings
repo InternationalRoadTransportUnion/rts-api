@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="UserName" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">SRBCUS</Value>
+      <Value Profile="(Default)">RTSJAVA</Value>
     </Setting>
     <Setting Name="Password" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">F53AB512DB98F5E0AE05B19941DAC56D2804275B</Value>
+      <Value Profile="(Default)">6409246A502530C3F71D796BE5695D707FB22837</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -5,6 +5,7 @@ using System.Web;
 using System.ServiceModel;
 using System.IdentityModel.Claims;
 using System.Security.Cryptography.X509Certificates;
+using IRU.RTS.WS.Common.Logging;
 
 namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
 {
@@ -22,7 +23,10 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
 
             string sRTSSubscriberId = mySubscribersCertificateStore.GetClientSubscriberId(thumbprint);
             if (!String.IsNullOrEmpty(sRTSSubscriberId))
+            {
                 operationContext.ServiceSecurityContext.AuthorizationContext.Properties.Add("RTS_SUBSCRIBER_ID", sRTSSubscriberId);
+                LogOperationContext.Current["RTS_SUBSCRIBER_ID"] = sRTSSubscriberId;
+            }
 
             return mySubscribersCertificateStore.IsValidClientCertificate(thumbprint);
         }

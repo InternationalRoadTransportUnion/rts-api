@@ -7,6 +7,7 @@ using System.Security;
 using IRU.Common.WCF.Security.WSS.PasswordDigest;
 using IRU.Common.EnterpriseLibrary.Data;
 using IRU.RTS.WS.Common.Data.WsSubscriber;
+using IRU.RTS.WS.Common.Logging;
 
 namespace IRU.RTS.WS.CarnetService.Implementation
 {
@@ -48,19 +49,24 @@ namespace IRU.RTS.WS.CarnetService.Implementation
 
         public override string GetPassword(string userName)
         {
+            LogOperationContext.Current["RTS_SUBSCRIBER_ID"] = userName;
+
             _password = null;
             _methodId = 0;
             _methodAction = String.Empty;
 
-            OperationContext oc = OperationContext.Current;            
-            if ((oc != null) && (oc.IncomingMessageHeaders != null))
-            {
-                _methodAction = oc.IncomingMessageHeaders.Action;
+            OperationContext oc = OperationContext.Current;
+            if (oc != null)
+            {                
+                if (oc.IncomingMessageHeaders != null)
+                {
+                    _methodAction = oc.IncomingMessageHeaders.Action;
 
-                if (_methodAction.EndsWith("queryCarnet"))
-                    _methodId = 1;
-                if (_methodAction.EndsWith("getStoppedCarnets"))
-                    _methodId = 2;
+                    if (_methodAction.EndsWith("queryCarnet"))
+                        _methodId = 1;
+                    if (_methodAction.EndsWith("getStoppedCarnets"))
+                        _methodId = 2;
+                }
             }
            
             using (DbQueries sq = new DbQueries())
