@@ -16,7 +16,7 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
         {
             get { return typeof(MyServiceCredentials); }
         }
-
+        
         public string DefaultServiceCertificateThumbprint
         {
             get { return (string)base[KDefaultServiceCertificateThumbprintPropertyName]; }
@@ -39,7 +39,7 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
                         null,
                         null,
                         null,
-                        ConfigurationPropertyOptions.IsRequired));
+                        ConfigurationPropertyOptions.None));
                     this.properties = properties;
                 }
                 return this.properties;

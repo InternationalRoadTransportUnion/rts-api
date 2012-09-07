@@ -95,6 +95,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <Link>app.config</Link>
     </None>
+    <EmbeddedResource Include="MyServiceCredentials\Certificates\rtsplus_default.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
