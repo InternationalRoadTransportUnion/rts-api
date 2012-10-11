@@ -48,21 +48,26 @@ namespace IRU.RTS.WS.TerminationService.Implementation.RTSClient
             _rtsWSST.PublicCertificate = _serverCert;            
         }
 
+        private string Trim(string text)
+        {
+            return String.IsNullOrEmpty(text) ? text : text.TrimEnd();
+        }
+
         private Record ConvertTIROperationTerminationToRecord(TIROperationTerminationType termination, bool isNewRecord)
         {
             Record res = new Record();
 
-            res.TNO = termination.TIRCarnetNumber;
+            res.TNO = Trim(termination.TIRCarnetNumber);            
             res.VPN = termination.VoletPageNumber;
-            res.ICC = termination.Customs.CountryCode;
-            res.COF = termination.CustomsOffice;
-            res.CNL = termination.CustomsLedgerEntryReference;
-            res.DCL = termination.CustomsLedgerEntryDate;
-            res.RND = termination.CertificateOfTerminationReference;
-            res.DDI = termination.CertificateOfTerminationDate;
+            res.ICC = Trim(termination.Customs.CountryCode);
+            res.COF = Trim(termination.CustomsOffice);
+            res.CNL = Trim(termination.CustomsLedgerEntryReference);
+            res.DCL = DateTime.Compare(termination.CustomsLedgerEntryDate, DateTime.MinValue) > 0 ? (DateTime?)termination.CustomsLedgerEntryDate : null;
+            res.RND = Trim(termination.CertificateOfTerminationReference);
+            res.DDI = DateTime.Compare(termination.CertificateOfTerminationDate, DateTime.MinValue) > 0 ? (DateTime?)termination.CertificateOfTerminationDate : null;
             res.PFD = termination.IsFinal ? "FD" : "PD";
             res.CWR = termination.IsWithReservation ? CWR.WithReservation : CWR.OK;
-            res.COM = termination.CustomsComment;
+            res.COM = Trim(termination.CustomsComment);
             res.PIC = termination.PackageCountSpecified ? (uint?)termination.PackageCount : null;
             res.UPG = isNewRecord ? UPG.New : UPG.CancelDelete;
 
