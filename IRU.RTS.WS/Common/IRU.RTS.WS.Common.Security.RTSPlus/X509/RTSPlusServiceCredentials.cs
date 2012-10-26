@@ -9,13 +9,13 @@ using System.IdentityModel.Selectors;
 using System.ServiceModel;
 using System.Reflection;
 
-namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
+namespace IRU.RTS.WS.Common.Security.RTSPlus.X509
 {
-    public class MyServiceCredentials : ServiceCredentials
+    public class RTSPlusServiceCredentials : ServiceCredentials
     {
         string _defaultServiceCertificateThumbprint;
 
-        public MyServiceCredentials(string defaultServiceCertificateThumbprint)
+        public RTSPlusServiceCredentials(string defaultServiceCertificateThumbprint)
         {
             // set default Service certificate
 
@@ -24,7 +24,7 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
                 X509Certificate2 x5c = new X509Certificate2();
                 Assembly asm = Assembly.GetExecutingAssembly();
                 byte[] abCert;
-                using (Stream sm = asm.GetManifestResourceStream(asm.GetName().Name + "." + "MyServiceCredentials.Certificates.rtsplus_default.pfx"))
+                using (Stream sm = asm.GetManifestResourceStream(asm.GetName().Name + "." + "X509.Certificates.rtsplus_default.pfx"))
                 {
                     abCert = new byte[sm.Length];
                     sm.Read(abCert, 0, abCert.Length);
@@ -35,12 +35,12 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
             else
             {
                 // get it from SUBSCRIBER database
-                MySubscribersCertificateStore mySubscribersCertificateStore = new MySubscribersCertificateStore();
-                this.ServiceCertificate.Certificate = mySubscribersCertificateStore.GetServiceCertificateFromStore(defaultServiceCertificateThumbprint);
+                RTSPlusSubscribersCertificateStore subscribersCertificateStore = new RTSPlusSubscribersCertificateStore();
+                this.ServiceCertificate.Certificate = subscribersCertificateStore.GetServiceCertificateFromStore(defaultServiceCertificateThumbprint);
             }
         }
 
-        protected MyServiceCredentials(MyServiceCredentials other)
+        protected RTSPlusServiceCredentials(RTSPlusServiceCredentials other)
             : base(other)
         {
             this._defaultServiceCertificateThumbprint = other._defaultServiceCertificateThumbprint;
@@ -64,12 +64,12 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
 
         public override SecurityTokenManager CreateSecurityTokenManager()
         {
-            return new MyServiceCredentialsSecurityTokenManager(this);
+            return new RTSPlusServiceCredentialsSecurityTokenManager(this);
         }
 
         protected override ServiceCredentials CloneCore()
         {
-            return new MyServiceCredentials(this);
+            return new RTSPlusServiceCredentials(this);
         }
         
     }

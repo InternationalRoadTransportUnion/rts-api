@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("IRU.RTS.WS.CarnetService.Implementation")]
-[assembly: AssemblyDescription("Implementation of the Web Service to get the invalidated TIR Carnets")]
+[assembly: AssemblyDescription("Implementation of the RTS+ Web Service about Carnet queries")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("IRU")]
 [assembly: AssemblyProduct("IRU.RTS.WS.CarnetService.Implementation")]

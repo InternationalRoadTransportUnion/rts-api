@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("IRU.RTS.WS.Common.Data.WsSubscriber")]
-[assembly: AssemblyDescription("Common Data Objects about WS Subscriber DB used in RTS+ Web Services")]
+[assembly: AssemblyTitle("IRU.RTS.WS.Common.Security.RTSPlus")]
+[assembly: AssemblyDescription("Common WCF Security modules used in RTS+ Web Services")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("IRU")]
-[assembly: AssemblyProduct("IRU.RTS.WS.Common.Data.WsSubscriber")]
-[assembly: AssemblyCopyright("Copyright © IRU 2011-2012")]
+[assembly: AssemblyProduct("IRU.RTS.WS.Common.Security.RTSPlus")]
+[assembly: AssemblyCopyright("Copyright © IRU 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a58fe4a6-9aa9-468a-9dc0-0f5aa9ccdea7")]
+[assembly: Guid("1226aa43-106b-4e24-8b56-1c66a41af88a")]
 
 // Version information for an assembly consists of the following four values:
 //

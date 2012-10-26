@@ -6,13 +6,13 @@ using System.IdentityModel.Tokens;
 using System.IdentityModel.Selectors;
 using System.Security.Cryptography.X509Certificates;
 
-namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
+namespace IRU.RTS.WS.Common.Security.RTSPlus.X509
 {
-    public class MyX509CertificateValidator : X509CertificateValidator
+    public class RTSPlusCertificateValidator : X509CertificateValidator
     {
-        MySubscribersCertificateStore _mySubscribersCertificateStore = new MySubscribersCertificateStore();
+        RTSPlusSubscribersCertificateStore _subscribersCertificateStore = new RTSPlusSubscribersCertificateStore();
 
-        public MyX509CertificateValidator()
+        public RTSPlusCertificateValidator()
         {
         }
 
@@ -25,7 +25,7 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
             }
 
             // Check that the certificate issuer matches the configured issuer.
-            if (!_mySubscribersCertificateStore.IsValidClientCertificate(certificate.Thumbprint))
+            if (!_subscribersCertificateStore.IsValidClientCertificate(certificate.Thumbprint))
             {
                 throw new SecurityTokenValidationException
                   ("Certificate was not issued by a trusted issuer");

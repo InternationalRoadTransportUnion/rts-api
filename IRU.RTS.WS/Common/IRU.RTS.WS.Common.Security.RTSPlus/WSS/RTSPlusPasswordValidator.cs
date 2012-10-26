@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.ServiceModel;
 using System.Security;
 using IRU.Common.WCF.Security.WSS.PasswordDigest;
 using IRU.Common.EnterpriseLibrary.Data;
 using IRU.RTS.WS.Common.Data.WsSubscriber;
-using IRU.RTS.WS.Common.Logging;
 
-namespace IRU.RTS.WS.CarnetService.Implementation
+namespace IRU.RTS.WS.Common.Security.RTSPlus.WSS
 {
-    public class CarnetServicePasswordValidator : DefaultPasswordValidator, IPasswordValidator
+    public class RTSPlusPasswordValidator : DefaultPasswordValidator, IPasswordValidator
     {
         private string _password;
-        private string _methodAction;
-        private int _methodId;
+        private string _soapAction;
+        private string _serviceName;        
+        private string _methodName;
+        private int _methodId;        
 
         private void GetSubscriberEncryptionKeysBySubscriberExecuted(object sender, DataReaderEventArgs e)
         {
@@ -49,23 +51,44 @@ namespace IRU.RTS.WS.CarnetService.Implementation
 
         public override string GetPassword(string userName)
         {
-            LogOperationContext.Current["RTS_SUBSCRIBER_ID"] = userName;
+            OperationContext.Current.IncomingMessageProperties.Add("RTS_SUBSCRIBER_ID", userName);
 
             _password = null;
-            _methodId = 0;
-            _methodAction = String.Empty;
+            _soapAction = String.Empty;            
+            _serviceName = String.Empty;
+            _methodName = String.Empty;
+            _methodId = 0;            
 
             OperationContext oc = OperationContext.Current;
             if (oc != null)
             {                
                 if (oc.IncomingMessageHeaders != null)
                 {
-                    _methodAction = oc.IncomingMessageHeaders.Action;
+                    _soapAction = oc.IncomingMessageHeaders.Action;
 
-                    if (_methodAction.EndsWith("queryCarnet"))
-                        _methodId = 1;
-                    if (_methodAction.EndsWith("getStoppedCarnets"))
-                        _methodId = 2;
+                    Regex rx = new Regex("^http://(([^/]+)/)*(.*)$");
+                    Match m = rx.Match(_soapAction);
+
+                    if (m.Success)
+                    {
+                        _serviceName = m.Groups[Math.Max(m.Groups.Count - 2, 0)].Value;
+                        _methodName = m.Groups[m.Groups.Count - 1].Value;
+
+                        switch (_serviceName)
+                        {
+                            case "CarnetService-1":
+                                switch (_methodName)
+                                {
+                                    case "queryCarnet":
+                                        _methodId = 1;
+                                        break;
+                                    case "getStoppedCarnets":
+                                        _methodId = 2;
+                                        break;
+                                }
+                                break;
+                        }
+                    }
                 }
             }
            
@@ -86,7 +109,7 @@ namespace IRU.RTS.WS.CarnetService.Implementation
             {
                 if ((_password != null) && (_methodId == 0))
                 {
-                    throw new SecurityException(String.Format("Calls to the method [{0}] are not allowed by IRU for the subscriber [{1}].", _methodAction, userName));
+                    throw new SecurityException(String.Format("Calling action [{0}] is not allowed by IRU for the subscriber [{1}].", _soapAction, userName));
                 }
             }
 

@@ -9,13 +9,13 @@ using System.IdentityModel.Tokens;
 using System.Security.Principal;
 using System.Security.Cryptography.X509Certificates;
 
-namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
+namespace IRU.RTS.WS.Common.Security.RTSPlus.X509
 {
-    internal class MyX509SecurityTokenProvider : SecurityTokenProvider
+    internal class RTSPlusSecurityTokenProvider : SecurityTokenProvider
     {
         X509Certificate2 _defaultCertificate;
 
-        public MyX509SecurityTokenProvider(X509Certificate2 defaultCertificate)
+        public RTSPlusSecurityTokenProvider(X509Certificate2 defaultCertificate)
         {
             if (defaultCertificate == null)
             {
@@ -32,10 +32,10 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
                 IIdentity subscriberIdentiy = ServiceSecurityContext.Current.PrimaryIdentity;
                 if (subscriberIdentiy.IsAuthenticated && subscriberIdentiy.AuthenticationType == "X509")
                 {
-                    X509Certificate2 mySubscriberServiceCertificate = GetServiceCertificateFromSubscriberStore(subscriberIdentiy.Name);
-                    if (mySubscriberServiceCertificate != null)
+                    X509Certificate2 subscriberServerCertificate = GetServiceCertificateFromSubscriberStore(subscriberIdentiy.Name);
+                    if (subscriberServerCertificate != null)
                     {
-                        result = new X509SecurityToken(mySubscriberServiceCertificate);
+                        result = new X509SecurityToken(subscriberServerCertificate);
                     }
                 }
             }
@@ -49,7 +49,7 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
 
         private static X509Certificate2 GetServiceCertificateFromSubscriberStore(string subscriberIdentityName)
         {
-            MySubscribersCertificateStore mySubscribersCertificateStore = new MySubscribersCertificateStore();
+            RTSPlusSubscribersCertificateStore subscribersCertificateStore = new RTSPlusSubscribersCertificateStore();
 
             // MSDN Note: http://msdn.microsoft.com/en-us/library/system.servicemodel.servicesecuritycontext.primaryidentity(v=vs.90).aspx 
             // The primary identity is obtained from the credentials used to authenticate the current user. 
@@ -59,14 +59,14 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
             // the primary identity includes just a semicolon, a space, and the thumbprint.
             string clientCertThumbprint = subscriberIdentityName.Split(new string[] {"; "}, StringSplitOptions.None)[1];
 
-            string serviceCertThumbprint = mySubscribersCertificateStore.GetServiceCertificateThumbprintFromClientOne(clientCertThumbprint);
+            string serviceCertThumbprint = subscribersCertificateStore.GetServiceCertificateThumbprintFromClientOne(clientCertThumbprint);
 
             if (serviceCertThumbprint == null)
             {
                 return null;
             }
 
-            return mySubscribersCertificateStore.GetServiceCertificateFromStore(serviceCertThumbprint);
+            return subscribersCertificateStore.GetServiceCertificateFromStore(serviceCertThumbprint);
         }
 
     }

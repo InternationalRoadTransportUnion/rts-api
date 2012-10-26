@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Configuration;
 using System.ServiceModel.Configuration;
 
-namespace IRU.RTS.WS.TerminationService.Implementation.ProtectionLevel
+namespace IRU.RTS.WS.Common.Security.RTSPlus.ProtectionLevel
 {
     public class ServiceProtectionLevelEnpointBehaviorExtension : BehaviorExtensionElement
     {

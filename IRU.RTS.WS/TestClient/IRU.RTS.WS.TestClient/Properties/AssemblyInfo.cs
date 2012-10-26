@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("IRU.RTS.WS.TestClient")]
-[assembly: AssemblyDescription("Test Client of the RTS Web Services")]
+[assembly: AssemblyDescription("Test Client of the RTS+ Web Services")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("IRU")]
 [assembly: AssemblyProduct("IRU.RTS.WS.TestClient")]

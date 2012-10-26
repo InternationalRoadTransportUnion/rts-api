@@ -5,7 +5,7 @@ using System.Text;
 using System.ServiceModel.Description;
 using System.ServiceModel.Channels;
 
-namespace IRU.RTS.WS.TerminationService.Implementation.ProtectionLevel
+namespace IRU.RTS.WS.Common.Security.RTSPlus.ProtectionLevel
 {
     public class ServiceProtectionLevelEnpointBehavior : IEndpointBehavior
     {

@@ -5,16 +5,16 @@ using System.Text;
 using System.Configuration;
 using System.ServiceModel.Configuration;
 
-namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
+namespace IRU.RTS.WS.Common.Security.RTSPlus.X509
 {
-    public class MyServiceCredentialsConfigHandler : ServiceCredentialsElement
+    public class RTSPlusSecurityBehaviorExtension : ServiceCredentialsElement
     {
         ConfigurationPropertyCollection properties;
         private const string KDefaultServiceCertificateThumbprintPropertyName = "defaultServiceCertificateThumbprint";
 
         public override Type BehaviorType
         {
-            get { return typeof(MyServiceCredentials); }
+            get { return typeof(RTSPlusServiceCredentials); }
         }
         
         public string DefaultServiceCertificateThumbprint
@@ -48,7 +48,7 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
 
         protected override object CreateBehavior()
         {
-            MyServiceCredentials creds = new MyServiceCredentials(DefaultServiceCertificateThumbprint);
+            RTSPlusServiceCredentials creds = new RTSPlusServiceCredentials(DefaultServiceCertificateThumbprint);
             base.ApplyConfiguration(creds);
             return creds;
         }

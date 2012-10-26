@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.ServiceModel.Description;
 using System.IdentityModel.Selectors;
-using System.ServiceModel.Security;
 using System.IdentityModel.Tokens;
+using System.ServiceModel;
+using System.ServiceModel.Description;
+using System.ServiceModel.Security;
 using System.ServiceModel.Security.Tokens;
 
-namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
+namespace IRU.RTS.WS.Common.Security.RTSPlus.X509
 {
-    internal class MyServiceCredentialsSecurityTokenManager : ServiceCredentialsSecurityTokenManager
+    internal class RTSPlusServiceCredentialsSecurityTokenManager : ServiceCredentialsSecurityTokenManager
     {
-        MyServiceCredentials credentials;
+        RTSPlusServiceCredentials credentials;
 
-        public MyServiceCredentialsSecurityTokenManager(MyServiceCredentials credentials)
+        public RTSPlusServiceCredentialsSecurityTokenManager(RTSPlusServiceCredentials credentials)
             : base(credentials)
         {
             this.credentials = credentials;
@@ -35,7 +36,7 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
                 {
                     if (tokenRequirement.KeyUsage == SecurityKeyUsage.Exchange)
                     {
-                        result = new MyX509SecurityTokenProvider(credentials.ServiceCertificate.Certificate);
+                        result = new RTSPlusSecurityTokenProvider(credentials.ServiceCertificate.Certificate);
                     }
                 }
             }
@@ -61,6 +62,11 @@ namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
             // Return your implementation of SecurityTokenProvider, if required.
             // This implementation delegates to the base class.
             return base.CreateSecurityTokenSerializer(version);
+        }
+
+        public virtual EndpointIdentity GetIdentityOfSelf(SecurityTokenRequirement tokenRequirement)
+        {
+            return base.GetIdentityOfSelf(tokenRequirement);
         }
     }
 }

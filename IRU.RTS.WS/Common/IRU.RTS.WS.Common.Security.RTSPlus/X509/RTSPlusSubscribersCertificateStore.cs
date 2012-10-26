@@ -5,9 +5,9 @@ using System.Web;
 using System.Security.Cryptography.X509Certificates;
 using IRU.RTS.WS.Common.Subscribers;
 
-namespace IRU.RTS.WS.TerminationService.Implementation.MyServiceCredentials
+namespace IRU.RTS.WS.Common.Security.RTSPlus.X509
 {
-    public class MySubscribersCertificateStore
+    public class RTSPlusSubscribersCertificateStore
     {
         public X509Certificate2 GetValidClientCertificate(string thumbprint)
         {

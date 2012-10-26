@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Xml;
-using IRU.RTS.WS.Common.Data.RTSPlusLog;
+using System.Reflection;
 using System.ServiceModel;
 using System.ServiceModel.Configuration;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
 using System.ServiceModel.Channels;
 using System.IdentityModel.Policy;
+using IRU.RTS.WS.Common.Data.RTSPlusLog;
 
 namespace IRU.RTS.WS.Common.Logging
 {
@@ -72,16 +73,26 @@ namespace IRU.RTS.WS.Common.Logging
 
         #endregion
 
-        #region IDispatchMessageInspector Members
-
-        public object AfterReceiveRequest(ref System.ServiceModel.Channels.Message request, System.ServiceModel.IClientChannel channel, System.ServiceModel.InstanceContext instanceContext)
+        private DbLoggerInformation CreateDbLoggerInformation()
         {
             DbLoggerInformation dli = new DbLoggerInformation();
-            dli.SubscriberId = (string)LogOperationContext.Current["RTS_SUBSCRIBER_ID"];
+            object oSubscriberId;
+            OperationContext.Current.IncomingMessageProperties.TryGetValue("RTS_SUBSCRIBER_ID", out oSubscriberId);
+            dli.SubscriberId = (string)oSubscriberId;
             OperationContext context = OperationContext.Current;
             MessageProperties prop = context.IncomingMessageProperties;
             RemoteEndpointMessageProperty endpoint = prop[RemoteEndpointMessageProperty.Name] as RemoteEndpointMessageProperty;
             dli.RequestIpAddress = endpoint.Address;
+
+            return dli;
+        }
+
+
+        #region IDispatchMessageInspector Members
+
+        public object AfterReceiveRequest(ref System.ServiceModel.Channels.Message request, System.ServiceModel.IClientChannel channel, System.ServiceModel.InstanceContext instanceContext)
+        {
+            DbLoggerInformation dli = CreateDbLoggerInformation();
 
             if (request != null)
             {
@@ -100,6 +111,19 @@ namespace IRU.RTS.WS.Common.Logging
         public void BeforeSendReply(ref System.ServiceModel.Channels.Message reply, object correlationState)
         {
             DbLoggerInformation dli = (DbLoggerInformation)correlationState;
+
+            if ((dli == null) &&                 
+                (OperationContext.Current.RequestContext != null) && 
+                (OperationContext.Current.RequestContext.RequestMessage != null))
+            {
+                dli = CreateDbLoggerInformation();
+                dli.RequestAction = OperationContext.Current.RequestContext.RequestMessage.Headers.Action;
+                dli.Request = OperationContext.Current.RequestContext.RequestMessage.ToString();
+            }
+
+            if (dli == null)
+                return;
+
             dli.ReplyDateTime = DateTime.Now;
 
             if (reply != null)

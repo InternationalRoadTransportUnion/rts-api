@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("IRU.RTS.WS.Common.Data.RTSPlusLog")]
-[assembly: AssemblyDescription("Common Data Objects about RTSPlus Log DB used in RTS Web Services")]
+[assembly: AssemblyDescription("Common Data Objects about RTSPlus Log DB used in RTS+ Web Services")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("IRU")]
 [assembly: AssemblyProduct("IRU.RTS.WS.Common.Data.RTSPlusLog")]
