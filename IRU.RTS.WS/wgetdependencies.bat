@@ -4,7 +4,7 @@ REM Download dependencies on artifactory and rename them accordingly
 
 mkdir Dependencies
 
-set WCF_SECURITY_WSS_VERSION=1.5.0.0
+set WCF_SECURITY_WSS_VERSION=1.5.1.0
 set COMMON_ENTLIB_VERSION=1.0.1.0
 set RTSDOTNET_CLIENT_VERSION=1.1.0.0
 set COMMON_IRU_SCHEMAS_VERSION=1.3
