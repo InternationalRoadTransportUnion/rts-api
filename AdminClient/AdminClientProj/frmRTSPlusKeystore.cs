@@ -145,7 +145,13 @@ namespace IRU.RTS.AdminClient
             {
                 if (ofdCerts.FilterIndex == 2)
                 {
-                    x5c.Import(ofdCerts.FileName, (string)null, X509KeyStorageFlags.Exportable);
+                    string sPwd = null;
+                    using (frmPasswordAsker pa = new frmPasswordAsker())
+                    {
+                        if (pa.ShowDialog() == DialogResult.OK)
+                            sPwd = pa.Password;
+                    }
+                    x5c.Import(ofdCerts.FileName, sPwd, X509KeyStorageFlags.Exportable);
                     certUsage = CertUsage.Server;
                 }
                 else
