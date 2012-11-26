@@ -47,6 +47,7 @@
             this.btnDeactivate = new System.Windows.Forms.Button();
             this.ofdCerts = new System.Windows.Forms.OpenFileDialog();
             this.sfdCerts = new System.Windows.Forms.SaveFileDialog();
+            this.btnGenerate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwRTSPlusKeys)).BeginInit();
             this.SuspendLayout();
             // 
@@ -179,10 +180,10 @@
             // btnImport
             // 
             this.btnImport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnImport.Location = new System.Drawing.Point(12, 307);
+            this.btnImport.Location = new System.Drawing.Point(186, 307);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(155, 23);
-            this.btnImport.TabIndex = 1;
+            this.btnImport.TabIndex = 2;
             this.btnImport.Text = "Import new Key/Certificate";
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
@@ -190,10 +191,10 @@
             // btnExport
             // 
             this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnExport.Location = new System.Drawing.Point(188, 307);
+            this.btnExport.Location = new System.Drawing.Point(362, 307);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(174, 23);
-            this.btnExport.TabIndex = 2;
+            this.btnExport.TabIndex = 3;
             this.btnExport.Text = "Export selected Key/Certificate";
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
@@ -201,10 +202,10 @@
             // btnActivate
             // 
             this.btnActivate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnActivate.Location = new System.Drawing.Point(381, 307);
+            this.btnActivate.Location = new System.Drawing.Point(555, 307);
             this.btnActivate.Name = "btnActivate";
             this.btnActivate.Size = new System.Drawing.Size(184, 23);
-            this.btnActivate.TabIndex = 3;
+            this.btnActivate.TabIndex = 4;
             this.btnActivate.Text = "Activate selected Key/Certificate";
             this.btnActivate.UseVisualStyleBackColor = true;
             this.btnActivate.Click += new System.EventHandler(this.btnActivate_Click);
@@ -212,10 +213,10 @@
             // btnDeactivate
             // 
             this.btnDeactivate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDeactivate.Location = new System.Drawing.Point(584, 307);
+            this.btnDeactivate.Location = new System.Drawing.Point(758, 307);
             this.btnDeactivate.Name = "btnDeactivate";
             this.btnDeactivate.Size = new System.Drawing.Size(203, 23);
-            this.btnDeactivate.TabIndex = 4;
+            this.btnDeactivate.TabIndex = 5;
             this.btnDeactivate.Text = "Deactivate selected Key/Certificate";
             this.btnDeactivate.UseVisualStyleBackColor = true;
             this.btnDeactivate.Click += new System.EventHandler(this.btnDeactivate_Click);
@@ -228,11 +229,23 @@
             // 
             this.sfdCerts.Filter = "X509 Certificate|*.cer|Personal Keystore|*.pfx";
             // 
+            // btnGenerate
+            // 
+            this.btnGenerate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnGenerate.Location = new System.Drawing.Point(12, 307);
+            this.btnGenerate.Name = "btnGenerate";
+            this.btnGenerate.Size = new System.Drawing.Size(155, 23);
+            this.btnGenerate.TabIndex = 1;
+            this.btnGenerate.Text = "Generate IRU Key";
+            this.btnGenerate.UseVisualStyleBackColor = true;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
+            // 
             // frmRTSPlusKeystore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1358, 342);
+            this.Controls.Add(this.btnGenerate);
             this.Controls.Add(this.btnDeactivate);
             this.Controls.Add(this.btnActivate);
             this.Controls.Add(this.btnExport);
@@ -267,5 +280,6 @@
         private System.Windows.Forms.Button btnDeactivate;
         private System.Windows.Forms.OpenFileDialog ofdCerts;
         private System.Windows.Forms.SaveFileDialog sfdCerts;
+        private System.Windows.Forms.Button btnGenerate;
     }
 }

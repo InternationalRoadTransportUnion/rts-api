@@ -159,9 +159,12 @@ namespace IRU.RTS.AdminClient
 
                 string sSubscriberId = Prompt.ShowDialog("Subscriber Id", "Subscriber for RTS+");
 
-                CertificatesStore.AddCertificate(CertStore.RTS_PLUS, certUsage, sSubscriberId, x5c, frmMain.UserID);
+                if (!String.IsNullOrEmpty(sSubscriberId))
+                {
+                    CertificatesStore.AddCertificate(CertStore.RTS_PLUS, certUsage, sSubscriberId, x5c, frmMain.UserID);
 
-                RefreshGrid();
+                    RefreshGrid();
+                }
             }
         }
 
@@ -207,6 +210,17 @@ namespace IRU.RTS.AdminClient
             X509Certificate2 x5c = GetSelectedCertificate(out bServerMode);
             ChangeCertificate(x5c, bServerMode, false);
             RefreshGrid();
+        }
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+            using (frmRTSPlusIRUKeyGenerator kg = new frmRTSPlusIRUKeyGenerator())
+            {
+                if (kg.ShowDialog() == DialogResult.OK)
+                {
+
+                }
+            }
         }
     }
 }
