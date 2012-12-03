@@ -17,7 +17,7 @@ namespace IRU.RTS.WS.TerminationService.Implementation
         {
             object oCallerSubscriberId;
             string sCallerSubscriberId = null;
-            if (OperationContext.Current.ServiceSecurityContext.AuthorizationContext.Properties.TryGetValue("RTS_SUBSCRIBER_ID", out oCallerSubscriberId))
+            if (OperationContext.Current.IncomingMessageProperties.TryGetValue("RTS_SUBSCRIBER_ID", out oCallerSubscriberId))
                 sCallerSubscriberId = (string)oCallerSubscriberId;
             RTSClient.RTSClientWrapper rtsClient = new RTSClient.RTSClientWrapper(sCallerSubscriberId, new Uri(Properties.Settings.Default.WsUrlWSST), Properties.Settings.Default.SubscriberIdWSST);
 
