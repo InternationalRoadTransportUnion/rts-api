@@ -18,6 +18,11 @@
 			<artifactId>iru-schemas</artifactId>
 			<version>1.5</version>
 		</dependency>
+		<dependency>
+			<groupId>org.iru.tirplus</groupId>
+			<artifactId>tirplus-model</artifactId>
+			<version>0.1</version>
+		</dependency>
 	</dependencies>
 
 
@@ -52,6 +57,7 @@
 								<include>iso-*.xsd</include>
 								<include>ietf-*.xsd</include>
 								<include>rts-*-1.xsd</include>
+								<include>tirplus-*.xsd</include>
 							</includes>
 						</fileset>
 					</filesets>
@@ -126,8 +132,8 @@
 						<configuration>
 							<target>
 								<delete>
-									<fileset dir="target/generated-sources/xjc/org/iru/model"
-										includes="**/*.java" />
+									<fileset dir="target/generated-sources/xjc/org/iru/model" includes="**/*.java" />
+									<fileset dir="target/generated-sources/xjc/net/tirplus/model" includes="**/*.java" />
 								</delete>
 							</target>
 						</configuration>

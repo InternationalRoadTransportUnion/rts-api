@@ -2,11 +2,14 @@
 <xs:schema elementFormDefault="qualified"
 	targetNamespace="http://rts.iru.org/model/carnet-1" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:act="http://www.iru.org/model/tir-actor-1"
-  xmlns:car="http://www.iru.org/model/tir-carnet-1"           
+  	xmlns:car="http://www.iru.org/model/tir-carnet-1"
+  	xmlns:vou="http://www.tirplus.net/model/voucher-1"           
 	xmlns="http://rts.iru.org/model/carnet-1">
 
 	<xs:import schemaLocation="tir-actor-1.xsd" namespace="http://www.iru.org/model/tir-actor-1" />
   <xs:import schemaLocation="tir-carnet-1.xsd" namespace="http://www.iru.org/model/tir-carnet-1" />
+  
+  <xs:import schemaLocation="tirplus-voucher-1.xsd" namespace="http://www.tirplus.net/model/voucher-1" />
   
 	<xs:element name="TIRCarnetNumber" type="car:TIRCarnetNumberType"/>
 
@@ -59,6 +62,7 @@
 							<xs:attribute name="hasFinal" type="xs:boolean" use="required"/>
 						</xs:complexType>
 					</xs:element>
+					<xs:element name="VoucherNumber" type="vou:VoucherNumberType" minOccurs="0"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>

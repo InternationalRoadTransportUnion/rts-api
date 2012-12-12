@@ -6,11 +6,11 @@
 	<parent>
 		<groupId>org.iru.rtsplus</groupId>
 		<artifactId>rtsplus-services</artifactId>
-		<version>1.5.10-SNAPSHOT</version>
+		<version>1.5-SNAPSHOT</version>
 		<relativePath>../../..</relativePath>
 	</parent>
 
-	<artifactId>rtsplus-carnet-sei</artifactId>
+	<artifactId>rtsplus-voucher-sei</artifactId>
 	<packaging>jar</packaging>
 
 	<dependencies>
@@ -50,10 +50,10 @@
 							<directory>${basedir}</directory>
 							<includes>
 								<include>tir-*.xsd</include>
-								<include>ietf-*.xsd</include>
 								<include>iso-*.xsd</include>
+								<include>ietf-*.xsd</include>
 								<include>tirplus-*.xsd</include>
-								<include>rts-termination-1.xsd</include>
+								<include>rts-*.xsd</include>
 							</includes>
 						</fileset>
 					</filesets>
@@ -77,7 +77,7 @@
 					</args>
 					<wsdlDirectory>${basedir}</wsdlDirectory>
 					<wsdlFiles> 
-						<wsdlFile>CarnetService-1.wsdl</wsdlFile>
+						<wsdlFile>VoucherService-1.wsdl</wsdlFile>
 					</wsdlFiles>					
 					<bindingDirectory>${basedir}/target/xjb</bindingDirectory>
 				</configuration>
@@ -102,8 +102,7 @@
 						<configuration>
 							<target>
 								<delete>
-									<fileset dir="target/jaxws/wsimport/java/org/iru"
-										includes="**/model/**/*.java" />
+									<fileset dir="target/jaxws/wsimport/java" includes="**/model/**/*.java" />
 								</delete>
 							</target>
 						</configuration>
@@ -135,7 +134,7 @@
 						<configuration>
 							<artifacts>
 								<artifact>
-									<file>CarnetService-1.wsdl</file>
+									<file>VoucherService-1.wsdl</file>
 									<type>wsdl</type>
 								</artifact>
 							</artifacts>

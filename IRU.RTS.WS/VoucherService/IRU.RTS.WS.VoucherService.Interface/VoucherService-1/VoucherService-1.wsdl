@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions name="VoucherService"
+	targetNamespace="http://rts.iru.org/services/VoucherService-1"
+	xmlns:tns="http://rts.iru.org/services/VoucherService-1"
+  	xmlns:car="http://rts.iru.org/model/carnet-1"
+  	xmlns:vou="http://www.tirplus.net/model/voucher-1"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+	xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa10="http://www.w3.org/2005/08/addressing">
+  <wsp:Policy wsu:Id="VoucherServiceUsingAddressingPolicy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xs:schema targetNamespace="http://rts.iru.org/services/VoucherService-1" elementFormDefault="qualified">
+      
+      <xs:import schemaLocation="rts-carnet-1.xsd" namespace="http://rts.iru.org/model/carnet-1" />
+      <xs:import schemaLocation="tirplus-voucher-1.xsd" namespace="http://www.tirplus.net/model/voucher-1" />
+
+			<xs:element name="queryVoucher">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="voucherNumber" type="vou:VoucherNumberType" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+
+			<xs:complexType name="RegisteredTIRCarnetType">
+				<xs:complexContent>
+					<xs:extension base="car:CarnetBaseType">
+						<xs:sequence>
+							<xs:element name="Status" type="car:CarnetStatusType"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+
+			<xs:complexType name="QueriedVoucherType">
+				<xs:sequence>
+					<xs:element name="VoucherNumber" type="vou:VoucherNumberType" />
+					<xs:element name="VoucherRegistrationStatus" type="vou:RegistrationStatusType" />
+					<xs:element name="RegisteredTIRCarnet" type="tns:RegisteredTIRCarnetType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:element name="queryVoucherResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="result" type="tns:QueriedVoucherType" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="queryVoucher">
+    <wsdl:part name="parameters" element="tns:queryVoucher" />
+  </wsdl:message>
+  <wsdl:message name="queryVoucherResponse">
+    <wsdl:part name="parameters" element="tns:queryVoucherResponse" />
+  </wsdl:message>
+
+  <wsdl:portType name="VoucherServiceSEI">
+    <wsdl:operation name="queryVoucher">
+      <wsdl:input
+				wsaw:Action="http://rts.iru.org/services/VoucherService-1/queryVoucher"
+				message="tns:queryVoucher" />
+      <wsdl:output
+				wsaw:Action="http://rts.iru.org/services/VoucherService-1/queryVoucherResponse"
+				message="tns:queryVoucherResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VoucherServiceBinding" type="tns:VoucherServiceSEI">
+    <wsp:PolicyReference URI="#VoucherServiceUsingAddressingPolicy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="queryVoucher">
+      <soap12:operation
+				soapAction="http://rts.iru.org/services/VoucherService-1/queryVoucher"
+				style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VoucherService">
+    <wsdl:port name="VoucherServicePort" binding="tns:VoucherServiceBinding">
+      <soap12:address
+				location="http://ws-test.iruworld.org/rts/services/VoucherService-1.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://ws-test.iruworld.org/rts/services/VoucherService-1.svc</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
