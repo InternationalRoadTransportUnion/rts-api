@@ -16,7 +16,7 @@
 		<dependency>
 			<groupId>org.iru.common</groupId>
 			<artifactId>iru-schemas</artifactId>
-			<version>1.3</version>
+			<version>1.4</version>
 		</dependency>
 	</dependencies>
 
@@ -48,11 +48,10 @@
 						<fileset>
 							<directory>${basedir}/src/main/resources</directory>
 							<includes>
-								<include>tir-actor-1.xsd</include>
-								<include>iso-3166-1-alpha-3.xsd</include>
-								<include>tir-carnet-1.xsd</include>
-								<include>rts-carnet-1.xsd</include>
-								<include>rts-termination-1.xsd</include>
+								<include>tir-*.xsd</include>
+								<include>iso-*.xsd</include>
+								<include>ietf-*.xsd</include>
+								<include>rts-*-1.xsd</include>
 							</includes>
 						</fileset>
 					</filesets>

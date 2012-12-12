@@ -1,10 +1,10 @@
 Dependencies
-iso-3166-1-alpha-3.xsd
-tir-actor-1.xsd
-tir-carnet-1.xsd
+ietf-*.xsd
+iso-*.xsd
+tir-*.xsd
+tirplus-*.xsd
 TerminationService\IRU.RTS.WS.TerminationService.Interface\TerminationService-1\rts-carnet-1.xsd
 target/
-iso-4217.xsd
 .project
 .classpath
 .settings/
