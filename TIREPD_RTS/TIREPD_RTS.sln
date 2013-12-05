@@ -1,107 +1,40 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WSTCHQ_BE", "WSTCHQ_BE", "{7A4B90C4-B295-41B4-9A8E-B77084BB4179}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIREPDG2BReceiver", "TIREPDG2BReceiver\TIREPDG2BReceiver.csproj", "{BF83D7D8-AB24-435D-A6EF-66C4C79BDB33}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIREPDInterfaces", "TIREPDInterfaces\TIREPDInterfaces.csproj", "{8D660BE3-CF1F-4831-822C-ABE38DEAD90C}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIREDPG2BRecvrHostService", "TIREDPG2BRecvrHostService\TIREDPG2BRecvrHostService.csproj", "{9C9DD04E-A604-4655-A9EC-9F630F2C0902}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TIREPDG2BHostServiceReceiverSetup", "TIREPDG2BHostServiceReceiverSetup\TIREPDG2BHostServiceReceiverSetup.vdproj", "{A91B9D9D-7A5C-4968-8C03-2C4689453CA9}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIREPDB2GSendHostService", "TIREPDB2GSendHostService\TIREPDB2GSendHostService.csproj", "{9330D032-2A8E-45E8-ADFB-DA1A0F443E0D}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIREPDB2GSender", "TIREPDB2GSender\TIREPDB2GSender.csproj", "{E0456A90-2D0C-412F-8E2E-8E05ACADDB04}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSender", "TestSender\TestSender.csproj", "{4455998E-7655-4EC0-9F2E-E03D9BE89FFE}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TIREPDB2GHostServiceSendSetup", "TIREPDB2GHostServiceSendSetup\TIREPDB2GHostServiceSendSetup.vdproj", "{985198EF-8B45-4A38-8778-B02B16B3648D}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WSTCHQ_BE", "WSTCHQ_BE", "{7A4B90C4-B295-41B4-9A8E-B77084BB4179}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptEngine", "..\WSTCHQ_BE\CryptEngine\CryptEngine.csproj", "{DAD79E22-2139-4ECB-827E-8F7FB871F5D1}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyManager", "..\WSTCHQ_BE\KeyManager\KeyManager.csproj", "{5E093F16-E114-49BD-B1A8-C24036F3F328}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonInterfaces", "..\WSTCHQ_BE\CommonInterfaces\CommonInterfaces.csproj", "{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoInterfaces", "..\WSTCHQ_BE\CryptoInterfaces\CryptoInterfaces.csproj", "{06D4C54B-A25A-4684-BC6C-192CEB970170}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonComponents", "..\WSTCHQ_BE\CommonComponents\CommonComponents.csproj", "{7786779D-6B79-4A51-A03E-2497DCFE2025}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTSStructures", "..\WSTCHQ_BE\RTSStructures\RTSStructures.csproj", "{BBF126D5-CA34-4786-A61D-0B426EC0677B}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriberDBHelper", "..\WSTCHQ_BE\SubscriberDBHelper\SubscriberDBHelper.csproj", "{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertificateManager", "..\WSTCHQ_BE\CertificateManager\CertificateManager.csproj", "{AA777D7C-D511-4409-A052-833CC196B924}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

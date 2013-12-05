@@ -36,7 +36,7 @@ namespace IRU.RTS.Crypto
 		{
 			//we should get only one row we will use the top 1
 			//mandar 8-12-2005 added key_active=1 and cert_expiry_date
-			string sSelect = "select TOP 1 ENCRYPTION_KEY_ID,MODULUS,EXPONENT, KEY_ACTIVE  from subscriber_encryption_keys where SUBSCRIBER_ID=@SUBSCRIBER_ID AND KEY_ACTIVE=1 AND CERT_EXPIRY_DATE > @CURRENTDATE";
+			string sSelect = "select TOP 1 ENCRYPTION_KEY_ID,MODULUS,EXPONENT, KEY_ACTIVE  from dbo.subscriber_encryption_keys where SUBSCRIBER_ID=@SUBSCRIBER_ID AND KEY_ACTIVE=1 AND CERT_EXPIRY_DATE > @CURRENTDATE";
 
 			SqlCommand sqlSelect = new SqlCommand(sSelect);
 
@@ -137,7 +137,7 @@ namespace IRU.RTS.Crypto
 9	No key found
 */
 
-			string sSelect = "select ENCRYPTION_KEY_ID,MODULUS,EXPONENT,D,P,Q,DP,DQ,INVERSEQ,DISTRIBUTED_TO,DISTRIBUTION_DATE,KEY_ACTIVE,KEY_ACTIVE_REASON,CERT_IS_CURRENT,CERT_EXPIRY_DATE from iru_encryption_keys where encryption_key_id=@KeyID";
+            string sSelect = "select ENCRYPTION_KEY_ID,MODULUS,EXPONENT,D,P,Q,DP,DQ,INVERSEQ,DISTRIBUTED_TO,DISTRIBUTION_DATE,KEY_ACTIVE,KEY_ACTIVE_REASON,CERT_IS_CURRENT,CERT_EXPIRY_DATE from dbo.iru_encryption_keys where encryption_key_id=@KeyID";
 
 			SqlCommand sqlSelect = new SqlCommand(sSelect);
 

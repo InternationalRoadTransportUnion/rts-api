@@ -112,7 +112,7 @@ namespace IRU.RTS.TIREPD
         public void LogRequestS5(G2BLogRequestStruct tchQLogRequestData, bool validateQueryFailed)
         {
 
-            string sSql = "INSERT INTO [G2B_REQUEST_LOG] " +
+            string sSql = "INSERT INTO dbo.[G2B_REQUEST_LOG] " +
                 "([G2B_QUERY_ID], [ENCRYPTED_QUERY_PARAMS], " +
                 "[SENDER_TCP_IP_ADDRESS], [SESSION_KEY_USED_ENCRYPTED_IN], " +
                 "[DECRYPTION_KEY_ID], [ROW_CREATED_TIME], [QUERY_PARAM_OK], " +
@@ -167,7 +167,7 @@ namespace IRU.RTS.TIREPD
         /// <param name="decryptSessionFailed">boolean indicating step succeeded or failed</param>
         public void LogRequestS10(G2BLogRequestStruct tchQLogRequestData, bool decryptSessionFailed)
         {
-            string sSql = "UPDATE [G2B_REQUEST_LOG] " +
+            string sSql = "UPDATE dbo.[G2B_REQUEST_LOG] " +
                 "SET SESSION_KEY_USED_DECRYPTED_IN = @objSessionKeyUsedDecrIn, " +
                 //"[ROW_CREATED_TIME] = @ROW_CREATED_TIME ," +
                 "[RETURN_CODE] = @RETURN_CODE, " +
@@ -210,7 +210,7 @@ namespace IRU.RTS.TIREPD
         /// <param name="decryptionFailed">boolean indicating failure of query encryption</param>
         public void LogRequestS15(G2BLogRequestStruct tchQLogRequestData, bool decryptionFailed)
         {
-            string sSql = "UPDATE [G2B_REQUEST_LOG] " +
+            string sSql = "UPDATE dbo.[G2B_REQUEST_LOG] " +
                 "SET [DECRYPTION_RESULT] = @DECRYPTION_RESULT, " +
                 "[DECRYPTION_RESULT_DESCRIPTION] = @DECRYPTION_RESULT_DESCRIPTION , " +
                 //"[ROW_CREATED_TIME] = @ROW_CREATED_TIME, " +
@@ -261,7 +261,7 @@ namespace IRU.RTS.TIREPD
         /// <param name="hashVerificationFailed"></param>
         public void LogRequestS25(G2BLogRequestStruct tchQLogRequestData, bool hashVerificationFailed)
         {
-            string sSql = "UPDATE [G2B_REQUEST_LOG] " +
+            string sSql = "UPDATE dbo.[G2B_REQUEST_LOG] " +
                 "SET [ROW_CREATED_TIME] = @ROW_CREATED_TIME, " +
                 "[RETURN_CODE] = @RETURN_CODE, " +
                 "[LAST_STEP] = @LAST_STEP, " +
@@ -534,7 +534,7 @@ namespace IRU.RTS.TIREPD
         /// <param name="tchQLogRequestData">Log data structure</param>
         public void LogRequestS99(G2BLogRequestStruct tchQLogRequestData)
         {
-            string sSql = "UPDATE [G2B_REQUEST_LOG] " +
+            string sSql = "UPDATE dbo.[G2B_REQUEST_LOG] " +
                 "SET [RETURN_CODE] = @RETURN_CODE, " +
                 "[LAST_STEP] = @LAST_STEP, " +
                 //"[RESPONSE_TIME] = @RESPONSE_TIME, " +
@@ -572,7 +572,7 @@ namespace IRU.RTS.TIREPD
             //                stepResult.ToString() + ", " + stepDesc.Trim() + ", " +
             //                "'" + stepCompletionTime.ToString("yyyy-MM-dd HH:mm:ss") + "' ) ";
 
-            string sSql = "INSERT INTO [G2B_SEQUENCE] " +
+            string sSql = "INSERT INTO dbo.[G2B_SEQUENCE] " +
                 "([G2B_QUERY_ID], [G2B_STEP], [G2B_STEP_RESULT], " +
                 " [G2B_STEP_ERROR_DESC], [LAST_UPDATE_TIME]) " +
                 " VALUES " +
