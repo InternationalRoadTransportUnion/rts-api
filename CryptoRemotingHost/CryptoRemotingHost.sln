@@ -1,5 +1,7 @@
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WSTCHQ_BE", "WSTCHQ_BE", "{DBCFCB66-212E-48AD-8AE7-D2FC9C5C2B3B}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoProvider", "CryptoProvider\CryptoProvider.csproj", "{37D5A029-929B-4232-AD0F-19354308DFCC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoHostService", "CryptoHostService\CryptoHostService.csproj", "{BB3AC323-555C-4048-A6D5-AEF5C25484F9}"
@@ -9,8 +11,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoInterfaces", "..\WSTCHQ_BE\CryptoInterfaces\CryptoInterfaces.csproj", "{06D4C54B-A25A-4684-BC6C-192CEB970170}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonInterfaces", "..\WSTCHQ_BE\CommonInterfaces\CommonInterfaces.csproj", "{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WSTCHQ_BE", "WSTCHQ_BE", "{DBCFCB66-212E-48AD-8AE7-D2FC9C5C2B3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,7 +44,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7786779D-6B79-4A51-A03E-2497DCFE2025} = {DBCFCB66-212E-48AD-8AE7-D2FC9C5C2B3B}
-		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB} = {DBCFCB66-212E-48AD-8AE7-D2FC9C5C2B3B}
 		{06D4C54B-A25A-4684-BC6C-192CEB970170} = {DBCFCB66-212E-48AD-8AE7-D2FC9C5C2B3B}
+		{B3FC887C-77F3-4347-B5C9-07C0172F5DEB} = {DBCFCB66-212E-48AD-8AE7-D2FC9C5C2B3B}
 	EndGlobalSection
 EndGlobal
