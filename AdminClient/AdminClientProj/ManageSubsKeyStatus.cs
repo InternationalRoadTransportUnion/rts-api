@@ -305,7 +305,7 @@ namespace IRU.RTS.AdminClient
 		{
 			string sCertSelect = "SELECT [ENCRYPTION_KEY_ID],[SUBSCRIBER_ID],[CERT_RECEIVED_DATE] ,[KEY_ACTIVE],[KEY_ACTIVE_REASON],[CERT_EXPIRY_DATE]  ,[CERT_BLOB],[LAST_UPDATE_USERID],[LAST_UPDATE_TIME] ";
 
-			sCertSelect +=" FROM [SUBSCRIBER_ENCRYPTION_KEYS]"; 
+            sCertSelect += " FROM dbo.[SUBSCRIBER_ENCRYPTION_KEYS]"; 
 
 			sCertSelect+=	 " WHERE SUBSCRIBER_ID = @SUBSCRIBER_ID ORDER BY CERT_RECEIVED_DATE";
 			SqlCommand sCertCommand = new SqlCommand(sCertSelect);
@@ -459,7 +459,7 @@ namespace IRU.RTS.AdminClient
 				MessageBox.Show("Certificate already expired. Cannot continue");
 				return;
 			}
-			string sUpdate = "UPDATE SUBSCRIBER_ENCRYPTION_KEYS set KEY_ACTIVE = @KEY_ACTIVE , LAST_UPDATE_TIME = @LAST_UPDATE_TIME, LAST_UPDATE_USERID=@LAST_UPDATE_USERID WHERE ENCRYPTION_KEY_ID= @ENCRYPTION_KEY_ID";
+            string sUpdate = "UPDATE dbo.SUBSCRIBER_ENCRYPTION_KEYS set KEY_ACTIVE = @KEY_ACTIVE , LAST_UPDATE_TIME = @LAST_UPDATE_TIME, LAST_UPDATE_USERID=@LAST_UPDATE_USERID WHERE ENCRYPTION_KEY_ID= @ENCRYPTION_KEY_ID";
 			SqlCommand sCertCommand = new SqlCommand(sUpdate);
 
 			sCertCommand.Parameters.Add(new SqlParameter("@KEY_ACTIVE",SqlDbType.Bit));

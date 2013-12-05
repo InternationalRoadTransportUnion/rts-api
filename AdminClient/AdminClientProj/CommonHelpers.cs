@@ -24,7 +24,7 @@ namespace IRU.RTS.AdminClient
 			try
 			{
 				subsConn.ConnectToDB();
-				string subsSelect = "Select SUBSCRIBER_ID from WS_SUBSCRIBER";
+                string subsSelect = "Select SUBSCRIBER_ID from dbo.WS_SUBSCRIBER";
 				IDataReader sReader = subsConn.GetDataReader(subsSelect, System.Data.CommandBehavior.SingleResult);
 				while (sReader.Read())
 				{

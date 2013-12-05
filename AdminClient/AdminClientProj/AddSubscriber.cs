@@ -314,13 +314,13 @@ namespace IRU.RTS.AdminClient
 			#region connect to DB and Save
 
 			CommonDBHelper dbSubs = new CommonDBHelper((string)frmMain.HTConnectionStrings["SubscriberDB"]);
-				
-			string sInsertSQL = "INSERT INTO WS_SUBSCRIBER "
+
+            string sInsertSQL = "INSERT INTO dbo.WS_SUBSCRIBER "
 				+ " (SUBSCRIBER_ID, SUBSCRIBER_PASSWORD, SUBSCRIBER_DESCRIPTION,  LAST_UPDATE_USERID, LAST_UPDATE_TIME) " +
 				" VALUES " +
 				"(@SUBSCRIBER_ID, @SUBSCRIBER_PASSWORD, @SUBSCRIBER_DESCRIPTION, @LAST_UPDATE_USERID, getdate())";
 
-			string sInsertCopyToSQL = "INSERT INTO COPY_TO_URLS "
+            string sInsertCopyToSQL = "INSERT INTO dbo.COPY_TO_URLS "
 				+ " (COPY_TO_ID, COPY_TO_ADDRESS,  LAST_UPDATE_USERID, LAST_UPDATE_TIME) " +
 				" VALUES " +
 				"(@COPY_TO_ID, @COPY_TO_ADDRESS, @LAST_UPDATE_USERID, getdate())";

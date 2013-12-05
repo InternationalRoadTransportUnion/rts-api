@@ -199,7 +199,7 @@ namespace IRU.RTS.AdminClient
 			CommonDBHelper dbSubsDB = new CommonDBHelper((string) frmMain.HTConnectionStrings["SubscriberDB"]);
 
 
-			string sRightsSQL = "SELECT RM.RTS_RIGHT, RM.RTS_RIGHT_DESCRIPTION,RU.RTS_USER_ID FROM RTS_RIGHTS_MASTER RM LEFT OUTER JOIN ( SELECT RTS_USER_ID, RTS_RIGHT FROM RTS_USER_RIGHTS WHERE RTS_USER_ID=@RTS_USER_ID ) RU ON RM.RTS_RIGHT=RU.RTS_RIGHT " + 
+            string sRightsSQL = "SELECT RM.RTS_RIGHT, RM.RTS_RIGHT_DESCRIPTION,RU.RTS_USER_ID FROM dbo.RTS_RIGHTS_MASTER RM LEFT OUTER JOIN ( SELECT RTS_USER_ID, RTS_RIGHT FROM dbo.RTS_USER_RIGHTS WHERE RTS_USER_ID=@RTS_USER_ID ) RU ON RM.RTS_RIGHT=RU.RTS_RIGHT " + 
 " ORDER BY RM.RTS_RIGHT";
 
  
@@ -273,12 +273,12 @@ namespace IRU.RTS.AdminClient
 			
 			CommonDBHelper dbSubs = new CommonDBHelper((string)frmMain.HTConnectionStrings["SubscriberDB"]);
 				
-			string sDelRightsSQL = "DELETE RTS_USER_RIGHTS " +
+			string sDelRightsSQL = "DELETE dbo.RTS_USER_RIGHTS " +
 				" WHERE RTS_USER_ID= @RTS_USER_ID";
 
 			SqlCommand sqlDeleteRightsCmd = new SqlCommand(sDelRightsSQL);
 
-			string sInsertRightsSQL = "INSERT RTS_USER_RIGHTS "+ " (RTS_USER_ID, RTS_RIGHT,  LAST_UPDATE_USERID, LAST_UPDATE_TIME) " +
+			string sInsertRightsSQL = "INSERT dbo.RTS_USER_RIGHTS "+ " (RTS_USER_ID, RTS_RIGHT,  LAST_UPDATE_USERID, LAST_UPDATE_TIME) " +
 				" VALUES " +
 				"(@RTS_USER_ID, @RTS_RIGHT, @LAST_UPDATE_USERID, getdate())";
 

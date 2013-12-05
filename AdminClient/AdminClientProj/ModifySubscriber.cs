@@ -383,13 +383,13 @@ namespace IRU.RTS.AdminClient
 
 			if (txtSubscriberSearch.Text=="") //all users
 			{
-				sSubsSelectSQL = "SELECT SUBSCRIBER_ID FROM WS_SUBSCRIBER ORDER BY SUBSCRIBER_ID";
+                sSubsSelectSQL = "SELECT SUBSCRIBER_ID FROM dbo.WS_SUBSCRIBER ORDER BY SUBSCRIBER_ID";
 				sSQLSearchCmd.CommandText=sSubsSelectSQL;
 				
 			}
 			else
 			{
-				sSubsSelectSQL = "SELECT SUBSCRIBER_ID FROM WS_SUBSCRIBER " + 
+                sSubsSelectSQL = "SELECT SUBSCRIBER_ID FROM dbo.WS_SUBSCRIBER " + 
 					" WHERE SUBSCRIBER_ID LIKE @SUBSCRIBER_ID ORDER BY SUBSCRIBER_ID";
 				sSQLSearchCmd.CommandText=sSubsSelectSQL;
 				SqlParameter sSubsParam = new SqlParameter("@SUBSCRIBER_ID",SqlDbType.NVarChar);
@@ -464,7 +464,7 @@ namespace IRU.RTS.AdminClient
 
 			SqlCommand sSQLSearchCmd = new SqlCommand();
 			sSQLSearchCmd.CommandType=CommandType.Text;
-			string sSubsSelectSQL = "SELECT SUBSCRIBER_ID,SUBSCRIBER_PASSWORD,SUBSCRIBER_DESCRIPTION,COPY_TO_ADDRESS FROM WS_SUBSCRIBER LEFT OUTER JOIN COPY_TO_URLS ON SUBSCRIBER_ID = COPY_TO_ID " + 
+            string sSubsSelectSQL = "SELECT SUBSCRIBER_ID,SUBSCRIBER_PASSWORD,SUBSCRIBER_DESCRIPTION,COPY_TO_ADDRESS FROM dbo.WS_SUBSCRIBER LEFT OUTER JOIN dbo.COPY_TO_URLS ON SUBSCRIBER_ID = COPY_TO_ID " + 
 				" WHERE SUBSCRIBER_ID = @SUBSCRIBER_ID";
 			sSQLSearchCmd.CommandText=sSubsSelectSQL;
 
@@ -592,15 +592,15 @@ namespace IRU.RTS.AdminClient
 			#region connect to DB and Save
 
 			CommonDBHelper dbSubs = new CommonDBHelper((string)frmMain.HTConnectionStrings["SubscriberDB"]);
-				
-			string sUpdateSQL = "UPDATE WS_SUBSCRIBER "
+
+            string sUpdateSQL = "UPDATE dbo.WS_SUBSCRIBER "
 				+ " SET  SUBSCRIBER_PASSWORD=@SUBSCRIBER_PASSWORD, SUBSCRIBER_DESCRIPTION=@SUBSCRIBER_DESCRIPTION,  LAST_UPDATE_USERID=@LAST_UPDATE_USERID, LAST_UPDATE_TIME=getdate() " +
 				" WHERE SUBSCRIBER_ID=@SUBSCRIBER_ID";
 
 
-			string sDeleteCopyToSQL = "DELETE COPY_TO_URLS WHERE COPY_TO_ID=@COPY_TO_ID";
+            string sDeleteCopyToSQL = "DELETE dbo.COPY_TO_URLS WHERE COPY_TO_ID=@COPY_TO_ID";
 
-			string sInsertCopyToSQL = "INSERT INTO COPY_TO_URLS "
+            string sInsertCopyToSQL = "INSERT INTO dbo.COPY_TO_URLS "
 				+ " (COPY_TO_ID, COPY_TO_ADDRESS,  LAST_UPDATE_USERID, LAST_UPDATE_TIME) " +
 				" VALUES " +
 				"(@COPY_TO_ID, @COPY_TO_ADDRESS, @LAST_UPDATE_USERID, getdate())";
@@ -743,11 +743,11 @@ namespace IRU.RTS.AdminClient
 			
 			#region check commands
 
-			string sCheckCopyToSQL = "SELECT COUNT(1) FROM WS_SUBSCRIBER_SERVICES " +
+            string sCheckCopyToSQL = "SELECT COUNT(1) FROM dbo.WS_SUBSCRIBER_SERVICES " +
 				" WHERE COPY_TO_ID= @SUBSCRIBER_ID";
 			SqlCommand sqlCheckCopyToCmd = new SqlCommand(sCheckCopyToSQL);
 
-			string sCheckKeysSQL = "SELECT COUNT(1) FROM SUBSCRIBER_ENCRYPTION_KEYS " +
+            string sCheckKeysSQL = "SELECT COUNT(1) FROM dbo.SUBSCRIBER_ENCRYPTION_KEYS " +
 				" WHERE SUBSCRIBER_ID= @SUBSCRIBER_ID";
 			SqlCommand sqlCheckKeysCmd = new SqlCommand(sCheckKeysSQL);
 
@@ -758,21 +758,21 @@ namespace IRU.RTS.AdminClient
 
 			#region Del commands
 
-			string sDelCopyToURLSQL = "DELETE COPY_TO_URLS " +
+            string sDelCopyToURLSQL = "DELETE dbo.COPY_TO_URLS " +
 				" WHERE COPY_TO_ID= @SUBSCRIBER_ID";
 			SqlCommand sqlDeleteCopyToCmd = new SqlCommand(sDelCopyToURLSQL);
 
 
-			string sDelMethodsSQL = "DELETE WS_SUBSCRIBER_SERVICE_METHOD " +
+            string sDelMethodsSQL = "DELETE dbo.WS_SUBSCRIBER_SERVICE_METHOD " +
 				" WHERE SUBSCRIBER_ID= @SUBSCRIBER_ID";
 			SqlCommand sqlDeleteMethodsCmd = new SqlCommand(sDelMethodsSQL);
 
-			string sDelServicesSQL = "DELETE WS_SUBSCRIBER_SERVICES " +
+            string sDelServicesSQL = "DELETE dbo.WS_SUBSCRIBER_SERVICES " +
 				" WHERE SUBSCRIBER_ID= @SUBSCRIBER_ID";
 			SqlCommand sqlDeleteServicesCmd = new SqlCommand(sDelServicesSQL);
 
 
-			string sDelSubsSQL = "DELETE WS_SUBSCRIBER " +
+            string sDelSubsSQL = "DELETE dbo.WS_SUBSCRIBER " +
 				" WHERE SUBSCRIBER_ID= @SUBSCRIBER_ID";
 			SqlCommand sqlDeleteSubsCmd = new SqlCommand(sDelSubsSQL);
 

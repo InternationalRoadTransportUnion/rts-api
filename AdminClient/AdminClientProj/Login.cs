@@ -209,8 +209,8 @@ namespace IRU.RTS.AdminClient
 
 
 			string sValidateSQL = "SELECT " +
-				"RTS_USER_ID, RTS_USER_PASSWORD, RTS_USER_SQL_LOGIN, RTS_USER_SQL_PASSWORD "+ 
-				" FROM RTS_USER " +
+				"RTS_USER_ID, RTS_USER_PASSWORD, RTS_USER_SQL_LOGIN, RTS_USER_SQL_PASSWORD "+
+                " FROM dbo.RTS_USER " +
 				" WHERE RTS_USER_ID =@RTS_USER_ID";
 
  
@@ -286,8 +286,8 @@ namespace IRU.RTS.AdminClient
 
 
 			string sRightsSQL = "SELECT " +
-				"RTS_RIGHT "+ 
-				" FROM RTS_USER_RIGHTS " +
+				"RTS_RIGHT "+
+                " FROM dbo.RTS_USER_RIGHTS " +
 				" WHERE RTS_USER_ID =@RTS_USER_ID";
 
  

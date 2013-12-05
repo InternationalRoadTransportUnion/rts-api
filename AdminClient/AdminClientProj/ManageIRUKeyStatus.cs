@@ -475,7 +475,7 @@ namespace IRU.RTS.AdminClient
 				MessageBox.Show("Certificate already expired. Cannot continue");
 				return;
 			}
-			string sUpdate = "UPDATE IRU_ENCRYPTION_KEYS set KEY_ACTIVE = @KEY_ACTIVE , LAST_UPDATE_TIME = @LAST_UPDATE_TIME, LAST_UPDATE_USERID=@LAST_UPDATE_USERID WHERE ENCRYPTION_KEY_ID= @ENCRYPTION_KEY_ID";
+            string sUpdate = "UPDATE dbo.IRU_ENCRYPTION_KEYS set KEY_ACTIVE = @KEY_ACTIVE , LAST_UPDATE_TIME = @LAST_UPDATE_TIME, LAST_UPDATE_USERID=@LAST_UPDATE_USERID WHERE ENCRYPTION_KEY_ID= @ENCRYPTION_KEY_ID";
 			SqlCommand sCertCommand = new SqlCommand(sUpdate);
 
 			sCertCommand.Parameters.Add(new SqlParameter("@KEY_ACTIVE",SqlDbType.Bit));

@@ -394,7 +394,7 @@ SELECT [SUBSCRIBER_ID]
   FROM [WS_SUBSCRIBER_DB].[dbo].[WS_SUBSCRIBER_SERVICES]";
 
  */
-string sServicesSQL = "SELECT [SERVICE_ID] FROM [WS_SUBSCRIBER_SERVICES] WHERE SUBSCRIBER_ID = @SUBSCRIBER_ID";
+            string sServicesSQL = "SELECT [SERVICE_ID] FROM dbo.[WS_SUBSCRIBER_SERVICES] WHERE SUBSCRIBER_ID = @SUBSCRIBER_ID";
 			
 			SqlCommand sqlServicesCmd = new SqlCommand(sServicesSQL );
 
@@ -478,7 +478,7 @@ string sServicesSQL = "SELECT [SERVICE_ID] FROM [WS_SUBSCRIBER_SERVICES] WHERE S
 
 			CommonDBHelper dbSubsDB = new CommonDBHelper((string) frmMain.HTConnectionStrings["SubscriberDB"]);
 
-			string sCopySQL = "SELECT [COPY_TO_ID] FROM [COPY_TO_URLS] ORDER BY COPY_TO_ID";
+            string sCopySQL = "SELECT [COPY_TO_ID] FROM dbo.[COPY_TO_URLS] ORDER BY COPY_TO_ID";
 			
 			SqlCommand sqlCopyToCmd = new SqlCommand(sCopySQL);
 
@@ -532,7 +532,7 @@ string sServicesSQL = "SELECT [SERVICE_ID] FROM [WS_SUBSCRIBER_SERVICES] WHERE S
 			  FROM [WS_SUBSCRIBER_DB].[dbo].[WS_SUBSCRIBER_SERVICES]";
 
 			 */
-			string sServicesSQL = "SELECT [HASH_ALGO], [SESSIONKEY_ENC_ALGO] 			  ,[COPY_TO_ID], [ACTIVE]  FROM [WS_SUBSCRIBER_SERVICES] WHERE SUBSCRIBER_ID = @SUBSCRIBER_ID AND SERVICE_ID=@SERVICE_ID";
+            string sServicesSQL = "SELECT [HASH_ALGO], [SESSIONKEY_ENC_ALGO] 			  ,[COPY_TO_ID], [ACTIVE]  FROM dbo.[WS_SUBSCRIBER_SERVICES] WHERE SUBSCRIBER_ID = @SUBSCRIBER_ID AND SERVICE_ID=@SERVICE_ID";
 			
 			SqlCommand sqlServicesCmd = new SqlCommand(sServicesSQL );
 
@@ -599,8 +599,8 @@ string sServicesSQL = "SELECT [SERVICE_ID] FROM [WS_SUBSCRIBER_SERVICES] WHERE S
 			#region connect to DB and Save
 
 			CommonDBHelper dbSubs = new CommonDBHelper((string)frmMain.HTConnectionStrings["SubscriberDB"]);
-				
-			string sUpdateSQL = "UPDATE WS_SUBSCRIBER_SERVICES "
+
+            string sUpdateSQL = "UPDATE dbo.WS_SUBSCRIBER_SERVICES "
 				+ " SET SESSIONKEY_ENC_ALGO = @SESSIONKEY_ENC_ALGO, HASH_ALGO=@HASH_ALGO, COPY_TO_ID=@COPY_TO_ID, ACTIVE=@ACTIVE, LAST_UPDATE_USERID=@LAST_UPDATE_USERID, LAST_UPDATE_TIME=getdate()" +
 				" WHERE SUBSCRIBER_ID= @SUBSCRIBER_ID AND SERVICE_ID= @SERVICE_ID";
 
@@ -706,7 +706,7 @@ string sServicesSQL = "SELECT [SERVICE_ID] FROM [WS_SUBSCRIBER_SERVICES] WHERE S
 
 			CommonDBHelper dbSubsDB = new CommonDBHelper((string) frmMain.HTConnectionStrings["SubscriberDB"]);
 
-			string sCopySQL = "SELECT [COPY_TO_ID] FROM [COPY_TO_URLS] ORDER BY COPY_TO_ID";
+            string sCopySQL = "SELECT [COPY_TO_ID] FROM dbo.[COPY_TO_URLS] ORDER BY COPY_TO_ID";
 			
 			SqlCommand sqlCopyToCmd = new SqlCommand(sCopySQL);
 
@@ -797,8 +797,8 @@ string sServicesSQL = "SELECT [SERVICE_ID] FROM [WS_SUBSCRIBER_SERVICES] WHERE S
 			#region connect to DB and Save
 
 			CommonDBHelper dbSubs = new CommonDBHelper((string)frmMain.HTConnectionStrings["SubscriberDB"]);
-				
-			string sInsSvcSQL = "INSERT WS_SUBSCRIBER_SERVICES "
+
+            string sInsSvcSQL = "INSERT dbo.WS_SUBSCRIBER_SERVICES "
 				+ " ( SUBSCRIBER_ID, SERVICE_ID, SESSIONKEY_ENC_ALGO,HASH_ALGO, COPY_TO_ID,ACTIVE,LAST_UPDATE_USERID, LAST_UPDATE_TIME) VALUES( @SUBSCRIBER_ID,@SERVICE_ID,   @SESSIONKEY_ENC_ALGO,  @HASH_ALGO,  @COPY_TO_ID,  @ACTIVE,  @LAST_UPDATE_USERID,  getdate())";
 	
 
@@ -921,11 +921,11 @@ string sServicesSQL = "SELECT [SERVICE_ID] FROM [WS_SUBSCRIBER_SERVICES] WHERE S
 			CommonDBHelper dbSubs = new CommonDBHelper((string)frmMain.HTConnectionStrings["SubscriberDB"]);
 
 			#region Del commands
-			string sDelMethodsSQL = "DELETE WS_SUBSCRIBER_SERVICE_METHOD " +
+            string sDelMethodsSQL = "DELETE dbo.WS_SUBSCRIBER_SERVICE_METHOD " +
 				" WHERE SUBSCRIBER_ID= @SUBSCRIBER_ID AND SERVICE_ID=@SERVICE_ID";
 			SqlCommand sqlDeleteMethodsCmd = new SqlCommand(sDelMethodsSQL);
 
-			string sDelServicesSQL = "DELETE WS_SUBSCRIBER_SERVICES " +
+            string sDelServicesSQL = "DELETE dbo.WS_SUBSCRIBER_SERVICES " +
 				" WHERE SUBSCRIBER_ID= @SUBSCRIBER_ID AND SERVICE_ID=@SERVICE_ID";
 			SqlCommand sqlDeleteServicesCmd = new SqlCommand(sDelServicesSQL);
 

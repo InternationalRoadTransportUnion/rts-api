@@ -341,8 +341,8 @@ namespace IRU.RTS.AdminClient
 			#region connect to DB and Save
 
 			CommonDBHelper dbSubs = new CommonDBHelper((string)frmMain.HTConnectionStrings["SubscriberDB"]);
-				
-			string sInsertSQL = "INSERT INTO RTS_USER "
+
+            string sInsertSQL = "INSERT INTO dbo.RTS_USER "
 				+ " (RTS_USER_ID, RTS_USER_PASSWORD, RTS_USER_SQL_LOGIN, RTS_USER_SQL_PASSWORD, LAST_UPDATE_USERID, LAST_UPDATE_TIME) " +
 				" VALUES " +
 				"(@RTS_USER_ID, @RTS_USER_PASSWORD, @RTS_USER_SQL_LOGIN, @RTS_USER_SQL_PASSWORD, @LAST_UPDATE_USERID, getdate())";

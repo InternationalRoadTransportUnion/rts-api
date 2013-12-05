@@ -284,8 +284,8 @@ namespace IRU.RTS.AdminClient
 			CommonDBHelper dbSubs = new CommonDBHelper((string)frmMain.HTConnectionStrings["SubscriberDB"]);
 			prgBar.Value=0;
 			lblProgressStatus.Text="";
-			
-			string[] aTableArray=new string[] {"WS_SUBSCRIBER","WS_SUBSCRIBER_SERVICE_METHOD","WS_SUBSCRIBER_SERVICES","COPY_TO_URLS","IRU_ENCRYPTION_KEYS","RTS_RIGHTS_MASTER","RTS_USER","RTS_USER_RIGHTS","SUBSCRIBER_ENCRYPTION_KEYS"};
+
+            string[] aTableArray = new string[] { "dbo.WS_SUBSCRIBER", "dbo.WS_SUBSCRIBER_SERVICE_METHOD", "dbo.WS_SUBSCRIBER_SERVICES", "dbo.COPY_TO_URLS", "dbo.IRU_ENCRYPTION_KEYS", "dbo.RTS_RIGHTS_MASTER", "dbo.RTS_USER", "dbo.RTS_USER_RIGHTS", "dbo.SUBSCRIBER_ENCRYPTION_KEYS" };
 
 			DataSet dsSubs = new DataSet("SubscriberDB" + DateTime.Now.ToString());
 			int nExtractCount=0;

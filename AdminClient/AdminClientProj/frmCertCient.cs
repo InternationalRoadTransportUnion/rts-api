@@ -409,10 +409,10 @@ namespace IRU.RTS.AdminClient
 				//SqlTransaction sqlTran = sqlConnect.BeginTransaction();
 				cdhSubscriber.BeginTransaction();
 
-				string updateSQL = "UPDATE [IRU_ENCRYPTION_KEYS] SET CERT_IS_CURRENT = 0, LAST_UPDATE_TIME= GetDate(), LAST_UPDATE_USERID= @LAST_UPDATE_USERID WHERE DISTRIBUTED_TO = '" + SubscriberID + "' and CERT_IS_CURRENT = 1";
+                string updateSQL = "UPDATE dbo.[IRU_ENCRYPTION_KEYS] SET CERT_IS_CURRENT = 0, LAST_UPDATE_TIME= GetDate(), LAST_UPDATE_USERID= @LAST_UPDATE_USERID WHERE DISTRIBUTED_TO = '" + SubscriberID + "' and CERT_IS_CURRENT = 1";
 
 
-				string insertSQL = "INSERT INTO [IRU_ENCRYPTION_KEYS] " 
+                string insertSQL = "INSERT INTO dbo.[IRU_ENCRYPTION_KEYS] " 
 					+ "([ENCRYPTION_KEY_ID], [MODULUS], [EXPONENT], " + 
 					"[D], [P] ,[Q] ,[DP],[DQ], [INVERSEQ]," +
 					"[DISTRIBUTED_TO], [DISTRIBUTION_DATE], "+

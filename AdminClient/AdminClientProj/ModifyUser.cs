@@ -421,13 +421,13 @@ namespace IRU.RTS.AdminClient
 
 			if (txtUserSearch.Text=="") //all users
 			{
-				sUserSelectSQL = "SELECT RTS_USER_ID FROM RTS_USER";
+                sUserSelectSQL = "SELECT RTS_USER_ID FROM dbo.RTS_USER";
 				sSQLSearchCmd.CommandText=sUserSelectSQL;
 				
 			}
 			else
 			{
-				sUserSelectSQL = "SELECT RTS_USER_ID FROM RTS_USER " + 
+                sUserSelectSQL = "SELECT RTS_USER_ID FROM dbo.RTS_USER " + 
 								 " WHERE RTS_USER_ID LIKE @RTS_USER_ID";
 				sSQLSearchCmd.CommandText=sUserSelectSQL;
 				SqlParameter sUserParam = new SqlParameter("@RTS_USER_ID",SqlDbType.NVarChar);
@@ -487,7 +487,7 @@ namespace IRU.RTS.AdminClient
 
 			SqlCommand sSQLSearchCmd = new SqlCommand();
 			sSQLSearchCmd.CommandType=CommandType.Text;
-			string sUserSelectSQL = "SELECT RTS_USER_ID,RTS_USER_PASSWORD,RTS_USER_SQL_LOGIN,RTS_USER_SQL_PASSWORD FROM RTS_USER " + 
+            string sUserSelectSQL = "SELECT RTS_USER_ID,RTS_USER_PASSWORD,RTS_USER_SQL_LOGIN,RTS_USER_SQL_PASSWORD FROM dbo.RTS_USER " + 
 				" WHERE RTS_USER_ID = @RTS_USER_ID";
 			sSQLSearchCmd.CommandText=sUserSelectSQL;
 
@@ -644,8 +644,8 @@ namespace IRU.RTS.AdminClient
 			#region connect to DB and Save
 
 			CommonDBHelper dbSubs = new CommonDBHelper((string)frmMain.HTConnectionStrings["SubscriberDB"]);
-				
-			string sUpdateSQL = "UPDATE RTS_USER "
+
+            string sUpdateSQL = "UPDATE dbo.RTS_USER "
 				+ " SET RTS_USER_PASSWORD = @RTS_USER_PASSWORD, RTS_USER_SQL_LOGIN=@RTS_USER_SQL_LOGIN, RTS_USER_SQL_PASSWORD=@RTS_USER_SQL_PASSWORD, LAST_UPDATE_USERID=@LAST_UPDATE_USERID, LAST_UPDATE_TIME=getdate()" +
 				" WHERE RTS_USER_ID= @RTS_USER_ID";
 
@@ -730,13 +730,13 @@ namespace IRU.RTS.AdminClient
 			#region connect to DB and Delete rights and user
 
 			CommonDBHelper dbSubs = new CommonDBHelper((string)frmMain.HTConnectionStrings["SubscriberDB"]);
-				
-			string sDelRightsSQL = "DELETE RTS_USER_RIGHTS " +
+
+            string sDelRightsSQL = "DELETE dbo.RTS_USER_RIGHTS " +
 							" WHERE RTS_USER_ID= @RTS_USER_ID";
 
 			SqlCommand sqlDeleteRightsCmd = new SqlCommand(sDelRightsSQL);
 
-			string sDelUserSQL = "DELETE RTS_USER " +
+            string sDelUserSQL = "DELETE dbo.RTS_USER " +
 				" WHERE RTS_USER_ID= @RTS_USER_ID";
 
 			SqlCommand sqlDeleteUserCmd = new SqlCommand(sDelUserSQL);
