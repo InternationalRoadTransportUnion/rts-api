@@ -55,16 +55,16 @@ namespace IRU.RTS.WSST
 			{
 				m_IntIDBHelper.ConnectToDB();
 				m_IntIDBHelper.BeginTransaction();
-				
-				sqlDelSequenceTbl.Append(" IF EXISTS (SELECT SAFETIR_MESSAGE_IN_ID FROM WSST_SEQUENCE WITH (NOLOCK) WHERE ");
+
+                sqlDelSequenceTbl.Append(" IF EXISTS (SELECT SAFETIR_MESSAGE_IN_ID FROM dbo.WSST_SEQUENCE WITH (NOLOCK) WHERE ");
 				sqlDelSequenceTbl.Append(" SAFETIR_MESSAGE_IN_ID=@SAFETIR_MESSAGE_IN_ID ) BEGIN ");
-				sqlDelSequenceTbl.Append(" DELETE FROM [WSST_SEQUENCE] WHERE ");
+				sqlDelSequenceTbl.Append(" DELETE FROM dbo.[WSST_SEQUENCE] WHERE ");
 				sqlDelSequenceTbl.Append(" SAFETIR_MESSAGE_IN_ID = @SAFETIR_MESSAGE_IN_ID OPTION (FAST 1) ");
 				sqlDelSequenceTbl.Append(" END \n ");
 
-                sqlDelSequenceTbl.Append(" IF EXISTS (SELECT SAFETIR_MESSAGE_IN_ID FROM WSST_INTERNAL_LOG WITH (NOLOCK) WHERE ");
+                sqlDelSequenceTbl.Append(" IF EXISTS (SELECT SAFETIR_MESSAGE_IN_ID FROM dbo.WSST_INTERNAL_LOG WITH (NOLOCK) WHERE ");
                 sqlDelSequenceTbl.Append(" SAFETIR_MESSAGE_IN_ID=@SAFETIR_MESSAGE_IN_ID ) BEGIN ");
-                sqlDelSequenceTbl.Append(" DELETE FROM [WSST_INTERNAL_LOG] WHERE ");
+                sqlDelSequenceTbl.Append(" DELETE FROM dbo.[WSST_INTERNAL_LOG] WHERE ");
                 sqlDelSequenceTbl.Append(" SAFETIR_MESSAGE_IN_ID = @SAFETIR_MESSAGE_IN_ID  OPTION (FAST 1) ");
                 sqlDelSequenceTbl.Append(" END  ");
 
@@ -74,7 +74,7 @@ namespace IRU.RTS.WSST
                 //sqlDelInternalLogTbl.Append(" SAFETIR_MESSAGE_IN_ID = @SAFETIR_MESSAGE_IN_ID  OPTION (FAST 1) ");
                 //sqlDelInternalLogTbl.Append(" END  ");
 
-				TblToBeExecuted = "DELETE FROM [WSST_SEQUENCE]"; // Just info
+                TblToBeExecuted = "DELETE FROM dbo.[WSST_SEQUENCE]"; // Just info
 				SqlCommand sCmd = new SqlCommand(sqlDelSequenceTbl.ToString()) ;
 				sCmd.Parameters.Add("@SAFETIR_MESSAGE_IN_ID", SqlDbType.Int).Value = m_WSST_INTERNAL_LOG_STRUCT.SAFETIR_MESSAGE_IN_ID ;
 				
@@ -117,13 +117,13 @@ namespace IRU.RTS.WSST
 		public void LogSafeTIRfileContentsinInDB(/*WSST_INTERNAL_LOG_STRUCT m_WSST_INTERNAL_LOG_STRUCT, */string [] afldList)
 		{
 			StructToTable stLog = new StructToTable();
-			SqlCommand cmdInsertLog = stLog.GetTableInsertCommand(m_WSST_INTERNAL_LOG_STRUCT,"WSST_INTERNAL_LOG", afldList);
+            SqlCommand cmdInsertLog = stLog.GetTableInsertCommand(m_WSST_INTERNAL_LOG_STRUCT, "dbo.WSST_INTERNAL_LOG", afldList);
             Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceInfo, "LogSafeTIRfileContentsinInDB - " + cmdInsertLog.CommandText.ToString() + cmdInsertLog.Parameters[0] );
             int iRecsAffected = m_IntIDBHelper.ExecuteNonQuery(cmdInsertLog);
             Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceInfo, "LogSafeTIRfileContentsinInDB - Records Inserted :" + iRecsAffected.ToString());
 
 			StructToTable stSeq = new StructToTable();
-			SqlCommand cmdInsertSeq = stSeq.GetTableInsertCommand(m_WSST_SEQUENCE_STRUCT,"WSST_SEQUENCE", m_aSeqFldList);
+            SqlCommand cmdInsertSeq = stSeq.GetTableInsertCommand(m_WSST_SEQUENCE_STRUCT, "dbo.WSST_SEQUENCE", m_aSeqFldList);
 			m_IntIDBHelper.ExecuteNonQuery(cmdInsertSeq);
 
 		}
@@ -138,14 +138,14 @@ namespace IRU.RTS.WSST
 			if(afldList != null) //used where Only Sequence table needs to be updated
 			{
 				StructToTable st = new StructToTable();
-				SqlCommand cmdUpdate = st.GetTableUpdateCommand (m_WSST_INTERNAL_LOG_STRUCT,"WSST_INTERNAL_LOG",afldList ,m_aKeyFields );
+				SqlCommand cmdUpdate = st.GetTableUpdateCommand (m_WSST_INTERNAL_LOG_STRUCT,"dbo.WSST_INTERNAL_LOG",afldList ,m_aKeyFields );
                 Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceInfo, "UpdateInternalLogReturnCode - " + cmdUpdate.CommandText.ToString());
                 int iRecsAffected = m_IntIDBHelper.ExecuteNonQuery(cmdUpdate);
                 Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceInfo, "UpdateInternalLogReturnCode - Records Updated :" + iRecsAffected.ToString());
             }
 
 			StructToTable stSeq = new StructToTable();
-			SqlCommand cmdInsertSeq = stSeq.GetTableInsertCommand(m_WSST_SEQUENCE_STRUCT,"WSST_SEQUENCE", m_aSeqFldList);
+            SqlCommand cmdInsertSeq = stSeq.GetTableInsertCommand(m_WSST_SEQUENCE_STRUCT, "dbo.WSST_SEQUENCE", m_aSeqFldList);
 			m_IntIDBHelper.ExecuteNonQuery(cmdInsertSeq);
 
 		}
@@ -159,7 +159,7 @@ namespace IRU.RTS.WSST
 		public void AssignCopyToJob(string [] afldList, IDBHelper CopyToDBHelper, WSST_COPY_TO_JOB_STRUCT Wsst_CopyToJob_data)
 		{
 			StructToTable stLog = new StructToTable();
-			SqlCommand cmdInsertLog = stLog.GetTableInsertCommand(Wsst_CopyToJob_data,"WSST_COPY_TO_JOB", afldList);
+            SqlCommand cmdInsertLog = stLog.GetTableInsertCommand(Wsst_CopyToJob_data, "dbo.WSST_COPY_TO_JOB", afldList);
 			CopyToDBHelper.ExecuteNonQuery(cmdInsertLog);
 
 		}
@@ -174,7 +174,7 @@ namespace IRU.RTS.WSST
 		public bool CheckIfCopyToIDExists(IDBHelper SubscriberDBHelper, WSST_COPY_TO_JOB_STRUCT Wsst_CopyToJob_data)
 		{
 			StringBuilder SqlCountQuery = new StringBuilder();
-			SqlCountQuery.Append("SELECT COUNT(*) AS Expr1 FROM WS_SUBSCRIBER WHERE (SUBSCRIBER_ID = N'");
+            SqlCountQuery.Append("SELECT COUNT(*) AS Expr1 FROM dbo.WS_SUBSCRIBER WHERE (SUBSCRIBER_ID = N'");
 			SqlCountQuery.Append(Wsst_CopyToJob_data.COPY_TO_ID);
 			SqlCountQuery.Append("')");
  

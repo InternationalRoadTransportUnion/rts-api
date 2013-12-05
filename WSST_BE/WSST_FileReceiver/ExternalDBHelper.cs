@@ -40,7 +40,7 @@ namespace IRU.RTS.WSST
 		public int LogSafeTIRfileContentsinInDB()
 		{
 			StructToTable st = new StructToTable();
-			SqlCommand cmdInsert = st.GetTableInsertCommand(m_WSST_EXTERNAL_LOG_STRUCT,"WSST_EXTERNAL_LOG", m_aLogRecord );
+			SqlCommand cmdInsert = st.GetTableInsertCommand(m_WSST_EXTERNAL_LOG_STRUCT,"dbo.WSST_EXTERNAL_LOG", m_aLogRecord );
 			return m_ExtIDBHelper.ExecuteNonQuery(cmdInsert);
 
 		}
@@ -52,7 +52,7 @@ namespace IRU.RTS.WSST
 		public int UpdateExternalLogReturnCode()
 		{
 			StructToTable st = new StructToTable();
-			SqlCommand cmdInsert = st.GetTableUpdateCommand (m_WSST_EXTERNAL_LOG_STRUCT,"WSST_EXTERNAL_LOG", m_aUpdateRecord,m_aKeyFields );
+            SqlCommand cmdInsert = st.GetTableUpdateCommand(m_WSST_EXTERNAL_LOG_STRUCT, "dbo.WSST_EXTERNAL_LOG", m_aUpdateRecord, m_aKeyFields);
 			return m_ExtIDBHelper.ExecuteNonQuery(cmdInsert);
 		}
 

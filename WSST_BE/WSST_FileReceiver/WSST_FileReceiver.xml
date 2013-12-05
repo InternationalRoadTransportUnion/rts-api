@@ -4,6 +4,11 @@
         <name>WSST_FileReceiver</name>
     </assembly>
     <members>
+        <member name="T:IRU.RTS.WSST.WSSTFR_RemotingHelper">
+            <summary>
+            Was WSSTFileReceiverPlugin in the design documents - mandar
+            </summary>
+        </member>
         <member name="T:IRU.RTS.WSST.WSST_FileReceiver">
             <summary>
             Summary description for Class1.
@@ -33,11 +38,6 @@
             Uses Struct_To_Table to generete an Update SQLCommand and executes against External DB IDBHelper
             </summary>
             <returns>Number of Rows affected</returns>
-        </member>
-        <member name="T:IRU.RTS.WSST.WSSTFR_RemotingHelper">
-            <summary>
-            Was WSSTFileReceiverPlugin in the design documents - mandar
-            </summary>
         </member>
     </members>
 </doc>
