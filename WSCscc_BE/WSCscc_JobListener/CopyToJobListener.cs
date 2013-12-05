@@ -209,8 +209,8 @@ namespace IRU.RTS.CopyToProcessor
 				//string sCommand ="Update  WSST_Copy_to_Job  set @outID=SAFETIR_Message_IN_ID, Job_status=1, Job_pickuptime=getdate() where  SAFETIR_Message_IN_ID = (Select top 1 SAFETIR_Message_IN_ID from WSST_Copy_to_Job with (READPAST) where Job_status=0 order by SAFETIR_Message_IN_ID) " + ;
 
 
-				string sCommand ="Update  WSST_Copy_to_Job  set @outID=SAFETIR_Message_IN_ID, JOB_STATUS=1, JOB_PICKUP_TIME=getdate() where  SAFETIR_Message_IN_ID = (Select top 1 SAFETIR_Message_IN_ID from WSST_Copy_to_Job with (READPAST) where Job_status=0 order by SAFETIR_Message_IN_ID) " + 
-					" SELECT [SAFETIR_MESSAGE_IN_ID]   ,[COPY_TO_ID] , [SAFETIR_XML] , [SENDER_TCP_IP_ADDRESS], [SUBSCRIBER_ID] FROM [WSST_COPY_TO_JOB] with (readpast) WHERE  	[SAFETIR_MESSAGE_IN_ID] = @outID";
+                string sCommand = "Update  dbo.WSST_Copy_to_Job  set @outID=SAFETIR_Message_IN_ID, JOB_STATUS=1, JOB_PICKUP_TIME=getdate() where  SAFETIR_Message_IN_ID = (Select top 1 SAFETIR_Message_IN_ID from dbo.WSST_Copy_to_Job with (READPAST) where Job_status=0 order by SAFETIR_Message_IN_ID) " +
+                    " SELECT [SAFETIR_MESSAGE_IN_ID]   ,[COPY_TO_ID] , [SAFETIR_XML] , [SENDER_TCP_IP_ADDRESS], [SUBSCRIBER_ID] FROM dbo.[WSST_COPY_TO_JOB] with (readpast) WHERE  	[SAFETIR_MESSAGE_IN_ID] = @outID";
 
 				SqlCommand sPollCommand = new SqlCommand(sCommand);
 

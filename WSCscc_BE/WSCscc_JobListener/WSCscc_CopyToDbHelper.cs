@@ -34,7 +34,7 @@ namespace IRU.RTS.CopyToProcessor
 		public void LogSafeTIRfileContentsinInDB(string [] afldList)
 		{
 			StructToTable stLog = new StructToTable();
-			SqlCommand cmdInsertLog = stLog.GetTableInsertCommand(m_WSST_COPY_TO_LOG_DATA,"WSST_COPY_TO_LOG", afldList);
+			SqlCommand cmdInsertLog = stLog.GetTableInsertCommand(m_WSST_COPY_TO_LOG_DATA,"dbo.WSST_COPY_TO_LOG", afldList);
 			m_CopyToDBIDBHelper.ExecuteNonQuery(cmdInsertLog);
 
 			/*
@@ -49,12 +49,12 @@ namespace IRU.RTS.CopyToProcessor
 			if(afldList != null) //used where Only Sequence table needs to be updated
 			{
 				StructToTable st = new StructToTable();
-				SqlCommand cmdUpdate = st.GetTableUpdateCommand (m_WSST_COPY_TO_LOG_DATA,"WSST_COPY_TO_LOG",afldList ,m_aKeyFields );
+				SqlCommand cmdUpdate = st.GetTableUpdateCommand (m_WSST_COPY_TO_LOG_DATA,"dbo.WSST_COPY_TO_LOG",afldList ,m_aKeyFields );
 				m_CopyToDBIDBHelper.ExecuteNonQuery(cmdUpdate);
 			}
 
 			StructToTable stSeq = new StructToTable();
-			SqlCommand cmdInsertSeq = stSeq.GetTableInsertCommand(m_WSST_COPY_TO_SEQUENCE_DATA,"WSST_COPY_TO_SEQUENCE", m_aSeqFldList);
+			SqlCommand cmdInsertSeq = stSeq.GetTableInsertCommand(m_WSST_COPY_TO_SEQUENCE_DATA,"dbo.WSST_COPY_TO_SEQUENCE", m_aSeqFldList);
 			m_CopyToDBIDBHelper.ExecuteNonQuery(cmdInsertSeq);
 
 		}
