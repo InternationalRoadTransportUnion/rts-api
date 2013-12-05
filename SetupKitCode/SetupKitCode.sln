@@ -1,5 +1,5 @@
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigEditorUI", "ConfigEditorUI\ConfigEditorUI.csproj", "{719CD8EA-717F-46E6-9BB3-7781883D2175}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginConfigCtl", "PluginConfigCtl\PluginConfigCtl.csproj", "{0C1F48D3-75D2-4929-8690-678208275367}"
