@@ -1,76 +1,26 @@
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonInterfaces", "CommonInterfaces\CommonInterfaces.csproj", "{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonComponents", "CommonComponents\CommonComponents.csproj", "{7786779D-6B79-4A51-A03E-2497DCFE2025}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCHQ_Processor", "TCHQ_Processor\TCHQ_Processor.csproj", "{FFB77A89-28E2-46CB-B3DD-EFED10FACFFD}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenTestHost", "GenTestHost\GenTestHost.csproj", "{C50D522B-37D7-430F-AD4F-6ADDA9E8F096}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoInterfaces", "CryptoInterfaces\CryptoInterfaces.csproj", "{06D4C54B-A25A-4684-BC6C-192CEB970170}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTSStructures", "RTSStructures\RTSStructures.csproj", "{BBF126D5-CA34-4786-A61D-0B426EC0677B}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptEngine", "CryptEngine\CryptEngine.csproj", "{DAD79E22-2139-4ECB-827E-8F7FB871F5D1}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileListener", "FileListener\FileListener.csproj", "{5489F565-7459-44B1-926C-B6B69655C8BC}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyManager", "KeyManager\KeyManager.csproj", "{5E093F16-E114-49BD-B1A8-C24036F3F328}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCHQHostService", "TCHQHostService\TCHQHostService.csproj", "{DC62515E-09C6-4176-8CA7-F689DACE44E7}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriberDBHelper", "SubscriberDBHelper\SubscriberDBHelper.csproj", "{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRU.Common.Crypto.Cipher", "..\IRU.Common.Crypto.Cipher\Cipher\IRU.Common.Crypto.Cipher.csproj", "{ED817754-244C-4FCD-B257-3803D29CF3AE}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -122,10 +72,6 @@ Global
 		{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ED817754-244C-4FCD-B257-3803D29CF3AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ED817754-244C-4FCD-B257-3803D29CF3AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ED817754-244C-4FCD-B257-3803D29CF3AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ED817754-244C-4FCD-B257-3803D29CF3AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

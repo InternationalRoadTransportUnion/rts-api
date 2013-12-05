@@ -44,7 +44,7 @@ namespace IRU.RTS.WSTCHQ
 		public void LogRequestS5(TCHQLogRequestStruct tchQLogRequestData, bool validateQueryFailed)
 		{
 
-			string sSql = "INSERT INTO [TCHQ_REQUEST_LOG] " + 
+            string sSql = "INSERT INTO dbo.[TCHQ_REQUEST_LOG] " + 
                 "([TCHQ_QUERY_ID], [ENCRYPTED_QUERY_PARAMS], " + 
 				"[SENDER_TCP_IP_ADDRESS], [SESSION_KEY_USED_ENCRYPTED_IN], " +
 				"[DECRYPTION_KEY_ID], [ROW_CREATED_TIME], [QUERY_PARAM_OK], " + 
@@ -99,7 +99,7 @@ namespace IRU.RTS.WSTCHQ
 		/// <param name="decryptSessionFailed">boolean indicating step succeeded or failed</param>
 		public void LogRequestS10(TCHQLogRequestStruct  tchQLogRequestData, bool decryptSessionFailed )
 		{
-			string sSql = "UPDATE [TCHQ_REQUEST_LOG] " + 
+            string sSql = "UPDATE dbo.[TCHQ_REQUEST_LOG] " + 
 				"SET SESSION_KEY_USED_DECRYPTED_IN = @objSessionKeyUsedDecrIn, " +
 				//"[ROW_CREATED_TIME] = @ROW_CREATED_TIME ," +
 				"[RETURN_CODE] = @RETURN_CODE, " + 
@@ -142,7 +142,7 @@ namespace IRU.RTS.WSTCHQ
 		/// <param name="decryptionFailed">boolean indicating failure of query encryption</param>
 		public void LogRequestS15(TCHQLogRequestStruct  tchQLogRequestData, bool decryptionFailed)
 		{
-			string sSql = "UPDATE [TCHQ_REQUEST_LOG] " + 
+            string sSql = "UPDATE dbo.[TCHQ_REQUEST_LOG] " + 
 				"SET [DECRYPTION_RESULT] = @DECRYPTION_RESULT, " +
 				"[DECRYPTION_RESULT_DESCRIPTION] = @DECRYPTION_RESULT_DESCRIPTION , " +
 				//"[ROW_CREATED_TIME] = @ROW_CREATED_TIME, " +
@@ -193,7 +193,7 @@ namespace IRU.RTS.WSTCHQ
 		/// <param name="hashVerificationFailed"></param>
 		public void LogRequestS20(TCHQLogRequestStruct tchQLogRequestData, bool hashVerificationFailed)
 		{
-			string sSql = "UPDATE [TCHQ_REQUEST_LOG] " + 
+            string sSql = "UPDATE dbo.[TCHQ_REQUEST_LOG] " + 
 				"SET [ROW_CREATED_TIME] = @ROW_CREATED_TIME, " +
 				"[RETURN_CODE] = @RETURN_CODE, " + 
 				"[LAST_STEP] = @LAST_STEP, " +
@@ -226,7 +226,7 @@ namespace IRU.RTS.WSTCHQ
 		/// <param name="xmlNotValid">boolean indicating if the query xml was valid or invalid</param>
 		public void LogRequestS25(TCHQLogRequestStruct  tchQLogRequestData, bool xmlNotValid)
 		{
-			string sSql = "UPDATE [TCHQ_REQUEST_LOG] " + 
+            string sSql = "UPDATE dbo.[TCHQ_REQUEST_LOG] " + 
 				"SET [QUERY_XML_VALID] = @QUERY_XML_VALID, " +
 				"[QUERY_XML_INVALID_REASON] = @QUERY_XML_INVALID_REASON, " +
 				"[RETURN_CODE] = @RETURN_CODE, " + 
@@ -266,7 +266,7 @@ namespace IRU.RTS.WSTCHQ
 		/// <param name="userNotAuthorised">boolean indicating success of authorization</param>
 		public void LogRequestS30(TCHQLogRequestStruct  tchQLogRequestData, bool userNotAuthorised)
 		{
-			string sSql = "UPDATE [TCHQ_REQUEST_LOG] " + 
+            string sSql = "UPDATE dbo.[TCHQ_REQUEST_LOG] " + 
 				"SET [SENDER_PASSWORD] = @SENDER_PASSWORD, " +
 				"[SENDER_AUTHENTICATED]=@SENDER_AUTHENTICATED,  " +
 				"[SENDER_ID] = @SENDER_ID, " +
@@ -315,7 +315,7 @@ namespace IRU.RTS.WSTCHQ
 		/// <param name="cwQueryFailed">boolean indicating cuccess failure of query</param>
 		public void LogRequestS35(TCHQLogRequestStruct  tchQLogRequestData, bool cwQueryFailed)
 		{
-			string sSql = "UPDATE [TCHQ_REQUEST_LOG] " + 
+            string sSql = "UPDATE dbo.[TCHQ_REQUEST_LOG] " + 
 				"SET [ORIGINATOR]=@ORIGINATOR, " +
 				"[ORIGIN_TIME]=@ORIGIN_TIME, " +
 				"[SENDER_PASSWORD]=@SENDER_PASSWORD,  " +
@@ -384,7 +384,7 @@ namespace IRU.RTS.WSTCHQ
 		/// <param name="hashEncFailed">boolean indicating failure of response encryption</param>
 		public void LogRequestS40(TCHQLogRequestStruct  tchQLogRequestData, bool hashEncFailed)
 		{
-			string sSql = "UPDATE [TCHQ_REQUEST_LOG] " + 
+            string sSql = "UPDATE dbo.[TCHQ_REQUEST_LOG] " + 
 				"SET RESPONSE_ENCRYPTION_RESULT = @RESPONSE_ENCRYPTION_RESULT, " +
 				"RESPONSE_ENCRYPTION_RESULT_DESCRIPTION = @RESPONSE_ENCRYPTION_RESULT_DESCRIPTION, " + 
 				"SESSION_KEY_USED_DECRYPTED_OUT = @SESSION_KEY_USED_DECRYPTED_OUT, "+
@@ -426,7 +426,7 @@ namespace IRU.RTS.WSTCHQ
 		/// <param name="sessionKeyEncFailed">boolean indicating failure encrypting session key</param>
 		public void LogRequestS45(TCHQLogRequestStruct  tchQLogRequestData, bool sessionKeyEncFailed)
 		{
-			string sSql = "UPDATE [TCHQ_REQUEST_LOG] " + 
+            string sSql = "UPDATE dbo.[TCHQ_REQUEST_LOG] " + 
 				"SET SESSION_KEY_ENCRYPTION_KEY_ID_USED = @SESSION_KEY_ENCRYPTION_KEY_ID_USED, " +
 				"SESSION_KEY_USED_ENCRYPTED_OUT = @SESSION_KEY_USED_ENCRYPTED_OUT, " +
 				"[RETURN_CODE] = @RETURN_CODE, " +  
@@ -463,7 +463,7 @@ namespace IRU.RTS.WSTCHQ
 		/// <param name="tchQLogRequestData">Log data structure</param>
 		public void LogRequestS99(TCHQLogRequestStruct  tchQLogRequestData)
 		{
-			string sSql = "UPDATE [TCHQ_REQUEST_LOG] " + 
+            string sSql = "UPDATE dbo.[TCHQ_REQUEST_LOG] " + 
 				"SET [RETURN_CODE] = @RETURN_CODE, " +  
 				"[LAST_STEP] = @LAST_STEP, " +
 				//"[RESPONSE_TIME] = @RESPONSE_TIME, " +
@@ -501,7 +501,7 @@ namespace IRU.RTS.WSTCHQ
 //                stepResult.ToString() + ", " + stepDesc.Trim() + ", " +
 //                "'" + stepCompletionTime.ToString("yyyy-MM-dd HH:mm:ss") + "' ) ";
 
-			string sSql = "INSERT INTO [TCHQ_SEQUENCE] " + 
+            string sSql = "INSERT INTO dbo.[TCHQ_SEQUENCE] " + 
 				"([TCHQ_QUERY_ID], [TCHQ_STEP], [TCHQ_STEP_RESULT], " +
 				" [TCHQ_STEP_ERROR_DESC], [LAST_UPDATE_TIME]) " +
 				" VALUES " + 
@@ -526,7 +526,7 @@ namespace IRU.RTS.WSTCHQ
 		/// <param name="ResponseResult"></param>
 		public void LogRequestResponse(long TCHQ_QueryID, DateTime dtResponseSent, bool ResponseResult)
 		{
-			string sSql = "UPDATE [TCHQ_REQUEST_LOG] " + 
+            string sSql = "UPDATE dbo.[TCHQ_REQUEST_LOG] " + 
 				"SET [RESPONSE_RESULT] = @RESPONSE_RESULT, " +  
 				"[RESPONSE_TIME] = @RESPONSE_TIME " +
 				"WHERE [TCHQ_QUERY_ID] = @TCHQ_QUERY_ID ";

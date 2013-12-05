@@ -152,7 +152,7 @@ namespace IRU.RTS.WSTCHQ
         /// <returns>Returns the number of discharges for the given carnet.</returns>
         public int GetNumberOfDischarges(Int64 tirCarnetNumber)
         {
-            string NoOfDischargesQuery = "SELECT COUNT(*) FROM CAR_DISP_CARNETS with (nolock)  WHERE D_C_CARNET_NUMBER = @TIRNumber AND D_C_RECORD_STATE NOT IN (0,2,4,32,64,16384)";
+            string NoOfDischargesQuery = "SELECT COUNT(*) FROM dbo.CAR_DISP_CARNETS with (nolock)  WHERE D_C_CARNET_NUMBER = @TIRNumber AND D_C_RECORD_STATE NOT IN (0,2,4,32,64,16384)";
             IDBHelper dbDispatch = TCHQ_RemotingHelper.m_dbHelperFactoryPlugin.GetDBHelper("DispatchDB"); //dbhelper for current
             SqlCommand cmdDisp = new SqlCommand(NoOfDischargesQuery);
             cmdDisp.CommandTimeout = 500;
@@ -365,45 +365,45 @@ namespace IRU.RTS.WSTCHQ
 						*/
 						#endregion
 			
-						StringBuilder strBuilder = 
-						new StringBuilder("IF (EXISTS (SELECT Top 1 1 FROM [CWStopped] WHERE TIRNumber = @TIRNumber)) ");
+						StringBuilder strBuilder =
+                        new StringBuilder("IF (EXISTS (SELECT Top 1 1 FROM dbo.[CWStopped] WHERE TIRNumber = @TIRNumber)) ");
 						strBuilder.Append("BEGIN ");
 						strBuilder.Append("	SELECT @TIRNumber AS TIRNumber, 3 AS RESULT  ");
 						strBuilder.Append("END ");
 						strBuilder.Append("ELSE ");
 						strBuilder.Append("BEGIN ");
-						strBuilder.Append("	IF (NOT EXISTS (SELECT Top 1 1 FROM [CWCarnets] WHERE TIRNumber = @TIRNumber)) 	 ");
+                        strBuilder.Append("	IF (NOT EXISTS (SELECT Top 1 1 FROM dbo.[CWCarnets] WHERE TIRNumber = @TIRNumber)) 	 ");
 						strBuilder.Append("	BEGIN  ");
 						strBuilder.Append("		SELECT @TIRNumber AS TIRNumber, 5 AS RESULT	 ");
 						strBuilder.Append("	END  ");
 						strBuilder.Append("	ELSE  ");
 						strBuilder.Append("	BEGIN  ");
-						strBuilder.Append("		IF(((SELECT CWStatus.StateID FROM CWStatus WHERE CWStatus.TIRNumber = @TIRNumber) = -26220) OR ");
-						strBuilder.Append("	           ((SELECT CWStatus.StateID FROM CWStatus WHERE CWStatus.TIRNumber = @TIRNumber) = -26165) OR ");
-						strBuilder.Append("	           ((SELECT CWStatus.StateID FROM CWStatus WHERE CWStatus.TIRNumber = @TIRNumber) = -26223) OR ");
-						strBuilder.Append("	           ((SELECT CWStatus.StateID FROM CWStatus WHERE CWStatus.TIRNumber = @TIRNumber) = -26211) OR ");
-						strBuilder.Append("	           (NOT EXISTS (SELECT CWStatus.StateID FROM CWStatus WHERE CWStatus.TIRNumber = @TIRNumber))) ");
+                        strBuilder.Append("		IF(((SELECT CWStatus.StateID FROM dbo.CWStatus WHERE CWStatus.TIRNumber = @TIRNumber) = -26220) OR ");
+                        strBuilder.Append("	           ((SELECT CWStatus.StateID FROM dbo.CWStatus WHERE CWStatus.TIRNumber = @TIRNumber) = -26165) OR ");
+                        strBuilder.Append("	           ((SELECT CWStatus.StateID FROM dbo.CWStatus WHERE CWStatus.TIRNumber = @TIRNumber) = -26223) OR ");
+                        strBuilder.Append("	           ((SELECT CWStatus.StateID FROM dbo.CWStatus WHERE CWStatus.TIRNumber = @TIRNumber) = -26211) OR ");
+                        strBuilder.Append("	           (NOT EXISTS (SELECT CWStatus.StateID FROM dbo.CWStatus WHERE CWStatus.TIRNumber = @TIRNumber))) ");
 						strBuilder.Append("		BEGIN ");
-						strBuilder.Append("			IF ((SELECT CWCarnets.IssueDate FROM CWCarnets WHERE CWCarnets.TIRNumber = @TIRNumber) is not null) ");
+                        strBuilder.Append("			IF ((SELECT CWCarnets.IssueDate FROM dbo.CWCarnets WHERE CWCarnets.TIRNumber = @TIRNumber) is not null) ");
 						strBuilder.Append("			BEGIN ");
 						strBuilder.Append("				SELECT CWCarnets.TIRNumber, 1 AS RESULT,  ");
 						strBuilder.Append("				CWCarnets.I_HolderID,  ");
 						strBuilder.Append("				CWCarnets.ExpiryDate,  ");
 						strBuilder.Append("				RefAssociations.AssociationShortName,  ");
-						strBuilder.Append("				(SELECT COUNT(*) FROM CWDischarges WHERE (CWDischarges.TIRNumber = @TIRNumber)) AS NoOfDischarges ");
-						strBuilder.Append("				FROM CWCarnets INNER JOIN  ");
-						strBuilder.Append("				RefAssociations ON CWCarnets.AssociationID = RefAssociations.AssociationID  ");
+                        strBuilder.Append("				(SELECT COUNT(*) FROM dbo.CWDischarges WHERE (CWDischarges.TIRNumber = @TIRNumber)) AS NoOfDischarges ");
+                        strBuilder.Append("				FROM dbo.CWCarnets INNER JOIN  ");
+						strBuilder.Append("				dbo.RefAssociations ON CWCarnets.AssociationID = RefAssociations.AssociationID  ");
 						strBuilder.Append("				WHERE (CWCarnets.TIRNumber = @TIRNumber)  ");
 						strBuilder.Append("			END ");
 						strBuilder.Append("			ELSE ");
 						strBuilder.Append("			BEGIN ");
-						strBuilder.Append("				IF((SELECT CWCarnets.BulletinDate FROM CWCarnets WHERE CWCarnets.TIRNumber = @TIRNumber) is not null) ");
+                        strBuilder.Append("				IF((SELECT CWCarnets.BulletinDate FROM dbo.CWCarnets WHERE CWCarnets.TIRNumber = @TIRNumber) is not null) ");
 						strBuilder.Append("				BEGIN  ");
 						strBuilder.Append("					SELECT CWCarnets.TIRNumber, 2 AS RESULT,  ");
 						strBuilder.Append("					RefAssociations.AssociationShortName,  ");
-						strBuilder.Append("					(SELECT COUNT(*) FROM CWDischarges WHERE (CWDischarges.TIRNumber = @TIRNumber)) AS NoOfDischarges ");
-						strBuilder.Append("					FROM CWCarnets INNER JOIN  ");
-						strBuilder.Append("					RefAssociations ON CWCarnets.AssociationID = RefAssociations.AssociationID   ");
+                        strBuilder.Append("					(SELECT COUNT(*) FROM dbo.CWDischarges WHERE (CWDischarges.TIRNumber = @TIRNumber)) AS NoOfDischarges ");
+                        strBuilder.Append("					FROM dbo.CWCarnets INNER JOIN  ");
+                        strBuilder.Append("					dbo.RefAssociations ON CWCarnets.AssociationID = RefAssociations.AssociationID   ");
 						strBuilder.Append("					WHERE (CWCarnets.TIRNumber = @TIRNumber)  ");
 						strBuilder.Append("				END ");
 						strBuilder.Append("				ELSE ");
