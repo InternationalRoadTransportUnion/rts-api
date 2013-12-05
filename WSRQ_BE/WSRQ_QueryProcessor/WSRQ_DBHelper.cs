@@ -72,7 +72,7 @@ namespace IRU.RTS.WSWSRQ
             /// <param name="decryptSessionFailed">boolean indicating step succeeded or failed</param>
             public void LogRequestS10(WSRQLogQueryData wsrqLogQueryData, bool decryptSessionFailed)
             {
-                string sSql = "UPDATE [WSRQ_LOG] " +
+                string sSql = "UPDATE dbo.[WSRQ_LOG] " +
                     "SET [SESSION_KEY_IN] = @objSessionKeyUsedDecrIn, " +
                     "[RETURN_CODE] = @RETURN_CODE, " +
                     "[LAST_STEP] = @LAST_STEP " +
@@ -106,7 +106,7 @@ namespace IRU.RTS.WSWSRQ
             /// <param name="decryptionFailed">boolean indicating failure of query encryption</param>
             public void LogRequestS15(WSRQLogQueryData wsrqLogQueryData, bool decryptionFailed)
             {
-                string sSql = "UPDATE [WSRQ_LOG] " +
+                string sSql = "UPDATE dbo.[WSRQ_LOG] " +
                     "SET [DECRYPTION_RESULT] = @DECRYPTION_RESULT, " +
                     "[DECRYPTION_RESULT_DESCRIPTION] = @DECRYPTION_RESULT_DESCRIPTION , " +
                     //"[ROW_CREATED_TIME] = @ROW_CREATED_TIME, " +
@@ -142,7 +142,7 @@ namespace IRU.RTS.WSWSRQ
             /// <param name="hashVerificationFailed"></param>
             public void LogRequestS20(WSRQLogQueryData wsrqLogQueryData, bool hashVerificationFailed)
             {
-                string sSql = "UPDATE [WSRQ_LOG] " +
+                string sSql = "UPDATE dbo.[WSRQ_LOG] " +
                     "SET [ROW_CREATED_TIME] = @ROW_CREATED_TIME, " +
                     "[RETURN_CODE] = @RETURN_CODE, " +
                     "[LAST_STEP] = @LAST_STEP " +
@@ -173,7 +173,7 @@ namespace IRU.RTS.WSWSRQ
             /// <param name="xmlNotValid">boolean indicating if the query xml was valid or invalid</param>
             public void LogRequestS25(WSRQLogQueryData wsrqLogQueryData, bool xmlNotValid)
             {
-                string sSql = "UPDATE [WSRQ_LOG] " +
+                string sSql = "UPDATE dbo.[WSRQ_LOG] " +
                     "SET [QUERY_XML_VALID] = @QUERY_XML_VALID, " +
                     "[QUERY_XML_INVALID_REASON] = @QUERY_XML_INVALID_REASON, " +
                     "[RETURN_CODE] = @RETURN_CODE, " +
@@ -210,7 +210,7 @@ namespace IRU.RTS.WSWSRQ
             /// <param name="userNotAuthorised">boolean indicating success of authorization</param>
             public void LogRequestS30(WSRQLogQueryData wsrqLogQueryData, bool userNotAuthorised)
             {
-                string sSql = "UPDATE [WSRQ_LOG] " +
+                string sSql = "UPDATE dbo.[WSRQ_LOG] " +
                     "SET  [SUBSCRIBER_ID] = @SENDER_ID, [SENDER_AUTHENTICATED] = @SENDER_AUTHENTICATED,[SENDER_PASSWORD] = @SENDER_PASSWORD, " +
                     "[RETURN_CODE] = @RETURN_CODE, " +
                     "[LAST_STEP] = @LAST_STEP " +
@@ -253,7 +253,7 @@ namespace IRU.RTS.WSWSRQ
             /// <param name="WSRQQueryFailed">boolean indicating cuccess failure of query</param>
             public void LogRequestS35(WSRQLogQueryData wsrqLogQueryData, bool WSRQQueryFailed)
             {
-                string sSql = "UPDATE [WSRQ_LOG] SET " +
+                string sSql = "UPDATE dbo.[WSRQ_LOG] SET " +
                     "[ORIGIN_TIME]=@ORIGIN_TIME,  " +
                     "[SENDER_MESSAGEID]=@SENDER_MESSAGEID,  " +
                     "[NUMBER_OF_REQUESTS_SENT]=@NUMBER_OF_REQUESTS_SENT,  " +
@@ -297,7 +297,7 @@ namespace IRU.RTS.WSWSRQ
             /// <param name="hashEncFailed">boolean indicating failure of response encryption</param>
             public void LogRequestS40(WSRQLogQueryData wsrqLogQueryData, bool hashEncFailed)
             {
-                string sSql = "UPDATE [WSRQ_LOG] " +
+                string sSql = "UPDATE dbo.[WSRQ_LOG] " +
                     "SET RESPONSE_ENCRYPTION_RESULT = @RESPONSE_ENCRYPTION_RESULT, " +
                     "RESPONSE_ENCRYPTION_RESULT_DESCRIPTION = @RESPONSE_ENCRYPTION_RESULT_DESCRIPTION, " +
                     "SESSION_KEY_OUT = @SESSION_KEY_USED_DECRYPTED_OUT, " +
@@ -336,7 +336,7 @@ namespace IRU.RTS.WSWSRQ
             /// <param name="sessionKeyEncFailed">boolean indicating failure encrypting session key</param>
             public void LogRequestS45(WSRQLogQueryData wsrqLogQueryData, bool sessionKeyEncFailed)
             {
-                string sSql = "UPDATE [WSRQ_LOG] " +
+                string sSql = "UPDATE dbo.[WSRQ_LOG] " +
                     //"SET SESSION_KEY_ENCRYPTION_KEY_ID_USED = @SESSION_KEY_ENCRYPTION_KEY_ID_USED, " +
                     " SET ENCRYPTION_KEY_ID_OUT = @SESSION_KEY_USED_ENCRYPTED_OUT, " +
                     "[RETURN_CODE] = @RETURN_CODE, " +
@@ -370,7 +370,7 @@ namespace IRU.RTS.WSWSRQ
             /// <param name="wsrqLogQueryData">Log data structure</param>
             public void LogRequestS99(WSRQLogQueryData wsrqLogQueryData)
             {
-                string sSql = "UPDATE [WSRQ_LOG] " +
+                string sSql = "UPDATE dbo.[WSRQ_LOG] " +
                     "SET [RETURN_CODE] = @RETURN_CODE, " +
                     "[LAST_STEP] = @LAST_STEP " +
                     "WHERE [EXCHANGEID] = @EXCHANGEID";
@@ -426,8 +426,8 @@ namespace IRU.RTS.WSWSRQ
                 string sSql = "BEGIN TRANSACTION " +
                     "SELECT [EXCHANGEID], [RequestID], [RequestDate], " +
                     "[RequestReminderNum], [RequestDataSource],[TNO], [ICC], [DCL], [CNL], [COF], [DDI], [RND], [PFD], [CWR], [VPN], [COM], [RBC], [PIC],[RequestRemark]  " +
-                    "FROM [WSRQ_DETAIL] WHERE EXCHANGEID = 0 AND [ICC] = N'" + sICC + "'" +
-                    "UPDATE [WSRQ_DETAIL] SET [EXCHANGEID]= -1 WHERE [EXCHANGEID] = 0 AND [ICC] = N'" + sICC + "'"  +
+                    "FROM dbo.[WSRQ_DETAIL] WHERE EXCHANGEID = 0 AND [ICC] = N'" + sICC + "'" +
+                    "UPDATE dbo.[WSRQ_DETAIL] SET [EXCHANGEID]= -1 WHERE [EXCHANGEID] = 0 AND [ICC] = N'" + sICC + "'" +
                     "COMMIT TRANSACTION ";
                          
               
@@ -443,7 +443,7 @@ namespace IRU.RTS.WSWSRQ
             /// </summary>
             public void UpdateWSRQDetails(string RequestID,int ExchangeID, string sICC)
             {
-                 string sSql = "UPDATE [WSRQ_DETAIL] " +
+                string sSql = "UPDATE dbo.[WSRQ_DETAIL] " +
                     "SET [EXCHANGEID] = @ExchangeID " +
                     "WHERE [EXCHANGEID] = -1 and [REQUESTID] = @REQUESTID AND [ICC] = @ICC";
 
@@ -468,7 +468,7 @@ namespace IRU.RTS.WSWSRQ
             /// <param name="ResponseResult"></param>
             public void LogRequestResponse(long ExchangeID, DateTime dtResponseSent, bool ResponseResult)
             {
-                string sSql = "UPDATE [WSRQ_LOG] " +
+                string sSql = "UPDATE dbo.[WSRQ_LOG] " +
                     "SET [RESPONSE_RESULT] = @RESPONSE_RESULT, " +
                     "[RESPONSE_TIME] = @RESPONSE_TIME " +
                     "WHERE [EXCHANGEID] = @ExchangeID ";

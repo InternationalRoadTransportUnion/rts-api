@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WSTCHQ_BE", "WSTCHQ_BE", "{EA36A697-2064-4AAA-BF17-CB3A23ADB37A}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSRQNewRequest_Processor", "WSRQNewRequest_Processor\WSRQNewRequest_Processor.csproj", "{CBAE1418-58D5-4944-9E43-57D5F75020D2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSRQNewRequest_ProcessorHostService", "WSRQNewRequest_ProcessorHostService\WSRQNewRequest_ProcessorHostService.csproj", "{785E5239-95E1-40F4-9188-F44F3C09FA92}"
@@ -8,8 +10,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSRQ_QueryProcessor", "WSRQ_QueryProcessor\WSRQ_QueryProcessor.csproj", "{680745F6-7FEC-4B6A-ACD4-926352C6648D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSRQHostService", "WSRQHostService\WSRQHostService.csproj", "{F6CC03DA-39B0-48FD-B39A-52BA58687912}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WSTCHQ_BE", "WSTCHQ_BE", "{EA36A697-2064-4AAA-BF17-CB3A23ADB37A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonComponents", "..\WSTCHQ_BE\CommonComponents\CommonComponents.csproj", "{7786779D-6B79-4A51-A03E-2497DCFE2025}"
 EndProject
