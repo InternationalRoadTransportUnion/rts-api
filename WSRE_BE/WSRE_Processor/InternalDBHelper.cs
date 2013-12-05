@@ -56,25 +56,25 @@ namespace IRU.RTS.WSRE
 				m_IntIDBHelper.ConnectToDB();
 				m_IntIDBHelper.BeginTransaction();
 				
-				sqlDelSequenceTbl.Append(" IF EXISTS (SELECT SAFETIR_MESSAGE_IN_ID FROM WSRE_SEQUENCE WITH (NOLOCK) WHERE ");
+				sqlDelSequenceTbl.Append(" IF EXISTS (SELECT SAFETIR_MESSAGE_IN_ID FROM dbo.WSRE_SEQUENCE WITH (NOLOCK) WHERE ");
 				sqlDelSequenceTbl.Append(" SAFETIR_MESSAGE_IN_ID=@SAFETIR_MESSAGE_IN_ID ) BEGIN ");
-				sqlDelSequenceTbl.Append(" DELETE FROM [WSRE_SEQUENCE] WHERE ");
+                sqlDelSequenceTbl.Append(" DELETE FROM dbo.[WSRE_SEQUENCE] WHERE ");
 				sqlDelSequenceTbl.Append(" SAFETIR_MESSAGE_IN_ID = @SAFETIR_MESSAGE_IN_ID OPTION (FAST 1) ");
 				sqlDelSequenceTbl.Append(" END ");
 
-				sqlDelInternalLogTbl.Append(" IF EXISTS (SELECT SAFETIR_MESSAGE_IN_ID FROM WSRE_INTERNAL_LOG WITH (NOLOCK) WHERE ");
+                sqlDelInternalLogTbl.Append(" IF EXISTS (SELECT SAFETIR_MESSAGE_IN_ID FROM dbo.WSRE_INTERNAL_LOG WITH (NOLOCK) WHERE ");
 				sqlDelInternalLogTbl.Append(" SAFETIR_MESSAGE_IN_ID=@SAFETIR_MESSAGE_IN_ID ) BEGIN ");
-				sqlDelInternalLogTbl.Append(" DELETE FROM [WSRE_INTERNAL_LOG] WHERE ");
+                sqlDelInternalLogTbl.Append(" DELETE FROM dbo.[WSRE_INTERNAL_LOG] WHERE ");
 				sqlDelInternalLogTbl.Append(" SAFETIR_MESSAGE_IN_ID = @SAFETIR_MESSAGE_IN_ID  OPTION (FAST 1) ");
 				sqlDelInternalLogTbl.Append(" END ");
 
-				TblToBeExecuted = "DELETE FROM [WSRE_SEQUENCE]"; // Just info
+                TblToBeExecuted = "DELETE FROM dbo.[WSRE_SEQUENCE]"; // Just info
 				SqlCommand sCmd = new SqlCommand(sqlDelSequenceTbl.ToString()) ;
 				sCmd.Parameters.Add("@SAFETIR_MESSAGE_IN_ID", SqlDbType.Int).Value = m_WSRE_INTERNAL_LOG_STRUCT.SAFETIR_MESSAGE_IN_ID ;
 				
 				RowsAffected = m_IntIDBHelper.ExecuteNonQuery(sCmd);
 
-				TblToBeExecuted = "DELETE FROM [WSRE_INTERNAL_LOG]"; // Just info
+                TblToBeExecuted = "DELETE FROM dbo.[WSRE_INTERNAL_LOG]"; // Just info
 				SqlCommand sCmd2 = new SqlCommand(sqlDelInternalLogTbl.ToString()) ;
 				sCmd2.Parameters.Add("@SAFETIR_MESSAGE_IN_ID", SqlDbType.Int).Value = m_WSRE_INTERNAL_LOG_STRUCT.SAFETIR_MESSAGE_IN_ID ;
 				
@@ -108,11 +108,11 @@ namespace IRU.RTS.WSRE
 		public void LogSafeTIRfileContentsinInDB(/*WSRE_INTERNAL_LOG_STRUCT m_WSRE_INTERNAL_LOG_STRUCT, */string [] afldList)
 		{
 			StructToTable stLog = new StructToTable();
-			SqlCommand cmdInsertLog = stLog.GetTableInsertCommand(m_WSRE_INTERNAL_LOG_STRUCT,"WSRE_INTERNAL_LOG", afldList);
+            SqlCommand cmdInsertLog = stLog.GetTableInsertCommand(m_WSRE_INTERNAL_LOG_STRUCT, "dbo.WSRE_INTERNAL_LOG", afldList);
 			m_IntIDBHelper.ExecuteNonQuery(cmdInsertLog);
 
 			StructToTable stSeq = new StructToTable();
-			SqlCommand cmdInsertSeq = stSeq.GetTableInsertCommand(m_WSRE_SEQUENCE_STRUCT,"WSRE_SEQUENCE", m_aSeqFldList);
+            SqlCommand cmdInsertSeq = stSeq.GetTableInsertCommand(m_WSRE_SEQUENCE_STRUCT, "dbo.WSRE_SEQUENCE", m_aSeqFldList);
 			m_IntIDBHelper.ExecuteNonQuery(cmdInsertSeq);
 
 		}
@@ -127,12 +127,12 @@ namespace IRU.RTS.WSRE
 			if(afldList != null) //used where Only Sequence table needs to be updated
 			{
 				StructToTable st = new StructToTable();
-				SqlCommand cmdUpdate = st.GetTableUpdateCommand (m_WSRE_INTERNAL_LOG_STRUCT,"WSRE_INTERNAL_LOG",afldList ,m_aKeyFields );
+                SqlCommand cmdUpdate = st.GetTableUpdateCommand(m_WSRE_INTERNAL_LOG_STRUCT, "dbo.WSRE_INTERNAL_LOG", afldList, m_aKeyFields);
 				m_IntIDBHelper.ExecuteNonQuery(cmdUpdate);
 			}
 
 			StructToTable stSeq = new StructToTable();
-			SqlCommand cmdInsertSeq = stSeq.GetTableInsertCommand(m_WSRE_SEQUENCE_STRUCT,"WSRE_SEQUENCE", m_aSeqFldList);
+            SqlCommand cmdInsertSeq = stSeq.GetTableInsertCommand(m_WSRE_SEQUENCE_STRUCT, "dbo.WSRE_SEQUENCE", m_aSeqFldList);
 			m_IntIDBHelper.ExecuteNonQuery(cmdInsertSeq);
 
 		}
@@ -146,7 +146,7 @@ namespace IRU.RTS.WSRE
 		public void AssignCopyToJob(string [] afldList, IDBHelper CopyToDBHelper, WSRE_COPY_TO_JOB_STRUCT WSRE_CopyToJob_data)
 		{
 			StructToTable stLog = new StructToTable();
-			SqlCommand cmdInsertLog = stLog.GetTableInsertCommand(WSRE_CopyToJob_data,"WSRE_COPY_TO_JOB", afldList);
+            SqlCommand cmdInsertLog = stLog.GetTableInsertCommand(WSRE_CopyToJob_data, "dbo.WSRE_COPY_TO_JOB", afldList);
 			CopyToDBHelper.ExecuteNonQuery(cmdInsertLog);
 
 		}
@@ -161,7 +161,7 @@ namespace IRU.RTS.WSRE
 		public bool CheckIfCopyToIDExists(IDBHelper SubscriberDBHelper, WSRE_COPY_TO_JOB_STRUCT WSRE_CopyToJob_data)
 		{
 			StringBuilder SqlCountQuery = new StringBuilder();
-			SqlCountQuery.Append("SELECT COUNT(*) AS Expr1 FROM WS_SUBSCRIBER WHERE (SUBSCRIBER_ID = N'");
+            SqlCountQuery.Append("SELECT COUNT(*) AS Expr1 FROM dbo.WS_SUBSCRIBER WHERE (SUBSCRIBER_ID = N'");
 			SqlCountQuery.Append(WSRE_CopyToJob_data.COPY_TO_ID);
 			SqlCountQuery.Append("')");
  

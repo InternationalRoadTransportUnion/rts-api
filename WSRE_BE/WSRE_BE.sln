@@ -1,5 +1,9 @@
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WSTCHQ_BE", "WSTCHQ_BE", "{EC9221DB-A3AD-4810-85E6-754FD6606618}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CIFCreation", "CIFCreation", "{78971383-3C53-404E-BE1B-1AEA722D7C0A}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSRE_FileRcvrHostService", "WSRE_FileRcvrHostService\WSRE_FileRcvrHostService.csproj", "{83BD7B2C-9661-439B-AD29-BD3D40307429}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSRE_FileReceiver", "WSRE_FileReceiver\WSRE_FileReceiver.csproj", "{C93E3D50-89B8-47C9-9363-0698BE16AD87}"
@@ -9,8 +13,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSRE_Processor", "WSRE_Processor\WSRE_Processor.csproj", "{CBAE1418-58D5-4944-9E43-57D5F75020D2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_FileMover2", "Test_FileMover2\Test_FileMover2.csproj", "{89E0AEE9-1CF3-4585-96F9-7D56D27A1DAF}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WSTCHQ_BE", "WSTCHQ_BE", "{EC9221DB-A3AD-4810-85E6-754FD6606618}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonInterfaces", "..\WSTCHQ_BE\CommonInterfaces\CommonInterfaces.csproj", "{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}"
 EndProject
@@ -23,8 +25,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriberDBHelper", "..\WSTCHQ_BE\SubscriberDBHelper\SubscriberDBHelper.csproj", "{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StructToTable", "StructToTable\StructToTable.csproj", "{09DE4F88-70C7-4556-85D3-B5FCC4BCDFF1}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CIFCreation", "CIFCreation", "{78971383-3C53-404E-BE1B-1AEA722D7C0A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIFCreation", "..\CIFCreation\CIFCreation\CIFCreation.csproj", "{0BE7CE4F-AD72-4FBB-89F2-4349982E62C3}"
 EndProject
