@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("IRU")]
 [assembly: AssemblyProduct("IRU.RTS.WS.TestClient")]
-[assembly: AssemblyCopyright("Copyright © IRU 2011")]
+[assembly: AssemblyCopyright("Copyright © IRU 2011-2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
