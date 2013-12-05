@@ -1,5 +1,7 @@
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WSSTCHQ_BE", "WSSTCHQ_BE", "{A120406E-0808-4BD1-852F-5488E04A495B}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogListener", "LogListener\LogListener.csproj", "{F15DD849-34A6-49E4-A3E6-7E7804317C02}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeriodicReportListener", "PeriodicReportListener\PeriodicReportListener.csproj", "{D9EDDA73-6026-41CF-8561-D4D24E6E8419}"
@@ -7,8 +9,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationHandlers", "NotificationHandlers\NotificationHandlers.csproj", "{396FFE46-1FE7-494C-90D8-9DB4672A1CA6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTSAlertHostService", "RTSAlertHostService\RTSAlertHostService.csproj", "{F8976E5B-6D51-4152-AC28-483749758FB6}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WSSTCHQ_BE", "WSSTCHQ_BE", "{A120406E-0808-4BD1-852F-5488E04A495B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonComponents", "..\WSTCHQ_BE\CommonComponents\CommonComponents.csproj", "{7786779D-6B79-4A51-A03E-2497DCFE2025}"
 EndProject

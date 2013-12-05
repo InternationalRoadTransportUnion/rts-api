@@ -204,7 +204,7 @@ namespace IRU.RTS.AlertProcessor
 			try
 			{			
 				
-				string sCommand ="SELECT [SERVICE_ID], [FAULT_TYPE] ,[THRESHOLD_QUANTITY],[SQL_QUERY],[LAST_COUNT],       [LAST_RUN_TIME]      ,[NO_FAULT_DELAY]      ,[FAULTS_NO_ALERT_DELAY]      ,[ALERT_DELAY]      ,[ALERT_DESCRIPTION] FROM [ALERT_TRACK] with (readpast) WHERE ([NEXT_TIME_TO_RUN] < @NOW OR [NEXT_TIME_TO_RUN] IS NULL) ORDER BY FAULT_TYPE";
+				string sCommand ="SELECT [SERVICE_ID], [FAULT_TYPE] ,[THRESHOLD_QUANTITY],[SQL_QUERY],[LAST_COUNT],       [LAST_RUN_TIME]      ,[NO_FAULT_DELAY]      ,[FAULTS_NO_ALERT_DELAY]      ,[ALERT_DELAY]      ,[ALERT_DESCRIPTION] FROM dbo.[ALERT_TRACK] with (readpast) WHERE ([NEXT_TIME_TO_RUN] < @NOW OR [NEXT_TIME_TO_RUN] IS NULL) ORDER BY FAULT_TYPE";
 		
 				SqlCommand sPollCommand = new SqlCommand();
 				sPollCommand.CommandText=sCommand;
@@ -339,7 +339,7 @@ namespace IRU.RTS.AlertProcessor
 			SqlCommand sUpdateCommand = new SqlCommand();
 
 			#region UpdateStatement
-		string sUpdate ="UPDATE [ALERT_TRACK]   SET [NEXT_TIME_TO_RUN] = @NEXT_TIME_TO_RUN,  [LAST_COUNT] = @LAST_COUNT, [LAST_RUN_TIME] = @LAST_RUN_TIME       WHERE FAULT_TYPE=@FAULT_TYPE";
+            string sUpdate = "UPDATE dbo.[ALERT_TRACK]   SET [NEXT_TIME_TO_RUN] = @NEXT_TIME_TO_RUN,  [LAST_COUNT] = @LAST_COUNT, [LAST_RUN_TIME] = @LAST_RUN_TIME       WHERE FAULT_TYPE=@FAULT_TYPE";
 
 			sUpdateCommand.CommandTimeout = 500; 
 			sUpdateCommand.CommandText=sUpdate;
