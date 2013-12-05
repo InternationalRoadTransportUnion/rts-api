@@ -2,12 +2,11 @@ using System;
 
 using System.IO;
 using System.Diagnostics;
-//using System.Security.Cryptography.X509Certificates;
+using System.Security.Cryptography.X509Certificates;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Xml;
 using System.Text;
-using Microsoft.Web.Services2.Security.X509 ;
 
 namespace IRU.RTS.Crypto
 {
@@ -118,8 +117,7 @@ namespace IRU.RTS.Crypto
 			
 			//load certificate
 			
-			//Microsoft.Web.Services2.Security.X509.X509Certificate xCert = X509Certificate.CreateFromCertFile(CertPath);
-			Microsoft.Web.Services2.Security.X509.X509Certificate xCert = X509Certificate.CreateCertFromFile(CertPath);
+            X509Certificate xCert = X509Certificate.CreateFromCertFile(CertPath);
 			//try access properties
 
 			ThumbPrint = xCert.GetCertHashString();
@@ -249,14 +247,14 @@ namespace IRU.RTS.Crypto
 				return;
 			}
 
-			Microsoft.Web.Services2.Security.X509.X509Certificate xCertInStore = null ;
+			X509Certificate xCertInStore = null ;
 
 			uint pMyCertContext = 0;
 			uint pCertContext = Crypt32Helper.CertEnumCertificatesInStore((uint)hCertStore.ToInt32(), (uint)0);
 
 			while (pCertContext != 0) 
 			{
-				xCertInStore = new Microsoft.Web.Services2.Security.X509.X509Certificate((IntPtr)pCertContext);
+				xCertInStore = new X509Certificate((IntPtr)pCertContext);
 				string thisCertCN= xCertInStore.GetName();
 				string thisCertThumbPrint = xCertInStore.GetCertHashString();
 				if ( thisCertCN==certCN  && thisCertThumbPrint == ThumbPrint  )
@@ -501,8 +499,7 @@ namespace IRU.RTS.Crypto
 
 		public bool ExtractKeysFromSubscriberCertFile3(string CertPath,  out RSAParameters RsaParams, out string ThumbPrint, out string Message, out DateTime ExpiryDate)
 		{
-			//Microsoft.Web.Services2.Security.X509.X509Certificate x509 = Microsoft.Web.Services2.Security.X509.X509Certificate.CreateFromCertFile(CertPath);
-			Microsoft.Web.Services2.Security.X509.X509Certificate xCert = Microsoft.Web.Services2.Security.X509.X509Certificate.CreateCertFromFile (CertPath);
+			X509Certificate2 xCert = new X509Certificate2(CertPath);
 			
 			ThumbPrint = xCert.GetCertHashString();
 
@@ -518,10 +515,11 @@ namespace IRU.RTS.Crypto
 			ThumbPrint = xCert.GetCertHashString();
 
 			ExpiryDate = DateTime.Parse( xCert.GetExpirationDateString());
-			//start
-			RSA rs =  xCert.PublicKey;
-			 RsaParams =  rs.ExportParameters(false);
-			rs = null;
+			//start            
+            if (xCert.PublicKey.Key is RSA)
+            {
+                RsaParams = ((RSA)xCert.PublicKey.Key).ExportParameters(false);
+            }
 			//end
 		
 			return true;
