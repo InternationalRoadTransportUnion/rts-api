@@ -1,46 +1,18 @@
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WSTCHQ_BE", "WSTCHQ_BE", "{E468BED1-E4F3-40B5-8357-806016A3A157}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTSTestClient", "RTSTestClient\RTSTestClient.csproj", "{E62CE39A-83E2-4B27-9D67-E856ADAEC64B}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupRTSTestClient", "SetupRTSTestClient\SetupRTSTestClient.vdproj", "{DA0369F1-7201-4AFF-B6B6-4C8FE0D3E2A9}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupRTSTestClientx86", "SetupRTSTestClientx86\SetupRTSTestClientx86.vdproj", "{8CF63FDF-A6A3-4973-AF18-BC563D14EE11}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WSTCHQ_BE", "WSTCHQ_BE", "{E468BED1-E4F3-40B5-8357-806016A3A157}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoInterfaces", "..\WSTCHQ_BE\CryptoInterfaces\CryptoInterfaces.csproj", "{06D4C54B-A25A-4684-BC6C-192CEB970170}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonInterfaces", "..\WSTCHQ_BE\CommonInterfaces\CommonInterfaces.csproj", "{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonComponents", "..\WSTCHQ_BE\CommonComponents\CommonComponents.csproj", "{7786779D-6B79-4A51-A03E-2497DCFE2025}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

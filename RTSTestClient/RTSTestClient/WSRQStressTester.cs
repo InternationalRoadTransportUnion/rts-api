@@ -881,7 +881,7 @@ namespace RTSTestClient
 			
 			SqlConnection sqlConn = new SqlConnection(System.Configuration.ConfigurationSettings.AppSettings["SubscriberDB"]);
 			
-			string sSelect = "select ENCRYPTION_KEY_ID,MODULUS,EXPONENT,D,P,Q,DP,DQ,INVERSEQ,DISTRIBUTED_TO,DISTRIBUTION_DATE,KEY_ACTIVE,KEY_ACTIVE_REASON,CERT_IS_CURRENT,CERT_EXPIRY_DATE from iru_encryption_keys where encryption_key_id=@KeyID";
+			string sSelect = "select ENCRYPTION_KEY_ID,MODULUS,EXPONENT,D,P,Q,DP,DQ,INVERSEQ,DISTRIBUTED_TO,DISTRIBUTION_DATE,KEY_ACTIVE,KEY_ACTIVE_REASON,CERT_IS_CURRENT,CERT_EXPIRY_DATE from dbo.iru_encryption_keys where encryption_key_id=@KeyID";
 
 			SqlCommand sqlSelect = new SqlCommand(sSelect);
 
