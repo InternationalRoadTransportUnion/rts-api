@@ -21,8 +21,20 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_BCD490D9E162648AF7A37CF1B8455929"
+        "OwnerKey" = "8:_93F257ED64664A41ABE85E230BCD80AB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_93F257ED64664A41ABE85E230BCD80AB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_BCD490D9E162648AF7A37CF1B8455929"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -110,6 +122,37 @@
         }
         "File"
         {
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BCD490D9E162648AF7A37CF1B8455929"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:TIREPDInterfaces, Version=1.0.0.1, Culture=neutral, PublicKeyToken=850293efc386663c, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_BCD490D9E162648AF7A37CF1B8455929"
+                    {
+                    "Name" = "8:TIREPDInterfaces.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:TIREPDInterfaces.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_A74A45443EA64B90A0CF5BA2D995AC40"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -156,6 +199,24 @@
                     "Property" = "8:_38C5FDB34A8B4A41BB8957F6F41A7891"
                         "Folders"
                         {
+                            "{4C6F2762-250E-4E7D-82DC-65B304135C98}:_A74A45443EA64B90A0CF5BA2D995AC40"
+                            {
+                            "AllowScriptSourceAccess" = "11:FALSE"
+                            "AllowReadAccess" = "11:FALSE"
+                            "AllowWriteAccess" = "11:FALSE"
+                            "AllowDirectoryBrowse" = "11:FALSE"
+                            "LogVisits" = "11:TRUE"
+                            "Index" = "11:TRUE"
+                            "ExecutePermissions" = "3:2"
+                            "Name" = "8:bin"
+                            "AlwaysCreate" = "11:TRUE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_3BD6A22CE6BC4C48BACB52A59605CC9E"
+                                "Folders"
+                                {
+                                }
+                            }
                         }
                     }
                 }
@@ -185,6 +246,7 @@
         "MsiBootstrapper"
         {
         "LangId" = "3:1033"
+        "RequiresElevation" = "11:TRUE"
         }
         "Product"
         {
@@ -642,7 +704,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_93F257ED64664A41ABE85E230BCD80AB"
             {
-            "SourcePath" = "8:..\\TIREPDG2B\\obj\\Debug\\TIREPDG2B.dll"
+            "SourcePath" = "8:..\\TIREPDG2B\\obj\\Release\\TIREPDG2B.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_DB1C1D7B1E3D4694B77B1067E751A98E"
@@ -696,9 +758,6 @@
                 {
                 }
             }
-        }
-        "VJSharpPlugin"
-        {
         }
     }
 }

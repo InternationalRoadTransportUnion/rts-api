@@ -1,41 +1,17 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TIREPD_RTS", "TIREPD_RTS", "{76E71627-32B4-4D76-BD7D-7040EACDFAA9}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIREPDB2G", "TIREPDB2G\TIREPDB2G.csproj", "{D7726149-9588-45E6-998A-269C9833DDE0}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIREPDG2B", "TIREPDG2B\TIREPDG2B.csproj", "{F111C462-6362-4FE8-8B3F-852EF93F5FF3}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupTIREPDB2GWS", "SetupTIREPDB2GWS\SetupTIREPDB2GWS.vdproj", "{5A811C74-3314-4E77-8959-CEDDC543D3B1}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupTIREPDG2BWS", "SetupTIREPDG2BWS\SetupTIREPDG2BWS.vdproj", "{CC5CACA7-862A-4104-9C47-E75182344A4D}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TIREPD_RTS", "TIREPD_RTS", "{76E71627-32B4-4D76-BD7D-7040EACDFAA9}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIREPDInterfaces", "..\TIREPD_RTS\TIREPDInterfaces\TIREPDInterfaces.csproj", "{8D660BE3-CF1F-4831-822C-ABE38DEAD90C}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
