@@ -23,8 +23,29 @@ namespace WSRQHostService
 			// This call is required by the Designer.
 			InitializeComponent();
 
-			// TODO: Add any initialization after the InitializeComponent call
-		}
+            this.BeforeInstall += new InstallEventHandler(ProjectInstaller_BeforeInstall);
+            this.BeforeUninstall += new InstallEventHandler(ProjectInstaller_BeforeUninstall);
+        }
+
+        public void ProjectInstaller_BeforeInstall(object sender, InstallEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(this.Context.Parameters["ServiceName"]))
+                this.QueryHostServiceInstaller.ServiceName = this.Context.Parameters["ServiceName"];
+            Console.WriteLine("ServiceName=" + this.QueryHostServiceInstaller.ServiceName);
+            if (!string.IsNullOrEmpty(this.Context.Parameters["DisplayName"]))
+                this.QueryHostServiceInstaller.DisplayName = this.Context.Parameters["DisplayName"];
+            Console.WriteLine("DisplayName=" + this.QueryHostServiceInstaller.DisplayName);
+        }
+
+        public void ProjectInstaller_BeforeUninstall(object sender, InstallEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(this.Context.Parameters["ServiceName"]))
+                this.QueryHostServiceInstaller.ServiceName = this.Context.Parameters["ServiceName"];
+            Console.WriteLine("ServiceName=" + this.QueryHostServiceInstaller.ServiceName);
+            if (!string.IsNullOrEmpty(this.Context.Parameters["DisplayName"]))
+                this.QueryHostServiceInstaller.DisplayName = this.Context.Parameters["DisplayName"];
+            Console.WriteLine("DisplayName=" + this.QueryHostServiceInstaller.DisplayName);
+        }
 
 		/// <summary> 
 		/// Clean up any resources being used.
