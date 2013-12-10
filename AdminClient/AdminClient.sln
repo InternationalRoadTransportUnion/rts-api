@@ -2,13 +2,13 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminClient", "AdminClientProj\AdminClient.csproj", "{EB776E2C-851F-476F-90F7-9A83E03A425A}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AdminClientStandAloneSetup", "AdminClientStandAloneSetup\AdminClientStandAloneSetup.vdproj", "{0B147186-6B33-44CC-A5FB-FF6268D185AB}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RTSPLUS", "RTSPLUS", "{C2C53F39-4454-4829-9AE1-3BF6D965F2F7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRU.RTS.WS.Common.Data.WsSubscriber", "..\IRU.RTS.WS\Common\IRU.RTS.WS.Common.Data.WsSubscriber\IRU.RTS.WS.Common.Data.WsSubscriber.csproj", "{7366225C-600D-4630-8251-62AA676DF881}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRU.RTS.WS.Common.Subscribers", "..\IRU.RTS.WS\Common\IRU.RTS.WS.Common.Subscribers\IRU.RTS.WS.Common.Subscribers.csproj", "{6C841C89-04EA-4A9E-BCBE-E3DA82379C52}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AdminClientStandAloneSetup", "AdminClientStandAloneSetup\AdminClientStandAloneSetup.vdproj", "{A6760865-006F-4B97-9ED3-E6D0DCF5741C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,10 +20,6 @@ Global
 		{EB776E2C-851F-476F-90F7-9A83E03A425A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB776E2C-851F-476F-90F7-9A83E03A425A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB776E2C-851F-476F-90F7-9A83E03A425A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0B147186-6B33-44CC-A5FB-FF6268D185AB}.Debug|Any CPU.ActiveCfg = Debug
-		{0B147186-6B33-44CC-A5FB-FF6268D185AB}.Debug|Any CPU.Build.0 = Debug
-		{0B147186-6B33-44CC-A5FB-FF6268D185AB}.Release|Any CPU.ActiveCfg = Release
-		{0B147186-6B33-44CC-A5FB-FF6268D185AB}.Release|Any CPU.Build.0 = Release
 		{7366225C-600D-4630-8251-62AA676DF881}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7366225C-600D-4630-8251-62AA676DF881}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7366225C-600D-4630-8251-62AA676DF881}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -32,6 +28,10 @@ Global
 		{6C841C89-04EA-4A9E-BCBE-E3DA82379C52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C841C89-04EA-4A9E-BCBE-E3DA82379C52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C841C89-04EA-4A9E-BCBE-E3DA82379C52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6760865-006F-4B97-9ED3-E6D0DCF5741C}.Debug|Any CPU.ActiveCfg = Debug
+		{A6760865-006F-4B97-9ED3-E6D0DCF5741C}.Debug|Any CPU.Build.0 = Debug
+		{A6760865-006F-4B97-9ED3-E6D0DCF5741C}.Release|Any CPU.ActiveCfg = Release
+		{A6760865-006F-4B97-9ED3-E6D0DCF5741C}.Release|Any CPU.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
