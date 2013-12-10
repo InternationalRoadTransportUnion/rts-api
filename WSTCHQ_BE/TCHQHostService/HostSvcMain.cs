@@ -6,6 +6,8 @@ using System.Diagnostics;
 using System.ServiceProcess;
 using IRU.RTS.CommonComponents;
 using IRU.CommonInterfaces;
+using System.Reflection;
+using System.IO;
 
 namespace TCHQHostService
 {
@@ -78,7 +80,9 @@ namespace TCHQHostService
 			try
 			{
 				m_PluginManager = new PlugInManager();
-				m_PluginManager.ConfigFile=System.Configuration.ConfigurationSettings.AppSettings["ConfigXMLFile"];
+
+                Environment.CurrentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                m_PluginManager.ConfigFile= System.Configuration.ConfigurationSettings.AppSettings["ConfigXMLFile"];
 				m_PluginManager.LoadPlugins();
 				Statics.IRUTrace(this,Statics.IRUTraceSwitch.TraceWarning, "Host Service " + this.ServiceName  + " completed loading all plugins.");
 				System.Diagnostics.EventLog.WriteEntry(this.ServiceName,"Host Service " + this.ServiceName  + " completed loading all plugins.", 
