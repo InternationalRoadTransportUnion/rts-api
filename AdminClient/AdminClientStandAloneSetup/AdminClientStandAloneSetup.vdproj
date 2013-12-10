@@ -81,12 +81,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_3A910672A1DD4196AA0BA17D68C3B655"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_3E86F73CB83AA46F9B2D35D03E45C6A6"
         "OwnerKey" = "8:_9FA57C103B604318F9F4DA6814156672"
         "MsmSig" = "8:_UNDEFINED"
@@ -476,26 +470,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3A910672A1DD4196AA0BA17D68C3B655"
-            {
-            "SourcePath" = "8:..\\Dependencies\\makecert.exe"
-            "TargetName" = "8:makecert.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_174F0AE9471C4E76A67343639B58D6FA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3E86F73CB83AA46F9B2D35D03E45C6A6"
             {
             "AssemblyRegister" = "3:1"
@@ -730,7 +704,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:RTS & RTS+ Admin Client"
         "ProductCode" = "8:{4756ABEF-7664-4978-8392-4266A1F5FFD4}"
-        "PackageCode" = "8:{6932676F-C38C-49AE-A982-C9AB48EE788A}"
+        "PackageCode" = "8:{4EA3219D-9410-4301-AD36-3F4C18585E19}"
         "UpgradeCode" = "8:{4D048B6D-86A9-4C2B-97A4-9A99C25C3DE7}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
@@ -1292,7 +1266,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_233C74585F18440BB9A1426177564DF4"
             {
-            "SourcePath" = "8:..\\AdminClientProj\\obj\\Debug\\AdminClient.exe"
+            "SourcePath" = "8:..\\AdminClientProj\\obj\\Release\\AdminClient.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_174F0AE9471C4E76A67343639B58D6FA"
