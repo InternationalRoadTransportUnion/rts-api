@@ -5,7 +5,7 @@
     <Plugin name="InMemoryCache" objectType="IRU.RTS.CommonComponents.FileCache, CommonComponents" isRunnable="false" />
   </Section>
   <Section name="TCHQ_RemotingHelper">
-    <TCHQ_RemotingHelperSettings DBHelperFactoryPlugin="DBHelperFactory" TCHQDBName="TCHQDB" SubscriberDBName="SubsciberDB" EncryptionKeysTable="EncryptionKeys" CuteWiseDBName="CuteWiseDB" InMemoryCachePlugin="InMemoryCache" RemotingPort="9000" CryptoProviderEndpoint="tcp://localhost:9012/CryptoProvider.rem" RemotingEndPoint="WSTCHQ_Processor.rem" SchemaFilesPath="Schemas">
+    <TCHQ_RemotingHelperSettings DBHelperFactoryPlugin="DBHelperFactory" TCHQDBName="TCHQDB" SubscriberDBName="SubsciberDB" EncryptionKeysTable="EncryptionKeys" CuteWiseDBName="CuteWiseDB" InMemoryCachePlugin="InMemoryCache" RemotingPort="9000" CryptoProviderEndpoint="tcp://127.0.0.1:9012/CryptoProvider.rem" RemotingEndPoint="WSTCHQ_Processor.rem" SchemaFilesPath="Schemas">
     </TCHQ_RemotingHelperSettings>
   </Section>
   <Section name="InMemoryCache">
@@ -16,19 +16,19 @@
     <ConnectionStrings>
       <DB Name="TCHQDB">
         <!-- Base64 encoded -->
-        <ConnectionString>SERVER=SC001082C-V2\NM01;DATABASE=TCHQ_DB;Integrated Security=SSPI;connect timeout =200</ConnectionString>
+        <ConnectionString>SERVER=172.25.13.50;DATABASE=TCHQ_DB;Integrated Security=SSPI;connect timeout =200</ConnectionString>
       </DB>
       <DB Name="CurrentDB">
         <!-- Base64 encoded -->
-        <ConnectionString>SERVER=SC001082C-V2\NM01;DATABASE=Current;Integrated Security=SSPI;connect timeout =200</ConnectionString>
+        <ConnectionString>SERVER=172.25.13.50;DATABASE=Current;Integrated Security=SSPI;connect timeout =200</ConnectionString>
       </DB>
       <DB Name="DispatchDB">
         <!-- Base64 encoded -->
-        <ConnectionString>SERVER=SC001082C-V2\NM01;DATABASE=Dispatch;Integrated Security=SSPI;connect timeout =200</ConnectionString>
+        <ConnectionString>SERVER=172.25.13.50;DATABASE=Dispatch;Integrated Security=SSPI;connect timeout =200</ConnectionString>
       </DB>
       <DB Name="SubscriberDB">
         <!-- Base64 encoded -->
-        <ConnectionString>SERVER=SC001082C-V2\NM01;DATABASE=WS_Subscriber_db;Integrated Security=SSPI;connect timeout =200</ConnectionString>
+        <ConnectionString>SERVER=172.25.13.50;DATABASE=WS_Subscriber_db;Integrated Security=SSPI;connect timeout =200</ConnectionString>
       </DB>
     </ConnectionStrings>
   </Section>

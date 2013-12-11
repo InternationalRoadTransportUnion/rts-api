@@ -79,9 +79,9 @@ namespace TCHQHostService
 			// TODO: Add code here to start your service.
 			try
 			{
-				m_PluginManager = new PlugInManager();
-
-                Environment.CurrentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+				Environment.CurrentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+			
+				m_PluginManager = new PlugInManager();                
                 m_PluginManager.ConfigFile= System.Configuration.ConfigurationSettings.AppSettings["ConfigXMLFile"];
 				m_PluginManager.LoadPlugins();
 				Statics.IRUTrace(this,Statics.IRUTraceSwitch.TraceWarning, "Host Service " + this.ServiceName  + " completed loading all plugins.");
