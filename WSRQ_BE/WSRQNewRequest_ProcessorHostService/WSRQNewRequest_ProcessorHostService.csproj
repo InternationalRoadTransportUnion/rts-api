@@ -1,6 +1,5 @@
 ﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
-    <ProjectType>Local</ProjectType>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{785E5239-95E1-40F4-9188-F44F3C09FA92}</ProjectGuid>
@@ -117,6 +116,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Schemas\ReconciliationQueryData.xsd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
@@ -141,6 +143,11 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="WSRQNewRequest_Processor_Config.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\WSTCHQ_BE\CommonComponents\CommonComponents.csproj">
       <Project>{7786779D-6B79-4A51-A03E-2497DCFE2025}</Project>
       <Name>CommonComponents</Name>
@@ -148,6 +155,14 @@
     <ProjectReference Include="..\..\WSTCHQ_BE\CommonInterfaces\CommonInterfaces.csproj">
       <Project>{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}</Project>
       <Name>CommonInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\FileListener\FileListener.csproj">
+      <Project>{5489F565-7459-44B1-926C-B6B69655C8BC}</Project>
+      <Name>FileListener</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WSRQNewRequest_Processor\WSRQNewRequest_Processor.csproj">
+      <Project>{0205F85F-1BB1-4B78-B414-DE2A84CA0B2E}</Project>
+      <Name>WSRQNewRequest_Processor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

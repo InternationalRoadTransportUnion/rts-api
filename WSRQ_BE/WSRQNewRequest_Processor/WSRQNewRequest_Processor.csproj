@@ -102,12 +102,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="WSRQNewRequest_Processor_Config.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="WSRQNewRequest_Processor.exe.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\WSTCHQ_BE\CommonComponents\CommonComponents.csproj">
       <Project>{7786779D-6B79-4A51-A03E-2497DCFE2025}</Project>
       <Name>CommonComponents</Name>

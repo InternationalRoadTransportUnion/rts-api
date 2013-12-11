@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WSTCHQ_BE", "WSTCHQ_BE", "{EA36A697-2064-4AAA-BF17-CB3A23ADB37A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSRQNewRequest_Processor", "WSRQNewRequest_Processor\WSRQNewRequest_Processor.csproj", "{CBAE1418-58D5-4944-9E43-57D5F75020D2}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSRQNewRequest_ProcessorHostService", "WSRQNewRequest_ProcessorHostService\WSRQNewRequest_ProcessorHostService.csproj", "{785E5239-95E1-40F4-9188-F44F3C09FA92}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSRQ_QueryProcessor", "WSRQ_QueryProcessor\WSRQ_QueryProcessor.csproj", "{680745F6-7FEC-4B6A-ACD4-926352C6648D}"
@@ -23,16 +21,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTSStructures", "..\WSTCHQ_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriberDBHelper", "..\WSTCHQ_BE\SubscriberDBHelper\SubscriberDBHelper.csproj", "{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileListener", "..\WSTCHQ_BE\FileListener\FileListener.csproj", "{5489F565-7459-44B1-926C-B6B69655C8BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSRQNewRequest_Processor", "WSRQNewRequest_Processor\WSRQNewRequest_Processor.csproj", "{CBAE1418-58D5-4944-9E43-57D5F75020D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CBAE1418-58D5-4944-9E43-57D5F75020D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CBAE1418-58D5-4944-9E43-57D5F75020D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CBAE1418-58D5-4944-9E43-57D5F75020D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CBAE1418-58D5-4944-9E43-57D5F75020D2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{785E5239-95E1-40F4-9188-F44F3C09FA92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{785E5239-95E1-40F4-9188-F44F3C09FA92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{785E5239-95E1-40F4-9188-F44F3C09FA92}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -69,6 +67,14 @@ Global
 		{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5489F565-7459-44B1-926C-B6B69655C8BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5489F565-7459-44B1-926C-B6B69655C8BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5489F565-7459-44B1-926C-B6B69655C8BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5489F565-7459-44B1-926C-B6B69655C8BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBAE1418-58D5-4944-9E43-57D5F75020D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBAE1418-58D5-4944-9E43-57D5F75020D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBAE1418-58D5-4944-9E43-57D5F75020D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBAE1418-58D5-4944-9E43-57D5F75020D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,5 +86,6 @@ Global
 		{5E093F16-E114-49BD-B1A8-C24036F3F328} = {EA36A697-2064-4AAA-BF17-CB3A23ADB37A}
 		{BBF126D5-CA34-4786-A61D-0B426EC0677B} = {EA36A697-2064-4AAA-BF17-CB3A23ADB37A}
 		{2CFCD16E-4CFB-479B-BD8E-53FA95A3BD59} = {EA36A697-2064-4AAA-BF17-CB3A23ADB37A}
+		{5489F565-7459-44B1-926C-B6B69655C8BC} = {EA36A697-2064-4AAA-BF17-CB3A23ADB37A}
 	EndGlobalSection
 EndGlobal
