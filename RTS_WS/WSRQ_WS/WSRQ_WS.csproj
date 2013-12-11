@@ -65,10 +65,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="TraceHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WSRQ.asmx.cs">
       <SubType>Component</SubType>
+      <DependentUpon>WSRQ.asmx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\Web.config" />

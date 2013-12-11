@@ -1,35 +1,27 @@
 <Config>
-	<Section name="PluginManager">
-		<Plugin name="DBHelperFactory" objectType="IRU.RTS.CommonComponents.DBHelperFactory, CommonComponents" isRunnable="false" />
-		<Plugin name="WSRQ_RemotingHelper" objectType="IRU.RTS.WSWSRQ.WSRQ_RemotingHelper, WSRQ_QueryProcessor"
-			isRunnable="true" />
-		<Plugin name="InMemoryCache" objectType="IRU.RTS.CommonComponents.FileCache, CommonComponents"
-			isRunnable="false" /> 
-	</Section>
-<Section name="WSRQ_RemotingHelper">
-
-<WSRQ_RemotingHelperSettings DBHelperFactoryPlugin="DBHelperFactory" WSRQDBName="WSRQDB" 
-SubscriberDBName="SubsciberDB" EncryptionKeysTable="EncryptionKeys" 
- InMemoryCachePlugin = "InMemoryCache"  RemotingPort="9002" CryptoProviderEndpoint="tcp://localhost:9012/CryptoProvider.rem" 
-  SchemaFilesPath="O:\bin\Schemas" RemotingEndPoint="WSRQ_Processor.rem">
-</WSRQ_RemotingHelperSettings>
-	</Section>
-
-	<Section name="InMemoryCache">
-		<InMemoryFileCacheSettings ScanDirectory="O:\bin\CachedFiles" FilePattern="*.xml"></InMemoryFileCacheSettings>
-	</Section>
-
-	<Section name="DBHelperFactory">
-		<ConnectionStrings>
-			<DB Name="WSRQDB">
-				<!-- Base64 encoded -->
-				<ConnectionString>SERVER=PUNKKILLER\I2000;DATABASE=WSRQ_DB;uid=rtsuser;pwd=realtime;connect timeout =200</ConnectionString>
-			</DB>
-			<DB Name="SubscriberDB">
-				<!-- Base64 encoded -->
-				<ConnectionString>SERVER=PUNKKILLER\I2000;DATABASE=WS_Subscriber_db;uid=rtsuser;pwd=realtime;connect timeout =200</ConnectionString>
-			</DB>
-
-		</ConnectionStrings>
-	</Section>
+  <Section name="PluginManager">
+    <Plugin name="DBHelperFactory" objectType="IRU.RTS.CommonComponents.DBHelperFactory, CommonComponents" isRunnable="false" />
+    <Plugin name="WSRQ_RemotingHelper" objectType="IRU.RTS.WSWSRQ.WSRQ_RemotingHelper, WSRQ_QueryProcessor" isRunnable="true" />
+    <Plugin name="InMemoryCache" objectType="IRU.RTS.CommonComponents.FileCache, CommonComponents" isRunnable="false" />
+  </Section>
+  <Section name="WSRQ_RemotingHelper">
+    <WSRQ_RemotingHelperSettings DBHelperFactoryPlugin="DBHelperFactory" WSRQDBName="WSRQDB" SubscriberDBName="SubsciberDB" EncryptionKeysTable="EncryptionKeys" InMemoryCachePlugin="InMemoryCache" RemotingPort="9002" CryptoProviderEndpoint="tcp://127.0.0.1:9012/CryptoProvider.rem" SchemaFilesPath="Schemas" RemotingEndPoint="WSRQ_Processor.rem">
+    </WSRQ_RemotingHelperSettings>
+  </Section>
+  <Section name="InMemoryCache">
+    <InMemoryFileCacheSettings ScanDirectory="CachedFiles" FilePattern="*.xml">
+    </InMemoryFileCacheSettings>
+  </Section>
+  <Section name="DBHelperFactory">
+    <ConnectionStrings>
+      <DB Name="WSRQDB">
+        <!-- Base64 encoded -->
+        <ConnectionString>SERVER=172.25.13.50;DATABASE=WSRQ_DB;Integrated Security=SSPI;connect timeout =200</ConnectionString>
+      </DB>
+      <DB Name="SubscriberDB">
+        <!-- Base64 encoded -->
+        <ConnectionString>SERVER=172.25.13.50;DATABASE=WS_Subscriber_db;Integrated Security=SSPI;connect timeout =200</ConnectionString>
+      </DB>
+    </ConnectionStrings>
+  </Section>
 </Config>

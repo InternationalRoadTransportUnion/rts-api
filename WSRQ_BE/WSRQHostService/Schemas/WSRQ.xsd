@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iru.org/SafeTIRReconciliation"
+	xmlns="http://www.iru.org/SafeTIRReconciliation" elementFormDefault="qualified"  version="1.0.0">
+    <xs:element name="WSRQ">
+      <xs:complexType>
+        <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="su" type="ReconciliationQuery" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="ReconciliationQuery">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="SubscriberID" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="MessageTag" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="ESessionKey" type="xs:base64Binary" />
+          <xs:element minOccurs="1" maxOccurs="1" name="ReconciliationQueryData" type="xs:base64Binary" />
+          <xs:element minOccurs="0" maxOccurs="1" name="Sender_MessageID" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="Information_Exchange_Version" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="WSRQResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="WSRQResult" type="ReconciliationResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="ReconciliationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="MessageTag" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="Sender" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="ESessionKey" type="xs:base64Binary" />
+          <xs:element minOccurs="1" maxOccurs="1" name="ReconciliationRequestData" type="xs:base64Binary" />
+          <xs:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="1" name="Sender_MessageID" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  
+
