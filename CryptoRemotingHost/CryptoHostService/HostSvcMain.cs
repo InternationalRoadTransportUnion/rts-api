@@ -5,6 +5,8 @@ using System.Data;
 using System.Diagnostics;
 using System.ServiceProcess;
 using IRU.RTS.CommonComponents;
+using System.IO;
+using System.Reflection;
 
 namespace CryptoHostService
 {
@@ -74,6 +76,8 @@ namespace CryptoHostService
 		{
 			try
 			{
+                Environment.CurrentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
 				m_PluginManager = new PlugInManager();
 				m_PluginManager.ConfigFile=System.Configuration.ConfigurationSettings.AppSettings["ConfigXMLFile"];
 				m_PluginManager.LoadPlugins();
