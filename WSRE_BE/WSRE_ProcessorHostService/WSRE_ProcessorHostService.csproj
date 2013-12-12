@@ -1,7 +1,7 @@
 ﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{785E5239-95E1-40F4-9188-F44F3C09FA92}</ProjectGuid>
     <SccProjectName>
@@ -117,6 +117,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Schemas\WSRE.xsd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
@@ -149,12 +152,30 @@
       <Project>{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}</Project>
       <Name>CommonInterfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\FileListener\FileListener.csproj">
+      <Project>{5489F565-7459-44B1-926C-B6B69655C8BC}</Project>
+      <Name>FileListener</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WSRE_Processor\WSRE_Processor.csproj">
+      <Project>{CBAE1418-58D5-4944-9E43-57D5F75020D2}</Project>
+      <Name>WSRE_Processor</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="WSRE_Processor_Config.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>mkdir $(TargetDir)WSRE_FOLDERS\DispatchPath
+mkdir $(TargetDir)WSRE_FOLDERS\ErrorProcessingFiles
+mkdir $(TargetDir)WSRE_FOLDERS\ReplyInDrop
+mkdir $(TargetDir)WSRE_FOLDERS\ReplyUploadFileArchive
+mkdir $(TargetDir)WSRE_FOLDERS\ReplyWorkingFolder
+mkdir $(TargetDir)WSRE_FOLDERS\Temp_Dispatch
+exit 0</PostBuildEvent>
   </PropertyGroup>
 </Project>

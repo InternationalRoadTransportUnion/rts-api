@@ -4,11 +4,6 @@
         <name>WSRE_FileReceiver</name>
     </assembly>
     <members>
-        <member name="T:IRU.RTS.WSRE.WSREFR_RemotingHelper">
-            <summary>
-            Was WSSTFileReceiverPlugin in the design documents - mandar
-            </summary>
-        </member>
         <member name="T:IRU.RTS.WSRE.ExternalDBHelper">
             <summary>
             This class is used by WSRE_FileReceiver to update the WSRE_Exernal_Log table in the WSRE_EXTERNAL_DB
@@ -33,6 +28,11 @@
             Uses Struct_To_Table to generete an Update SQLCommand and executes against External DB IDBHelper
             </summary>
             <returns>Number of Rows affected</returns>
+        </member>
+        <member name="T:IRU.RTS.WSRE.WSREFR_RemotingHelper">
+            <summary>
+            Was WSSTFileReceiverPlugin in the design documents - mandar
+            </summary>
         </member>
         <member name="T:IRU.RTS.WSRE.WSRE_FileReceiver">
             <summary>

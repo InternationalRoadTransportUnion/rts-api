@@ -1,0 +1,22 @@
+<Config>
+  <Section name="PluginManager">
+    <Plugin name="DBHelperFactory" objectType="IRU.RTS.CommonComponents.DBHelperFactory, CommonComponents" isRunnable="false" />
+    <Plugin name="WSREFileReceiverPlugin" objectType="IRU.RTS.WSRE.WSREFR_RemotingHelper, WSRE_FileReceiver" isRunnable="true" />
+  </Section>
+  <Section name="WSREFileReceiverPlugin">
+    <FileReceiverSettings DBHelperFactoryPlugin="DBHelperFactory" DoubleAgentDropPath="WSREFR_Folders/DoubleAgentDropPath" TemporaryFolderPath="WSREFR_Folders/Tempfolder" RemotingPort="9005" RemotingEndPoint="WSREFileReceive.Rem">
+    </FileReceiverSettings>
+  </Section>
+  <Section name="DBHelperFactory">
+    <ConnectionStrings>
+      <DB Name="WSREExternalDB">
+        <!-- Base64 encoded -->
+        <ConnectionString>SERVER=172.25.13.50;DATABASE=WSST_EXTERNAL_DB;Integrated Security=SSPI;connect timeout =200</ConnectionString>
+      </DB>
+      <DB Name="SubscriberDB">
+        <!-- Base64 encoded -->
+        <ConnectionString>SERVER=172.25.13.50;DATABASE=WS_Subscriber_db;Integrated Security=SSPI;connect timeout =200</ConnectionString>
+      </DB>
+    </ConnectionStrings>
+  </Section>
+</Config>
