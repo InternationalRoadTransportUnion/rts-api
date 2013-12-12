@@ -6,6 +6,8 @@ using System.Diagnostics;
 using System.ServiceProcess;
 using IRU.CommonInterfaces;
 using IRU.RTS.CommonComponents;
+using System.IO;
+using System.Reflection;
 
 namespace WSST_ProcessorHostService
 {
@@ -77,6 +79,8 @@ namespace WSST_ProcessorHostService
 			// TODO: Add code here to start your service.
 			try
 			{
+                Environment.CurrentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
 				m_PluginManager = new PlugInManager();
 				m_PluginManager.ConfigFile=System.Configuration.ConfigurationSettings.AppSettings["ConfigXMLFile"];
 				m_PluginManager.LoadPlugins();

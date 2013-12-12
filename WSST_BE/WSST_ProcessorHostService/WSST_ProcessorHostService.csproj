@@ -104,6 +104,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Schemas\WSST.xsd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Schemas\WSST1.xsd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
@@ -129,12 +135,30 @@
       <Project>{B3FC887C-77F3-4347-B5C9-07C0172F5DEB}</Project>
       <Name>CommonInterfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\WSTCHQ_BE\FileListener\FileListener.csproj">
+      <Project>{5489F565-7459-44B1-926C-B6B69655C8BC}</Project>
+      <Name>FileListener</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WSST_Processor\WSST_Processor.csproj">
+      <Project>{CBAE1418-58D5-4944-9E43-57D5F75020D2}</Project>
+      <Name>WSST_Processor</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="WSST_Processor_Config.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>mkdir $(TargetDir)WSST_FOLDERS\DispatchPath
+mkdir $(TargetDir)WSST_FOLDERS\ErrorProcessingFiles
+mkdir $(TargetDir)WSST_FOLDERS\SafeTirInDrop
+mkdir $(TargetDir)WSST_FOLDERS\SafeTirUploadFileArchive
+mkdir $(TargetDir)WSST_FOLDERS\SafeTirWorkingFolder
+mkdir $(TargetDir)WSST_FOLDERS\Temp_Dispatch
+exit 0</PostBuildEvent>
   </PropertyGroup>
 </Project>

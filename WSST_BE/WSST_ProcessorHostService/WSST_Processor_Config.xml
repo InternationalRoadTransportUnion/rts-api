@@ -1,0 +1,32 @@
+<Config>
+  <Section name="PluginManager">
+    <Plugin name="DBHelperFactory" objectType="IRU.RTS.CommonComponents.DBHelperFactory, CommonComponents" isRunnable="false" />
+    <Plugin name="WSST_Processor" objectType="IRU.RTS.WSST.WSST_Processor, WSST_Processor" isRunnable="false" />
+    <Plugin name="FileSystemListener" objectType="IRU.RTS.CommonComponents.FileSystemListener, FileListener" isRunnable="true" />
+    <!--<Plugin name="InMemoryCache" objectType="IRU.RTS.CommonComponents.FileCache, CommonComponents"
+			isRunnable="false" />-->
+  </Section>
+  <Section name="WSST_Processor">
+    <WSST_ProcessorSettings DBHelperFactoryPlugin="DBHelperFactory" InMemoryCachePlugin="InMemoryCache" DispatchFileDropPath="WSST_Folders/DispatchPath" TemporaryFolderPath="WSST_Folders/Temp_Dispatch" CryptoProviderEndpoint="tcp://localhost:9012/CryptoProvider.rem" SchemaFilesPath="Schemas">
+    </WSST_ProcessorSettings>
+  </Section>
+  <!--</Section>-->
+  <Section name="FileSystemListener">
+    <FileSystemListener DeliverToPlugin="WSST_Processor" PollFolderLocation="./../WSST_Ex/WSSTFR_Folders/DoubleAgentDropPath" WorkingFolderLocation="WSST_Folders/SafeTirWorkingFolder" ArchiveFolderLocation="WSST_Folders/SafeTirUploadFileArchive" MaxConcurrentProcessCount="2" ErrorFolderLocation="WSST_Folders/ErrorProcessingFiles" FilePattern="*.SafeTIR" ForceScanInterval="3">
+    </FileSystemListener>
+  </Section>
+  <Section name="DBHelperFactory">
+    <ConnectionStrings>
+      <DB Name="WSST_Internal_DB">
+        <!-- Base64 encoded -->
+        <ConnectionString>SERVER=172.25.13.50;DATABASE=WSST_INTERNAL_DB;Integrated Security=SSPI;connect timeout =200</ConnectionString>
+      </DB>
+      <DB Name="WSST_COPYTODB">
+        <ConnectionString>SERVER=172.25.13.50;DATABASE=WSST_COPY_TO_DB;Integrated Security=SSPI;connect timeout =200</ConnectionString>
+      </DB>
+      <DB Name="SubscriberDB">
+        <ConnectionString>SERVER=172.25.13.50;DATABASE=WS_SUBSCRIBER_DB;Integrated Security=SSPI;connect timeout =200</ConnectionString>
+      </DB>
+    </ConnectionStrings>
+  </Section>
+</Config>
