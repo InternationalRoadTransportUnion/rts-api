@@ -402,8 +402,9 @@ namespace IRU.RTS.AdminClient
 		{
 
 			//Application Name=AdminClient;Server=Doctor43\I0;Database=WS_Subscriber_db;uid=rtsuser;pwd=rtsuser;Connect Timeout=30"
-			return "Application Name=AdminClient;Server="+ServerName+";Database=" + DBName+
-				";uid="+DBUser+";pwd="+DBPassword+";Connect Timeout=30;";
+            return "Application Name=AdminClient;Server=" + ServerName + ";Database=" + DBName +
+                //";uid="+DBUser+";pwd="+DBPassword+";Connect Timeout=30;";
+                ";Integrated Security=true";
 		}
 
 		private void btnCancel_Click(object sender, System.EventArgs e)
