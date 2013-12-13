@@ -4,6 +4,8 @@ using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Configuration;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace IRU.RTS.AdminClient
 {
@@ -359,11 +361,32 @@ namespace IRU.RTS.AdminClient
 				MessageBox.Show("UserRights not set", "AdminClient");
 				Application.Exit();
 
-			}
-			#region Setup Menu Security
+            }
 
-			#region SetMenu Items Collection
-				SetMenuCollection();
+            #region Title
+            if (!this.Text.Contains("["))
+            {
+                string sDBServer = "<unknown>";
+                if (HTConnectionStrings["SubscriberDB"] is string)
+                {
+                    foreach (string s in ((string)HTConnectionStrings["SubscriberDB"]).Split(new char[] { ';' }))
+                    {
+                        string[] ss = s.Split(new char[] { '=' });
+                        if ((ss.Length > 1) && (ss[0].ToLower().Contains("server")))
+                        {
+                            sDBServer = ss[1].Trim();
+                            break;
+                        }
+                    }
+                }
+                this.Text += String.Format("[DB Server: {0}; RTS User: {1}]", sDBServer, UserID);
+            }
+            #endregion
+
+            #region Setup Menu Security
+
+            #region SetMenu Items Collection
+            SetMenuCollection();
 				//disable all menus
 			foreach (object key in  m_htMenuRights.Keys)
 			{
