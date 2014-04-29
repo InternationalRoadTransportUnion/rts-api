@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WSTCHQ_BE", "WSTCHQ_BE", "{A893536D-70E7-4D67-941F-56353539AD7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TVQR_WS", "TVQR_WS\TVQR_WS.csproj", "{BBD32A17-F7AF-4094-B2D0-B0793081CDD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTSStructures", "..\..\WSTCHQ_BE\RTSStructures\RTSStructures.csproj", "{BBF126D5-CA34-4786-A61D-0B426EC0677B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBD32A17-F7AF-4094-B2D0-B0793081CDD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBD32A17-F7AF-4094-B2D0-B0793081CDD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBD32A17-F7AF-4094-B2D0-B0793081CDD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBD32A17-F7AF-4094-B2D0-B0793081CDD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBF126D5-CA34-4786-A61D-0B426EC0677B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBF126D5-CA34-4786-A61D-0B426EC0677B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBF126D5-CA34-4786-A61D-0B426EC0677B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBF126D5-CA34-4786-A61D-0B426EC0677B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BBF126D5-CA34-4786-A61D-0B426EC0677B} = {A893536D-70E7-4D67-941F-56353539AD7A}
+	EndGlobalSection
+EndGlobal

@@ -187,8 +187,56 @@ namespace IRU.RTS
     //}
 
 
-    
+    /// <summary>
+    /// VoucherQuery - TVQR method #1: query
+    /// </summary>
+    [Serializable]
+    public struct VoucherQueryType
+    {
+        public string SubscriberID;
+        public string MessageTag;
+        public byte[] ESessionKey;
+        public byte[] VoucherQueryParams;
+        public string Query_ID;
+    }
 
+    /// <summary>
+    /// VoucherQuery - TVQR method #1: response
+    /// </summary>
+    [Serializable]
+    public struct VoucherQueryResponseType
+    {
+        public string MessageTag;
+        public byte[] ESessionKey;
+        public byte[] VoucherQueryResponseParams;
+        public int ReturnCode;
+        public string Query_ID;
+    }
 
+    /// <summary>
+    /// VoucherRegistration - TVQR method #2: query
+    /// </summary>
+    [Serializable]
+    public struct VoucherRegistrationType
+    {
+        public string SubscriberID;
+        public string MessageTag;
+        public byte[] ESessionKey;
+        public byte[] VoucherRegistrationParams;
+        public string Sender_MessageID;
+    }
+
+    /// <summary>
+    /// VoucherRegistration - TVQR method #2: response
+    /// </summary>
+    [Serializable]
+    public struct VoucherRegistrationResponseType
+    {
+        public string MessageTag;
+        public byte[] ESessionKey;
+        public byte[] VoucherRegistrationResponseParams;
+        public int ReturnCode;
+        public string Sender_MessageID;
+    }
 }
 
