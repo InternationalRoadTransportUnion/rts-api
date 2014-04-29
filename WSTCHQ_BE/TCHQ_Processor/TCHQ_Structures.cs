@@ -47,6 +47,7 @@ namespace IRU.RTS.WSTCHQ
 		public object		validityDate;	//to store null value
 		public String		assocShortName;
 		public object		numberOfTerminations; // to store null values
+        public object       voucherNumber; // to store null values
 		public DateTime		rowCreationTime;
 		public String		sessionKeyEncryptionKeyIDUsed;
 		public byte []		encryptedSessionKeyOut;

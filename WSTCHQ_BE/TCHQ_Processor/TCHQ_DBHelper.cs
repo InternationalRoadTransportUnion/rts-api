@@ -329,6 +329,7 @@ namespace IRU.RTS.WSTCHQ
 				"[VALIDITY_DATE]=@VALIDITY_DATE,  " +
 				"[ASSOCIATION_SHORT_NAME]=@ASSOCIATION_SHORT_NAME,  " +
 				"[NUMBER_TERMINATIONS]=@NUMBER_TERMINATIONS,  " +
+                "[VOUCHER_NUMBER]=@VOUCHER_NUMBER,  " +
 				"[RETURN_CODE] = @RETURN_CODE, " +  
 				"[LAST_STEP] = @LAST_STEP, " +
 				"[COMPLETION_TIME] = @COMPLETION_TIME " +
@@ -353,6 +354,7 @@ namespace IRU.RTS.WSTCHQ
 				sCmd.Parameters.Add("@VALIDITY_DATE", SqlDbType.DateTime).Value = DBNull.Value ;
 				sCmd.Parameters.Add("@ASSOCIATION_SHORT_NAME", SqlDbType.NVarChar).Value = DBNull.Value ;
 				sCmd.Parameters.Add("@NUMBER_TERMINATIONS", SqlDbType.Int).Value = DBNull.Value ;
+                sCmd.Parameters.Add("@VOUCHER_NUMBER", SqlDbType.NVarChar).Value = DBNull.Value;
 
 				sCmd.Parameters.Add("@RETURN_CODE", SqlDbType.Int).Value = tchQLogRequestData.returnCode;
 				sCmd.Parameters.Add("@LAST_STEP", SqlDbType.Int).Value = tchQLogRequestData.lastStep ;
@@ -367,6 +369,7 @@ namespace IRU.RTS.WSTCHQ
 				sCmd.Parameters.Add("@VALIDITY_DATE", SqlDbType.DateTime).Value = (tchQLogRequestData.validityDate == null ? DBNull.Value : tchQLogRequestData.validityDate);
 				sCmd.Parameters.Add("@ASSOCIATION_SHORT_NAME", SqlDbType.NVarChar).Value = tchQLogRequestData.assocShortName ;
 				sCmd.Parameters.Add("@NUMBER_TERMINATIONS", SqlDbType.Int).Value = (tchQLogRequestData.numberOfTerminations == null ? DBNull.Value : tchQLogRequestData.numberOfTerminations);
+                sCmd.Parameters.Add("@VOUCHER_NUMBER", SqlDbType.NVarChar).Value = (tchQLogRequestData.voucherNumber == null ? DBNull.Value : tchQLogRequestData.voucherNumber);
 
 				sCmd.Parameters.Add("@RETURN_CODE", SqlDbType.Int).Value = DBNull.Value  ;
 				sCmd.Parameters.Add("@LAST_STEP", SqlDbType.Int).Value = DBNull.Value ;

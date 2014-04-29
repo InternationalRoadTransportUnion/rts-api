@@ -54,9 +54,8 @@ namespace IRU.RTS.WSTCHQ
 		/// </summary>
 		/// <param name="sTIR_Carnet_No"></param>
 		/// <returns></returns>
-        public Hashtable GetTIRCarnetQueryData(string sTIR_Carnet_No)
-        {
-            
+        public Hashtable GetTIRCarnetQueryData(string sTIR_Carnet_No, bool findVoucherNumber)
+        {           
             Int64 lTIR_Carnet_No = 0;
             Hashtable ht = new Hashtable();
             string sResult = "";
@@ -81,6 +80,7 @@ namespace IRU.RTS.WSTCHQ
                         SqlCommand cmd = new SqlCommand(query);
                         cmd.CommandTimeout = 500;
                         cmd.Parameters.Add("@TIRNumber", SqlDbType.Int).Value = lTIR_Carnet_No;
+                        cmd.Parameters.Add("@WithVoucherNumber", SqlDbType.Bit).Value = findVoucherNumber;
                         m_idbHelper.ConnectToDB();
                         IDataReader dr = m_idbHelper.GetDataReader(cmd, CommandBehavior.SingleRow);
 
@@ -89,18 +89,18 @@ namespace IRU.RTS.WSTCHQ
 
                         if (sResult.Trim() != "")
                         {
+                            ht.Add("Carnet_Number", dr["TIRNumber"].ToString().Trim());
+
                             switch (sResult)
                             {
                                 case "1":
-                                    ht.Add("Carnet_Number", dr["TIRNumber"].ToString().Trim());
                                     ht.Add("Assoc_Short_Name", dr["AssociationShortName"].ToString().Trim());
                                     ht.Add("Validity_Date", (DateTime)dr["ExpiryDate"]);
                                     ht.Add("No_Of_Terminations", GetNumberOfDischarges(lTIR_Carnet_No).ToString());
                                     ht.Add("Query_Result_Code", sResult);
-                                    ht.Add("Holder_ID", dr["I_HolderID"].ToString().Trim());
+                                    ht.Add("Holder_ID", dr["I_HolderID"].ToString().Trim());                                    
                                     break;
                                 case "2":
-                                    ht.Add("Carnet_Number", dr["TIRNumber"].ToString().Trim());
                                     ht.Add("Assoc_Short_Name", dr["AssociationShortName"].ToString().Trim());
                                     ht.Add("Validity_Date", null);
                                     ht.Add("No_Of_Terminations", GetNumberOfDischarges(lTIR_Carnet_No).ToString());
@@ -110,7 +110,6 @@ namespace IRU.RTS.WSTCHQ
                                 case "3":
                                 case "4":
                                 case "5":
-                                    ht.Add("Carnet_Number", dr["TIRNumber"].ToString().Trim());
                                     ht.Add("Assoc_Short_Name", null);
                                     ht.Add("Validity_Date", null);
                                     ht.Add("No_Of_Terminations", null);
@@ -118,6 +117,14 @@ namespace IRU.RTS.WSTCHQ
                                     ht.Add("Holder_ID", null);
                                     break;
                             }
+
+                            int iVoucherNumber = 0;
+                            string sVoucherNumber = null;
+                            if ((!String.IsNullOrEmpty(dr["VoucherNumber"].ToString().Trim())) && (int.TryParse(dr["VoucherNumber"].ToString(), out iVoucherNumber)))
+                            {
+                                sVoucherNumber = TIRVoucherUtils.getVoucherFromInt(iVoucherNumber);
+                            }
+                            ht.Add("Voucher_Number", sVoucherNumber);
                         }
                     }
                 }
@@ -129,6 +136,7 @@ namespace IRU.RTS.WSTCHQ
                     ht.Add("No_Of_Terminations", null);
                     ht.Add("Query_Result_Code", "5");
                     ht.Add("Holder_ID", null);
+                    ht.Add("Voucher_Number", null);
                 }
             }
             catch (Exception e)

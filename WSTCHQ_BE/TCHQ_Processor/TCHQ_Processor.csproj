@@ -157,6 +157,7 @@
     <Compile Include="TCHQ_Structures.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TIRVoucherUtils.cs" />
     <Content Include="WSTCHQ.xml" />
   </ItemGroup>
   <ItemGroup>

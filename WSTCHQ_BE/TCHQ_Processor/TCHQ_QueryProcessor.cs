@@ -889,7 +889,7 @@ namespace IRU.RTS.WSTCHQ
 				#endregion
 
 				CWQuerys cq = new CWQuerys(dbCurrent);
-				cwHashTable = cq.GetTIRCarnetQueryData(tchqRequestLogData.tirCarnetNumber);
+				cwHashTable = cq.GetTIRCarnetQueryData(tchqRequestLogData.tirCarnetNumber, (tchqRequestLogData.queryType & 0x2) == 0x2);
 
 				iCWResultCode =  int.Parse(cwHashTable["Query_Result_Code"].ToString());
 			
@@ -945,6 +945,12 @@ namespace IRU.RTS.WSTCHQ
 					tmpNode1 = nodeResponseBody.SelectSingleNode("./def:NumTerminations",xnsResponse);
 					nodeResponseBody.RemoveChild(tmpNode1); 
 				}
+                nodeResponseBody.SelectSingleNode("./def:Voucher_Number", xnsResponse).InnerText = GetBlankIfNull(cwHashTable["Voucher_Number"]);
+                if (nodeResponseBody.SelectSingleNode("./def:Voucher_Number", xnsResponse).InnerText == "")
+                {
+                    tmpNode1 = nodeResponseBody.SelectSingleNode("./def:Voucher_Number", xnsResponse);
+                    nodeResponseBody.RemoveChild(tmpNode1);
+                }
 
 				tchqRequestLogData.queryResultCode =Int32.Parse(cwHashTable["Query_Result_Code"].ToString()); 
 
@@ -952,6 +958,7 @@ namespace IRU.RTS.WSTCHQ
 				tchqRequestLogData.validityDate = cwHashTable["Validity_Date"];
 				tchqRequestLogData.assocShortName = GetBlankIfNull(cwHashTable["Assoc_Short_Name"]); 
 				tchqRequestLogData.numberOfTerminations = cwHashTable["No_Of_Terminations"];
+                tchqRequestLogData.voucherNumber = cwHashTable["Voucher_Number"];
 
 
 
@@ -965,6 +972,7 @@ namespace IRU.RTS.WSTCHQ
 				//			<ValidityDate>2004-05-25</ValidityDate>
 				//			<Association>abcdefghijklmnop</Association>
 				//			<NumTerminations>0</NumTerminations>
+                //			<Voucher_Number>0001-2345-6789</Voucher_Number>
 
 
 
