@@ -5,3 +5,4 @@ SET ENVIRONMENT=PREPROD
 "C:\Windows\Microsoft.NET\Framework\v2.0.50727\installutil" /ServiceName="WSRQHostService_%ENVIRONMENT%" /DisplayName="WSRQ Query Host Service (%ENVIRONMENT%)" "WSRQ/WSRQHostService.exe" /u
 "C:\Windows\Microsoft.NET\Framework\v2.0.50727\installutil" /ServiceName="WSRE_Processor Host Service_%ENVIRONMENT%" /DisplayName="WSRE Processor Host Service (%ENVIRONMENT%)" "WSST_In/WSRE_ProcessorHostService.exe" /u
 "C:\Windows\Microsoft.NET\Framework\v2.0.50727\installutil" /ServiceName="WSRE_File Rcvr Host Service_%ENVIRONMENT%" /DisplayName="WSRE File Receiver (%ENVIRONMENT%)" "WSST_Ex/WSRE_FileRcvrHostService.exe" /u
+"C:\Windows\Microsoft.NET\Framework\v2.0.50727\installutil" /ServiceName="TVQRHostService_%ENVIRONMENT%" /DisplayName="WSTVQR Host Service (%ENVIRONMENT%)" "TVQR/TVQR_Processor.exe" /u
