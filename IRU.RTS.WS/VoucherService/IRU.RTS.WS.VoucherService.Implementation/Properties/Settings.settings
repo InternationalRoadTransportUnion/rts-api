@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="IRU.RTS.WS.VoucherService.Implementation.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="WsUrlTVQR" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://apps-test.iru.org/rts2/tvqr_ws/voucherQueryAndRegistration.asmx</Value>
+    </Setting>
+    <Setting Name="SubscriberIdTVQR" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">RTSPLUS</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
