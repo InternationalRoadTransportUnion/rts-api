@@ -40,7 +40,6 @@ elementFormDefault="qualified">
 	</xs:simpleType>
 	<xs:simpleType name="PasswordType">
 		<xs:restriction base ="xs:string">
-			<xs:minLength value="1"/>
 			<xs:maxLength value="255"/>
 		</xs:restriction>
 	</xs:simpleType>
