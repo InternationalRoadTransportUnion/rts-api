@@ -11,7 +11,7 @@
     RemotingPort="9009" CryptoProviderEndpoint="tcp://localhost:9012/CryptoProvider.rem"
     RemotingEndPoint="TIREPDG2BReceiver.rem"
     SchemaFilesPath="C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\RTS_Builds\bin\schemas"
-    MessageNamesList="TIRPreDeclarationRecieved,TIRPreDeclarationError,TIRPreDeclarationAccepted,TIRPreDeclarationRejected,TIRPreDeclarationControlNotification,TIRPreDeclarationGuaranteeProblem,TIRPreDeclarationReleased,TIRPreDeclarationTransitRefused,TIRPreDeclarationCancellationReply,TIRPreDeclarationAmendmentAccepted,TIRPreDeclarationAmendmentRejected"
+    MessageNamesList="TIRPreDeclaration,TIRPreDeclarationReceived,TIRPreDeclarationRecieved,TIRPreDeclarationAccepted,TIRPreDeclarationReleased,TIRPreDeclarationRejected,TIRPreDeclarationError,TIRPreDeclarationCancellationReply,TIRPreDeclarationTransitRefused,TIRPreDeclarationAmendmentAccepted,TIRPreDeclarationAmendmentRejected,TIRPreDeclarationControlNotification,TIRPreDeclarationGuaranteeProblem,TIRPreDeclarationDischargeNotification,TIRPreDeclarationExitNotification"
     CountryISO_INMessagePath="BY,BLR_TEST1,C:\TEMP\BY\IN;MD,DEMOP,C:\TEMP\MD\IN;;UA,BLR_TEST,C:\TEMP\UA\IN"> 
       <!--CountryIso,SUBSCRIBERID,INPath;CountryISO,SUBSCRIBERID,InPath -->
     </G2B_RemotingHelperSettings>
