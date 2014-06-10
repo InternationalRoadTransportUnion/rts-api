@@ -103,7 +103,9 @@ namespace IRU.RTS.TIREPD
 
             // per Mail from Matthieu
             // But we do not read all schemas in the folder only the ones specified below.
-            string QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE014.xsd";
+            string QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE013.xsd";
+            EPDXMLValidationHelper.PopulateSchemas(null, QuerySchemaPath, "IE013");
+            QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE014.xsd";
             EPDXMLValidationHelper.PopulateSchemas(null, QuerySchemaPath, "IE014");
             QuerySchemaPath = m_SchemaFilesPath + "\\TIREPD_IE015.xsd";
             EPDXMLValidationHelper.PopulateSchemas(null, QuerySchemaPath, "IE015");
@@ -129,7 +131,11 @@ namespace IRU.RTS.TIREPD
             QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE004.xsd";
             EPDXMLValidationHelper.PopulateSchemas(null, QuerySchemaPath, "IE004");
             QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE005.xsd";
-            EPDXMLValidationHelper.PopulateSchemas(null, QuerySchemaPath, "IE005");				
+            EPDXMLValidationHelper.PopulateSchemas(null, QuerySchemaPath, "IE005");
+            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE045.xsd";
+            EPDXMLValidationHelper.PopulateSchemas(null, QuerySchemaPath, "IE045");
+            QuerySchemaPath = m_SchemaFilesPath + " \\TIREPD_IE025.xsd";
+            EPDXMLValidationHelper.PopulateSchemas(null, QuerySchemaPath, "IE025");
             
         }
 
