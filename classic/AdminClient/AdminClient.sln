@@ -4,9 +4,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminClient", "AdminClientP
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RTSPLUS", "RTSPLUS", "{C2C53F39-4454-4829-9AE1-3BF6D965F2F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRU.RTS.WS.Common.Data.WsSubscriber", "..\IRU.RTS.WS\Common\IRU.RTS.WS.Common.Data.WsSubscriber\IRU.RTS.WS.Common.Data.WsSubscriber.csproj", "{7366225C-600D-4630-8251-62AA676DF881}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRU.RTS.WS.Common.Data.WsSubscriber", "..\..\plus\IRU.RTS.WS\Common\IRU.RTS.WS.Common.Data.WsSubscriber\IRU.RTS.WS.Common.Data.WsSubscriber.csproj", "{7366225C-600D-4630-8251-62AA676DF881}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRU.RTS.WS.Common.Subscribers", "..\IRU.RTS.WS\Common\IRU.RTS.WS.Common.Subscribers\IRU.RTS.WS.Common.Subscribers.csproj", "{6C841C89-04EA-4A9E-BCBE-E3DA82379C52}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRU.RTS.WS.Common.Subscribers", "..\..\plus\IRU.RTS.WS\Common\IRU.RTS.WS.Common.Subscribers\IRU.RTS.WS.Common.Subscribers.csproj", "{6C841C89-04EA-4A9E-BCBE-E3DA82379C52}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AdminClientStandAloneSetup", "AdminClientStandAloneSetup\AdminClientStandAloneSetup.vdproj", "{A6760865-006F-4B97-9ED3-E6D0DCF5741C}"
 EndProject

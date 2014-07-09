@@ -85,7 +85,7 @@
   <ItemGroup>
     <Reference Include="IRU.Common.EnterpriseLibrary, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f01c97a8a42dad59, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\IRU.RTS.WS\Dependencies\IRU.Common.EnterpriseLibrary.dll</HintPath>
+      <HintPath>..\..\..\plus\IRU.RTS.WS\Dependencies\IRU.Common.EnterpriseLibrary.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Name>System</Name>
@@ -313,11 +313,11 @@
     <None Include="Resources\mailbox_incoming_32.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\IRU.RTS.WS\Common\IRU.RTS.WS.Common.Data.WsSubscriber\IRU.RTS.WS.Common.Data.WsSubscriber.csproj">
+    <ProjectReference Include="..\..\..\plus\IRU.RTS.WS\Common\IRU.RTS.WS.Common.Data.WsSubscriber\IRU.RTS.WS.Common.Data.WsSubscriber.csproj">
       <Project>{7366225C-600D-4630-8251-62AA676DF881}</Project>
       <Name>IRU.RTS.WS.Common.Data.WsSubscriber</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\IRU.RTS.WS\Common\IRU.RTS.WS.Common.Subscribers\IRU.RTS.WS.Common.Subscribers.csproj">
+    <ProjectReference Include="..\..\..\plus\IRU.RTS.WS\Common\IRU.RTS.WS.Common.Subscribers\IRU.RTS.WS.Common.Subscribers.csproj">
       <Project>{6C841C89-04EA-4A9E-BCBE-E3DA82379C52}</Project>
       <Name>IRU.RTS.WS.Common.Subscribers</Name>
     </ProjectReference>
