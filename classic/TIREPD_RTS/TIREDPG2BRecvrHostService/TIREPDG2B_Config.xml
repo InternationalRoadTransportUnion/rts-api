@@ -1,35 +1,31 @@
 ﻿<Config>
-  <Section name="PluginManager">
-    <Plugin name="DBHelperFactory" objectType="IRU.RTS.CommonComponents.DBHelperFactory, CommonComponents" isRunnable="false" />
-    <Plugin name="G2B_RemotingHelperSettings" objectType="IRU.RTS.TIREPD.G2B_RemotingHelper, TIREPDG2BReceiver"
-			isRunnable="true" />
-  </Section>
-  <Section name="G2B_RemotingHelperSettings">
+    <Section name="PluginManager">
+        <Plugin name="DBHelperFactory" objectType="IRU.RTS.CommonComponents.DBHelperFactory, CommonComponents" isRunnable="false" />
+        <Plugin name="G2B_RemotingHelperSettings" objectType="IRU.RTS.TIREPD.G2B_RemotingHelper, TIREPDG2BReceiver" isRunnable="true" />
+    </Section>
+    <Section name="G2B_RemotingHelperSettings">
+        <G2B_RemotingHelperSettings DBHelperFactoryPlugin="DBHelperFactory" G2BDBName="TIREPD_DB"
+        SubscriberDBName="SubsciberDB" EncryptionKeysTable="EncryptionKeys"
+        RemotingPort="9009" CryptoProviderEndpoint="tcp://172.25.12.100:9012/CryptoProvider.rem"
+        RemotingEndPoint="TIREPDG2BReceiver.rem"
+        SchemaFilesPath="Schemas"
+        MessageNamesList="TIRPreDeclaration,TIRPreDeclarationReceived,TIRPreDeclarationRecieved,TIRPreDeclarationAccepted,TIRPreDeclarationReleased,TIRPreDeclarationRejected,TIRPreDeclarationError,TIRPreDeclarationCancellationReply,TIRPreDeclarationCancellationNotice,TIRPreDeclarationTransitRefused,TIRPreDeclarationAmendmentAccepted,TIRPreDeclarationAmendmentRejected,TIRPreDeclarationControlNotification,TIRPreDeclarationGuaranteeProblem,TIRPreDeclarationDischargeNotification,TIRPreDeclarationExitNotification"
+        CountryISO_INMessagePath="MD,MDACUS,\\filer\Data_Exchange\TIR\EPD\MD\IN;UA,UKRCUS,\\filer\Data_Exchange\TIR\EPD\UA\IN;GE,GEOCUS,\\filer\Data_Exchange\TIR\EPD\GE\IN;BY,BLRCUS,\\filer\Data_Exchange\TIR\EPD\BY\IN;BA,BIHCUS,\\filer\Data_Exchange\TIR\EPD\BA\IN;TR,TURCUS,\\filer\Data_Exchange\TIR\EPD\TR\IN;UZ,UZBCUS,\\filer\Data_Exchange\TIR\EPD\UZ\IN;KZ,KAZCUS,\\filer\Data_Exchange\TIR\EPD\KZ\IN;MK,MKDCUS,\\filer\Data_Exchange\TIR\EPD\MK\IN;AF,AFGCUS,\\filer\Data_Exchange\TIR\EPD\AF\IN;IR,IRNCUS,\\filer\Data_Exchange\TIR\EPD\IR\IN">
+            <!--CountryIso,SUBSCRIBERID,INPath;CountryISO,SUBSCRIBERID,InPath -->
+        </G2B_RemotingHelperSettings>
+    </Section>
 
-    <G2B_RemotingHelperSettings DBHelperFactoryPlugin="DBHelperFactory" G2BDBName="TIREPD_DB"
-    SubscriberDBName="SubsciberDB" EncryptionKeysTable="EncryptionKeys"
-    RemotingPort="9009" CryptoProviderEndpoint="tcp://localhost:9012/CryptoProvider.rem"
-    RemotingEndPoint="TIREPDG2BReceiver.rem"
-    SchemaFilesPath="C:\ApplicationData\APPLICATIONS_WORK_IN_PROGRESS\RussianCustomsWS\RTS_Builds\bin\schemas"
-    MessageNamesList="TIRPreDeclaration,TIRPreDeclarationReceived,TIRPreDeclarationRecieved,TIRPreDeclarationAccepted,TIRPreDeclarationReleased,TIRPreDeclarationRejected,TIRPreDeclarationError,TIRPreDeclarationCancellationReply,TIRPreDeclarationCancellationNotice,TIRPreDeclarationTransitRefused,TIRPreDeclarationAmendmentAccepted,TIRPreDeclarationAmendmentRejected,TIRPreDeclarationControlNotification,TIRPreDeclarationGuaranteeProblem,TIRPreDeclarationDischargeNotification,TIRPreDeclarationExitNotification"
-    CountryISO_INMessagePath="BY,BLR_TEST1,C:\TEMP\BY\IN;MD,DEMOP,C:\TEMP\MD\IN;;UA,BLR_TEST,C:\TEMP\UA\IN"> 
-      <!--CountryIso,SUBSCRIBERID,INPath;CountryISO,SUBSCRIBERID,InPath -->
-    </G2B_RemotingHelperSettings>
-  </Section>
+    <Section name="DBHelperFactory">
+        <ConnectionStrings>
+            <DB Name="TIREPD_DB">
+                <!-- Base64 encoded -->
+                <ConnectionString>SERVER=SC001082C-V2\NM01,14330;DATABASE=TIR_EPD;Integrated security=True;connect timeout =200</ConnectionString>
+            </DB>
+            <DB Name="SubscriberDB">
+                <!-- Base64 encoded -->
+                <ConnectionString>SERVER=SC001082C-V2\NM01,14330;DATABASE=WS_Subscriber_db;Integrated security=True;connect timeout =200</ConnectionString>
+            </DB>
 
-  <Section name="DBHelperFactory">
-    <ConnectionStrings>
-      <DB Name="TIREPD_DB">
-        <!-- Base64 encoded -->
-        <ConnectionString>SERVER=PUNKKILLER-61P\I2008;DATABASE=TIR_EPD;uid=sa;pwd=sapass;connect timeout =200</ConnectionString>
-      </DB>
-      <DB Name="SubscriberDB">
-        <!-- Base64 encoded -->
-        <ConnectionString>SERVER=PUNKKILLER-61P\I2008;DATABASE=WS_Subscriber_db;uid=sa;pwd=sapass;connect timeout =200</ConnectionString>
-      </DB>
-
-    </ConnectionStrings>
-  </Section>
+        </ConnectionStrings>
+    </Section>
 </Config>
-
-

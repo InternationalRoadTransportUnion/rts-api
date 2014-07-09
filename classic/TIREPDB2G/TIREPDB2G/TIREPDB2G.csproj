@@ -109,6 +109,7 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>c:\Windows\Microsoft.NET\Framework\v3.5\MSBuild.exe $(ProjectPath) /t:ResolveReferences;_CopyWebApplication /p:Configuration=$(ConfigurationName);OutDir=$(ConfigurationName)\Published\bin\;WebProjectOutputDir=$(ConfigurationName)\Published\</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>
