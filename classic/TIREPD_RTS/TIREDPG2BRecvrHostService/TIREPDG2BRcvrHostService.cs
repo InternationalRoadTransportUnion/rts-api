@@ -5,6 +5,8 @@ using System.Data;
 using System.Diagnostics;
 using System.ServiceProcess;
 using System.Text;
+using System.IO;
+using System.Reflection;
 using IRU.RTS.CommonComponents;
 //using IRU.CommonInterfaces;
 using IRU.RTS.TIREPD;
@@ -24,6 +26,8 @@ namespace TIREDPG2BRecvrHostService
         {
             try
             {
+                Environment.CurrentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
                 m_PluginManager = new PlugInManager();
                 m_PluginManager.ConfigFile = System.Configuration.ConfigurationManager.AppSettings["ConfigXMLFile"];
                 System.Diagnostics.EventLog.WriteEntry(this.ServiceName, "Host Service " + this.ServiceName + " m_PluginManager.ConfigFile =" + m_PluginManager.ConfigFile,

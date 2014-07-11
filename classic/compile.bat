@@ -5,8 +5,8 @@ msbuild WSRQ_BE/WSRQHostService/WSRQHostService.csproj /p:Configuration=%CONFIG%
 msbuild WSRQ_BE/WSRQNewRequest_ProcessorHostService/WSRQNewRequest_ProcessorHostService.csproj /p:Configuration=%CONFIG% /t:rebuild /p:OutputPath=./../../RTS/WSRQNR/
 msbuild WSST_BE/WSST_ProcessorHostService/WSST_ProcessorHostService.csproj /p:Configuration=%CONFIG% /t:rebuild /p:OutputPath=./../../RTS/WSST_In/
 msbuild WSST_BE/WSST_FileRcvrHostService/WSST_FileRcvrHostService.csproj /p:Configuration=%CONFIG% /t:rebuild /p:OutputPath=./../../RTS/WSST_Ex/
-msbuild WSRE_BE/WSRE_ProcessorHostService/WSRE_ProcessorHostService.csproj /p:Configuration=%CONFIG% /t:rebuild /p:OutputPath=./../../RTS/WSST_In/
-msbuild WSRE_BE/WSRE_FileRcvrHostService/WSRE_FileRcvrHostService.csproj /p:Configuration=%CONFIG% /t:rebuild /p:OutputPath=./../../RTS/WSST_Ex/
+msbuild WSRE_BE/WSRE_ProcessorHostService/WSRE_ProcessorHostService.csproj /p:Configuration=%CONFIG% /t:rebuild /p:OutputPath=./../../RTS/WSRE_In/
+msbuild WSRE_BE/WSRE_FileRcvrHostService/WSRE_FileRcvrHostService.csproj /p:Configuration=%CONFIG% /t:rebuild /p:OutputPath=./../../RTS/WSRE_Ex/
 msbuild WSTVQR_BE/TVQR_Processor/TVQR_Processor.csproj /p:Configuration=%CONFIG% /t:rebuild /p:OutputPath=./../../RTS/TVQR/
 msbuild TIREPD_RTS/TIREDPG2BRecvrHostService/TIREDPG2BRecvrHostService.csproj /p:Configuration=%CONFIG% /t:rebuild /p:OutputPath=./../../RTS/TIREPDG2B_SVC/
 
