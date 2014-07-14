@@ -9,7 +9,7 @@
 
         <fileSets>
                 <fileSet>
-                        <directory>build/Release</directory>
+                        <directory>../build/Release</directory>
                         <outputDirectory></outputDirectory>
                         <excludes>
                                 <exclude>*.pdb</exclude>
