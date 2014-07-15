@@ -16,6 +16,7 @@
                                 <exclude>bin/*.exp</exclude>
                                 <exclude>bin/*.lib</exclude>
                                 <exclude>bin/*.config</exclude>
+                                <exclude>bin/*.xml</exclude>
                         </excludes>
                 </fileSet>
         </fileSets>
