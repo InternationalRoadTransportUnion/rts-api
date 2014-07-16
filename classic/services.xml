@@ -14,7 +14,6 @@
 			<excludes>
 				<exclude>**/*.pdb</exclude>
 				<exclude>**/*.config</exclude>
-				<exclude>**/*_FOLDERS</exclude>
 			</excludes>
 		</fileSet>
 	</fileSets>
