@@ -17,8 +17,8 @@
                                         <descriptors>
                                                 <descriptor>webservices.xml</descriptor>
                                                 <descriptor>services.xml</descriptor>
-<!--					        <descriptor>singletons.xml</descriptor>
-					        <descriptor>b2g.xml</descriptor> -->
+					        <descriptor>singletons.xml</descriptor>
+					        <!-- <descriptor>b2g.xml</descriptor> -->
                                         </descriptors>
                                 </configuration>
 
