@@ -22,6 +22,7 @@
 					<descriptors>
 						<descriptor>services.xml</descriptor>
 						<descriptor>config.xml</descriptor>
+						<descriptor>symbols.xml</descriptor>
 					</descriptors>
 				</configuration>
 				<executions>

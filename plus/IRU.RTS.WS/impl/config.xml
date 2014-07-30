@@ -6,13 +6,15 @@
         <formats>
                 <format>zip</format>
         </formats>
+		
+        <includeBaseDirectory>false</includeBaseDirectory>
 
         <fileSets>
                 <fileSet>
                         <directory>../build/Release</directory>
-                        <outputDirectory></outputDirectory>
+                        <outputDirectory>/</outputDirectory>
                         <includes>
-                                <include>bin/*.config</include>
+                                <include>*.config</include>
                         </includes>
                 </fileSet>
         </fileSets>
