@@ -2,7 +2,7 @@
 <assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
-	<id>singletons</id>
+	<id>singletons-bin</id>
 	<formats>
 		<format>zip</format>
 	</formats>
@@ -10,26 +10,29 @@
 	<fileSets>
 		<fileSet>
 			<directory>target/singletons/RTS</directory>
-			<outputDirectory>RTS</outputDirectory>
+			<outputDirectory>/</outputDirectory>
 			<excludes>
 				<exclude>**/*.pdb</exclude>
 				<exclude>**/*.config</exclude>
+				<exclude>**/*_Config.xml</exclude>
 			</excludes>
 		</fileSet>
 		<fileSet>
 			<directory>target/services/RTS/WSST_In</directory>
-			<outputDirectory>RTS/WSST_In</outputDirectory>
+			<outputDirectory>/WSST_In</outputDirectory>
 			<excludes>
 				<exclude>**/*.pdb</exclude>
 				<exclude>**/*.config</exclude>
+				<exclude>**/*_Config.xml</exclude>
 			</excludes>
 		</fileSet>
 		<fileSet>
 			<directory>target/services/RTS/WSRE_In</directory>
-			<outputDirectory>RTS/WSRE_In</outputDirectory>
+			<outputDirectory>/WSRE_In</outputDirectory>
 			<excludes>
 				<exclude>**/*.pdb</exclude>
 				<exclude>**/*.config</exclude>
+				<exclude>**/*_Config.xml</exclude>
 			</excludes>
 		</fileSet>
 	</fileSets>

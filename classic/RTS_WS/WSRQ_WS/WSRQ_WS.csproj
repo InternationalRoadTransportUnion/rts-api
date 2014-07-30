@@ -72,9 +72,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Properties\Web.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

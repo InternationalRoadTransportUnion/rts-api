@@ -1,37 +1,43 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-        <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
-        <groupId>org.iru.rts.classic</groupId>
-        <artifactId>rts-impl</artifactId>
-        <version>2.0.0-SNAPSHOT</version>
-        <packaging>pom</packaging>
+	<groupId>org.iru.rts.classic</groupId>
+	<artifactId>rts-impl</artifactId>
+	<version>2.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
 
-        <build>
-                <plugins>
-                        <plugin>
-                                <groupId>org.apache.maven.plugins</groupId>
-                                <artifactId>maven-assembly-plugin</artifactId>
-                                <version>2.2.1</version>
-                                <configuration>
-                                        <descriptors>
-                                                <descriptor>webservices.xml</descriptor>
-                                                <descriptor>services.xml</descriptor>
-					        <descriptor>singletons.xml</descriptor>
-					        <!-- <descriptor>b2g.xml</descriptor> -->
-                                        </descriptors>
-                                </configuration>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.2.1</version>
+				<configuration>
+					<descriptors>
+						<descriptor>webservices-bin.xml</descriptor>
+						<descriptor>webservices-config.xml</descriptor>
+						<descriptor>webservices-symbols.xml</descriptor>
+						<descriptor>services-bin.xml</descriptor>
+						<descriptor>services-config.xml</descriptor>
+						<descriptor>services-symbols.xml</descriptor>
+						<descriptor>singletons-bin.xml</descriptor>
+						<descriptor>singletons-config.xml</descriptor>
+						<descriptor>singletons-symbols.xml</descriptor>
+						<!-- <descriptor>b2g.xml</descriptor> -->
+					</descriptors>
+				</configuration>
 
-                                <executions>
-                                        <execution>
-                                                <id>make-play-assembly</id>
-                                                <phase>package</phase>
-                                                <goals>
-                                                        <goal>single</goal>
-                                                </goals>
-                                        </execution>
-                                </executions>
-                        </plugin>
-                </plugins>
-        </build>
+				<executions>
+					<execution>
+						<id>make-play-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
