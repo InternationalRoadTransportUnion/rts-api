@@ -6,5 +6,5 @@ SET ENVIRONMENT=PREPROD
 "C:\Windows\Microsoft.NET\Framework\v2.0.50727\installutil" /ServiceName="WSRQ New Request Processor Host Service_%ENVIRONMENT%" /DisplayName="WSRQ New Request Processor Host Service (%ENVIRONMENT%)" "RTS/WSRQNR/WSRQNewRequest_ProcessorHostService.exe"
 "C:\Windows\Microsoft.NET\Framework\v2.0.50727\installutil" /ServiceName="WSRE_Processor Host Service_%ENVIRONMENT%" /DisplayName="WSRE Processor Host Service (%ENVIRONMENT%)" "RTS/WSRE_In/WSRE_ProcessorHostService.exe"
 "C:\Windows\Microsoft.NET\Framework\v2.0.50727\installutil" /ServiceName="WSRE_File Rcvr Host Service_%ENVIRONMENT%" /DisplayName="WSRE File Receiver (%ENVIRONMENT%)" "RTS/WSRE_Ex/WSRE_FileRcvrHostService.exe"
-"C:\Windows\Microsoft.NET\Framework\v2.0.50727\installutil" /ServiceName="TVQRHostService_%ENVIRONMENT%" /DisplayName="WSTVQR Host Service (%ENVIRONMENT%)" "RTS/TVQR/TVQR_Processor.exe"
+"C:\Windows\Microsoft.NET\Framework\v2.0.50727\installutil" /ServiceName="TVQRHostService_%ENVIRONMENT%" /DisplayName="WSTVQR Host Service (%ENVIRONMENT%)" "RTS/TVQR/TVQRHostService.exe"
 "C:\Windows\Microsoft.NET\Framework\v2.0.50727\installutil" /ServiceName="EPD-G2BRecvrHostService_%ENVIRONMENT%" /DisplayName="TIR EPD G2B Receiver Host Service (%ENVIRONMENT%)" "RTS/TIREPDG2B_SVC/TIREDPG2BRecvrHostService.exe"
