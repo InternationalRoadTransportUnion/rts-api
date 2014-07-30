@@ -64,7 +64,7 @@ namespace IRU.RTS.WS.Common.Security.RTSPlus.X509
             return base.CreateSecurityTokenSerializer(version);
         }
 
-        public virtual EndpointIdentity GetIdentityOfSelf(SecurityTokenRequirement tokenRequirement)
+        public override EndpointIdentity GetIdentityOfSelf(SecurityTokenRequirement tokenRequirement)
         {
             return base.GetIdentityOfSelf(tokenRequirement);
         }
