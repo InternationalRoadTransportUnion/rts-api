@@ -33,15 +33,15 @@
   <ItemGroup>
     <Reference Include="IRU.Common.WCF.Behaviors, Version=1.2.0.0, Culture=neutral, PublicKeyToken=f01c97a8a42dad59, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dependencies\IRU.Common.WCF.Behaviors.dll</HintPath>
+      <HintPath>..\..\..\Dependencies\IRU.Common.WCF.Behaviors.dll</HintPath>
     </Reference>
     <Reference Include="IRU.Common.WCF.Wsdl, Version=1.2.0.0, Culture=neutral, PublicKeyToken=f01c97a8a42dad59, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dependencies\IRU.Common.WCF.Wsdl.dll</HintPath>
+      <HintPath>..\..\..\Dependencies\IRU.Common.WCF.Wsdl.dll</HintPath>
     </Reference>
     <Reference Include="RTSDotNETClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dependencies\RTSDotNETClient.dll</HintPath>
+      <HintPath>..\..\..\Dependencies\RTSDotNETClient.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />

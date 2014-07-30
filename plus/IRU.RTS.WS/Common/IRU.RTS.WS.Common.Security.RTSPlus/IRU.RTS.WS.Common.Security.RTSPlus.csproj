@@ -33,11 +33,11 @@
   <ItemGroup>
     <Reference Include="IRU.Common.EnterpriseLibrary, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f01c97a8a42dad59, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dependencies\IRU.Common.EnterpriseLibrary.dll</HintPath>
+      <HintPath>..\..\..\Dependencies\IRU.Common.EnterpriseLibrary.dll</HintPath>
     </Reference>
     <Reference Include="IRU.Common.WCF.Security.WSS, Version=1.4.1.0, Culture=neutral, PublicKeyToken=f01c97a8a42dad59, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dependencies\IRU.Common.WCF.Security.WSS.dll</HintPath>
+      <HintPath>..\..\..\Dependencies\IRU.Common.WCF.Security.WSS.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />

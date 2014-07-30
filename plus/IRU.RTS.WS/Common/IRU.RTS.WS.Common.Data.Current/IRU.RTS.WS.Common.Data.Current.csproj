@@ -33,7 +33,7 @@
   <ItemGroup>
     <Reference Include="IRU.Common.EnterpriseLibrary, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f01c97a8a42dad59, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dependencies\IRU.Common.EnterpriseLibrary.dll</HintPath>
+      <HintPath>..\..\..\Dependencies\IRU.Common.EnterpriseLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
