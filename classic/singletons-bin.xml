@@ -41,6 +41,15 @@
 				<exclude>**/*_Folders/**</exclude>
 			</excludes>
 		</fileSet>
+		<fileSet>
+			<directory>target/services/RTS/CryptoHost</directory>
+			<outputDirectory>/CryptoHost</outputDirectory>
+			<excludes>
+				<exclude>**/*.pdb</exclude>
+				<exclude>**/*.config</exclude>
+				<exclude>**/*_Config.xml</exclude>
+			</excludes>
+		</fileSet>
 	</fileSets>
 
 </assembly>

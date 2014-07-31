@@ -4,9 +4,10 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.ServiceProcess;
-using IRU.RTS.CommonComponents;
 using System.IO;
 using System.Reflection;
+using IRU.RTS.CommonComponents;
+using IRU.RTS.Common.Helper;
 
 namespace CryptoHostService
 {
@@ -26,7 +27,7 @@ namespace CryptoHostService
 		}
 
 		// The main entry point for the process
-		static void Main()
+        static void Main(string[] args)
 		{
 			System.ServiceProcess.ServiceBase[] ServicesToRun;
 	
@@ -38,7 +39,15 @@ namespace CryptoHostService
 			//
 			ServicesToRun = new System.ServiceProcess.ServiceBase[] { new HostSvcMain() };
 
-			System.ServiceProcess.ServiceBase.Run(ServicesToRun);
+            if (!Environment.UserInteractive)
+            {
+                ServiceBase.Run(ServicesToRun);
+            }
+            else
+            {
+                ServiceInstallerConsoleHelper svcInstConsHlp = new ServiceInstallerConsoleHelper(ServicesToRun[0], args);
+                svcInstConsHlp.Execute();
+            }
 		}
 
 		/// <summary> 

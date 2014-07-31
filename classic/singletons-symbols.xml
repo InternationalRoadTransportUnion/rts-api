@@ -31,6 +31,13 @@
 				<include>**/*.pdb</include>
 			</includes>
 		</fileSet>
+		<fileSet>
+			<directory>target/services/RTS/CryptoHost</directory>
+			<outputDirectory>/CryptoHost</outputDirectory>
+			<includes>
+				<include>**/*.pdb</include>
+			</includes>
+		</fileSet>
 	</fileSets>
 
 </assembly>
