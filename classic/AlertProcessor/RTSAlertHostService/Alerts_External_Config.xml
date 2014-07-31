@@ -1,0 +1,56 @@
+﻿<Config>
+    <Section name="PluginManager">
+        <Plugin name="DBHelperFactory" objectType="IRU.RTS.CommonComponents.DBHelperFactory, CommonComponents" isRunnable="false" />
+        <Plugin name="TCHQLogListener" objectType="IRU.RTS.AlertProcessor.LogListener, LogListener" isRunnable="true" />
+        <Plugin name="WSRQLogListener" objectType="IRU.RTS.AlertProcessor.LogListener, LogListener" isRunnable="true" />
+        <Plugin name="ExternalLogListener" objectType="IRU.RTS.AlertProcessor.LogListener, LogListener" isRunnable="true" />
+        <Plugin name="EmailNotificationHandler" objectType="IRU.RTS.NotificationHandlers.EmailNotifier, NotificationHandlers" isRunnable="false" />
+        <Plugin name="TCHQPeriodicReportsListener" objectType="IRU.RTS.AlertProcessor.PeriodicReportsListener, PeriodicReportListener" isRunnable="true" />
+        <Plugin name="WSRQPeriodicReportsListener" objectType="IRU.RTS.AlertProcessor.PeriodicReportsListener, PeriodicReportListener" isRunnable="true" />
+        <Plugin name="ExternalPeriodicReportsListener" objectType="IRU.RTS.AlertProcessor.PeriodicReportsListener, PeriodicReportListener" isRunnable="true" />
+    </Section>
+    <Section name="EmailNotificationHandler">
+        <EmailSettings SMTPServer="smtp.iruworld.org" SMTPServerUserID="IRUWORLD\RTSUSER" SMTPServerPassword="REAL-TIME-9" FromEmailAddress="RTSUSER@iru.org" TempFolderLocation="mailtemp" ToEmailAddress="RTSNotifications@iru.org" SMTPPort="25">
+        </EmailSettings>
+    </Section>
+    <Section name="TCHQLogListener">
+        <ListenerSettings DBToMonitor="TCHQ_DB" IDBHelperFactory="DBHelperFactory" INotificationHandler="EmailNotificationHandler" PollDelay="5">
+        </ListenerSettings>
+    </Section>
+    <Section name="WSRQLogListener">
+        <ListenerSettings DBToMonitor="WSRQ_DB" IDBHelperFactory="DBHelperFactory" INotificationHandler="EmailNotificationHandler" PollDelay="5">
+        </ListenerSettings>
+    </Section>
+    <Section name="ExternalLogListener">
+        <ListenerSettings DBToMonitor="WSST_EXTERNAL_DB" IDBHelperFactory="DBHelperFactory" INotificationHandler="EmailNotificationHandler" PollDelay="5">
+        </ListenerSettings>
+    </Section>
+    <Section name="TCHQPeriodicReportsListener">
+        <ListenerSettings DBToMonitor="TCHQ_DB" IDBHelperFactory="DBHelperFactory" INotificationHandler="EmailNotificationHandler" PollDelay="5">
+        </ListenerSettings>
+    </Section>
+    <Section name="WSRQPeriodicReportsListener">
+        <ListenerSettings DBToMonitor="WSRQ_DB" IDBHelperFactory="DBHelperFactory" INotificationHandler="EmailNotificationHandler" PollDelay="5">
+        </ListenerSettings>
+    </Section>
+    <Section name="ExternalPeriodicReportsListener">
+        <ListenerSettings DBToMonitor="WSST_EXTERNAL_DB" IDBHelperFactory="DBHelperFactory" INotificationHandler="EmailNotificationHandler" PollDelay="5">
+        </ListenerSettings>
+    </Section>
+    <Section name="DBHelperFactory">
+        <ConnectionStrings>
+            <DB Name="TCHQ_DB">
+                <!-- Base64 encoded -->
+                <ConnectionString>SERVER=172.25.13.50;DATABASE=TCHQ_DB;Integrated Security=SSPI;connect timeout =200</ConnectionString>
+            </DB>
+            <DB Name="WSRQ_DB">
+                <!-- Base64 encoded -->
+                <ConnectionString>SERVER=172.25.13.50;DATABASE=WSRQ_DB;Integrated Security=SSPI;connect timeout =200</ConnectionString>
+            </DB>
+            <DB Name="WSST_EXTERNAL_DB">
+                <!-- Base64 encoded -->
+                <ConnectionString>SERVER=172.25.13.50;DATABASE=WSST_EXTERNAL_DB;Integrated Security=SSPI;connect timeout =200</ConnectionString>
+            </DB>
+        </ConnectionStrings>
+    </Section>
+</Config>

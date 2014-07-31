@@ -2,10 +2,13 @@ using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Data;
+using System.IO;
+using System.Reflection;
 using System.Diagnostics;
 using System.ServiceProcess;
 using IRU.CommonInterfaces;
 using IRU.RTS.CommonComponents;
+using IRU.RTS.Common.Helper;
 
 namespace RTSAlertHostService
 {
@@ -25,7 +28,7 @@ namespace RTSAlertHostService
 		}
 
 		// The main entry point for the process
-		static void Main()
+        static void Main(string[] args)
 		{
 			System.ServiceProcess.ServiceBase[] ServicesToRun;
 	
@@ -37,7 +40,15 @@ namespace RTSAlertHostService
 			//
 			ServicesToRun = new System.ServiceProcess.ServiceBase[] { new RTSAlertHostService() };
 
-			System.ServiceProcess.ServiceBase.Run(ServicesToRun);
+            if (!Environment.UserInteractive)
+            {
+                ServiceBase.Run(ServicesToRun);
+            }
+            else
+            {
+                ServiceInstallerConsoleHelper svcInstConsHlp = new ServiceInstallerConsoleHelper(ServicesToRun[0], args);
+                svcInstConsHlp.Execute();
+            }
 		}
 
 		/// <summary> 
@@ -77,6 +88,8 @@ namespace RTSAlertHostService
 			// TODO: Add code here to start your service.
 			try
 			{
+                Environment.CurrentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
 				m_PluginManager = new PlugInManager();
 				m_PluginManager.ConfigFile=System.Configuration.ConfigurationSettings.AppSettings["ConfigXMLFile"];
 				m_PluginManager.LoadPlugins();
