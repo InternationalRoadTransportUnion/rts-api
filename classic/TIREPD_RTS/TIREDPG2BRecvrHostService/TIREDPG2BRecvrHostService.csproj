@@ -24,7 +24,7 @@
     </UpgradeBackupLocation>
     <StartupObject>
     </StartupObject>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkSubset>
     </TargetFrameworkSubset>
   </PropertyGroup>
@@ -49,6 +49,9 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Management" />
     <Reference Include="System.ServiceProcess" />
@@ -137,6 +140,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\IRU.RTS.Common\IRU.RTS.Common.csproj">
+      <Project>{51C1C416-18C9-4A64-B542-A2E8B3299F61}</Project>
+      <Name>IRU.RTS.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\WSTCHQ_BE\CommonComponents\CommonComponents.csproj">
       <Project>{7786779D-6B79-4A51-A03E-2497DCFE2025}</Project>
       <Name>CommonComponents</Name>
