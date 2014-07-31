@@ -170,12 +170,12 @@
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <PostBuildEvent>mkdir $(TargetDir)WSRE_FOLDERS\DispatchPath
-mkdir $(TargetDir)WSRE_FOLDERS\ErrorProcessingFiles
-mkdir $(TargetDir)WSRE_FOLDERS\ReplyInDrop
-mkdir $(TargetDir)WSRE_FOLDERS\ReplyUploadFileArchive
-mkdir $(TargetDir)WSRE_FOLDERS\ReplyWorkingFolder
-mkdir $(TargetDir)WSRE_FOLDERS\Temp_Dispatch
+    <PostBuildEvent>mkdir $(TargetDir)WSRE_Folders\DispatchPath
+mkdir $(TargetDir)WSRE_Folders\ErrorProcessingFiles
+mkdir $(TargetDir)WSRE_Folders\ReplyInDrop
+mkdir $(TargetDir)WSRE_Folders\ReplyUploadFileArchive
+mkdir $(TargetDir)WSRE_Folders\ReplyWorkingFolder
+mkdir $(TargetDir)WSRE_Folders\Temp_Dispatch
 exit 0</PostBuildEvent>
   </PropertyGroup>
 </Project>

@@ -153,12 +153,12 @@
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <PostBuildEvent>mkdir $(TargetDir)WSST_FOLDERS\DispatchPath
-mkdir $(TargetDir)WSST_FOLDERS\ErrorProcessingFiles
-mkdir $(TargetDir)WSST_FOLDERS\SafeTirInDrop
-mkdir $(TargetDir)WSST_FOLDERS\SafeTirUploadFileArchive
-mkdir $(TargetDir)WSST_FOLDERS\SafeTirWorkingFolder
-mkdir $(TargetDir)WSST_FOLDERS\Temp_Dispatch
+    <PostBuildEvent>mkdir $(TargetDir)WSST_Folders\DispatchPath
+mkdir $(TargetDir)WSST_Folders\ErrorProcessingFiles
+mkdir $(TargetDir)WSST_Folders\SafeTirInDrop
+mkdir $(TargetDir)WSST_Folders\SafeTirUploadFileArchive
+mkdir $(TargetDir)WSST_Folders\SafeTirWorkingFolder
+mkdir $(TargetDir)WSST_Folders\Temp_Dispatch
 exit 0</PostBuildEvent>
   </PropertyGroup>
 </Project>

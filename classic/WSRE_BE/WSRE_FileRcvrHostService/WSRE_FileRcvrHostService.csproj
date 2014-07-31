@@ -143,8 +143,8 @@
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <PostBuildEvent>mkdir $(TargetDir)WSREFR_FOLDERS\DoubleAgentDropPath
-mkdir $(TargetDir)WSREFR_FOLDERS\TempFolder
+    <PostBuildEvent>mkdir $(TargetDir)WSREFR_Folders\DoubleAgentDropPath
+mkdir $(TargetDir)WSREFR_Folders\TempFolder
 exit 0</PostBuildEvent>
   </PropertyGroup>
 </Project>

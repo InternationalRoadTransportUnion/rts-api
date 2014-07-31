@@ -169,10 +169,10 @@
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <PostBuildEvent>mkdir $(TargetDir)WSRQNR_FOLDERS\ErrorProcessingFiles
-mkdir $(TargetDir)WSRQNR_FOLDERS\WSRQNRInDrop
-mkdir $(TargetDir)WSRQNR_FOLDERS\WSRQNRUploadFileArchive
-mkdir $(TargetDir)WSRQNR_FOLDERS\WSRQNRWorkingfolder
+    <PostBuildEvent>mkdir $(TargetDir)WSRQNR_Folders\ErrorProcessingFiles
+mkdir $(TargetDir)WSRQNR_Folders\WSRQNRInDrop
+mkdir $(TargetDir)WSRQNR_Folders\WSRQNRUploadFileArchive
+mkdir $(TargetDir)WSRQNR_Folders\WSRQNRWorkingfolder
 exit 0</PostBuildEvent>
   </PropertyGroup>
 </Project>

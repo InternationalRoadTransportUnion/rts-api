@@ -16,7 +16,7 @@
 			<includes>
 				<include>**/*.config</include>
 				<include>**/*_Config.xml</include>
-				<include>**/*_FOLDERS/**</include>
+				<include>**/*_Folders/**</include>
 				<include>**/mailtemp/**</include>
 			</includes>
 		</fileSet>
@@ -26,7 +26,7 @@
 			<includes>
 				<include>**/*.config</include>
 				<include>**/*_Config.xml</include>
-				<include>**/*_FOLDERS/**</include>
+				<include>**/*_Folders/**</include>
 			</includes>
 		</fileSet>
 		<fileSet>
@@ -35,7 +35,7 @@
 			<includes>
 				<include>**/*.config</include>
 				<include>**/*_Config.xml</include>
-				<include>**/*_FOLDERS/**</include>
+				<include>**/*_Folders/**</include>
 			</includes>
 		</fileSet>
 	</fileSets>

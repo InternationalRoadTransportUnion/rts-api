@@ -17,7 +17,7 @@
 				<exclude>**/*.pdb</exclude>
 				<exclude>**/*.config</exclude>
 				<exclude>**/*_Config.xml</exclude>
-				<exclude>**/*_FOLDERS/**</exclude>
+				<exclude>**/*_Folders/**</exclude>
 				<exclude>**/mailtemp/**</exclude>
 			</excludes>
 		</fileSet>
@@ -28,7 +28,7 @@
 				<exclude>**/*.pdb</exclude>
 				<exclude>**/*.config</exclude>
 				<exclude>**/*_Config.xml</exclude>
-				<exclude>**/*_FOLDERS/**</exclude>
+				<exclude>**/*_Folders/**</exclude>
 			</excludes>
 		</fileSet>
 		<fileSet>
@@ -38,7 +38,7 @@
 				<exclude>**/*.pdb</exclude>
 				<exclude>**/*.config</exclude>
 				<exclude>**/*_Config.xml</exclude>
-				<exclude>**/*_FOLDERS/**</exclude>
+				<exclude>**/*_Folders/**</exclude>
 			</excludes>
 		</fileSet>
 	</fileSets>
