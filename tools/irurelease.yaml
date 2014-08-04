@@ -1,0 +1,3 @@
+release_branch: tools-release
+release_commit_message: "Release ${new_release_version} of RTS tools"
+nextdev_commit_message: "Get ready for next development phase of RTS tools (${new_dev_version})"

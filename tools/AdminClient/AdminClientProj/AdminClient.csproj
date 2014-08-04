@@ -85,7 +85,7 @@
   <ItemGroup>
     <Reference Include="IRU.Common.EnterpriseLibrary, Version=1.0.1.0, Culture=neutral, PublicKeyToken=f01c97a8a42dad59, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\plus\IRU.RTS.WS\Dependencies\IRU.Common.EnterpriseLibrary.dll</HintPath>
+      <HintPath>..\..\..\plus\Dependencies\IRU.Common.EnterpriseLibrary.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Name>System</Name>
