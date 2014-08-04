@@ -4,10 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.ServiceProcess;
-using IRU.CommonInterfaces;
-using IRU.RTS.CommonComponents;
 using System.Reflection;
 using System.IO;
+using IRU.CommonInterfaces;
+using IRU.RTS.CommonComponents;
+using IRU.RTS.Common.Helper;
 
 namespace WSRQNewRequest_ProcessorHostService
 {
@@ -27,7 +28,7 @@ namespace WSRQNewRequest_ProcessorHostService
 		}
 
 		// The main entry point for the process
-		static void Main()
+        static void Main(string[] args)
 		{
 			System.ServiceProcess.ServiceBase[] ServicesToRun;
 	
@@ -39,7 +40,15 @@ namespace WSRQNewRequest_ProcessorHostService
 			//
             ServicesToRun = new System.ServiceProcess.ServiceBase[] { new WSRQNewRequest_ProcessorHostServiceMain() };
 
-			System.ServiceProcess.ServiceBase.Run(ServicesToRun);
+            if (!Environment.UserInteractive)
+            {
+                ServiceBase.Run(ServicesToRun);
+            }
+            else
+            {
+                ServiceInstallerConsoleHelper svcInstConsHlp = new ServiceInstallerConsoleHelper(ServicesToRun[0], args);
+                svcInstConsHlp.Execute();
+            }
 		}
 
 		/// <summary> 

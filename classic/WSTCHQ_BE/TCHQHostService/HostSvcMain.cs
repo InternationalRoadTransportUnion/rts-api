@@ -4,10 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.ServiceProcess;
-using IRU.RTS.CommonComponents;
-using IRU.CommonInterfaces;
 using System.Reflection;
 using System.IO;
+using IRU.CommonInterfaces;
+using IRU.RTS.CommonComponents;
+using IRU.RTS.Common.Helper;
 
 namespace TCHQHostService
 {
@@ -27,7 +28,7 @@ namespace TCHQHostService
 		}
 
 		// The main entry point for the process
-		static void Main()
+        static void Main(string[] args)
 		{
 			System.ServiceProcess.ServiceBase[] ServicesToRun;
 	
@@ -39,7 +40,15 @@ namespace TCHQHostService
 			//
 			ServicesToRun = new System.ServiceProcess.ServiceBase[] { new HostSvcMain() };
 
-			System.ServiceProcess.ServiceBase.Run(ServicesToRun);
+            if (!Environment.UserInteractive)
+            {
+                ServiceBase.Run(ServicesToRun);
+            }
+            else
+            {
+                ServiceInstallerConsoleHelper svcInstConsHlp = new ServiceInstallerConsoleHelper(ServicesToRun[0], args);
+                svcInstConsHlp.Execute();
+            }
 		}
 
 		/// <summary> 

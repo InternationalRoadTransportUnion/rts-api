@@ -34,6 +34,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StructToTable", "..\WSRE_BE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileListener", "..\WSTCHQ_BE\FileListener\FileListener.csproj", "{5489F565-7459-44B1-926C-B6B69655C8BC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{35919B71-2525-44C1-86A6-F897E0E51618}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRU.RTS.Common", "..\Common\IRU.RTS.Common\IRU.RTS.Common.csproj", "{51C1C416-18C9-4A64-B542-A2E8B3299F61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -96,6 +100,10 @@ Global
 		{5489F565-7459-44B1-926C-B6B69655C8BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5489F565-7459-44B1-926C-B6B69655C8BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5489F565-7459-44B1-926C-B6B69655C8BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51C1C416-18C9-4A64-B542-A2E8B3299F61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51C1C416-18C9-4A64-B542-A2E8B3299F61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51C1C416-18C9-4A64-B542-A2E8B3299F61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51C1C416-18C9-4A64-B542-A2E8B3299F61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -110,6 +118,7 @@ Global
 		{5489F565-7459-44B1-926C-B6B69655C8BC} = {EF4B9B9E-1D86-469E-B608-E68799D5CBA6}
 		{0BE7CE4F-AD72-4FBB-89F2-4349982E62C3} = {FF5EAF7C-7FA0-453E-9060-C4AD9FB269EB}
 		{09DE4F88-70C7-4556-85D3-B5FCC4BCDFF1} = {3FD9B7A1-06E7-4C4C-8D35-000ED68A40E4}
+		{51C1C416-18C9-4A64-B542-A2E8B3299F61} = {35919B71-2525-44C1-86A6-F897E0E51618}
 	EndGlobalSection
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 7

@@ -25,7 +25,7 @@
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>TCHQHostService</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <StartupObject>
@@ -35,6 +35,7 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -90,6 +91,9 @@
     <Reference Include="System.Configuration.Install">
       <Name>System.Configuration.Install</Name>
     </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Data">
       <Name>System.Data</Name>
     </Reference>
@@ -102,6 +106,10 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
+    <ProjectReference Include="..\..\Common\IRU.RTS.Common\IRU.RTS.Common.csproj">
+      <Project>{51C1C416-18C9-4A64-B542-A2E8B3299F61}</Project>
+      <Name>IRU.RTS.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CommonComponents\CommonComponents.csproj">
       <Name>CommonComponents</Name>
       <Project>{7786779D-6B79-4A51-A03E-2497DCFE2025}</Project>
