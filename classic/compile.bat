@@ -13,7 +13,6 @@ msbuild AlertProcessor/RTSAlertHostService/RTSAlertHostService.csproj /p:Configu
 msbuild CryptoRemotingHost/CryptoHostService/CryptoHostService.csproj /p:Configuration=%CONFIG% /t:rebuild /p:OutputPath=./../../RTS/CryptoHost/
 
 msbuild RTS_WS/TCHQ_WS/TCHQ_WS.sln /t:rebuild /p:Configuration=%CONFIG%;OutDir=.\..\..\RTS\TCHQ_WS\bin\;WebProjectOutputDir=.\..\..\..\RTS\TCHQ_WS\
-msbuild RTS_WS/WSRE_WS/WSRE_WS.sln /t:rebuild /p:Configuration=%CONFIG%;OutDir=.\..\..\RTS\WSRE_WS\bin\;WebProjectOutputDir=.\..\..\RTS\WSRE_WS\
 msbuild RTS_WS/WSRQ_WS/WSRQ_WS.sln /t:rebuild /p:Configuration=%CONFIG%;OutDir=.\..\..\RTS\WSRQ_WS\bin\;WebProjectOutputDir=.\..\..\RTS\WSRQ_WS\
 msbuild RTS_WS/WSST_WS/WSST_WS.sln /t:rebuild /p:Configuration=%CONFIG%;OutDir=.\..\..\RTS\WSST_WS\bin\;WebProjectOutputDir=.\..\..\..\RTS\WSST_WS\
 msbuild RTS_WS/TVQR_WS/TVQR_WS.sln /t:rebuild /p:Configuration=%CONFIG%;OutDir=.\..\..\RTS\TVQR_WS\bin\;WebProjectOutputDir=.\..\..\..\RTS\TVQR_WS\
