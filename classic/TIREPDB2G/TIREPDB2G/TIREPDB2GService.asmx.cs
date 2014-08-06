@@ -11,7 +11,7 @@ namespace TIREPDB2G
     /// <summary>
     /// Summary description for WebService1
     /// </summary>
-    [WebService(Namespace = "http://www.iru.org/")]
+    [WebService(Namespace = "http://www.iru.org")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [ToolboxItem(false)]
     public class TIREPDB2GServiceClass : System.Web.Services.WebService, ITIREPDB2GServiceClassSoap
