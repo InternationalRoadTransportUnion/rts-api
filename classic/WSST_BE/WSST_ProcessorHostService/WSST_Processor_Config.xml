@@ -7,12 +7,12 @@
 			isRunnable="false" />-->
   </Section>
   <Section name="WSST_Processor">
-    <WSST_ProcessorSettings DBHelperFactoryPlugin="DBHelperFactory" InMemoryCachePlugin="InMemoryCache" DispatchFileDropPath="WSST_Folders/DispatchPath" TemporaryFolderPath="WSST_Folders/Temp_Dispatch" CryptoProviderEndpoint="tcp://localhost:9012/CryptoProvider.rem" SchemaFilesPath="Schemas">
+    <WSST_ProcessorSettings DBHelperFactoryPlugin="DBHelperFactory" InMemoryCachePlugin="InMemoryCache" DispatchFileDropPath="WSST_Folders/DispatchPath" TemporaryFolderPath="WSST_Folders/Temp_Dispatch" CryptoProviderEndpoint="tcp://127.0.0.1:9012/CryptoProvider.rem" SchemaFilesPath="Schemas">
     </WSST_ProcessorSettings>
   </Section>
   <!--</Section>-->
   <Section name="FileSystemListener">
-    <FileSystemListener DeliverToPlugin="WSST_Processor" PollFolderLocation="./../WSST_Ex/WSSTFR_Folders/DoubleAgentDropPath" WorkingFolderLocation="WSST_Folders/SafeTirWorkingFolder" ArchiveFolderLocation="WSST_Folders/SafeTirUploadFileArchive" MaxConcurrentProcessCount="2" ErrorFolderLocation="WSST_Folders/ErrorProcessingFiles" FilePattern="*.SafeTIR" ForceScanInterval="3">
+    <FileSystemListener DeliverToPlugin="WSST_Processor" PollFolderLocation="..\WSST_Ex\WSSTFR_Folders\DoubleAgentDropPath" WorkingFolderLocation="WSST_Folders\SafeTirWorkingFolder" ArchiveFolderLocation="WSST_Folders\SafeTirUploadFileArchive" MaxConcurrentProcessCount="2" ErrorFolderLocation="WSST_Folders\ErrorProcessingFiles" FilePattern="*.SafeTIR" ForceScanInterval="3">
     </FileSystemListener>
   </Section>
   <Section name="DBHelperFactory">

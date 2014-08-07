@@ -9,7 +9,7 @@
     </WSRQNewRequest_ProcessorSettings>
   </Section>
   <Section name="FileSystemListener">
-    <FileSystemListener DeliverToPlugin="WSRQNewRequest_Processor" PollFolderLocation="WSRQNR_Folders/WSRQNRInDrop" WorkingFolderLocation="WSRQNR_Folders/WSRQNRWorkingFolder" ArchiveFolderLocation="WSRQNR_Folders/WSRQNRUploadFileArchive" MaxConcurrentProcessCount="2" ErrorFolderLocation="WSRQNR_Folders/ErrorProcessingFiles" FilePattern="*.req" ForceScanInterval="3">
+    <FileSystemListener DeliverToPlugin="WSRQNewRequest_Processor" PollFolderLocation="WSRQNR_Folders\WSRQNRInDrop" WorkingFolderLocation="WSRQNR_Folders\WSRQNRWorkingFolder" ArchiveFolderLocation="WSRQNR_Folders\WSRQNRUploadFileArchive" MaxConcurrentProcessCount="2" ErrorFolderLocation="WSRQNR_Folders\ErrorProcessingFiles" FilePattern="*.req" ForceScanInterval="3">
     </FileSystemListener>
   </Section>
   <Section name="DBHelperFactory">

@@ -6,11 +6,11 @@
     <Section name="G2B_RemotingHelperSettings">
         <G2B_RemotingHelperSettings DBHelperFactoryPlugin="DBHelperFactory" G2BDBName="TIREPD_DB"
         SubscriberDBName="SubsciberDB" EncryptionKeysTable="EncryptionKeys"
-        RemotingPort="9009" CryptoProviderEndpoint="tcp://172.25.12.100:9012/CryptoProvider.rem"
+        RemotingPort="9009" CryptoProviderEndpoint="tcp://127.0.0.1:9012/CryptoProvider.rem"
         RemotingEndPoint="TIREPDG2BReceiver.rem"
         SchemaFilesPath="Schemas"
         MessageNamesList="TIRPreDeclaration,TIRPreDeclarationReceived,TIRPreDeclarationRecieved,TIRPreDeclarationAccepted,TIRPreDeclarationReleased,TIRPreDeclarationRejected,TIRPreDeclarationError,TIRPreDeclarationCancellationReply,TIRPreDeclarationCancellationNotice,TIRPreDeclarationTransitRefused,TIRPreDeclarationAmendmentAccepted,TIRPreDeclarationAmendmentRejected,TIRPreDeclarationControlNotification,TIRPreDeclarationGuaranteeProblem,TIRPreDeclarationDischargeNotification,TIRPreDeclarationExitNotification"
-        CountryISO_INMessagePath="MD,MDACUS,\\filer\Data_Exchange\TIR\EPD\MD\IN;UA,UKRCUS,\\filer\Data_Exchange\TIR\EPD\UA\IN;GE,GEOCUS,\\filer\Data_Exchange\TIR\EPD\GE\IN;BY,BLRCUS,\\filer\Data_Exchange\TIR\EPD\BY\IN;BA,BIHCUS,\\filer\Data_Exchange\TIR\EPD\BA\IN;TR,TURCUS,\\filer\Data_Exchange\TIR\EPD\TR\IN;UZ,UZBCUS,\\filer\Data_Exchange\TIR\EPD\UZ\IN;KZ,KAZCUS,\\filer\Data_Exchange\TIR\EPD\KZ\IN;MK,MKDCUS,\\filer\Data_Exchange\TIR\EPD\MK\IN;AF,AFGCUS,\\filer\Data_Exchange\TIR\EPD\AF\IN;IR,IRNCUS,\\filer\Data_Exchange\TIR\EPD\IR\IN">
+        CountryISO_INMessagePath="MD,MDACUS,\\filer\Data_Exchange\TIR\EPD_Test\MD\IN;UA,UKRCUS,\\filer\Data_Exchange\TIR\EPD_Test\UA\IN;GE,GEOCUS,\\filer\Data_Exchange\TIR\EPD_Test\GE\IN;BY,BLRCUS,\\filer\Data_Exchange\TIR\EPD_Test\BY\IN;BA,BIHCUS,\\filer\Data_Exchange\TIR\EPD_Test\BA\IN;TR,TURCUS,\\filer\Data_Exchange\TIR\EPD_Test\TR\IN;UZ,UZBCUS,\\filer\Data_Exchange\TIR\EPD_Test\UZ\IN;KZ,KAZCUS,\\filer\Data_Exchange\TIR\EPD_Test\KZ\IN;MK,MKDCUS,\\filer\Data_Exchange\TIR\EPD_Test\MK\IN;AF,AFGCUS,\\filer\Data_Exchange\TIR\EPD_Test\AF\IN;IR,IRNCUS,\\filer\Data_Exchange\TIR\EPD_Test\IR\IN">
             <!--CountryIso,SUBSCRIBERID,INPath;CountryISO,SUBSCRIBERID,InPath -->
         </G2B_RemotingHelperSettings>
     </Section>
@@ -19,11 +19,11 @@
         <ConnectionStrings>
             <DB Name="TIREPD_DB">
                 <!-- Base64 encoded -->
-                <ConnectionString>SERVER=SC001082C-V2\NM01,14330;DATABASE=TIR_EPD;Integrated security=True;connect timeout =200</ConnectionString>
+                <ConnectionString>SERVER=172.25.13.50;DATABASE=TIR_EPD;Integrated security=True;connect timeout =200</ConnectionString>
             </DB>
             <DB Name="SubscriberDB">
                 <!-- Base64 encoded -->
-                <ConnectionString>SERVER=SC001082C-V2\NM01,14330;DATABASE=WS_Subscriber_db;Integrated security=True;connect timeout =200</ConnectionString>
+                <ConnectionString>SERVER=172.25.13.50;DATABASE=WS_Subscriber_db;Integrated security=True;connect timeout =200</ConnectionString>
             </DB>
 
         </ConnectionStrings>

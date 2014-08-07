@@ -4,7 +4,7 @@
     <Plugin name="WSSTFileReceiverPlugin" objectType="IRU.RTS.WSST.WSSTFR_RemotingHelper, WSST_FileReceiver" isRunnable="true" />
   </Section>
   <Section name="WSSTFileReceiverPlugin">
-    <FileReceiverSettings DBHelperFactoryPlugin="DBHelperFactory" DoubleAgentDropPath="WSSTFR_Folders\DoubleAgentDropPath\" TemporaryFolderPath="WSSTFR_Folders\Tempfolder\" RemotingPort="9001" RemotingEndPoint="WSSTFileReceive.Rem">
+    <FileReceiverSettings DBHelperFactoryPlugin="DBHelperFactory" DoubleAgentDropPath="WSSTFR_Folders\DoubleAgentDropPath" TemporaryFolderPath="WSSTFR_Folders\Tempfolder" RemotingPort="9001" RemotingEndPoint="WSSTFileReceive.Rem">
     </FileReceiverSettings>
   </Section>
   <Section name="DBHelperFactory">

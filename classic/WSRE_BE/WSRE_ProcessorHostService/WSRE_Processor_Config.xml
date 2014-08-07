@@ -7,12 +7,12 @@
 			isRunnable="false" />-->
   </Section>
   <Section name="WSRE_Processor">
-    <WSRE_ProcessorSettings DBHelperFactoryPlugin="DBHelperFactory" InMemoryCachePlugin="InMemoryCache" DispatchFileDropPath="WSRE_Folders/DispatchPath" TemporaryFolderPath="WSRE_Folders/Temp_Dispatch" CryptoProviderEndpoint="tcp://localhost:9012/CryptoProvider.rem" SchemaFilesPath="Schemas">
+    <WSRE_ProcessorSettings DBHelperFactoryPlugin="DBHelperFactory" InMemoryCachePlugin="InMemoryCache" DispatchFileDropPath="WSRE_Folders/DispatchPath" TemporaryFolderPath="WSRE_Folders/Temp_Dispatch" CryptoProviderEndpoint="tcp://127.0.0.1:9012/CryptoProvider.rem" SchemaFilesPath="Schemas">
     </WSRE_ProcessorSettings>
   </Section>
   <!--</Section>-->
   <Section name="FileSystemListener">
-    <FileSystemListener DeliverToPlugin="WSRE_Processor" PollFolderLocation="./../WSST_Ex/WSREFR_Folders/DoubleAgentDropPath" WorkingFolderLocation="WSRE_Folders/ReplyWorkingFolder" ArchiveFolderLocation="WSRE_Folders/ReplyUploadFileArchive" MaxConcurrentProcessCount="2" ErrorFolderLocation="WSST_Folders/ErrorProcessingFiles" FilePattern="*.Reply" ForceScanInterval="3">
+    <FileSystemListener DeliverToPlugin="WSRE_Processor" PollFolderLocation="..\WSRE_Ex\WSREFR_Folders\DoubleAgentDropPath" WorkingFolderLocation="WSRE_Folders\ReplyWorkingFolder" ArchiveFolderLocation="WSRE_Folders\ReplyUploadFileArchive" MaxConcurrentProcessCount="2" ErrorFolderLocation="WSRE_Folders\ErrorProcessingFiles" FilePattern="*.Reply" ForceScanInterval="3">
     </FileSystemListener>
   </Section>
   <Section name="DBHelperFactory">
