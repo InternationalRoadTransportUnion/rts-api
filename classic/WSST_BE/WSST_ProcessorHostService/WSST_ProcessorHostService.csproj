@@ -111,9 +111,6 @@
     <None Include="Schemas\WSST.xsd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Schemas\WSST1.xsd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
