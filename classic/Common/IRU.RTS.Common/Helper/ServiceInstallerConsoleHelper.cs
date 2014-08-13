@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Diagnostics;
 using System.ServiceProcess;
 using System.Configuration.Install;
 
@@ -20,12 +21,26 @@ namespace IRU.RTS.Common.Helper
             _service = service;
             _arguments.AddRange(arguments);
 
+            foreach (string arg in _arguments.ToList())
+            {
+                string s = arg.Trim();
+
+                if (s.Equals("/FORCEINTERACTIVE", StringComparison.InvariantCultureIgnoreCase) || s.Equals("/FI", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    _arguments.Remove(arg);
+                }
+            }
+
             if (_arguments.Count == 0)
             {
                 _arguments.Add("/DEFAULT");
             }
         }
 
+        public static bool IsInteractive()
+        {
+            return Environment.UserInteractive || HasForceInteractiveFlag();
+        }
 
         public void Execute()
         {
@@ -41,9 +56,16 @@ namespace IRU.RTS.Common.Helper
                     System.Console.Out.WriteLine("\t/?");
                     System.Console.Out.WriteLine("\t\tShow this help");
                     System.Console.Out.WriteLine();
+                    System.Console.Out.WriteLine("\t\t[/FI]");
+                    System.Console.Out.WriteLine("\t\t[/FORCEINTERACTIVE]");
+                    System.Console.Out.WriteLine("\t\t\tOptional flag to force the interactive mode");
+                    System.Console.Out.WriteLine();
                     System.Console.Out.WriteLine("\t/I[NSTALL]");
                     System.Console.Out.WriteLine("\t\tInstall the service");
                     System.Console.Out.WriteLine();
+                    System.Console.Out.WriteLine("\t\t[/FI]");
+                    System.Console.Out.WriteLine("\t\t[/FORCEINTERACTIVE]");
+                    System.Console.Out.WriteLine("\t\t\tOptional flag to force the interactive mode");
                     System.Console.Out.WriteLine("\t\t[/Account=<service_account>]");
                     System.Console.Out.WriteLine("\t\t\tService account:");
                     foreach (var v in Enum.GetValues(typeof(ServiceAccount)))
@@ -70,6 +92,9 @@ namespace IRU.RTS.Common.Helper
                     System.Console.Out.WriteLine("\t/U[NINSTALL]");
                     System.Console.Out.WriteLine("\t\tUninstall the service");
                     System.Console.Out.WriteLine();
+                    System.Console.Out.WriteLine("\t\t[/FI]");
+                    System.Console.Out.WriteLine("\t\t[/FORCEINTERACTIVE]");
+                    System.Console.Out.WriteLine("\t\t\tOptional flag to force the interactive mode");
                     System.Console.Out.WriteLine("\t\t[/ServiceName=<service_alternative_name>]");
                     System.Console.Out.WriteLine("\t\t\tOptional alternative name of the service to uninstall");
                     System.Console.Out.WriteLine("\t\t\ta very specific instance");
@@ -209,6 +234,20 @@ namespace IRU.RTS.Common.Helper
             {
                 throw;
             }
+        }
+
+        private static bool HasForceInteractiveFlag()
+        {
+            foreach (string arg in Environment.GetCommandLineArgs())
+            {
+                string s = arg.Trim();
+                if (s.Equals("/FORCEINTERACTIVE", StringComparison.InvariantCultureIgnoreCase) || s.Equals("/FI", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

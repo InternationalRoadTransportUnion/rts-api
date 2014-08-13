@@ -40,7 +40,7 @@ namespace WSRQNewRequest_ProcessorHostService
 			//
             ServicesToRun = new System.ServiceProcess.ServiceBase[] { new WSRQNewRequest_ProcessorHostServiceMain() };
 
-            if (!Environment.UserInteractive)
+            if (!ServiceInstallerConsoleHelper.IsInteractive())
             {
                 ServiceBase.Run(ServicesToRun);
             }

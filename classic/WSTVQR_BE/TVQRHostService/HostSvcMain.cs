@@ -40,7 +40,7 @@ namespace TVQRHostService
 			//
 			ServicesToRun = new System.ServiceProcess.ServiceBase[] { new HostSvcMain() };
 
-            if (!Environment.UserInteractive)
+            if (!ServiceInstallerConsoleHelper.IsInteractive())
             {
                 ServiceBase.Run(ServicesToRun);
             }

@@ -40,7 +40,7 @@ namespace WSST_FileRcvrHostService
 			//
 			ServicesToRun = new System.ServiceProcess.ServiceBase[] { new WSST_FileRcvrHostServiceMain() };
 
-            if (!Environment.UserInteractive)
+            if (!ServiceInstallerConsoleHelper.IsInteractive())
             {
                 ServiceBase.Run(ServicesToRun);
             }

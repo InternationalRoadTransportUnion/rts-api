@@ -40,7 +40,7 @@ namespace WSRE_FileRcvrHostService
 			//
 			ServicesToRun = new System.ServiceProcess.ServiceBase[] { new WSRE_FileRcvrHostServiceMain() };
 
-            if (!Environment.UserInteractive)
+            if (!ServiceInstallerConsoleHelper.IsInteractive())
             {
                 ServiceBase.Run(ServicesToRun);
             }

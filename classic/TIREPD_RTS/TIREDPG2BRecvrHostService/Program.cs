@@ -25,7 +25,7 @@ namespace TIREDPG2BRecvrHostService
             //
             ServicesToRun = new ServiceBase[] { new TIREPDG2BRcvrHostService() };
 
-            if (!Environment.UserInteractive)
+            if (!ServiceInstallerConsoleHelper.IsInteractive())
             {
                 ServiceBase.Run(ServicesToRun);
             }

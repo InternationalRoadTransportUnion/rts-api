@@ -40,7 +40,7 @@ namespace WSRE_ProcessorHostService
 			//
 			ServicesToRun = new System.ServiceProcess.ServiceBase[] { new WSRE_ProcessorHostServiceMain() };
 
-            if (!Environment.UserInteractive)
+            if (!ServiceInstallerConsoleHelper.IsInteractive())
             {
                 ServiceBase.Run(ServicesToRun);
             }

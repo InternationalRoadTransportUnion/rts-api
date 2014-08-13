@@ -40,7 +40,7 @@ namespace RTSAlertHostService
 			//
 			ServicesToRun = new System.ServiceProcess.ServiceBase[] { new RTSAlertHostService() };
 
-            if (!Environment.UserInteractive)
+            if (!ServiceInstallerConsoleHelper.IsInteractive())
             {
                 ServiceBase.Run(ServicesToRun);
             }
