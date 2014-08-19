@@ -47,4 +47,12 @@ namespace IRU.RTS
         void UpdateResponseResult(long QueryId, DateTime dtResponseSent, bool ResponseResult);
     }
     #endregion
+
+    #region EGIS
+    public interface IEGISProcessor
+    {
+        EGISResponseType ProcessQuery(EGISQueryType EGISQuery, string SenderIP, out long IRUQueryId);
+        void UpdateResponseResult(long QueryId, DateTime dtResponseSent, bool ResponseResult);
+    }
+    #endregion
 }

@@ -18,6 +18,7 @@ msbuild RTS_WS/WSST_WS/WSST_WS.sln /t:rebuild /p:Configuration=%CONFIG%;OutDir=.
 msbuild RTS_WS/TVQR_WS/TVQR_WS.sln /t:rebuild /p:Configuration=%CONFIG%;OutDir=.\..\..\RTS\TVQR_WS\bin\;WebProjectOutputDir=.\..\..\..\RTS\TVQR_WS\
 msbuild TIREPDB2G/TIREPDB2G/TIREPDB2G.csproj /t:rebuild /p:Configuration=%CONFIG%;OutDir=.\..\..\RTS\TIREPDB2G\bin\;WebProjectOutputDir=.\..\..\RTS\TIREPDB2G\
 msbuild TIREPDB2G/TIREPDG2B/TIREPDG2B.csproj /t:rebuild /p:Configuration=%CONFIG%;OutDir=.\..\..\RTS\TIREPDG2B\bin\;WebProjectOutputDir=.\..\..\RTS\TIREPDG2B\
+msbuild RTS_WS/EGIS_WS/EGIS_WS.sln /t:rebuild /p:Configuration=%CONFIG%;OutDir=.\..\..\RTS\EGIS_WS\bin\;WebProjectOutputDir=.\..\..\..\RTS\EGIS_WS\
 
 rem del /f /s /q .\RTS\*.config
 rem del /f /s /q .\RTS\*.xml

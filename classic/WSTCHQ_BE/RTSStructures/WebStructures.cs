@@ -238,5 +238,31 @@ namespace IRU.RTS
         public int ReturnCode;
         public string Sender_MessageID;
     }
+
+    /// <summary>
+    /// EGISQuery - EGIS method #1: query
+    /// </summary>
+    [Serializable]
+    public struct EGISQueryType
+    {
+        public string SubscriberID;
+        public string MessageTag;
+        public byte[] ESessionKey;
+        public byte[] EGISQueryParams;
+        public string Query_ID;
+    }
+
+    /// <summary>
+    /// EGISQuery - EGIS method #1: response
+    /// </summary>
+    [Serializable]
+    public struct EGISResponseType
+    {
+        public string MessageTag;
+        public byte[] ESessionKey;
+        public byte[] EGISResponseParams;
+        public int ReturnCode;
+        public string Query_ID;
+    }
 }
 
