@@ -6,6 +6,7 @@ using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
 using IRU.RTS.TIREPD;
+using IRU.RTS.Common.WCF;
 
 namespace TIREPDG2B
 {
@@ -23,12 +24,17 @@ namespace TIREPDG2B
         {
             TIREPDG2BUploadAck ack = new TIREPDG2BUploadAck();
             try
-            {
-                IG2BReceiver fileReceiver = (IG2BReceiver)Activator.GetObject(typeof(IRU.RTS.TIREPD.IG2BReceiver), System.Configuration.ConfigurationSettings.AppSettings["G2BReceiverEndPoint"]);
+            {				
+                //IG2BReceiver fileReceiver = (IG2BReceiver)Activator.GetObject(typeof(IRU.RTS.TIREPD.IG2BReceiver), System.Configuration.ConfigurationSettings.AppSettings["G2BReceiverEndPoint"]);
 
-                string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
-                long lG2BMessageId = -1;
-                ack = fileReceiver.ProcessReceivedFile(su, senderIP, out lG2BMessageId);
+				using (NetTcpClient<IG2BReceiver> client = new NetTcpClient<IG2BReceiver>(System.Configuration.ConfigurationSettings.AppSettings["G2BReceiverEndPoint"]))
+				{
+					IG2BReceiver fileReceiver = client.GetProxy();
+
+					string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
+					long lG2BMessageId = -1;
+					ack = fileReceiver.ProcessReceivedFile(su, senderIP, out lG2BMessageId);
+				}
             }
             catch (Exception ex)
             {

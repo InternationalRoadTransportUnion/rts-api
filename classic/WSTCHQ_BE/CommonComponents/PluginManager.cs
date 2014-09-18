@@ -203,6 +203,11 @@ namespace IRU.RTS.CommonComponents
 			{
 				try
 				{
+					if (pluginTable[key] is IRunnable)
+					{
+						Debug.WriteLine("Stopping plugin " + key);
+						((IRunnable)pluginTable[key]).Stop();
+					}
 
 					Debug.WriteLine("Unloading plugin " + key);
 					((IPlugIn)pluginTable[key]).Unload();

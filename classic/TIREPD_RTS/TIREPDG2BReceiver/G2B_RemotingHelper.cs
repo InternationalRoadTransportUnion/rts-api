@@ -8,8 +8,12 @@ using IRU.RTS.CommonComponents;
 using System.Runtime.Remoting.Services;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Runtime.Remoting.Channels;
+using System.ServiceModel;
+using System.ServiceModel.Description;
+using System.ServiceModel.Channels; 
+using IRU.RTS.TIREPD;
+using IRU.RTS.Common.WCF;
 
-using IRU.RTS.TIREPD; 
 
 namespace IRU.RTS.TIREPD
 {
@@ -20,7 +24,9 @@ namespace IRU.RTS.TIREPD
     {
         internal static IDBHelperFactory m_dbHelperFactoryPlugin;//="DBHelperFactory" 
 
-        internal static IRU.CommonInterfaces.ICache m_InMemoryCachePlugin;//="InMemoryCache" 
+        internal static IRU.CommonInterfaces.ICache m_InMemoryCachePlugin;//="InMemoryCache"
+
+		private NetTcpServiceHost<G2BReceiver, IG2BReceiver> _serviceHost = null;
 
         //if port is 0 dont register a channel as some other plugin is expected to register the channel
         private int m_RemotingPort;//="4000"
@@ -52,7 +58,21 @@ namespace IRU.RTS.TIREPD
         {
             //Register the processor class with Remoting system.
 
-            RemotingConfiguration.RegisterWellKnownServiceType(typeof(G2BReceiver), m_RemotingEndPoint, WellKnownObjectMode.SingleCall);
+			try
+			{
+				_serviceHost = new NetTcpServiceHost<G2BReceiver, IG2BReceiver>(m_RemotingPort, m_RemotingEndPoint);
+				_serviceHost.Open();
+			}
+			catch (Exception ex)
+			{
+				Stop();
+                
+				Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
+                    "Can't start ServiceHost: "
+                    + ex.Message);
+                throw ex;
+			} 
+
 
 //IE14    http://tempuri.org/XMLSchema.xsd
 //IE15    http://www.iru.org/TIREPD
@@ -142,6 +162,11 @@ namespace IRU.RTS.TIREPD
         public void Stop()
         {
             // TODO:  Add TCHQ_RemotingHelper.Stop implementation
+			if (_serviceHost != null)
+			{
+				_serviceHost.Dispose();
+				_serviceHost = null;
+			}
         }
 
         #endregion
@@ -224,19 +249,7 @@ namespace IRU.RTS.TIREPD
             }
 
             //register channels here so that more channels can be registered in config in other plugins
-            if (m_RemotingPort != 0)
-            {
-                BinaryServerFormatterSinkProvider provider = new BinaryServerFormatterSinkProvider();
-                provider.TypeFilterLevel = System.Runtime.Serialization.Formatters.TypeFilterLevel.Full;
-                // Creating the IDictionary to set the port on the channel instance.
-                System.Collections.IDictionary props = new System.Collections.Hashtable();
-                props["port"] = m_RemotingPort;
-
-                //TcpChannel chan = new TcpChannel(m_RemotingPort);
-                TcpChannel chan = new TcpChannel(props, null, provider);
-                ChannelServices.RegisterChannel(chan,false);
-            }
-            else
+            if (m_RemotingPort == 0)            
             {
                 Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceWarning, " G2B_Remoting helper has not registered channels, expecting other plugin to register a remoting tcpchannel");
 
