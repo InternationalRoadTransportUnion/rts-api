@@ -1,13 +1,13 @@
 using System;
 using IRU.CommonInterfaces;
 using System.Xml;
-using IRU.RTS.CommonComponents;
 
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting;
 
-
+using IRU.RTS.CommonComponents;
+using IRU.RTS.Common.WCF;
 
 
 namespace IRU.RTS.CryptoProvider
@@ -17,6 +17,7 @@ namespace IRU.RTS.CryptoProvider
 	/// </summary>
 	public class Crypto_RemotingHelper:IPlugIn,IRunnable
 	{
+		private NetTcpServiceHost<CryptoOperations, CryptoInterfaces.ICryptoOperations> _serviceHost = null;
 		
 		//if port is 0 dont register a channel as some other plugin is expected to register the channel
 		private int m_RemotingPort;//="4000"
@@ -78,12 +79,7 @@ namespace IRU.RTS.CryptoProvider
 			}
 
 			//register channels here so that more channels can be registered in config in other plugins
-			if ( m_RemotingPort != 0)
-			{
-				TcpChannel chan = new TcpChannel(m_RemotingPort);
-				ChannelServices.RegisterChannel(chan);
-			}
-			else
+			if (m_RemotingPort == 0)
 			{
 				Statics.IRUTrace(this,Statics.IRUTraceSwitch.TraceWarning," TCHQ_Remoting helper has not registered channels, expecting other plugin to register a remoting tcpchannel");
 
@@ -116,14 +112,30 @@ namespace IRU.RTS.CryptoProvider
 
 		public void Start()
 		{
-			
-			RemotingConfiguration.RegisterWellKnownServiceType(typeof(CryptoOperations),m_RemotingEndPoint,  WellKnownObjectMode.Singleton);				
-		
+			try
+			{
+				_serviceHost = new NetTcpServiceHost<CryptoOperations, CryptoInterfaces.ICryptoOperations>(m_RemotingPort, m_RemotingEndPoint);
+				_serviceHost.Open();
+			}
+			catch (Exception ex)
+			{
+				Stop();
+                
+				Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
+                    "Can't start ServiceHost: "
+                    + ex.Message);
+                throw ex;
+			} 		
 		}
 
 		public void Stop()
 		{
 			// TODO:  Add Crypto_RemotingHelper.Stop implementation
+			if (_serviceHost != null)
+			{
+				_serviceHost.Dispose();
+				_serviceHost = null;
+			}
 		}
 
 		#endregion

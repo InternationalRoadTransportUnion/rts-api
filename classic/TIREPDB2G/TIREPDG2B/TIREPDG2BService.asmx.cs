@@ -25,8 +25,6 @@ namespace TIREPDG2B
             TIREPDG2BUploadAck ack = new TIREPDG2BUploadAck();
             try
             {				
-                //IG2BReceiver fileReceiver = (IG2BReceiver)Activator.GetObject(typeof(IRU.RTS.TIREPD.IG2BReceiver), System.Configuration.ConfigurationSettings.AppSettings["G2BReceiverEndPoint"]);
-
 				using (NetTcpClient<IG2BReceiver> client = new NetTcpClient<IG2BReceiver>(System.Configuration.ConfigurationSettings.AppSettings["G2BReceiverEndPoint"]))
 				{
 					IG2BReceiver fileReceiver = client.GetProxy();

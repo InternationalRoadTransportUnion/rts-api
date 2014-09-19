@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Web;
 using System.Web.Services;
 using IRU.RTS;
+using IRU.RTS.Common.WCF;
 
 namespace WSRESPACE
 {
@@ -60,11 +61,14 @@ namespace WSRESPACE
             SafeTIRUploadAck reconcileReplyAck;
 			try
 			{
-				IWSREFileReceiver iFileReceiver =  (IWSREFileReceiver)Activator.GetObject(typeof(IRU.RTS.IWSREFileReceiver), System.Configuration.ConfigurationSettings.AppSettings["WSREFileReceiverEndPoint"]);
-				
-				string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
+				using (NetTcpClient<IWSREFileReceiver> client = new NetTcpClient<IWSREFileReceiver>(System.Configuration.ConfigurationSettings.AppSettings["WSREFileReceiverEndPoint"]))
+				{
+					IWSREFileReceiver iFileReceiver = client.GetProxy();
 
-                reconcileReplyAck = iFileReceiver.ProcessReceivedFile(su, senderIP);
+					string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
+
+					reconcileReplyAck = iFileReceiver.ProcessReceivedFile(su, senderIP);
+				}
 			}
 			catch (Exception ex)
 			{

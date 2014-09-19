@@ -52,6 +52,9 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -83,6 +86,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\IRU.RTS.Common\IRU.RTS.Common.csproj">
+      <Project>{51C1C416-18C9-4A64-B542-A2E8B3299F61}</Project>
+      <Name>IRU.RTS.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\WSTCHQ_BE\RTSStructures\RTSStructures.csproj">
       <Project>{BBF126D5-CA34-4786-A61D-0B426EC0677B}</Project>
       <Name>RTSStructures</Name>

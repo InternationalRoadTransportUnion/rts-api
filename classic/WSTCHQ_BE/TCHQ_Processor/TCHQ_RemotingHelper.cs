@@ -2,12 +2,12 @@ using System;
 using System.Runtime.Remoting;
 using IRU.RTS;
 using System.Xml;
-using IRU.CommonInterfaces;
-using IRU.RTS.CommonComponents;
 using System.Runtime.Remoting.Services;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Runtime.Remoting.Channels;
-
+using IRU.CommonInterfaces;
+using IRU.RTS.CommonComponents;
+using IRU.RTS.Common.WCF;
 
 namespace IRU.RTS.WSTCHQ
 {
@@ -19,7 +19,9 @@ namespace IRU.RTS.WSTCHQ
 		internal static IDBHelperFactory  m_dbHelperFactoryPlugin ;//="DBHelperFactory" 
 		
 		internal static IRU.CommonInterfaces.ICache  m_InMemoryCachePlugin;//="InMemoryCache" 
-		
+
+		private NetTcpServiceHost<TCHQ_QueryProcessor, ITCHQProcessor> _serviceHost = null;
+
 		//if port is 0 dont register a channel as some other plugin is expected to register the channel
 		private int m_RemotingPort;//="4000"
 
@@ -44,23 +46,37 @@ namespace IRU.RTS.WSTCHQ
 		public void Start()
 		{
 			//Register the processor class with Remoting system.
-			 
-			 RemotingConfiguration.RegisterWellKnownServiceType(typeof(TCHQ_QueryProcessor),m_RemotingEndPoint,  WellKnownObjectMode.SingleCall);				
-		    
+			
+			try
+			{
+				_serviceHost = new NetTcpServiceHost<TCHQ_QueryProcessor,ITCHQProcessor>(m_RemotingPort, m_RemotingEndPoint);
+				_serviceHost.Open();
+			}
+			catch (Exception ex)
+			{
+				Stop();
 
+				Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
+					 "Can't start ServiceHost: "
+					 + ex.Message);
+				throw ex;
+			} 
 			
 			//Mandar 28-Sep-05
 
 			//Read the schema files into XMLHelper
 			string QuerySchemaPath = m_SchemaFilesPath + "\\TCHQuery.xsd";
-			XMLValidationHelper.PopulateSchemas("http://www.iru.org/TCHQuery",QuerySchemaPath);
-			
-
+			XMLValidationHelper.PopulateSchemas("http://www.iru.org/TCHQuery",QuerySchemaPath);			
 		}
 
 		public void Stop()
 		{
 			// TODO:  Add TCHQ_RemotingHelper.Stop implementation
+			if (_serviceHost != null)
+			{
+				_serviceHost.Dispose();
+				_serviceHost = null;
+			}
 		}
 
 		#endregion
@@ -124,12 +140,7 @@ namespace IRU.RTS.WSTCHQ
 			}
 
 			//register channels here so that more channels can be registered in config in other plugins
-			if ( m_RemotingPort != 0)
-			{
-				TcpChannel chan = new TcpChannel(m_RemotingPort);
-				ChannelServices.RegisterChannel(chan);
-			}
-			else
+			if (m_RemotingPort == 0)
 			{
 				Statics.IRUTrace(this,Statics.IRUTraceSwitch.TraceWarning," TCHQ_Remoting helper has not registered channels, expecting other plugin to register a remoting tcpchannel");
 

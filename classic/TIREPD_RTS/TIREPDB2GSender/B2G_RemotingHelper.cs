@@ -7,8 +7,8 @@ using IRU.RTS.CommonComponents;
 using System.Runtime.Remoting.Services;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Runtime.Remoting.Channels;
-
-using IRU.RTS.TIREPD; 
+using IRU.RTS.TIREPD;
+using IRU.RTS.Common.WCF; 
 
 namespace IRU.RTS.TIREPD
 {
@@ -19,7 +19,9 @@ namespace IRU.RTS.TIREPD
     {
         internal static IDBHelperFactory m_dbHelperFactoryPlugin;//="DBHelperFactory" 
 
-        internal static IRU.CommonInterfaces.ICache m_InMemoryCachePlugin;//="InMemoryCache" 
+        internal static IRU.CommonInterfaces.ICache m_InMemoryCachePlugin;//="InMemoryCache"
+
+		private NetTcpServiceHost<B2GSender, IB2GSender> _serviceHost = null;
 
         //if port is 0 dont register a channel as some other plugin is expected to register the channel
         private int m_RemotingPort;//="4000"
@@ -51,14 +53,31 @@ namespace IRU.RTS.TIREPD
         public void Start()
         {
             //Register the processor class with Remoting system.
+			
+			try
+			{
+				_serviceHost = new NetTcpServiceHost<B2GSender, IB2GSender>(m_RemotingPort, m_RemotingEndPoint);
+				_serviceHost.Open();
+			}
+			catch (Exception ex)
+			{
+				Stop();
 
-            RemotingConfiguration.RegisterWellKnownServiceType(typeof(B2GSender), m_RemotingEndPoint, WellKnownObjectMode.SingleCall);
-
+				Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
+					"Can't start ServiceHost: "
+					+ ex.Message);
+				throw ex;
+			} 
         }
 
         public void Stop()
         {
             // TODO:  Add TCHQ_RemotingHelper.Stop implementation
+			if (_serviceHost != null)
+			{
+				_serviceHost.Dispose();
+				_serviceHost = null;
+			}
         }
 
         #endregion
@@ -171,12 +190,7 @@ namespace IRU.RTS.TIREPD
             }
 
             //register channels here so that more channels can be registered in config in other plugins
-            if (m_RemotingPort != 0)
-            {
-                TcpChannel chan = new TcpChannel(m_RemotingPort);
-                ChannelServices.RegisterChannel(chan);
-            }
-            else
+            if (m_RemotingPort == 0)
             {
                 Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceWarning, " B2G_Remoting helper has not registered channels, expecting other plugin to register a remoting tcpchannel");
 

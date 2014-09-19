@@ -5,7 +5,8 @@ using System.Data;
 using System.Diagnostics;
 using System.Web;
 using System.Web.Services;
-using IRU.RTS; 
+using IRU.RTS;
+using IRU.RTS.Common.WCF; 
 //using TraceHelper=TC;
 
 namespace IRU.RTS.WSTCHQService
@@ -72,20 +73,21 @@ namespace IRU.RTS.WSTCHQService
 			TIRHolderResponse tResponse;
 			try
 			{
-				ITCHQProcessor iQueryProcessor =  (ITCHQProcessor )Activator.GetObject(typeof(IRU.RTS.ITCHQProcessor), System.Configuration.ConfigurationSettings.AppSettings["WSTCHQ_ProcessorEndPoint"]);
+				using (NetTcpClient<IRU.RTS.ITCHQProcessor> client = new NetTcpClient<IRU.RTS.ITCHQProcessor>(System.Configuration.ConfigurationSettings.AppSettings["WSTCHQ_ProcessorEndPoint"]))
+				{
+					ITCHQProcessor iQueryProcessor = client.GetProxy();
 
-				string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
-				long IRUQueryID;
-				tResponse= iQueryProcessor.ProcessQuery(su, senderIP, out IRUQueryID);
-				TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose ,"Process Query Call Succeded");
-				
-				bool isClientConnected = HttpContext.Current.Response.IsClientConnected;
-				
-				iQueryProcessor.UpdateResponseResult(IRUQueryID, DateTime.Now,isClientConnected);  
+					string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
+					long IRUQueryID;
+					tResponse = iQueryProcessor.ProcessQuery(su, senderIP, out IRUQueryID);
+					TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose, "Process Query Call Succeded");
 
-				TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose ,"Response Updation Call Succeded");
-				
+					bool isClientConnected = HttpContext.Current.Response.IsClientConnected;
 
+					iQueryProcessor.UpdateResponseResult(IRUQueryID, DateTime.Now, isClientConnected);
+
+					TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose, "Response Updation Call Succeded");
+				}
 			}
 			catch (Exception ex)
 			{

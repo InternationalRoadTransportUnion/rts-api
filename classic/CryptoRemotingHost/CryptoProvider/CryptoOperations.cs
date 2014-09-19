@@ -4,9 +4,8 @@ using IRU.CommonInterfaces;
 using System.Collections;
 using System.Security.Cryptography;
 using System.IO;
-using IRU.RTS.CommonComponents;
 using System.Xml;
-
+using IRU.RTS.CommonComponents;
 
 namespace IRU.RTS.CryptoProvider
 {

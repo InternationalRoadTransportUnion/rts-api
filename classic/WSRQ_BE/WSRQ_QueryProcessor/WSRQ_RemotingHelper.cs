@@ -7,6 +7,7 @@ using System.Runtime.Remoting.Services;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using IRU.CommonInterfaces;
+using IRU.RTS.Common.WCF;
 
 
 namespace IRU.RTS.WSWSRQ
@@ -19,6 +20,8 @@ namespace IRU.RTS.WSWSRQ
         internal static IDBHelperFactory m_dbHelperFactoryPlugin  ;
 
         internal static IRU.CommonInterfaces.ICache m_InMemoryCachePlugin;
+
+		private NetTcpServiceHost<WSRQ_QueryProcessor, IWSRQProcessor> _serviceHost = null;
 
         //if port is 0 dont register a channel as some other plugin is expected to register the channel
         private int m_RemotingPort;
@@ -45,22 +48,36 @@ namespace IRU.RTS.WSWSRQ
         {
             //Register the processor class with Remoting system.
 
-            RemotingConfiguration.RegisterWellKnownServiceType(typeof(WSRQ_QueryProcessor), m_RemotingEndPoint, WellKnownObjectMode.SingleCall);
+			try
+			{
+				_serviceHost = new NetTcpServiceHost<WSRQ_QueryProcessor,IWSRQProcessor>(m_RemotingPort, m_RemotingEndPoint);
+				_serviceHost.Open();
+			}
+			catch (Exception ex)
+			{
+				Stop();
 
-            
+				Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
+					"Can't start ServiceHost: "
+					+ ex.Message);
+				throw ex;
+			} 
 
             //Mandar 28-Sep-05
 
             //Read the schema files into XMLHelper
             string QuerySchemaPath = m_SchemaFilesPath + "\\WSRQ.xsd";
-            XMLValidationHelper.PopulateSchemas("http://www.iru.org/SafeTIRReconciliation", QuerySchemaPath);
-     
-
+            XMLValidationHelper.PopulateSchemas("http://www.iru.org/SafeTIRReconciliation", QuerySchemaPath);    
         }
 
         public void Stop()
         {
             // TODO:  Add WSRQ_RemotingHelper.Stop implementation
+			if (_serviceHost != null)
+			{
+				_serviceHost.Dispose();
+				_serviceHost = null;
+			}
         }
 
         #endregion
@@ -126,17 +143,10 @@ namespace IRU.RTS.WSWSRQ
             }
 
             //register channels here so that more channels can be registered in config in other plugins
-            if (m_RemotingPort != 0)
+            if (m_RemotingPort == 0)
             {
-               TcpChannel chan = new TcpChannel(m_RemotingPort);
-              ChannelServices.RegisterChannel(chan);
-            }
-            else
-           {
                Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceWarning, " WSRQ_Remoting helper has not registered channels, expecting other plugin to register a remoting tcpchannel");
-
-           }
-
+            }
         }
 
         public void Unload()

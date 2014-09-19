@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols; 
 using IRU.RTS;
+using IRU.RTS.Common.WCF;
 //using TraceHelper=TC;
 
 namespace IRU.RTS.WSEGIS
@@ -72,20 +73,21 @@ namespace IRU.RTS.WSEGIS
             EGISResponseType oResponse;
 			try
 			{
-                IEGISProcessor oEGISProcessor = (IEGISProcessor)Activator.GetObject(typeof(IRU.RTS.IEGISProcessor), System.Configuration.ConfigurationSettings.AppSettings["WSEGIS_ProcessorEndPoint"]);
+				using (NetTcpClient<IRU.RTS.IEGISProcessor> client = new NetTcpClient<IRU.RTS.IEGISProcessor>(System.Configuration.ConfigurationSettings.AppSettings["WSEGIS_ProcessorEndPoint"]))
+				{
+					IEGISProcessor oEGISProcessor = client.GetProxy();
 
-				string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
-				long IRUQueryID;
-                oResponse = oEGISProcessor.ProcessQuery(su, senderIP, out IRUQueryID);
-				TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose ,"Process Query Call Succeded");
-				
-				bool isClientConnected = HttpContext.Current.Response.IsClientConnected;
+					string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
+					long IRUQueryID;
+					oResponse = oEGISProcessor.ProcessQuery(su, senderIP, out IRUQueryID);
+					TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose, "Process Query Call Succeded");
 
-                oEGISProcessor.UpdateResponseResult(IRUQueryID, DateTime.Now, isClientConnected);  
+					bool isClientConnected = HttpContext.Current.Response.IsClientConnected;
 
-				TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose ,"Response Updation Call Succeded");
-				
+					oEGISProcessor.UpdateResponseResult(IRUQueryID, DateTime.Now, isClientConnected);
 
+					TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose, "Response Updation Call Succeded");
+				}
 			}
 			catch (Exception ex)
 			{

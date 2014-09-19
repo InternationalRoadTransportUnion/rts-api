@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSRE_WS", "WSRE_WS.csproj",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTSStructures", "..\..\WSTCHQ_BE\RTSStructures\RTSStructures.csproj", "{BBF126D5-CA34-4786-A61D-0B426EC0677B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{DF9F5B54-364D-43B6-8217-748B15B2E494}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRU.RTS.Common", "..\..\Common\IRU.RTS.Common\IRU.RTS.Common.csproj", "{51C1C416-18C9-4A64-B542-A2E8B3299F61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,11 +24,16 @@ Global
 		{BBF126D5-CA34-4786-A61D-0B426EC0677B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBF126D5-CA34-4786-A61D-0B426EC0677B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBF126D5-CA34-4786-A61D-0B426EC0677B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51C1C416-18C9-4A64-B542-A2E8B3299F61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51C1C416-18C9-4A64-B542-A2E8B3299F61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51C1C416-18C9-4A64-B542-A2E8B3299F61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51C1C416-18C9-4A64-B542-A2E8B3299F61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BBF126D5-CA34-4786-A61D-0B426EC0677B} = {1F7B0322-DAE5-4070-93D0-BE508AB6C851}
+		{51C1C416-18C9-4A64-B542-A2E8B3299F61} = {DF9F5B54-364D-43B6-8217-748B15B2E494}
 	EndGlobalSection
 EndGlobal

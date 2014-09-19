@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Web;
 using System.Web.Services;
 using IRU.RTS;
+using IRU.RTS.Common.WCF;
 
 namespace IRU.RTS.WSRQService
 {
@@ -44,19 +45,21 @@ namespace IRU.RTS.WSRQService
             ReconciliationResponse wResponse;
             try
             {
-                IWSRQProcessor iWSRQQueryProcessor = (IWSRQProcessor)Activator.GetObject(typeof(IRU.RTS.IWSRQProcessor), System.Configuration.ConfigurationSettings.AppSettings["WSRQ_ProcessorEndPoint"]);
-                string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
-                long QueryID;
-                wResponse = iWSRQQueryProcessor.ProcessQuery(su, senderIP, out QueryID);
-                TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose, "Process Query Call Succeded");
+				using (NetTcpClient<IWSRQProcessor> client = new NetTcpClient<IWSRQProcessor>(System.Configuration.ConfigurationSettings.AppSettings["WSRQ_ProcessorEndPoint"]))
+				{
+					IWSRQProcessor iWSRQQueryProcessor = client.GetProxy();
 
-                bool isClientConnected = HttpContext.Current.Response.IsClientConnected;
+					string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
+					long QueryID;
+					wResponse = iWSRQQueryProcessor.ProcessQuery(su, senderIP, out QueryID);
+					TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose, "Process Query Call Succeded");
 
-                iWSRQQueryProcessor.UpdateResponseResult(QueryID, DateTime.Now, isClientConnected);
+					bool isClientConnected = HttpContext.Current.Response.IsClientConnected;
 
-                TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose, "Response Updation Call Succeded");
-				
+					iWSRQQueryProcessor.UpdateResponseResult(QueryID, DateTime.Now, isClientConnected);
 
+					TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose, "Response Updation Call Succeded");
+				}
             }
             catch (Exception ex)
             {

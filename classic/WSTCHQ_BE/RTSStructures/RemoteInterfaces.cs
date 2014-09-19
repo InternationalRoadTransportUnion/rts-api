@@ -1,20 +1,27 @@
 using System;
+using System.ServiceModel;
 
 namespace IRU.RTS
 {
 
 	#region TCHQ
+	[ServiceContract]
 	public interface ITCHQProcessor
 	{
+		[OperationContract]
 		TIRHolderResponse  ProcessQuery(TIRHolderQuery TirHolderQueryData, string SenderIP, out long IRUQueryId);
+		
+		[OperationContract]
 		void UpdateResponseResult(long QueryId, DateTime dtResponseSent, bool ResponseResult);
 	}
 	#endregion
 
 	#region WSST
+	[ServiceContract]
 	public interface IWSSTFileReceiver
 	{
-	  SafeTIRUploadAck	ProcessReceivedFile(SafeTIRUploadParams TIRUploadParams, string SenderIP);
+		[OperationContract]
+		SafeTIRUploadAck	ProcessReceivedFile(SafeTIRUploadParams TIRUploadParams, string SenderIP);
 	}
 	#endregion
 
@@ -22,8 +29,10 @@ namespace IRU.RTS
     // <summary>
     ///Lata changed for WSRQ on Sept05,2007
     /// </summary>>
-    public interface IWSREFileReceiver
+	[ServiceContract]
+	public interface IWSREFileReceiver
 	{
+		[OperationContract]
         SafeTIRUploadAck ProcessReceivedFile(SafeTIRReconParams ReplyParams, string SenderIP);
 	}
 	#endregion
@@ -32,27 +41,41 @@ namespace IRU.RTS
     // <summary>
     ///Lata changed for WSRQ on Sept05,2007
     /// </summary>>
-    public interface IWSRQProcessor
+	[ServiceContract]
+	public interface IWSRQProcessor
     {
-      ReconciliationResponse ProcessQuery(ReconciliationQuery ReconciliationQuery, string SenderIP, out long QueryId);
+		[OperationContract]
+		ReconciliationResponse ProcessQuery(ReconciliationQuery ReconciliationQuery, string SenderIP, out long QueryId);
+
+		[OperationContract]
         void UpdateResponseResult(long QueryId, DateTime dtResponseSent, bool ResponseResult);
     }
     #endregion
 
     #region TVQR
-    public interface ITVQRProcessor
+	[ServiceContract]
+	public interface ITVQRProcessor
     {
+		[OperationContract]
         VoucherQueryResponseType ProcessQuery(VoucherQueryType VoucherQuery, string SenderIP, out long IRUQueryId);
-        VoucherRegistrationResponseType ProcessQuery(VoucherRegistrationType VoucherRegistration, string SenderIP, out long IRUQueryId);
-        void UpdateResponseResult(long QueryId, DateTime dtResponseSent, bool ResponseResult);
+
+		[OperationContract]
+		VoucherRegistrationResponseType ProcessQuery(VoucherRegistrationType VoucherRegistration, string SenderIP, out long IRUQueryId);
+
+		[OperationContract]
+		void UpdateResponseResult(long QueryId, DateTime dtResponseSent, bool ResponseResult);
     }
     #endregion
 
     #region EGIS
-    public interface IEGISProcessor
+	[ServiceContract]
+	public interface IEGISProcessor
     {
+		[OperationContract]
         EGISResponseType ProcessQuery(EGISQueryType EGISQuery, string SenderIP, out long IRUQueryId);
-        void UpdateResponseResult(long QueryId, DateTime dtResponseSent, bool ResponseResult);
+
+		[OperationContract]
+		void UpdateResponseResult(long QueryId, DateTime dtResponseSent, bool ResponseResult);
     }
     #endregion
 }

@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using IRU.RTS;
+using IRU.RTS.Common.WCF;
 
 namespace IRU.RTS.WSTVQRService
 {
@@ -72,20 +73,21 @@ namespace IRU.RTS.WSTVQRService
             VoucherQueryResponseType oResponse;
 			try
 			{
-                ITVQRProcessor oTVQRProcessor = (ITVQRProcessor)Activator.GetObject(typeof(IRU.RTS.ITVQRProcessor), System.Configuration.ConfigurationSettings.AppSettings["WSTVQR_ProcessorEndPoint"]);
+				using (NetTcpClient<ITVQRProcessor> client = new NetTcpClient<ITVQRProcessor>(System.Configuration.ConfigurationSettings.AppSettings["WSTVQR_ProcessorEndPoint"]))
+				{
+					ITVQRProcessor oTVQRProcessor = client.GetProxy();
 
-				string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
-				long IRUQueryID;
-                oResponse = oTVQRProcessor.ProcessQuery(su, senderIP, out IRUQueryID);
-				TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose ,"Process Query Call Succeded");
-				
-				bool isClientConnected = HttpContext.Current.Response.IsClientConnected;
+					string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
+					long IRUQueryID;
+					oResponse = oTVQRProcessor.ProcessQuery(su, senderIP, out IRUQueryID);
+					TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose, "Process Query Call Succeded");
 
-                oTVQRProcessor.UpdateResponseResult(IRUQueryID, DateTime.Now, isClientConnected);  
+					bool isClientConnected = HttpContext.Current.Response.IsClientConnected;
 
-				TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose ,"Response Updation Call Succeded");
-				
+					oTVQRProcessor.UpdateResponseResult(IRUQueryID, DateTime.Now, isClientConnected);
 
+					TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose, "Response Updation Call Succeded");
+				}
 			}
 			catch (Exception ex)
 			{
@@ -117,20 +119,21 @@ namespace IRU.RTS.WSTVQRService
             VoucherRegistrationResponseType oResponse;
             try
             {
-                ITVQRProcessor oTVQRProcessor = (ITVQRProcessor)Activator.GetObject(typeof(IRU.RTS.ITVQRProcessor), System.Configuration.ConfigurationSettings.AppSettings["WSTVQR_ProcessorEndPoint"]);
+				using (NetTcpClient<ITVQRProcessor> client = new NetTcpClient<ITVQRProcessor>(System.Configuration.ConfigurationSettings.AppSettings["WSTVQR_ProcessorEndPoint"]))
+				{
+					ITVQRProcessor oTVQRProcessor = client.GetProxy();
 
-                string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
-                long IRUQueryID;
-                oResponse = oTVQRProcessor.ProcessQuery(su, senderIP, out IRUQueryID);
-                TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose, "Process Query Call Succeded");
+					string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
+					long IRUQueryID;
+					oResponse = oTVQRProcessor.ProcessQuery(su, senderIP, out IRUQueryID);
+					TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose, "Process Query Call Succeded");
 
-                bool isClientConnected = HttpContext.Current.Response.IsClientConnected;
+					bool isClientConnected = HttpContext.Current.Response.IsClientConnected;
 
-                oTVQRProcessor.UpdateResponseResult(IRUQueryID, DateTime.Now, isClientConnected);
+					oTVQRProcessor.UpdateResponseResult(IRUQueryID, DateTime.Now, isClientConnected);
 
-                TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose, "Response Updation Call Succeded");
-
-
+					TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose, "Response Updation Call Succeded");
+				}
             }
             catch (Exception ex)
             {

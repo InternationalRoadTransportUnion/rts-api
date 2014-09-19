@@ -13,6 +13,7 @@ using IRU.RTS;
 using IRU.RTS.Crypto ;
 using IRU.RTS.CryptoInterfaces;
 using CIFCreation;
+using IRU.RTS.Common.WCF;
 
 namespace IRU.RTS.WSST
 {
@@ -249,805 +250,804 @@ CryptoProviderEndpoint="tcp://server:Port/CryptoProvider.rem
 			WSST_SEQUENCE_STRUCT Wsst_Sequence_Struct_Data = new WSST_SEQUENCE_STRUCT();
 
 			string subsdb_Password="", subsdb_SessionEncAlgo="", subsdb_HashAlgo="", subsdb_CopyToID="", subsdb_CopyToAddress="" ; //To be fetched from Subscriber DB
-
-			ICryptoOperations iCryptoOperations = null;
 			
 			#endregion
 
-			#region Extract File Contents from object
-			Hashtable htFileContents = (Hashtable)objFileContents ;
-			byte[] baFileContents = (byte[])htFileContents["FileContents"];
-			#endregion
-
-			#region Create DB helper Instances
-			IDBHelper dbHelperWSSTINTERNAL = m_dbHelperFactoryPlugin.GetDBHelper("WSST_Internal_DB") ;//  null; //dbhelper for tchqdb
-			IDBHelper dbHelperWSSTCOPYT = m_dbHelperFactoryPlugin.GetDBHelper("WSST_COPYTODB") ;//  null; //dbhelper for tchqdb
-			IDBHelper dbHelperSubscriber = m_dbHelperFactoryPlugin.GetDBHelper("SubscriberDB") ;//  null; //dbhelper for tchqdb
-			#endregion
-
-			#region Split String
-			string sFileContents = System.Text.Encoding.Unicode.GetString(baFileContents);
-			string [] aFileContentsList = sFileContents.Split('\t');
-
-			RSACryptoKey sessionDecrKey=null;
-			#endregion
-
-			#region CleanForPrevious Failure
-			InternalDBHelper intDBhelper =null;
-			try
+			using (NetTcpClient<ICryptoOperations> client = new NetTcpClient<ICryptoOperations>(m_CryptoProviderEndpoint))
 			{
-				//Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID = double.Parse(aFileContentsList[0].Trim().ToString());
-				Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID = Int32.Parse(aFileContentsList[0].Trim().ToString());
-				Wsst_Sequence_Struct_Data.SAFETIR_MESSAGE_IN_ID = Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID;
+				ICryptoOperations iCryptoOperations = client.GetProxy();
 
-				intDBhelper = new InternalDBHelper(ref dbHelperWSSTINTERNAL, Wsst_Internal_Log_Struct_Data, Wsst_Sequence_Struct_Data); // new changes on ref on 2008-03-10
-				int iRowsDeleted;
-				
-				intDBhelper.CleanInternalDBForFailure(out iRowsDeleted/*,  Wsst_Internal_Log_Struct_Data*/);
-			}
-			catch(Exception ex)
-			{
-                string msg = "SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + ex.Message + " _ " + ex.StackTrace;
-				Statics.IRUTrace(this,Statics.IRUTraceSwitch.TraceError ,msg);
-				throw ex; //Back to FileListener
-			}
-			#endregion
+				#region Extract File Contents from object
+				Hashtable htFileContents = (Hashtable)objFileContents;
+				byte[] baFileContents = (byte[])htFileContents["FileContents"];
+				#endregion
 
-			#region Convert the Uploadeddata to byte array
-			Wsst_Internal_Log_Struct_Data.SafeTIRUploadData = Convert.FromBase64String(aFileContentsList[5]); 
-			#endregion
+				#region Create DB helper Instances
+				IDBHelper dbHelperWSSTINTERNAL = m_dbHelperFactoryPlugin.GetDBHelper("WSST_Internal_DB");//  null; //dbhelper for tchqdb
+				IDBHelper dbHelperWSSTCOPYT = m_dbHelperFactoryPlugin.GetDBHelper("WSST_COPYTODB");//  null; //dbhelper for tchqdb
+				IDBHelper dbHelperSubscriber = m_dbHelperFactoryPlugin.GetDBHelper("SubscriberDB");//  null; //dbhelper for tchqdb
+				#endregion
 
+				#region Split String
+				string sFileContents = System.Text.Encoding.Unicode.GetString(baFileContents);
+				string[] aFileContentsList = sFileContents.Split('\t');
 
-			#region -- Step 1 - 5 - Initial Log
-			//"SUBSCRIBER_ID", "SAFETIR_MESSAGE_IN_ID", "SESSION_KEY_USED_ENCRYPTED_IN", 
-			//"SENDER_TCP_IP_ADDRESS", "SafeTIRUploadData", "ROW_CREATED_TIME, 
-			//SENDER_MESSAGE_ID"
+				RSACryptoKey sessionDecrKey = null;
+				#endregion
 
-			try
-			{
-				Wsst_Internal_Log_Struct_Data.ROW_CREATED_TIME = DateTime.Now ;
-				Wsst_Internal_Log_Struct_Data.SUBSCRIBER_ID = aFileContentsList[1];
-				Wsst_Internal_Log_Struct_Data.DECRYPTION_KEY_ID = aFileContentsList[2];
-
-				Wsst_Internal_Log_Struct_Data.SESSION_KEY_USED_ENCRYPTED_IN = Convert.FromBase64String(aFileContentsList[3]);
-				Wsst_Internal_Log_Struct_Data.SENDER_TCP_IP_ADDRESS = aFileContentsList[4];
-				Wsst_Internal_Log_Struct_Data.SENDER_MESSAGE_ID = aFileContentsList[6];
-				Wsst_Internal_Log_Struct_Data.copy_to_id =  aFileContentsList[7];
-
-
-				Wsst_Sequence_Struct_Data.SetMembers(5,1,null,DateTime.Now); 
-			}
-			catch(Exception ex)
-			{
-				Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, ex.Message + " - " + ex.StackTrace );  
-
-				Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(5);
-				Wsst_Internal_Log_Struct_Data.COMPLETION_TIME =new NullableDateTime(DateTime.Now);
-
-				Wsst_Sequence_Struct_Data.SetMembers(Wsst_Internal_Log_Struct_Data.LAST_STEP.Value  , 
-					1200, ex.Message + " - " + ex.StackTrace, 
-					Wsst_Internal_Log_Struct_Data.COMPLETION_TIME.Value );
-
-			}
-
-			try
-			{
-				dbHelperWSSTINTERNAL.ConnectToDB();
-				dbHelperWSSTINTERNAL.BeginTransaction(); // 2008/03/10 
-				intDBhelper.LogSafeTIRfileContentsinInDB(m_aStep1);
-                dbHelperWSSTINTERNAL.CommitTransaction(); // 2008/03/10  
-                  if (Wsst_Internal_Log_Struct_Data.LAST_STEP != null)
-                    {
-                        throw new ApplicationException("SAFETIR_MESSAGE_IN_ID :" +Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " +Wsst_Sequence_Struct_Data.WSST_STEP_ERROR_DESCRIPTION);
-                    }
-                }
-             catch (ApplicationException ae)
-             {
-                    throw ae;//Back to FileListener
-             }
-			catch(Exception sqlEx)
-			{
-				dbHelperWSSTINTERNAL.RollbackTransaction();
-				Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, "SAFETIR_MESSAGE_IN_ID :" +Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + sqlEx.Message + " - " + sqlEx.StackTrace );  
-				throw sqlEx ; //Back to FileListener
-			}
-			finally
-			{
-				dbHelperWSSTINTERNAL.Close();
-			}
-			#endregion
-
-			if(Wsst_Internal_Log_Struct_Data.LAST_STEP == null)
-			{
-				#region -- Step 2 - 10 - Session Key Decryption
-				int keyStatus = 0;
-			
+				#region CleanForPrevious Failure
+				InternalDBHelper intDBhelper = null;
 				try
 				{
-					dbHelperSubscriber.ConnectToDB();
+					//Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID = double.Parse(aFileContentsList[0].Trim().ToString());
+					Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID = Int32.Parse(aFileContentsList[0].Trim().ToString());
+					Wsst_Sequence_Struct_Data.SAFETIR_MESSAGE_IN_ID = Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID;
 
-					#region Get IRU Keydetails
-					keyStatus = KeyManager.GetIRUKeyDetails(Wsst_Internal_Log_Struct_Data.DECRYPTION_KEY_ID ,
-						Wsst_Internal_Log_Struct_Data.SUBSCRIBER_ID , out sessionDecrKey,dbHelperSubscriber);
+					intDBhelper = new InternalDBHelper(ref dbHelperWSSTINTERNAL, Wsst_Internal_Log_Struct_Data, Wsst_Sequence_Struct_Data); // new changes on ref on 2008-03-10
+					int iRowsDeleted;
 
-					//if(keyStatus ==3 || keyStatus == 4 || keyStatus == 7 || keyStatus ==9 ) //there is no 4 status
-					if(keyStatus ==3 || keyStatus == 7 || keyStatus ==9 )
+					intDBhelper.CleanInternalDBForFailure(out iRowsDeleted/*,  Wsst_Internal_Log_Struct_Data*/);
+				}
+				catch (Exception ex)
+				{
+					string msg = "SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + ex.Message + " _ " + ex.StackTrace;
+					Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, msg);
+					throw ex; //Back to FileListener
+				}
+				#endregion
+
+				#region Convert the Uploadeddata to byte array
+				Wsst_Internal_Log_Struct_Data.SafeTIRUploadData = Convert.FromBase64String(aFileContentsList[5]);
+				#endregion
+
+
+				#region -- Step 1 - 5 - Initial Log
+				//"SUBSCRIBER_ID", "SAFETIR_MESSAGE_IN_ID", "SESSION_KEY_USED_ENCRYPTED_IN", 
+				//"SENDER_TCP_IP_ADDRESS", "SafeTIRUploadData", "ROW_CREATED_TIME, 
+				//SENDER_MESSAGE_ID"
+
+				try
+				{
+					Wsst_Internal_Log_Struct_Data.ROW_CREATED_TIME = DateTime.Now;
+					Wsst_Internal_Log_Struct_Data.SUBSCRIBER_ID = aFileContentsList[1];
+					Wsst_Internal_Log_Struct_Data.DECRYPTION_KEY_ID = aFileContentsList[2];
+
+					Wsst_Internal_Log_Struct_Data.SESSION_KEY_USED_ENCRYPTED_IN = Convert.FromBase64String(aFileContentsList[3]);
+					Wsst_Internal_Log_Struct_Data.SENDER_TCP_IP_ADDRESS = aFileContentsList[4];
+					Wsst_Internal_Log_Struct_Data.SENDER_MESSAGE_ID = aFileContentsList[6];
+					Wsst_Internal_Log_Struct_Data.copy_to_id = aFileContentsList[7];
+
+
+					Wsst_Sequence_Struct_Data.SetMembers(5, 1, null, DateTime.Now);
+				}
+				catch (Exception ex)
+				{
+					Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, ex.Message + " - " + ex.StackTrace);
+
+					Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(5);
+					Wsst_Internal_Log_Struct_Data.COMPLETION_TIME = new NullableDateTime(DateTime.Now);
+
+					Wsst_Sequence_Struct_Data.SetMembers(Wsst_Internal_Log_Struct_Data.LAST_STEP.Value,
+						1200, ex.Message + " - " + ex.StackTrace,
+						Wsst_Internal_Log_Struct_Data.COMPLETION_TIME.Value);
+
+				}
+
+				try
+				{
+					dbHelperWSSTINTERNAL.ConnectToDB();
+					dbHelperWSSTINTERNAL.BeginTransaction(); // 2008/03/10 
+					intDBhelper.LogSafeTIRfileContentsinInDB(m_aStep1);
+					dbHelperWSSTINTERNAL.CommitTransaction(); // 2008/03/10  
+					if (Wsst_Internal_Log_Struct_Data.LAST_STEP != null)
 					{
-						Wsst_Sequence_Struct_Data.SetMembers(10 , 
-							keyStatus , null, 
-							DateTime.Now);
-
-						throw new ApplicationException("Invalid Key Status :"+keyStatus.ToString()); 
+						throw new ApplicationException("SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + Wsst_Sequence_Struct_Data.WSST_STEP_ERROR_DESCRIPTION);
 					}
-					Subscriber_DBHelper subsHelper = null; 
-					subsHelper = new Subscriber_DBHelper(dbHelperSubscriber);
+				}
+				catch (ApplicationException ae)
+				{
+					throw ae;//Back to FileListener
+				}
+				catch (Exception sqlEx)
+				{
+					dbHelperWSSTINTERNAL.RollbackTransaction();
+					Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, "SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + sqlEx.Message + " - " + sqlEx.StackTrace);
+					throw sqlEx; //Back to FileListener
+				}
+				finally
+				{
+					dbHelperWSSTINTERNAL.Close();
+				}
+				#endregion
 
-					int subscriberReturnCode = subsHelper.AuthenticateQuerySender(Wsst_Internal_Log_Struct_Data.SUBSCRIBER_ID,
-						out subsdb_Password,"WSST",1, out subsdb_SessionEncAlgo,out subsdb_HashAlgo,out subsdb_CopyToID, out subsdb_CopyToAddress );
-		
-					if (subscriberReturnCode != 0)
-					{
+				if (Wsst_Internal_Log_Struct_Data.LAST_STEP == null)
+				{
+					#region -- Step 2 - 10 - Session Key Decryption
+					int keyStatus = 0;
 
-						Wsst_Sequence_Struct_Data.SetMembers(10, 
-							4/*subscriberReturnCode*/ , null, 
-							DateTime.Now );
-
-						throw new ApplicationException("AuthenticateQuerySender from DB failed :" + subscriberReturnCode.ToString());
-					}
-					#endregion
-
-					#region copytoID validation
-						
-					if (Wsst_Internal_Log_Struct_Data.copy_to_id != null)
-					{
-						if (Wsst_Internal_Log_Struct_Data.copy_to_id.Trim() !="")
-						{
-							if (subsdb_CopyToID == null)
-							{
-								Wsst_Sequence_Struct_Data.SetMembers(10, 
-									1220 , null, 
-									DateTime.Now );
-								throw new ApplicationException("Copy To ID Null");
-							}
-							else if (subsdb_CopyToID!= Wsst_Internal_Log_Struct_Data.copy_to_id)
-							{
-								Wsst_Sequence_Struct_Data.SetMembers(10, 
-									1220 , null, 
-									DateTime.Now );
-								throw new ApplicationException("Copy To ID Mismatch");
-							
-							}
-						}
-					}
-					#endregion
-
-					#region Session Key Decryption
-					byte [] decrSessionKeyIn = null;
-
-					iCryptoOperations = (ICryptoOperations)Activator.GetObject(typeof(ICryptoOperations), 
-						m_CryptoProviderEndpoint);
-
-					Hashtable hashForSessionKey = new Hashtable();
-					hashForSessionKey["MODULUS"] = sessionDecrKey.Modulus ;
-					hashForSessionKey["EXPONENT"] = sessionDecrKey.Exponent ;
-					hashForSessionKey["D"] = sessionDecrKey.D ;
-					hashForSessionKey["P"] = sessionDecrKey.P ;
-					hashForSessionKey["Q"] = sessionDecrKey.Q ;
-					hashForSessionKey["DP"] = sessionDecrKey.DP ;
-					hashForSessionKey["DQ"] = sessionDecrKey.DQ ;
-					hashForSessionKey["INVERSEQ"] = sessionDecrKey.INVERSEQ ;
-			
 					try
 					{
-						decrSessionKeyIn = iCryptoOperations.Decrypt(Wsst_Internal_Log_Struct_Data.SESSION_KEY_USED_ENCRYPTED_IN, 
-							subsdb_SessionEncAlgo , hashForSessionKey); 
+						dbHelperSubscriber.ConnectToDB();
 
-						Wsst_Internal_Log_Struct_Data.SESSION_KEY_USED_DECRYPTED_IN =  decrSessionKeyIn;
+						#region Get IRU Keydetails
+						keyStatus = KeyManager.GetIRUKeyDetails(Wsst_Internal_Log_Struct_Data.DECRYPTION_KEY_ID,
+							Wsst_Internal_Log_Struct_Data.SUBSCRIBER_ID, out sessionDecrKey, dbHelperSubscriber);
 
-						Wsst_Sequence_Struct_Data.SetMembers(10,keyStatus,null,DateTime.Now); 
+						//if(keyStatus ==3 || keyStatus == 4 || keyStatus == 7 || keyStatus ==9 ) //there is no 4 status
+						if (keyStatus == 3 || keyStatus == 7 || keyStatus == 9)
+						{
+							Wsst_Sequence_Struct_Data.SetMembers(10,
+								keyStatus, null,
+								DateTime.Now);
+
+							throw new ApplicationException("Invalid Key Status :" + keyStatus.ToString());
+						}
+						Subscriber_DBHelper subsHelper = null;
+						subsHelper = new Subscriber_DBHelper(dbHelperSubscriber);
+
+						int subscriberReturnCode = subsHelper.AuthenticateQuerySender(Wsst_Internal_Log_Struct_Data.SUBSCRIBER_ID,
+							out subsdb_Password, "WSST", 1, out subsdb_SessionEncAlgo, out subsdb_HashAlgo, out subsdb_CopyToID, out subsdb_CopyToAddress);
+
+						if (subscriberReturnCode != 0)
+						{
+
+							Wsst_Sequence_Struct_Data.SetMembers(10,
+								4/*subscriberReturnCode*/ , null,
+								DateTime.Now);
+
+							throw new ApplicationException("AuthenticateQuerySender from DB failed :" + subscriberReturnCode.ToString());
+						}
+						#endregion
+
+						#region copytoID validation
+
+						if (Wsst_Internal_Log_Struct_Data.copy_to_id != null)
+						{
+							if (Wsst_Internal_Log_Struct_Data.copy_to_id.Trim() != "")
+							{
+								if (subsdb_CopyToID == null)
+								{
+									Wsst_Sequence_Struct_Data.SetMembers(10,
+										1220, null,
+										DateTime.Now);
+									throw new ApplicationException("Copy To ID Null");
+								}
+								else if (subsdb_CopyToID != Wsst_Internal_Log_Struct_Data.copy_to_id)
+								{
+									Wsst_Sequence_Struct_Data.SetMembers(10,
+										1220, null,
+										DateTime.Now);
+									throw new ApplicationException("Copy To ID Mismatch");
+
+								}
+							}
+						}
+						#endregion
+
+						#region Session Key Decryption
+						byte[] decrSessionKeyIn = null;
+
+						Hashtable hashForSessionKey = new Hashtable();
+						hashForSessionKey["MODULUS"] = sessionDecrKey.Modulus;
+						hashForSessionKey["EXPONENT"] = sessionDecrKey.Exponent;
+						hashForSessionKey["D"] = sessionDecrKey.D;
+						hashForSessionKey["P"] = sessionDecrKey.P;
+						hashForSessionKey["Q"] = sessionDecrKey.Q;
+						hashForSessionKey["DP"] = sessionDecrKey.DP;
+						hashForSessionKey["DQ"] = sessionDecrKey.DQ;
+						hashForSessionKey["INVERSEQ"] = sessionDecrKey.INVERSEQ;
+
+						try
+						{
+							decrSessionKeyIn = iCryptoOperations.Decrypt(Wsst_Internal_Log_Struct_Data.SESSION_KEY_USED_ENCRYPTED_IN,
+								subsdb_SessionEncAlgo, hashForSessionKey);
+
+							Wsst_Internal_Log_Struct_Data.SESSION_KEY_USED_DECRYPTED_IN = decrSessionKeyIn;
+
+							Wsst_Sequence_Struct_Data.SetMembers(10, keyStatus, null, DateTime.Now);
+						}
+						catch (Exception ex)
+						{
+							Wsst_Sequence_Struct_Data.SetMembers(10, 8, ex.Message + " - " + ex.StackTrace, DateTime.Now);
+
+							Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceWarning,
+								"SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " +
+								ex.Message + " - " + ex.StackTrace);
+							throw new ApplicationException(ex.Message + " - " + ex.StackTrace);
+						}
+
+						#endregion
+
 					}
-					catch(Exception ex)
+					catch (ApplicationException ex)
 					{
-						Wsst_Sequence_Struct_Data.SetMembers(10, 8,ex.Message + " - " + ex.StackTrace, DateTime.Now) ;
+						Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
+							"SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " +
+							ex.Message + " - " + ex.StackTrace);
 
-                        Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceWarning, 
-                            "SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + 
-                            ex.Message + " - " + ex.StackTrace);  
-						throw new ApplicationException(ex.Message + " - " + ex.StackTrace);
+						Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(Wsst_Sequence_Struct_Data.WSST_STEP);
+						Wsst_Internal_Log_Struct_Data.COMPLETION_TIME = new NullableDateTime(Wsst_Sequence_Struct_Data.LAST_UPDATE_TIME);
+
+						Wsst_Internal_Log_Struct_Data.SUBSCRIBER_AUTHENTICATED = new NullableInt(Wsst_Sequence_Struct_Data.WSST_STEP_RESULT);
+
+
+					}
+					catch (Exception ex)
+					{
+						Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
+							"SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " +
+							ex.Message + " - " + ex.StackTrace);
+
+						Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(10);
+						Wsst_Internal_Log_Struct_Data.COMPLETION_TIME = new NullableDateTime(DateTime.Now);
+
+						Wsst_Sequence_Struct_Data.SetMembers(Wsst_Internal_Log_Struct_Data.LAST_STEP.Value,
+							8, ex.Message + " - " + ex.StackTrace,
+							Wsst_Internal_Log_Struct_Data.COMPLETION_TIME.Value);
+					}
+					finally
+					{
+						dbHelperSubscriber.Close();
+					}
+
+					try
+					{
+						dbHelperWSSTINTERNAL.ConnectToDB();
+						dbHelperWSSTINTERNAL.BeginTransaction();
+						intDBhelper.UpdateInternalLogReturnCode(m_aStep2);
+						dbHelperWSSTINTERNAL.CommitTransaction();
+						if (Wsst_Internal_Log_Struct_Data.LAST_STEP != null)
+						{
+							throw new ApplicationException(Wsst_Sequence_Struct_Data.WSST_STEP_ERROR_DESCRIPTION);
+						}
+					}
+					catch (ApplicationException ae)
+					{
+						throw ae;//Back to FileListener
+					}
+					catch (SqlException sqlEx)
+					{
+						dbHelperWSSTINTERNAL.RollbackTransaction();
+
+						Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, "SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + sqlEx.Message + " - " + sqlEx.StackTrace);
+						throw sqlEx; //Back to FileListener
+					}
+					finally
+					{
+						dbHelperWSSTINTERNAL.Close();
+					}
+					#endregion
+				}
+
+				if (Wsst_Internal_Log_Struct_Data.LAST_STEP == null)
+				{
+					#region -- Step 3 - 15 - Do Decryption & get Decrypted Data
+
+					Hashtable hashDecryptParams = new Hashtable();
+
+					byte[] byIV = new byte[] { 0x03, 0x01, 0x04, 0x01, 0x05, 0x09, 0x02, 0x06 };
+
+					hashDecryptParams["KEY"] = Wsst_Internal_Log_Struct_Data.SESSION_KEY_USED_DECRYPTED_IN;
+					hashDecryptParams["IV"] = byIV;
+
+					try
+					{
+						byte[] baDecryptedQueryParamXML =
+							iCryptoOperations.Decrypt(Wsst_Internal_Log_Struct_Data.SafeTIRUploadData,
+							"3DES", hashDecryptParams);
+
+						Wsst_Internal_Log_Struct_Data.SAFETIR_XML = System.Text.Encoding.Unicode.GetString(baDecryptedQueryParamXML);
+
+						Wsst_Sequence_Struct_Data.SetMembers(15, 1, null, DateTime.Now);
+					}
+					catch (Exception ex)
+					{
+						Wsst_Sequence_Struct_Data.SetMembers(15, 8, ex.Message + " - " + ex.StackTrace, DateTime.Now);
+						Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceWarning,
+							"SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " +
+							ex.Message + " - " + ex.StackTrace);
+
+						Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(Wsst_Sequence_Struct_Data.WSST_STEP);
+						Wsst_Internal_Log_Struct_Data.COMPLETION_TIME = new NullableDateTime(Wsst_Sequence_Struct_Data.LAST_UPDATE_TIME);
+					}
+					Wsst_Internal_Log_Struct_Data.DECRYPTION_RESULT = new NullableInt(Wsst_Sequence_Struct_Data.WSST_STEP_RESULT);
+
+					try
+					{
+						dbHelperWSSTINTERNAL.ConnectToDB();
+						dbHelperWSSTINTERNAL.BeginTransaction();
+						intDBhelper.UpdateInternalLogReturnCode(m_aStep3);
+						dbHelperWSSTINTERNAL.CommitTransaction();
+						if (Wsst_Internal_Log_Struct_Data.LAST_STEP != null)
+						{
+							throw new ApplicationException(Wsst_Sequence_Struct_Data.WSST_STEP_ERROR_DESCRIPTION);
+						}
+					}
+					catch (ApplicationException ae)
+					{
+						throw ae;//Back to FileListener
+					}
+					catch (SqlException sqlEx)
+					{
+						dbHelperWSSTINTERNAL.RollbackTransaction();
+						Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, "SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + sqlEx.Message + " - " + sqlEx.StackTrace);
+						throw sqlEx; //Back to FileListener
+					}
+					finally
+					{
+						dbHelperWSSTINTERNAL.Close();
+					}
+					#endregion
+				}
+
+				if (Wsst_Internal_Log_Struct_Data.LAST_STEP == null)
+				{
+					#region -- Step 4 - 20 - Do Validate Hash
+
+
+					try
+					{
+						string sHash = RegExHelper.ExtractHASH(Wsst_Internal_Log_Struct_Data.SAFETIR_XML);//.Substring(iHashStart,iHashLength);  
+
+						if (sHash.Trim() == "")
+						{
+							Wsst_Sequence_Struct_Data.SetMembers(20, 7, "Hash Missing / Unable to extract Hash", DateTime.Now);
+							throw new ApplicationException("No Hash found");
+						}
+
+						byte[] baHash = Convert.FromBase64String(sHash);
+
+						string sBody = RegExHelper.ExtractBODYContents(Wsst_Internal_Log_Struct_Data.SAFETIR_XML);//.Substring(iBodyStart,iBodyLength );  
+
+						if (sBody.Trim() == "")
+						{
+							Wsst_Sequence_Struct_Data.SetMembers(20, 7, "Body Missing / Unable to extract Body", DateTime.Now);
+							throw new ApplicationException("No Body Node found");
+						}
+
+
+
+						byte[] baBody = System.Text.Encoding.Unicode.GetBytes(sBody);
+
+
+						if (!iCryptoOperations.VerifyHash(baBody, subsdb_HashAlgo, null, baHash))
+						{
+							Wsst_Sequence_Struct_Data.SetMembers(20, 7, "Verify Hash Failed", DateTime.Now);
+							throw new ApplicationException("Hash Verification Failed");
+						}
+
+
+						Wsst_Sequence_Struct_Data.SetMembers(20, 1, null, DateTime.Now);
+
+					}
+					catch (ApplicationException ex)
+					{
+						Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
+							"SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " +
+							ex.Message + " - " + ex.StackTrace);
+
+						Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(Wsst_Sequence_Struct_Data.WSST_STEP);
+						Wsst_Internal_Log_Struct_Data.COMPLETION_TIME = new NullableDateTime(Wsst_Sequence_Struct_Data.LAST_UPDATE_TIME);
+
+					}
+					catch (Exception ex)
+					{
+						Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
+							"SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " +
+							ex.Message + " - " + ex.StackTrace);
+
+						Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(20);
+						Wsst_Internal_Log_Struct_Data.COMPLETION_TIME = new NullableDateTime(DateTime.Now);
+
+						Wsst_Sequence_Struct_Data.SetMembers(Wsst_Internal_Log_Struct_Data.LAST_STEP.Value,
+							8, ex.Message + " - " + ex.StackTrace,
+							Wsst_Internal_Log_Struct_Data.COMPLETION_TIME.Value);
+					}
+
+					try
+					{
+						dbHelperWSSTINTERNAL.ConnectToDB();
+						dbHelperWSSTINTERNAL.BeginTransaction();
+						intDBhelper.UpdateInternalLogReturnCode(m_aStep4);
+						dbHelperWSSTINTERNAL.CommitTransaction();
+						if (Wsst_Internal_Log_Struct_Data.LAST_STEP != null)
+						{
+							throw new ApplicationException(Wsst_Sequence_Struct_Data.WSST_STEP_ERROR_DESCRIPTION);
+						}
+					}
+					catch (ApplicationException ae)
+					{
+						throw ae;//Back to FileListener
+					}
+					catch (SqlException sqlEx)
+					{
+						dbHelperWSSTINTERNAL.RollbackTransaction();
+						Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
+							"SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " +
+							sqlEx.Message + " - " + sqlEx.StackTrace);
+						throw sqlEx; //Back to FileListener
+					}
+					finally
+					{
+						dbHelperWSSTINTERNAL.Close();
 					}
 
 					#endregion
-
-				}
-				catch(ApplicationException ex)
-				{
-                    Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, 
-                        "SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + 
-                        ex.Message + " - " + ex.StackTrace);  
-
-					Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(Wsst_Sequence_Struct_Data.WSST_STEP);
-					Wsst_Internal_Log_Struct_Data.COMPLETION_TIME =new NullableDateTime(Wsst_Sequence_Struct_Data.LAST_UPDATE_TIME);
-
-					Wsst_Internal_Log_Struct_Data.SUBSCRIBER_AUTHENTICATED = new NullableInt(Wsst_Sequence_Struct_Data.WSST_STEP_RESULT);
-
-
-				}
-				catch(Exception ex)
-				{
-					Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
-                        "SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + 
-                        ex.Message + " - " + ex.StackTrace);  
-
-					Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(10);
-					Wsst_Internal_Log_Struct_Data.COMPLETION_TIME =new NullableDateTime(DateTime.Now);
-
-					Wsst_Sequence_Struct_Data.SetMembers(Wsst_Internal_Log_Struct_Data.LAST_STEP.Value  , 
-						8, ex.Message + " - " + ex.StackTrace, 
-						Wsst_Internal_Log_Struct_Data.COMPLETION_TIME.Value );
-				}
-				finally
-				{
-					dbHelperSubscriber.Close(); 
 				}
 
-				try
+				if (Wsst_Internal_Log_Struct_Data.LAST_STEP == null)
 				{
-					dbHelperWSSTINTERNAL.ConnectToDB();
-					dbHelperWSSTINTERNAL.BeginTransaction();  
-					intDBhelper.UpdateInternalLogReturnCode(m_aStep2);
-					dbHelperWSSTINTERNAL.CommitTransaction();  
-                    if (Wsst_Internal_Log_Struct_Data.LAST_STEP != null)
-                    {
-                        throw new ApplicationException(Wsst_Sequence_Struct_Data.WSST_STEP_ERROR_DESCRIPTION);
-                    }
-                }
-                catch (ApplicationException ae)
-                {
-                    throw ae;//Back to FileListener
-                }
-				catch(SqlException sqlEx)
-				{
-					dbHelperWSSTINTERNAL.RollbackTransaction();
+					#region -- Step 5 - 25 - Validate uploaded message against XSD.
 
-					Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, "SAFETIR_MESSAGE_IN_ID :" +Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + sqlEx.Message + " - " + sqlEx.StackTrace );  
-					throw sqlEx ; //Back to FileListener
-				}
-				finally
-				{
-					dbHelperWSSTINTERNAL.Close();
-				}
-				#endregion
-			}
-
-			if(Wsst_Internal_Log_Struct_Data.LAST_STEP == null)
-			{
-				#region -- Step 3 - 15 - Do Decryption & get Decrypted Data
-
-				Hashtable hashDecryptParams = new Hashtable();
-			
-				byte[] byIV = new byte[]{0x03,0x01,0x04,0x01,0x05,0x09,0x02,0x06};
-
-				hashDecryptParams["KEY"] = Wsst_Internal_Log_Struct_Data.SESSION_KEY_USED_DECRYPTED_IN ;
-				hashDecryptParams["IV"] = byIV;
-
-				try
-				{
-					byte [] baDecryptedQueryParamXML =
-						iCryptoOperations.Decrypt(Wsst_Internal_Log_Struct_Data.SafeTIRUploadData, 
-						"3DES" , hashDecryptParams);  
-
-					Wsst_Internal_Log_Struct_Data.SAFETIR_XML = System.Text.Encoding.Unicode.GetString(baDecryptedQueryParamXML);
-   
-					Wsst_Sequence_Struct_Data.SetMembers(15,1,null,DateTime.Now); 
-				}
-				catch(Exception ex)
-				{
-					Wsst_Sequence_Struct_Data.SetMembers(15, 8,ex.Message + " - " + ex.StackTrace, DateTime.Now) ;
-                    Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceWarning, 
-                        "SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + 
-                        ex.Message + " - " + ex.StackTrace);  
-
-					Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(Wsst_Sequence_Struct_Data.WSST_STEP);
-					Wsst_Internal_Log_Struct_Data.COMPLETION_TIME = new NullableDateTime(Wsst_Sequence_Struct_Data.LAST_UPDATE_TIME);  
-				}
-				Wsst_Internal_Log_Struct_Data.DECRYPTION_RESULT = new NullableInt(Wsst_Sequence_Struct_Data.WSST_STEP_RESULT); 
-
-				try
-				{
-					dbHelperWSSTINTERNAL.ConnectToDB();
-					dbHelperWSSTINTERNAL.BeginTransaction();  
-					intDBhelper.UpdateInternalLogReturnCode(m_aStep3);
-					dbHelperWSSTINTERNAL.CommitTransaction();  
-                     if (Wsst_Internal_Log_Struct_Data.LAST_STEP != null)
-                    {
-                        throw new ApplicationException(Wsst_Sequence_Struct_Data.WSST_STEP_ERROR_DESCRIPTION);
-                    }
-                }
-                catch (ApplicationException ae)
-                {
-                    throw ae;//Back to FileListener
-                }
-				catch(SqlException sqlEx)
-				{
-					dbHelperWSSTINTERNAL.RollbackTransaction();
-					Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, "SAFETIR_MESSAGE_IN_ID :" +Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + sqlEx.Message + " - " + sqlEx.StackTrace );  
-					throw sqlEx ; //Back to FileListener
-				}
-				finally
-				{
-					dbHelperWSSTINTERNAL.Close();
-				}
-				#endregion
-			}
-
-			if(Wsst_Internal_Log_Struct_Data.LAST_STEP == null)
-			{
-				#region -- Step 4 - 20 - Do Validate Hash
-
-
-				try
-				{
-					string sHash = RegExHelper.ExtractHASH(Wsst_Internal_Log_Struct_Data.SAFETIR_XML);//.Substring(iHashStart,iHashLength);  
-
-					if (sHash.Trim()=="")
+					try
 					{
-						Wsst_Sequence_Struct_Data.SetMembers(20,7,"Hash Missing / Unable to extract Hash",DateTime.Now); 
-						throw new ApplicationException("No Hash found");
-					}
-
-					byte [] baHash = Convert.FromBase64String(sHash);
-
-					string sBody = RegExHelper.ExtractBODYContents (Wsst_Internal_Log_Struct_Data.SAFETIR_XML);//.Substring(iBodyStart,iBodyLength );  
-				
-					if (sBody.Trim()=="")
-					{
-						Wsst_Sequence_Struct_Data.SetMembers(20,7,"Body Missing / Unable to extract Body",DateTime.Now); 
-						throw new ApplicationException("No Body Node found");
-					}
-				
-				
-				
-					byte [] baBody = System.Text.Encoding.Unicode.GetBytes(sBody);
-
-			
-					if(!iCryptoOperations.VerifyHash(baBody,subsdb_HashAlgo, null, baHash))
-					{
-						Wsst_Sequence_Struct_Data.SetMembers(20,7,"Verify Hash Failed",DateTime.Now); 
-						throw new ApplicationException("Hash Verification Failed");
-					}
-
-
-					Wsst_Sequence_Struct_Data.SetMembers(20,1,null,DateTime.Now); 
-
-				}
-				catch(ApplicationException ex)
-				{
-                    Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, 
-                        "SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " +
-                        ex.Message + " - " + ex.StackTrace);  
-
-					Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(Wsst_Sequence_Struct_Data.WSST_STEP);
-					Wsst_Internal_Log_Struct_Data.COMPLETION_TIME =new NullableDateTime(Wsst_Sequence_Struct_Data.LAST_UPDATE_TIME);
-
-				}
-				catch(Exception ex)
-				{
-                    Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, 
-                        "SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + 
-                        ex.Message + " - " + ex.StackTrace);  
-
-					Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(20);
-					Wsst_Internal_Log_Struct_Data.COMPLETION_TIME =new NullableDateTime(DateTime.Now);
-
-					Wsst_Sequence_Struct_Data.SetMembers(Wsst_Internal_Log_Struct_Data.LAST_STEP.Value  , 
-						8, ex.Message + " - " + ex.StackTrace, 
-						Wsst_Internal_Log_Struct_Data.COMPLETION_TIME.Value );
-				}
-
-				try
-				{
-					dbHelperWSSTINTERNAL.ConnectToDB();
-					dbHelperWSSTINTERNAL.BeginTransaction();  
-					intDBhelper.UpdateInternalLogReturnCode(m_aStep4);
-					dbHelperWSSTINTERNAL.CommitTransaction();  
-                     if (Wsst_Internal_Log_Struct_Data.LAST_STEP != null)
-                    {
-                        throw new ApplicationException(Wsst_Sequence_Struct_Data.WSST_STEP_ERROR_DESCRIPTION);
-                    }
-                }
-                catch (ApplicationException ae)
-                {
-                    throw ae;//Back to FileListener
-                }
-				catch(SqlException sqlEx)
-				{
-					dbHelperWSSTINTERNAL.RollbackTransaction();
-					Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, 
-                        "SAFETIR_MESSAGE_IN_ID :" +Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + 
-                        sqlEx.Message + " - " + sqlEx.StackTrace );  
-					throw sqlEx ; //Back to FileListener
-				}
-				finally
-				{
-					dbHelperWSSTINTERNAL.Close();
-				}
-			
-				#endregion
-			}
-
-			if(Wsst_Internal_Log_Struct_Data.LAST_STEP == null)
-			{
-				#region -- Step 5 - 25 - Validate uploaded message against XSD.
-
-				try
-				{
-					XMLValidationHelper xvh = new XMLValidationHelper();
-					if(!xvh.ValidateXML(Wsst_Internal_Log_Struct_Data.SAFETIR_XML , out Wsst_Internal_Log_Struct_Data.SAFETIR_XML_INVALID_REASON))
-					{
-						Wsst_Sequence_Struct_Data.SetMembers(25,2,Wsst_Internal_Log_Struct_Data.SAFETIR_XML_INVALID_REASON,DateTime.Now); 
-						Wsst_Internal_Log_Struct_Data.SAFETIR_XML_VALID = new NullableInt(Wsst_Sequence_Struct_Data.WSST_STEP_RESULT);
-
-						throw new ApplicationException(Wsst_Internal_Log_Struct_Data.SAFETIR_XML_INVALID_REASON);
-					}
-					Wsst_Sequence_Struct_Data.SetMembers(25,1,null,DateTime.Now); 
-					Wsst_Internal_Log_Struct_Data.SAFETIR_XML_VALID = new NullableInt(Wsst_Sequence_Struct_Data.WSST_STEP_RESULT);
-				}
-				catch(ApplicationException ex)
-				{
-					Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
-                        "SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + 
-                        ex.Message + " - " + ex.StackTrace);  
-
-					Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(Wsst_Sequence_Struct_Data.WSST_STEP);
-					Wsst_Internal_Log_Struct_Data.COMPLETION_TIME =new NullableDateTime(Wsst_Sequence_Struct_Data.LAST_UPDATE_TIME);
-
-				}
-				catch(Exception ex)
-				{
-					Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
-                        "SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + 
-                        ex.Message + " - " + ex.StackTrace);  
-
-					Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(25);
-					Wsst_Internal_Log_Struct_Data.COMPLETION_TIME =new NullableDateTime(DateTime.Now);
-
-					Wsst_Sequence_Struct_Data.SetMembers(Wsst_Internal_Log_Struct_Data.LAST_STEP.Value  , 
-						2, ex.Message + " - " + ex.StackTrace, 
-						Wsst_Internal_Log_Struct_Data.COMPLETION_TIME.Value );
-
-					Wsst_Internal_Log_Struct_Data.SAFETIR_XML_VALID = new NullableInt(Wsst_Sequence_Struct_Data.WSST_STEP_RESULT);
-				}
-
-
-				try
-				{
-					dbHelperWSSTINTERNAL.ConnectToDB();
-					dbHelperWSSTINTERNAL.BeginTransaction();  
-					intDBhelper.UpdateInternalLogReturnCode(m_aStep5);
-					dbHelperWSSTINTERNAL.CommitTransaction();  
-                     if (Wsst_Internal_Log_Struct_Data.LAST_STEP != null)
-                    {
-                        throw new ApplicationException(Wsst_Sequence_Struct_Data.WSST_STEP_ERROR_DESCRIPTION);
-                    }
-                }
-                catch (ApplicationException ae)
-                {
-                    throw ae;//Back to FileListener
-                }
-				
-				catch(SqlException sqlEx)
-				{
-					dbHelperWSSTINTERNAL.RollbackTransaction();
-					Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, "SAFETIR_MESSAGE_IN_ID :" +Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + sqlEx.Message + " - " + sqlEx.StackTrace );  
-					throw sqlEx ; //Back to FileListener
-				}
-				finally
-				{
-					dbHelperWSSTINTERNAL.Close();
-				}
-			
-
-				#endregion
-			}
-
-			if(Wsst_Internal_Log_Struct_Data.LAST_STEP == null)
-			{
-				#region -- Step 6 - 30 - Authorize User
-
-
-				try
-				{
-					XmlDocument xd = new XmlDocument();
-					xd.LoadXml(Wsst_Internal_Log_Struct_Data.SAFETIR_XML);
-
-					XmlNamespaceManager xns = new XmlNamespaceManager( xd.NameTable);
-					xns.AddNamespace("def","http://www.iru.org/SafeTIRUpload");
-
-					XmlNode node = xd.DocumentElement.SelectSingleNode("/def:SafeTIR/def:Body/def:SubscriberID",xns);
-					if(node == null)
-					{
-						Wsst_Sequence_Struct_Data.SetMembers(30, 2, "Sender Verification Failed: Sender Node Missing", DateTime.Now);    
-						throw new ApplicationException(Wsst_Sequence_Struct_Data.WSST_STEP_ERROR_DESCRIPTION);
-					}
-					else
-					{
-						if(node.InnerText.Trim().ToUpper() != Wsst_Internal_Log_Struct_Data.SUBSCRIBER_ID.Trim().ToUpper())
+						XMLValidationHelper xvh = new XMLValidationHelper();
+						if (!xvh.ValidateXML(Wsst_Internal_Log_Struct_Data.SAFETIR_XML, out Wsst_Internal_Log_Struct_Data.SAFETIR_XML_INVALID_REASON))
 						{
-							Wsst_Sequence_Struct_Data.SetMembers(30, 2, "Sender Verification Failed: Subscriber-Sender Node Mismatch ", DateTime.Now);    
+							Wsst_Sequence_Struct_Data.SetMembers(25, 2, Wsst_Internal_Log_Struct_Data.SAFETIR_XML_INVALID_REASON, DateTime.Now);
+							Wsst_Internal_Log_Struct_Data.SAFETIR_XML_VALID = new NullableInt(Wsst_Sequence_Struct_Data.WSST_STEP_RESULT);
+
+							throw new ApplicationException(Wsst_Internal_Log_Struct_Data.SAFETIR_XML_INVALID_REASON);
+						}
+						Wsst_Sequence_Struct_Data.SetMembers(25, 1, null, DateTime.Now);
+						Wsst_Internal_Log_Struct_Data.SAFETIR_XML_VALID = new NullableInt(Wsst_Sequence_Struct_Data.WSST_STEP_RESULT);
+					}
+					catch (ApplicationException ex)
+					{
+						Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
+							"SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " +
+							ex.Message + " - " + ex.StackTrace);
+
+						Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(Wsst_Sequence_Struct_Data.WSST_STEP);
+						Wsst_Internal_Log_Struct_Data.COMPLETION_TIME = new NullableDateTime(Wsst_Sequence_Struct_Data.LAST_UPDATE_TIME);
+
+					}
+					catch (Exception ex)
+					{
+						Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
+							"SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " +
+							ex.Message + " - " + ex.StackTrace);
+
+						Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(25);
+						Wsst_Internal_Log_Struct_Data.COMPLETION_TIME = new NullableDateTime(DateTime.Now);
+
+						Wsst_Sequence_Struct_Data.SetMembers(Wsst_Internal_Log_Struct_Data.LAST_STEP.Value,
+							2, ex.Message + " - " + ex.StackTrace,
+							Wsst_Internal_Log_Struct_Data.COMPLETION_TIME.Value);
+
+						Wsst_Internal_Log_Struct_Data.SAFETIR_XML_VALID = new NullableInt(Wsst_Sequence_Struct_Data.WSST_STEP_RESULT);
+					}
+
+
+					try
+					{
+						dbHelperWSSTINTERNAL.ConnectToDB();
+						dbHelperWSSTINTERNAL.BeginTransaction();
+						intDBhelper.UpdateInternalLogReturnCode(m_aStep5);
+						dbHelperWSSTINTERNAL.CommitTransaction();
+						if (Wsst_Internal_Log_Struct_Data.LAST_STEP != null)
+						{
 							throw new ApplicationException(Wsst_Sequence_Struct_Data.WSST_STEP_ERROR_DESCRIPTION);
 						}
 					}
-
-					node = xd.DocumentElement.SelectSingleNode("/def:SafeTIR/def:Body/def:Password",xns);
-					if(node == null)
+					catch (ApplicationException ae)
 					{
-						if(subsdb_Password == null || subsdb_Password.Trim() == "")
+						throw ae;//Back to FileListener
+					}
+
+					catch (SqlException sqlEx)
+					{
+						dbHelperWSSTINTERNAL.RollbackTransaction();
+						Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, "SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + sqlEx.Message + " - " + sqlEx.StackTrace);
+						throw sqlEx; //Back to FileListener
+					}
+					finally
+					{
+						dbHelperWSSTINTERNAL.Close();
+					}
+
+
+					#endregion
+				}
+
+				if (Wsst_Internal_Log_Struct_Data.LAST_STEP == null)
+				{
+					#region -- Step 6 - 30 - Authorize User
+
+
+					try
+					{
+						XmlDocument xd = new XmlDocument();
+						xd.LoadXml(Wsst_Internal_Log_Struct_Data.SAFETIR_XML);
+
+						XmlNamespaceManager xns = new XmlNamespaceManager(xd.NameTable);
+						xns.AddNamespace("def", "http://www.iru.org/SafeTIRUpload");
+
+						XmlNode node = xd.DocumentElement.SelectSingleNode("/def:SafeTIR/def:Body/def:SubscriberID", xns);
+						if (node == null)
 						{
-							//Password is valid - there is no password or password node also might not be present
+							Wsst_Sequence_Struct_Data.SetMembers(30, 2, "Sender Verification Failed: Sender Node Missing", DateTime.Now);
+							throw new ApplicationException(Wsst_Sequence_Struct_Data.WSST_STEP_ERROR_DESCRIPTION);
 						}
 						else
-						{	
-							Wsst_Sequence_Struct_Data.SetMembers(30, 3, "Password Verification Failed", DateTime.Now);    
-							throw new ApplicationException(Wsst_Sequence_Struct_Data.WSST_STEP_ERROR_DESCRIPTION);
-						}
-					}
-					else
-					{
-						string password = node.InnerText ;
-						if(subsdb_Password == null || subsdb_Password.Trim() == "")
 						{
-							if(password.Trim() == "")
+							if (node.InnerText.Trim().ToUpper() != Wsst_Internal_Log_Struct_Data.SUBSCRIBER_ID.Trim().ToUpper())
 							{
+								Wsst_Sequence_Struct_Data.SetMembers(30, 2, "Sender Verification Failed: Subscriber-Sender Node Mismatch ", DateTime.Now);
+								throw new ApplicationException(Wsst_Sequence_Struct_Data.WSST_STEP_ERROR_DESCRIPTION);
+							}
+						}
 
+						node = xd.DocumentElement.SelectSingleNode("/def:SafeTIR/def:Body/def:Password", xns);
+						if (node == null)
+						{
+							if (subsdb_Password == null || subsdb_Password.Trim() == "")
+							{
+								//Password is valid - there is no password or password node also might not be present
+							}
+							else
+							{
+								Wsst_Sequence_Struct_Data.SetMembers(30, 3, "Password Verification Failed", DateTime.Now);
+								throw new ApplicationException(Wsst_Sequence_Struct_Data.WSST_STEP_ERROR_DESCRIPTION);
+							}
+						}
+						else
+						{
+							string password = node.InnerText;
+							if (subsdb_Password == null || subsdb_Password.Trim() == "")
+							{
+								if (password.Trim() == "")
+								{
+
+									//PAssword is valid - there is no password or password node also might no be present
+								}
+								else
+								{
+									Wsst_Sequence_Struct_Data.SetMembers(30, 3, "Password Verification Failed", DateTime.Now);
+									throw new ApplicationException(Wsst_Sequence_Struct_Data.WSST_STEP_ERROR_DESCRIPTION);
+								}
+							}
+							else if (password.Trim() == subsdb_Password)
+							{
 								//PAssword is valid - there is no password or password node also might no be present
 							}
 							else
 							{
-								Wsst_Sequence_Struct_Data.SetMembers(30, 3, "Password Verification Failed", DateTime.Now);    
+								Wsst_Sequence_Struct_Data.SetMembers(30, 3, "Password Verification Failed", DateTime.Now);
 								throw new ApplicationException(Wsst_Sequence_Struct_Data.WSST_STEP_ERROR_DESCRIPTION);
 							}
 						}
-						else if(password.Trim() == subsdb_Password)
+
+
+						Wsst_Internal_Log_Struct_Data.SUBSCRIBER_AUTHENTICATED = new NullableInt(1);
+						Wsst_Sequence_Struct_Data.SetMembers(30, Wsst_Internal_Log_Struct_Data.SUBSCRIBER_AUTHENTICATED.Value, null, DateTime.Now);
+					}
+					catch (ApplicationException ex)
+					{
+						Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
+							"SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " +
+							ex.Message + " - " + ex.StackTrace);
+
+						Wsst_Internal_Log_Struct_Data.SUBSCRIBER_AUTHENTICATED = new NullableInt(Wsst_Sequence_Struct_Data.WSST_STEP_RESULT);
+
+						Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(Wsst_Sequence_Struct_Data.WSST_STEP);
+						Wsst_Internal_Log_Struct_Data.COMPLETION_TIME = new NullableDateTime(Wsst_Sequence_Struct_Data.LAST_UPDATE_TIME);
+
+					}
+					catch (Exception ex)
+					{
+						Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
+							"SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " +
+							ex.Message + " - " + ex.StackTrace);
+
+						Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(30);
+						Wsst_Internal_Log_Struct_Data.COMPLETION_TIME = new NullableDateTime(DateTime.Now);
+
+						Wsst_Sequence_Struct_Data.SetMembers(Wsst_Internal_Log_Struct_Data.LAST_STEP.Value,
+							1200, ex.Message + " - " + ex.StackTrace,
+							Wsst_Internal_Log_Struct_Data.COMPLETION_TIME.Value);
+					}
+
+					try
+					{
+						dbHelperWSSTINTERNAL.ConnectToDB();
+						dbHelperWSSTINTERNAL.BeginTransaction();
+						intDBhelper.UpdateInternalLogReturnCode(m_aStep6);
+						dbHelperWSSTINTERNAL.CommitTransaction();
+						if (Wsst_Internal_Log_Struct_Data.LAST_STEP != null)
 						{
-							//PAssword is valid - there is no password or password node also might no be present
-						}
-						else
-						{
-							Wsst_Sequence_Struct_Data.SetMembers(30, 3, "Password Verification Failed", DateTime.Now);    
 							throw new ApplicationException(Wsst_Sequence_Struct_Data.WSST_STEP_ERROR_DESCRIPTION);
 						}
 					}
-
-
-					Wsst_Internal_Log_Struct_Data.SUBSCRIBER_AUTHENTICATED = new NullableInt(1);
-					Wsst_Sequence_Struct_Data.SetMembers(30,Wsst_Internal_Log_Struct_Data.SUBSCRIBER_AUTHENTICATED.Value,null,DateTime.Now); 
-				}
-				catch(ApplicationException ex)
-				{
-					Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
-                        "SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + 
-                        ex.Message + " - " + ex.StackTrace);  
-
-					Wsst_Internal_Log_Struct_Data.SUBSCRIBER_AUTHENTICATED = new NullableInt(Wsst_Sequence_Struct_Data.WSST_STEP_RESULT);
-
-					Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(Wsst_Sequence_Struct_Data.WSST_STEP);
-					Wsst_Internal_Log_Struct_Data.COMPLETION_TIME =new NullableDateTime(Wsst_Sequence_Struct_Data.LAST_UPDATE_TIME);
-
-				}
-				catch(Exception ex)
-				{
-					Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
-                        "SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + 
-                        ex.Message + " - " + ex.StackTrace);  
-
-					Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(30);
-					Wsst_Internal_Log_Struct_Data.COMPLETION_TIME =new NullableDateTime(DateTime.Now);
-
-					Wsst_Sequence_Struct_Data.SetMembers(Wsst_Internal_Log_Struct_Data.LAST_STEP.Value  , 
-						1200, ex.Message + " - " + ex.StackTrace, 
-						Wsst_Internal_Log_Struct_Data.COMPLETION_TIME.Value );
-				}
-
-				try
-				{
-					dbHelperWSSTINTERNAL.ConnectToDB();
-					dbHelperWSSTINTERNAL.BeginTransaction();  
-					intDBhelper.UpdateInternalLogReturnCode(m_aStep6);
-					dbHelperWSSTINTERNAL.CommitTransaction();  
-                    if (Wsst_Internal_Log_Struct_Data.LAST_STEP != null)
-                    {
-                        throw new ApplicationException(Wsst_Sequence_Struct_Data.WSST_STEP_ERROR_DESCRIPTION);
-                    }
-                }
-                catch (ApplicationException ae)
-                {
-                    throw ae;//Back to FileListener
-                }
-				catch(SqlException sqlEx)
-				{
-					dbHelperWSSTINTERNAL.RollbackTransaction();
-					Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, "SAFETIR_MESSAGE_IN_ID :" +Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + sqlEx.Message + " - " + sqlEx.StackTrace );  
-					throw sqlEx ; //Back to FileListener
-				}
-				finally
-				{
-					dbHelperWSSTINTERNAL.Close();
-				}
-			
-
-				#endregion
-			}
-
-			if(Wsst_Internal_Log_Struct_Data.LAST_STEP == null)
-			{
-				#region -- Step 7 - 35 - CreateCIFFile
-
-				try
-				{
-					Wsst_Internal_Log_Struct_Data.CIF_FILENAME = CreateCIFDispatchFile(Wsst_Internal_Log_Struct_Data);  
-					Wsst_Sequence_Struct_Data.SetMembers(35,1,null,DateTime.Now); 
-				}
-				catch(Exception ex)
-				{
-                    Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, 
-                        "SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + 
-                        ex.Message + " - " + ex.StackTrace);  
-
-					Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(35);
-					Wsst_Internal_Log_Struct_Data.COMPLETION_TIME =new NullableDateTime(DateTime.Now);
-
-					Wsst_Sequence_Struct_Data.SetMembers(Wsst_Internal_Log_Struct_Data.LAST_STEP.Value  , 
-						2, ex.Message + " - " + ex.StackTrace, 
-						Wsst_Internal_Log_Struct_Data.COMPLETION_TIME.Value );
-				}
-
-				Wsst_Sequence_Struct_Data.SetMembers(35,1,null,DateTime.Now); 
-				try
-				{
-					dbHelperWSSTINTERNAL.ConnectToDB();
-					dbHelperWSSTINTERNAL.BeginTransaction();  
-					intDBhelper.UpdateInternalLogReturnCode(m_aStep7);
-					dbHelperWSSTINTERNAL.CommitTransaction();  
-                     if (Wsst_Internal_Log_Struct_Data.LAST_STEP != null)
-                    {
-                        throw new ApplicationException(Wsst_Sequence_Struct_Data.WSST_STEP_ERROR_DESCRIPTION);
-                    }
-                }
-                catch (ApplicationException ae)
-                {
-                    throw ae;//Back to FileListener
-                }
-				catch(SqlException sqlEx)
-				{
-					dbHelperWSSTINTERNAL.RollbackTransaction();
-					Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, 
-                        "SAFETIR_MESSAGE_IN_ID :" +Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + 
-                        sqlEx.Message + " - " + sqlEx.StackTrace );  
-					throw sqlEx ; //Back to FileListener
-				}
-				finally
-				{
-					dbHelperWSSTINTERNAL.Close();
-				}
-			
-
-				#endregion
-			}
-
-			if(Wsst_Internal_Log_Struct_Data.LAST_STEP == null)
-			{
-				#region -- Step 8 - 40 - CopyTo Procedure
-
-
-				if(Wsst_Internal_Log_Struct_Data.copy_to_id != null)
-				{
-					if(Wsst_Internal_Log_Struct_Data.copy_to_id.Trim() != "")
+					catch (ApplicationException ae)
 					{
-						try
+						throw ae;//Back to FileListener
+					}
+					catch (SqlException sqlEx)
+					{
+						dbHelperWSSTINTERNAL.RollbackTransaction();
+						Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, "SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + sqlEx.Message + " - " + sqlEx.StackTrace);
+						throw sqlEx; //Back to FileListener
+					}
+					finally
+					{
+						dbHelperWSSTINTERNAL.Close();
+					}
+
+
+					#endregion
+				}
+
+				if (Wsst_Internal_Log_Struct_Data.LAST_STEP == null)
+				{
+					#region -- Step 7 - 35 - CreateCIFFile
+
+					try
+					{
+						Wsst_Internal_Log_Struct_Data.CIF_FILENAME = CreateCIFDispatchFile(Wsst_Internal_Log_Struct_Data);
+						Wsst_Sequence_Struct_Data.SetMembers(35, 1, null, DateTime.Now);
+					}
+					catch (Exception ex)
+					{
+						Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
+							"SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " +
+							ex.Message + " - " + ex.StackTrace);
+
+						Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(35);
+						Wsst_Internal_Log_Struct_Data.COMPLETION_TIME = new NullableDateTime(DateTime.Now);
+
+						Wsst_Sequence_Struct_Data.SetMembers(Wsst_Internal_Log_Struct_Data.LAST_STEP.Value,
+							2, ex.Message + " - " + ex.StackTrace,
+							Wsst_Internal_Log_Struct_Data.COMPLETION_TIME.Value);
+					}
+
+					Wsst_Sequence_Struct_Data.SetMembers(35, 1, null, DateTime.Now);
+					try
+					{
+						dbHelperWSSTINTERNAL.ConnectToDB();
+						dbHelperWSSTINTERNAL.BeginTransaction();
+						intDBhelper.UpdateInternalLogReturnCode(m_aStep7);
+						dbHelperWSSTINTERNAL.CommitTransaction();
+						if (Wsst_Internal_Log_Struct_Data.LAST_STEP != null)
 						{
-							WSST_COPY_TO_JOB_STRUCT Wsst_Copy_To_Job_Data = new WSST_COPY_TO_JOB_STRUCT();
-							Wsst_Copy_To_Job_Data.COPY_TO_ID = Wsst_Internal_Log_Struct_Data.copy_to_id ;
-							Wsst_Copy_To_Job_Data.SENDER_TCP_IP_ADDRESS = Wsst_Internal_Log_Struct_Data.SENDER_TCP_IP_ADDRESS ;
-							Wsst_Copy_To_Job_Data.SAFETIR_XML = Wsst_Internal_Log_Struct_Data.SAFETIR_XML;
-							Wsst_Copy_To_Job_Data.JOB_REQUEST_TIME = DateTime.Now ;
-							Wsst_Copy_To_Job_Data.JOB_STATUS = 0;
-							Wsst_Copy_To_Job_Data.SAFETIR_MESSAGE_IN_ID = Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID ;
-							Wsst_Copy_To_Job_Data.SUBSCRIBER_ID= Wsst_Internal_Log_Struct_Data.SUBSCRIBER_ID;
-
-							dbHelperWSSTCOPYT.ConnectToDB();
-							dbHelperSubscriber.ConnectToDB(); 
-
-							if(AssignCopyTo( intDBhelper, dbHelperWSSTCOPYT, dbHelperSubscriber, Wsst_Copy_To_Job_Data))
-							{
-								Wsst_Sequence_Struct_Data.SetMembers(40,1,null,DateTime.Now); 
-							}
-							else
-							{
-								Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
-                                    "SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " +  
-                                    "AssignCopyTo failed..");  
-
-								Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(40);
-								Wsst_Internal_Log_Struct_Data.COMPLETION_TIME =new NullableDateTime(DateTime.Now);
-
-								Wsst_Sequence_Struct_Data.SetMembers(Wsst_Internal_Log_Struct_Data.LAST_STEP.Value  , 
-									3, " - probably COPY_TO_ID not found in Subscriber DB",		 
-									Wsst_Internal_Log_Struct_Data.COMPLETION_TIME.Value );
-
-							}
-						}
-						catch(Exception ex)
-						{
-							Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, "SAFETIR_MESSAGE_IN_ID :" + 
-								Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + ex.Message + " - " + ex.StackTrace );  
-
-							Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(40);
-							Wsst_Internal_Log_Struct_Data.COMPLETION_TIME =new NullableDateTime(DateTime.Now);
-
-							Wsst_Sequence_Struct_Data.SetMembers(Wsst_Internal_Log_Struct_Data.LAST_STEP.Value  , 
-								3, ex.Message + " - " + ex.StackTrace, 
-								Wsst_Internal_Log_Struct_Data.COMPLETION_TIME.Value );
-						}
-
-						try
-						{
-							dbHelperWSSTINTERNAL.ConnectToDB();
-							intDBhelper.UpdateInternalLogReturnCode(m_aStep8);
-							dbHelperWSSTINTERNAL.CommitTransaction();  
-                            if (Wsst_Internal_Log_Struct_Data.LAST_STEP != null)
-                            {
-                                throw new ApplicationException(Wsst_Sequence_Struct_Data.WSST_STEP_ERROR_DESCRIPTION);
-                            }
-                        }
-                        catch (ApplicationException ae)
-                        {
-                            throw ae;//Back to FileListener
-                        }
-				
-						catch(SqlException sqlEx)
-						{
-							dbHelperWSSTINTERNAL.RollbackTransaction();
-							Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, "SAFETIR_MESSAGE_IN_ID :" +Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + sqlEx.Message + " - " + sqlEx.StackTrace );  
-							throw sqlEx ; //Back to FileListener
-						}
-						finally
-						{
-							dbHelperWSSTINTERNAL.Close();
+							throw new ApplicationException(Wsst_Sequence_Struct_Data.WSST_STEP_ERROR_DESCRIPTION);
 						}
 					}
+					catch (ApplicationException ae)
+					{
+						throw ae;//Back to FileListener
+					}
+					catch (SqlException sqlEx)
+					{
+						dbHelperWSSTINTERNAL.RollbackTransaction();
+						Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
+							"SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " +
+							sqlEx.Message + " - " + sqlEx.StackTrace);
+						throw sqlEx; //Back to FileListener
+					}
+					finally
+					{
+						dbHelperWSSTINTERNAL.Close();
+					}
+
+
+					#endregion
 				}
-	
-			#endregion
+
+				if (Wsst_Internal_Log_Struct_Data.LAST_STEP == null)
+				{
+					#region -- Step 8 - 40 - CopyTo Procedure
+
+
+					if (Wsst_Internal_Log_Struct_Data.copy_to_id != null)
+					{
+						if (Wsst_Internal_Log_Struct_Data.copy_to_id.Trim() != "")
+						{
+							try
+							{
+								WSST_COPY_TO_JOB_STRUCT Wsst_Copy_To_Job_Data = new WSST_COPY_TO_JOB_STRUCT();
+								Wsst_Copy_To_Job_Data.COPY_TO_ID = Wsst_Internal_Log_Struct_Data.copy_to_id;
+								Wsst_Copy_To_Job_Data.SENDER_TCP_IP_ADDRESS = Wsst_Internal_Log_Struct_Data.SENDER_TCP_IP_ADDRESS;
+								Wsst_Copy_To_Job_Data.SAFETIR_XML = Wsst_Internal_Log_Struct_Data.SAFETIR_XML;
+								Wsst_Copy_To_Job_Data.JOB_REQUEST_TIME = DateTime.Now;
+								Wsst_Copy_To_Job_Data.JOB_STATUS = 0;
+								Wsst_Copy_To_Job_Data.SAFETIR_MESSAGE_IN_ID = Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID;
+								Wsst_Copy_To_Job_Data.SUBSCRIBER_ID = Wsst_Internal_Log_Struct_Data.SUBSCRIBER_ID;
+
+								dbHelperWSSTCOPYT.ConnectToDB();
+								dbHelperSubscriber.ConnectToDB();
+
+								if (AssignCopyTo(intDBhelper, dbHelperWSSTCOPYT, dbHelperSubscriber, Wsst_Copy_To_Job_Data))
+								{
+									Wsst_Sequence_Struct_Data.SetMembers(40, 1, null, DateTime.Now);
+								}
+								else
+								{
+									Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
+										"SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " +
+										"AssignCopyTo failed..");
+
+									Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(40);
+									Wsst_Internal_Log_Struct_Data.COMPLETION_TIME = new NullableDateTime(DateTime.Now);
+
+									Wsst_Sequence_Struct_Data.SetMembers(Wsst_Internal_Log_Struct_Data.LAST_STEP.Value,
+										3, " - probably COPY_TO_ID not found in Subscriber DB",
+										Wsst_Internal_Log_Struct_Data.COMPLETION_TIME.Value);
+
+								}
+							}
+							catch (Exception ex)
+							{
+								Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, "SAFETIR_MESSAGE_IN_ID :" +
+									Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + ex.Message + " - " + ex.StackTrace);
+
+								Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(40);
+								Wsst_Internal_Log_Struct_Data.COMPLETION_TIME = new NullableDateTime(DateTime.Now);
+
+								Wsst_Sequence_Struct_Data.SetMembers(Wsst_Internal_Log_Struct_Data.LAST_STEP.Value,
+									3, ex.Message + " - " + ex.StackTrace,
+									Wsst_Internal_Log_Struct_Data.COMPLETION_TIME.Value);
+							}
+
+							try
+							{
+								dbHelperWSSTINTERNAL.ConnectToDB();
+								intDBhelper.UpdateInternalLogReturnCode(m_aStep8);
+								dbHelperWSSTINTERNAL.CommitTransaction();
+								if (Wsst_Internal_Log_Struct_Data.LAST_STEP != null)
+								{
+									throw new ApplicationException(Wsst_Sequence_Struct_Data.WSST_STEP_ERROR_DESCRIPTION);
+								}
+							}
+							catch (ApplicationException ae)
+							{
+								throw ae;//Back to FileListener
+							}
+
+							catch (SqlException sqlEx)
+							{
+								dbHelperWSSTINTERNAL.RollbackTransaction();
+								Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, "SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + sqlEx.Message + " - " + sqlEx.StackTrace);
+								throw sqlEx; //Back to FileListener
+							}
+							finally
+							{
+								dbHelperWSSTINTERNAL.Close();
+							}
+						}
+					}
+
+					#endregion
+				}
+				if (Wsst_Internal_Log_Struct_Data.LAST_STEP == null)
+				{
+					#region -- Step 8 - 99 - Procedure Succeded
+
+					Wsst_Internal_Log_Struct_Data.COMPLETION_TIME = new NullableDateTime(DateTime.Now);
+					Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(99);
+
+					Wsst_Sequence_Struct_Data.SetMembers(99, 2, null, Wsst_Internal_Log_Struct_Data.COMPLETION_TIME.Value);
+
+					try
+					{
+						dbHelperWSSTINTERNAL.ConnectToDB();
+						dbHelperWSSTINTERNAL.BeginTransaction();
+						intDBhelper.UpdateInternalLogReturnCode(m_aStep9);
+						dbHelperWSSTINTERNAL.CommitTransaction();
+					}
+					catch (SqlException sqlEx)
+					{
+						dbHelperWSSTINTERNAL.RollbackTransaction();
+						Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, "SAFETIR_MESSAGE_IN_ID :" + Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + sqlEx.Message + " - " + sqlEx.StackTrace);
+						throw sqlEx; //Back to FileListener
+					}
+					finally
+					{
+						dbHelperWSSTINTERNAL.Close();
+					}
+					#endregion
+				}
 			}
-			if(Wsst_Internal_Log_Struct_Data.LAST_STEP == null)
-			{
-				#region -- Step 8 - 99 - Procedure Succeded
-
-				Wsst_Internal_Log_Struct_Data.COMPLETION_TIME = new NullableDateTime(DateTime.Now) ;
-				Wsst_Internal_Log_Struct_Data.LAST_STEP = new NullableInt(99);
-
-				Wsst_Sequence_Struct_Data.SetMembers(99,2,null,Wsst_Internal_Log_Struct_Data.COMPLETION_TIME.Value ); 
-
-				try
-				{
-					dbHelperWSSTINTERNAL.ConnectToDB();
-					dbHelperWSSTINTERNAL.BeginTransaction();  
-					intDBhelper.UpdateInternalLogReturnCode(m_aStep9);
-					dbHelperWSSTINTERNAL.CommitTransaction();  
-				}
-				catch(SqlException sqlEx)
-				{
-					dbHelperWSSTINTERNAL.RollbackTransaction();
-					Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, "SAFETIR_MESSAGE_IN_ID :" +Wsst_Internal_Log_Struct_Data.SAFETIR_MESSAGE_IN_ID.ToString() + " - " + sqlEx.Message + " - " + sqlEx.StackTrace );  
-					throw sqlEx ; //Back to FileListener
-				}
-				finally
-				{
-					dbHelperWSSTINTERNAL.Close();
-				}
-				#endregion
-			}
-
 		}	
 
 		#region private methods

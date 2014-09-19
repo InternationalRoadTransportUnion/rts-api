@@ -2,12 +2,12 @@ using System;
 using System.Runtime.Remoting;
 using IRU.RTS;
 using System.Xml;
-using IRU.CommonInterfaces;
-using IRU.RTS.CommonComponents;
 using System.Runtime.Remoting.Services;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Runtime.Remoting.Channels;
-
+using IRU.CommonInterfaces;
+using IRU.RTS.CommonComponents;
+using IRU.RTS.Common.WCF;
 
 namespace IRU.RTS.WSTVQR
 {
@@ -18,7 +18,9 @@ namespace IRU.RTS.WSTVQR
 	{
 		internal static IDBHelperFactory  m_dbHelperFactoryPlugin ;//="DBHelperFactory" 
 		
-		internal static IRU.CommonInterfaces.ICache  m_InMemoryCachePlugin;//="InMemoryCache" 
+		internal static IRU.CommonInterfaces.ICache  m_InMemoryCachePlugin;//="InMemoryCache"
+ 
+		private NetTcpServiceHost<TVQR_QueryProcessor, ITVQRProcessor> _serviceHost = null;
 		
 		//if port is 0 dont register a channel as some other plugin is expected to register the channel
 		private int m_RemotingPort;//="4000"
@@ -44,23 +46,37 @@ namespace IRU.RTS.WSTVQR
 		public void Start()
 		{
 			//Register the processor class with Remoting system.
-			 
-			 RemotingConfiguration.RegisterWellKnownServiceType(typeof(TVQR_QueryProcessor),m_RemotingEndPoint,  WellKnownObjectMode.SingleCall);				
-		    
 
+			try
+			{
+				_serviceHost = new NetTcpServiceHost<TVQR_QueryProcessor,ITVQRProcessor>(m_RemotingPort, m_RemotingEndPoint);
+				_serviceHost.Open();
+			}
+			catch (Exception ex)
+			{
+				Stop();
+
+				Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
+					 "Can't start ServiceHost: "
+					 + ex.Message);
+				throw ex;
+			} 		    
 			
 			//Mandar 28-Sep-05
 
 			//Read the schema files into XMLHelper
 			string QuerySchemaPath = m_SchemaFilesPath + "\\TVQR.xsd";
-			XMLValidationHelper.PopulateSchemas("http://rts.iru.org/tvqr",QuerySchemaPath);
-			
-
+			XMLValidationHelper.PopulateSchemas("http://rts.iru.org/tvqr",QuerySchemaPath);			
 		}
 
 		public void Stop()
 		{
 			// TODO:  Add TVQR_RemotingHelper.Stop implementation
+			if (_serviceHost != null)
+			{
+				_serviceHost.Dispose();
+				_serviceHost = null;
+			}
 		}
 
 		#endregion
@@ -124,12 +140,7 @@ namespace IRU.RTS.WSTVQR
 			}
 
 			//register channels here so that more channels can be registered in config in other plugins
-			if ( m_RemotingPort != 0)
-			{
-				TcpChannel chan = new TcpChannel(m_RemotingPort);
-				ChannelServices.RegisterChannel(chan);
-			}
-			else
+			if (m_RemotingPort == 0)
 			{
 				Statics.IRUTrace(this,Statics.IRUTraceSwitch.TraceWarning," TVQR_Remoting helper has not registered channels, expecting other plugin to register a remoting tcpchannel");
 

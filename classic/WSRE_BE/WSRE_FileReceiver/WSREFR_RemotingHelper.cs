@@ -1,14 +1,12 @@
 using System;
 using System.Xml;
-using IRU.CommonInterfaces;
-using IRU.RTS.CommonComponents;
-
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Services;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Runtime.Remoting.Channels;
-
-
+using IRU.CommonInterfaces;
+using IRU.RTS.CommonComponents;
+using IRU.RTS.Common.WCF;
 
 namespace IRU.RTS.WSRE
 {
@@ -19,8 +17,8 @@ namespace IRU.RTS.WSRE
 	{
 		internal static IDBHelperFactory  m_dbHelperFactoryPlugin ;//="DBHelperFactory" 
 		private string  m_EXTDBName;// 
-		
-		
+
+		private NetTcpServiceHost<WSRE_FileReceiver, IWSREFileReceiver> _serviceHost = null;
 		
 		internal static string m_DoubleAgentDropPath; 
 		internal static string m_TemporaryFolderPath;
@@ -106,15 +104,9 @@ namespace IRU.RTS.WSRE
 			}
 
 			//register channels here so that more channels can be registered in config in other plugins
-			if ( m_RemotingPort != 0)
-			{
-				TcpChannel chan = new TcpChannel(m_RemotingPort);
-				ChannelServices.RegisterChannel(chan);
-			}
-			else
+			if (m_RemotingPort == 0)
 			{
 				Statics.IRUTrace(this,Statics.IRUTraceSwitch.TraceWarning," WSSTFR_Remotinghelper has not registered channels, expecting other plugin to register a remoting tcpchannel");
-
 			}
 
 
@@ -146,15 +138,31 @@ namespace IRU.RTS.WSRE
 		public void Start()
 		{
 			//Register the processor class with Remoting system.
-			 
-			RemotingConfiguration.RegisterWellKnownServiceType(typeof(WSRE_FileReceiver),m_RemotingEndPoint,  WellKnownObjectMode.SingleCall);				
-		    
-			
+
+			try
+			{
+				_serviceHost = new NetTcpServiceHost<WSRE_FileReceiver,IWSREFileReceiver>(m_RemotingPort, m_RemotingEndPoint);
+				_serviceHost.Open();
+			}
+			catch (Exception ex)
+			{
+				Stop();
+
+				Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError,
+					"Can't start ServiceHost: "
+					+ ex.Message);
+				throw ex;
+			} 			
 		}
 
 		public void Stop()
 		{
 			// TODO:  Add WSSTFR_RemotingHelper.Stop implementation
+			if (_serviceHost != null)
+			{
+				_serviceHost.Dispose();
+				_serviceHost = null;
+			}
 		}
 
 		#endregion

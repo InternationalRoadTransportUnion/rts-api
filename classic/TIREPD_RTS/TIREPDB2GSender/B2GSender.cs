@@ -10,14 +10,13 @@ using System.Xml;
 using System.Collections;
 using IRU.RTS.Crypto;
 using IRU.RTS.TIREPD;
+using IRU.RTS.Common.WCF;
 
 namespace IRU.RTS.TIREPD
 {
     [Serializable] 
     public class B2GSender : MarshalByRefObject, IB2GSender
     {
-        private ICryptoOperations m_iCryptoOperations;
-
         private string m_sB2G_Sender_Id;
         public B2GSender()
         {
@@ -152,50 +151,53 @@ namespace IRU.RTS.TIREPD
 
             #endregion
 
-            try
-            {
-                m_iCryptoOperations = (ICryptoOperations)Activator.GetObject(typeof(ICryptoOperations), B2G_RemotingHelper.m_CryptoProviderEndpoint);
+			using (NetTcpClient<ICryptoOperations> client = new NetTcpClient<ICryptoOperations>(B2G_RemotingHelper.m_CryptoProviderEndpoint))
+			{
+				ICryptoOperations m_iCryptoOperations = client.GetProxy();
 
-                dbHelperSubscriber.ConnectToDB();
-                iResult = KeyManager.AssignSubscriberKey(SubscriberID, out rKey, out encryptionKeyID, dbHelperSubscriber);
-                if (iResult == 1)
-                {
-                    #region - Encrypt Query Response
+				try
+				{
+					dbHelperSubscriber.ConnectToDB();
+					iResult = KeyManager.AssignSubscriberKey(SubscriberID, out rKey, out encryptionKeyID, dbHelperSubscriber);
+					if (iResult == 1)
+					{
+						#region - Encrypt Query Response
 
-                    htResponse = new Hashtable();
-                    htResponse["IV"] = new byte[] { 0x03, 0x01, 0x04, 0x01, 0x05, 0x09, 0x02, 0x06 };
-                    byte[] aDocWithHash = System.Text.Encoding.Unicode.GetBytes(sXmlIE15);
-                    aEncResponse = m_iCryptoOperations.Encrypt(aDocWithHash, "3DES", ref htResponse);
-                    a3DesSessionKey = (byte[])htResponse["KEY"];
-                    #endregion
+						htResponse = new Hashtable();
+						htResponse["IV"] = new byte[] { 0x03, 0x01, 0x04, 0x01, 0x05, 0x09, 0x02, 0x06 };
+						byte[] aDocWithHash = System.Text.Encoding.Unicode.GetBytes(sXmlIE15);
+						aEncResponse = m_iCryptoOperations.Encrypt(aDocWithHash, "3DES", ref htResponse);
+						a3DesSessionKey = (byte[])htResponse["KEY"];
+						#endregion
 
-					htResponse = new Hashtable();
-					htResponse["EXPONENT"]= rKey.Exponent;
-					htResponse["MODULUS"] = rKey.Modulus;
-					System.Diagnostics.Debug.WriteLine(" After Key Fetch " + DateTime.Now.ToString("HH:mm:ss:fff"));
+						htResponse = new Hashtable();
+						htResponse["EXPONENT"] = rKey.Exponent;
+						htResponse["MODULUS"] = rKey.Modulus;
+						System.Diagnostics.Debug.WriteLine(" After Key Fetch " + DateTime.Now.ToString("HH:mm:ss:fff"));
 
-					byte[] a3DesEncKey = null; ;
-					a3DesEncKey  = m_iCryptoOperations.Encrypt(a3DesSessionKey,"RSA",ref htResponse);
+						byte[] a3DesEncKey = null; ;
+						a3DesEncKey = m_iCryptoOperations.Encrypt(a3DesSessionKey, "RSA", ref htResponse);
 
-                    #region Assign Values to the send Struct
-                    su.SubscriberID = SubscriberID;
-                    su.MessageName = sMessageName;
-                    su.SubscriberMessageID = LRN;
-                    su.TimeSent = DateTime.Now;
-                    su.MessageContent = aEncResponse; 
-					su.CertificateID = encryptionKeyID;
-					su.ESessionKey = a3DesEncKey;
-                    su.InformationExchangeVersion = sMessageExchangeVersion;
-                    #endregion
+						#region Assign Values to the send Struct
+						su.SubscriberID = SubscriberID;
+						su.MessageName = sMessageName;
+						su.SubscriberMessageID = LRN;
+						su.TimeSent = DateTime.Now;
+						su.MessageContent = aEncResponse;
+						su.CertificateID = encryptionKeyID;
+						su.ESessionKey = a3DesEncKey;
+						su.InformationExchangeVersion = sMessageExchangeVersion;
+						#endregion
 
-                }
-            }
-            catch(Exception ex)
-            {
-                sMessage = ex.Message + " - " + ex.StackTrace; 
-            }
+					}
+				}
+				catch (Exception ex)
+				{
+					sMessage = ex.Message + " - " + ex.StackTrace;
+				}
 
-            return su;
+				return su;
+			}
         }
 
         private static bool ValidateAnySSLCall(

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.ServiceModel;
 
 namespace IRU.RTS.CryptoInterfaces
 {
@@ -7,6 +8,7 @@ namespace IRU.RTS.CryptoInterfaces
 	/// Interface to be implemented by CryptoProvider. Covers Common Crypto operations. This needs to be revisited once details of algorithms (GOST etc. are in).
 	/// The interface is packaged in separate assembly so there is bare minimum dependency in case the crypto operations need to run on separate box
 	/// </summary>
+	[ServiceContract]
 	public interface ICryptoOperations
 	{
 		/*
@@ -24,6 +26,7 @@ namespace IRU.RTS.CryptoInterfaces
 		/// <param name="algName">Name of Alg implemented e.g. DES, RSA etc.</param>
 		/// <param name="encryptParams">Hashtable containing the keys, IV etc.</param>
 		/// <returns>encrypted byte array</returns>
+		[OperationContract]
 		byte[] Encrypt(byte[] input, string algName, ref Hashtable encryptParams);
 
 
@@ -34,6 +37,7 @@ namespace IRU.RTS.CryptoInterfaces
 		/// <param name="algName">Name of algorithm to use</param>
 		/// <param name="decryptParams">HAshtable containing parameters to decrypt</param>
 		/// <returns>decrypted data byte array</returns>
+		[OperationContract]
 		byte[] Decrypt(byte[] input, string algName, Hashtable decryptParams);
 
 		/// <summary>
@@ -43,6 +47,7 @@ namespace IRU.RTS.CryptoInterfaces
 		/// <param name="algName">Hashing algorithm name, currently SHA1  .</param>
 		/// <param name="hashParams">Hashtable of parameters</param>
 		/// <returns>Hash value</returns>
+		[OperationContract]
 		byte[] Hash(byte[] input, string algName, Hashtable hashParams);
 
 
@@ -55,6 +60,7 @@ namespace IRU.RTS.CryptoInterfaces
 		/// <param name="hashParams">Hashtable of parameters</param>
 		/// <param name="hashToVerify">Hashvalue to Verify</param>
 		/// <returns>true Verified, false not verified</returns>
+		[OperationContract]
 		bool VerifyHash(byte[] input, string algName, Hashtable hashParams, byte[] hashToVerify);
 
 

@@ -8,6 +8,7 @@ using System.Web.Services;
 using System.Net;
 using System.IO;
 using IRU.RTS;
+using IRU.RTS.Common.WCF;
 
 namespace SAFETIRUpload
 {
@@ -126,13 +127,16 @@ namespace SAFETIRUpload
 			SafeTIRUploadAck safeUploadAck ;
 			try
 			{
-				IWSSTFileReceiver iFileReceiver =  (IWSSTFileReceiver)Activator.GetObject(typeof(IRU.RTS.IWSSTFileReceiver), System.Configuration.ConfigurationSettings.AppSettings["WSSTFileReceiverEndPoint"]);
-				
-				string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
+				using (NetTcpClient<IWSSTFileReceiver> client = new NetTcpClient<IWSSTFileReceiver>(System.Configuration.ConfigurationSettings.AppSettings["WSSTFileReceiverEndPoint"]))
+				{
+					IWSSTFileReceiver iFileReceiver = client.GetProxy();
 
-                SniffRequest("WSST");
+					string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
 
-				safeUploadAck = iFileReceiver.ProcessReceivedFile(su , senderIP);
+					SniffRequest("WSST");
+
+					safeUploadAck = iFileReceiver.ProcessReceivedFile(su, senderIP);
+				}
 			}
 			catch (Exception ex)
 			{
@@ -156,13 +160,16 @@ namespace SAFETIRUpload
             SafeTIRUploadAck reconcileReplyAck;
             try
             {
-                IWSREFileReceiver iFileReceiver = (IWSREFileReceiver)Activator.GetObject(typeof(IRU.RTS.IWSREFileReceiver), System.Configuration.ConfigurationSettings.AppSettings["WSREFileReceiverEndPoint"]);
+				using (NetTcpClient<IWSREFileReceiver> client = new NetTcpClient<IWSREFileReceiver>(System.Configuration.ConfigurationSettings.AppSettings["WSREFileReceiverEndPoint"]))
+				{
+					IWSREFileReceiver iFileReceiver = client.GetProxy();
 
-                string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
+					string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
 
-                SniffRequest("WSRE");
+					SniffRequest("WSRE");
 
-                reconcileReplyAck = iFileReceiver.ProcessReceivedFile(su, senderIP);
+					reconcileReplyAck = iFileReceiver.ProcessReceivedFile(su, senderIP);
+				}
             }
             catch (Exception ex)
             {
