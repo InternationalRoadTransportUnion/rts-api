@@ -123,6 +123,9 @@
     <None Include="Schemas\TIREPD_IE928.xsd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Schemas\TIREPD_Types.xsd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="TIREPDG2B_Config.xml">
