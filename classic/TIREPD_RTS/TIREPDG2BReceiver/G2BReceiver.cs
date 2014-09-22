@@ -152,10 +152,16 @@ namespace IRU.RTS.TIREPD
 						dbHelperSubscriber.ConnectToDB();
 						keyStatus = KeyManager.GetIRUKeyDetails(G2BUploadParams.CertificateID, G2BUploadParams.SubscriberID, out sessionDecrKey, dbHelperSubscriber);
 					}
+					catch (Exception ex)
+					{
+						Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, ex.Message + " - " + ex.StackTrace);
+						throw;
+					}
 					finally
 					{
 						dbHelperSubscriber.Close();
 					}
+
 					if (keyStatus == 3)
 					{
 						g2bRequestLogData.returnCode = 1211;
@@ -194,6 +200,11 @@ namespace IRU.RTS.TIREPD
 						iAuthenticateQuerySender = subsDbHelper.AuthenticateQuerySender(subscriberDetails.subscriberID,
 							out subscriberDetails.password, "G2B", 1, out subscriberDetails.SessionKeyAlgo,
 							out subscriberDetails.HashAlgo, out subscriberDetails.CopyToId, out subscriberDetails.CopyToAddress);
+					}
+					catch (Exception ex)
+					{
+						Statics.IRUTrace(this, Statics.IRUTraceSwitch.TraceError, ex.Message + " - " + ex.StackTrace);
+						throw;
 					}
 					finally
 					{
