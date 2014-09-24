@@ -57,10 +57,10 @@ namespace IRU.RTS
 	public interface ITVQRProcessor
     {
 		[OperationContract]
-        VoucherQueryResponseType ProcessQuery(VoucherQueryType VoucherQuery, string SenderIP, out long IRUQueryId);
+		VoucherQueryResponseType ProcessVoucherQuery(VoucherQueryType VoucherQuery, string SenderIP, out long IRUQueryId);
 
 		[OperationContract]
-		VoucherRegistrationResponseType ProcessQuery(VoucherRegistrationType VoucherRegistration, string SenderIP, out long IRUQueryId);
+		VoucherRegistrationResponseType ProcessVoucherRegistration(VoucherRegistrationType VoucherRegistration, string SenderIP, out long IRUQueryId);
 
 		[OperationContract]
 		void UpdateResponseResult(long QueryId, DateTime dtResponseSent, bool ResponseResult);

@@ -79,7 +79,7 @@ namespace IRU.RTS.WSTVQRService
 
 					string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
 					long IRUQueryID;
-					oResponse = oTVQRProcessor.ProcessQuery(su, senderIP, out IRUQueryID);
+					oResponse = oTVQRProcessor.ProcessVoucherQuery(su, senderIP, out IRUQueryID);
 					TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose, "Process Query Call Succeded");
 
 					bool isClientConnected = HttpContext.Current.Response.IsClientConnected;
@@ -125,7 +125,7 @@ namespace IRU.RTS.WSTVQRService
 
 					string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
 					long IRUQueryID;
-					oResponse = oTVQRProcessor.ProcessQuery(su, senderIP, out IRUQueryID);
+					oResponse = oTVQRProcessor.ProcessVoucherRegistration(su, senderIP, out IRUQueryID);
 					TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose, "Process Query Call Succeded");
 
 					bool isClientConnected = HttpContext.Current.Response.IsClientConnected;

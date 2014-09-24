@@ -97,12 +97,12 @@ namespace IRU.RTS.WSTVQR
 
 		}
 
-        public VoucherQueryResponseType ProcessQuery(VoucherQueryType VoucherQuery, string SenderIP, out long IRUQueryId)
+		public VoucherQueryResponseType ProcessVoucherQuery(VoucherQueryType VoucherQuery, string SenderIP, out long IRUQueryId)
         {
             throw new NotImplementedException();
         }
 
-        public VoucherRegistrationResponseType ProcessQuery(VoucherRegistrationType VoucherRegistration, string SenderIP, out long IRUQueryId)
+		public VoucherRegistrationResponseType ProcessVoucherRegistration(VoucherRegistrationType VoucherRegistration, string SenderIP, out long IRUQueryId)
         {
             throw new NotImplementedException();
         }
