@@ -1,8 +1,10 @@
 using System;
+using System.Linq;
 using System.Xml;
 using System.Xml.Schema;
-using System.Text ;
-
+using System.Xml.Linq;
+using System.Text;
+using System.Collections.Generic;
 
 namespace IRU.RTS.CommonComponents
 {
@@ -199,6 +201,21 @@ namespace IRU.RTS.CommonComponents
 		{
 			m_SchemaCollection.Add(NameSpace, SchemaFile);		
 		
+		}
+
+		public static void PopulateSchemas(string NameSpace, string SchemaFile, string[] KeepIds)
+		{
+			XDocument xDoc = XDocument.Load(SchemaFile);
+			List<XElement> xesToRemove = xDoc.Root.Descendants()
+				.Where(e => (e.Attribute("id") != null) && !KeepIds.Contains(e.Attribute("id").Value))
+				.ToList();
+			foreach (XElement xe in xesToRemove)
+			{
+				xe.Remove();
+			}
+			XmlReader xrDoc = xDoc.CreateReader();
+
+			m_SchemaCollection.Add(NameSpace, xrDoc);
 		}
 
 		public static void ChangeEncoding(ref string XMLString,string Encoding)

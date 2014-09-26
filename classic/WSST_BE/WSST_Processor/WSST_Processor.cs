@@ -159,8 +159,8 @@ CryptoProviderEndpoint="tcp://server:Port/CryptoProvider.rem
 				if (m_SchemaFilesPath.LastIndexOf("\\")!= m_SchemaFilesPath.Length-1)
 					m_SchemaFilesPath+="\\";
 
-				string QuerySchemaPath = m_SchemaFilesPath + "WSST.xsd";
-				XMLValidationHelper.PopulateSchemas("http://www.iru.org/SafeTIRUpload",QuerySchemaPath);
+				string QuerySchemaPath = m_SchemaFilesPath + "SafeTIRUpload.xsd";
+				XMLValidationHelper.PopulateSchemas("http://www.iru.org/SafeTIRUpload", QuerySchemaPath, new string[] { null, "WSST" });
 			}
 			catch(ApplicationException e)
 			{

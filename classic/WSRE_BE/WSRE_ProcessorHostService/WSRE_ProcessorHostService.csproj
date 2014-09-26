@@ -121,7 +121,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Schemas\WSRE.xsd">
+    <None Include="Schemas\SafeTIRUpload.xsd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Compile Include="AssemblyInfo.cs" />

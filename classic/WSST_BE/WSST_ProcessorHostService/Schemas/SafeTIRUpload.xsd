@@ -1,5 +1,7 @@
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iru.org/SafeTIRUpload" xmlns:Upl="http://www.iru.org/SafeTIRUpload"
-	elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.iru.org/SafeTIRUpload"
+           xmlns:Upl="http://www.iru.org/SafeTIRUpload"
+           elementFormDefault="qualified">
 	<xs:element name="SafeTIR">
 		<xs:complexType>
 			<xs:sequence>
@@ -9,16 +11,24 @@
 		</xs:complexType>
 	</xs:element>
 	<xs:complexType name="BodyType">
-		<xs:sequence>
-			<xs:element name="Version" type="Upl:VersionType" />
-			<xs:element name="SubscriberID" type="Upl:SubscriberIDType" />
-			<xs:element name="Password" type="Upl:PasswordType" minOccurs="0" maxOccurs="1" />
-			<xs:element name="UploadType" type="Upl:UploadType" />
-			<xs:element name="TCN" type="xs:positiveInteger" />
-			<xs:element name="SentTime" type="xs:dateTime" />
-			<xs:element name="Sender_MessageID" type="Upl:Sender_MessageIDType" minOccurs="0" maxOccurs="1" />
-			<xs:element name="SafeTIRRecords" type="Upl:Records" />
-		</xs:sequence>
+		<xs:choice>
+			<!-- WSST -->
+			<xs:sequence id="WSST">
+				<xs:element name="Version" type="Upl:VersionType" />
+				<xs:element name="SubscriberID" type="Upl:SubscriberIDType" />
+				<xs:element name="Password" type="Upl:PasswordType" minOccurs="0" maxOccurs="1" />
+				<xs:element name="UploadType" type="Upl:UploadType" />
+				<xs:element name="TCN" type="xs:positiveInteger" />
+				<xs:element name="SentTime" type="xs:dateTime" />
+				<xs:element name="Sender_MessageID" type="Upl:Sender_MessageIDType" minOccurs="0" maxOccurs="1" />
+				<xs:element name="SafeTIRRecords" type="Upl:Records" />
+			</xs:sequence>
+			<!-- WSRE -->
+			<xs:sequence id="WSRE">
+				<xs:element name="NumberOfRecords" type="xs:int" />
+				<xs:element name="RequestReplyRecords" type="Upl:RequestReplyRecords" />
+			</xs:sequence>
+		</xs:choice>
 	</xs:complexType>
 	<xs:complexType name="EnvelopeType">
 		<xs:sequence>
@@ -31,17 +41,42 @@
 				<xs:complexType>
 					<xs:attribute name="TNO" type="Upl:TNOType" use="required" />
 					<xs:attribute name="ICC" type="Upl:ICCType" use="required" />
-					<xs:attribute name="DCL" type="Upl:DCLType" use="optional" />
+					<xs:attribute name="DCL" type="xs:date" use="optional" />
 					<xs:attribute name="CNL" type="Upl:CNLType" use="optional" />
 					<xs:attribute name="COF" type="Upl:COFType" use="required" />
-					<xs:attribute name="DDI" type="Upl:DDIType" use="optional" />
+					<xs:attribute name="DDI" type="xs:date" use="optional" />
 					<xs:attribute name="RND" type="Upl:RNDType" use="optional" />
-					<xs:attribute name="PFD" type="Upl:PFDType" use="required" />
-					<xs:attribute name="CWR" type="Upl:CWRType" use="required" />
+					<xs:attribute name="PFD" type="Upl:PFDType" use="optional" />
+					<xs:attribute name="TCO" type="Upl:TCOType" use="optional" />
+					<xs:attribute name="CWR" type="Upl:CWRType" use="optional" />
 					<xs:attribute name="VPN" type="Upl:VPNType" use="required" />
 					<xs:attribute name="COM" type="Upl:COMType" use="optional" />
 					<xs:attribute name="RBC" type="Upl:RBCType" use="optional" />
 					<xs:attribute name="UPG" type="Upl:UPGType" use="optional" />
+					<xs:attribute name="PIC" type="xs:nonNegativeInteger" use="optional" />
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RequestReplyRecords">
+		<xs:sequence>
+			<xs:element name="RequestReplyRecord" minOccurs="1" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="RequestID" type="Upl:RequestIDType" use="required" />
+					<xs:attribute name="RequestReplyType" type="Upl:RequestReplyType" use="required" />
+					<xs:attribute name="TNO" type="Upl:TNOType" use="required" />
+					<xs:attribute name="ICC" type="Upl:ICCType" use="required" />
+					<xs:attribute name="DCL" type="xs:date" use="optional" />
+					<xs:attribute name="CNL" type="Upl:CNLType" use="optional" />
+					<xs:attribute name="COF" type="Upl:COFType" use="required" />
+					<xs:attribute name="DDI" type="xs:date" use="optional" />
+					<xs:attribute name="RND" type="Upl:RNDType" use="optional" />
+					<xs:attribute name="PFD" type="Upl:PFDType" use="optional" />
+					<xs:attribute name="TCO" type="Upl:TCOType" use="optional" />
+					<xs:attribute name="CWR" type="Upl:CWRType" use="optional" />
+					<xs:attribute name="VPN" type="Upl:VPNType" use="required" />
+					<xs:attribute name="COM" type="Upl:COMType" use="optional" />
+					<xs:attribute name="RBC" type="Upl:RBCType" use="optional" />
 					<xs:attribute name="PIC" type="xs:nonNegativeInteger" use="optional" />
 				</xs:complexType>
 			</xs:element>
@@ -70,34 +105,36 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="UploadType">
-		<!-- 
-			1=DataUpload. 
-			Currently there is only one type of upload.
-			But this is included for expansion -->
+		<!-- 1=DataUpload.
+		     Currently there is only one type of upload.
+		     But this is included for expansion -->
 		<xs:restriction base="xs:int">
 			<xs:enumeration value="1" />
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="RequestIDType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="14" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RequestReplyType">
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="1" />
+			<!-- data in reply is correct -->
+			<xs:enumeration value="2" />
+			<!-- previous data should be deleted -->
+			<xs:enumeration value="3" />
+			<!-- no termination data available  -->
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="TNOType">
 		<xs:restriction base="xs:string">
-			<xs:pattern value="[A-Z]{2}[0-9]{8}" />
+			<xs:pattern value="([A-Z]{2})?[0-9]+" />
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="ICCType">
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="3" />
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="DCLType">
-		<xs:restriction base="xs:string">
-			<xs:minLength value="10" />
-			<xs:maxLength value="22" />
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="DDIType">
-		<xs:restriction base="xs:string">
-			<xs:minLength value="10" />
-			<xs:maxLength value="22" />
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="CNLType">
@@ -117,7 +154,13 @@
 	</xs:simpleType>
 	<xs:simpleType name="PFDType">
 		<xs:restriction base="xs:string">
-			<xs:maxLength value="6" />
+			<xs:enumeration value="FD" />
+			<xs:enumeration value="PD" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TCOType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="EXIT" />
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="CWRType">
@@ -127,7 +170,8 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="VPNType">
-		<xs:restriction base="xs:positiveInteger">
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:enumeration value="0" />
 			<xs:enumeration value="2" />
 			<xs:enumeration value="4" />
 			<xs:enumeration value="6" />
@@ -160,7 +204,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="HashType">
-		<xs:restriction base="xs:string">
+		<xs:restriction base="xs:base64Binary">
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>

@@ -132,8 +132,8 @@ namespace IRU.RTS.WSRE
 				if (m_SchemaFilesPath.LastIndexOf("\\")!= m_SchemaFilesPath.Length-1)
 					m_SchemaFilesPath+="\\";
 
-				string QuerySchemaPath = m_SchemaFilesPath + "WSRE.xsd";
-				XMLValidationHelper.PopulateSchemas("http://www.iru.org/SafeTIRUpload",QuerySchemaPath);
+				string QuerySchemaPath = m_SchemaFilesPath + "SafeTIRUpload.xsd";
+				XMLValidationHelper.PopulateSchemas("http://www.iru.org/SafeTIRUpload", QuerySchemaPath, new string[] { null, "WSRE" });
 			}
 			catch(ApplicationException e)
 			{
