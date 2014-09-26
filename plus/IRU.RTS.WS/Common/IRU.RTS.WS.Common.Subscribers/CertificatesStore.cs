@@ -65,7 +65,7 @@ namespace IRU.RTS.WS.Common.Subscribers
                         cg.GetCertificates(ref res);
                     }
 
-                    icm.Add(sCacheKey, res, CacheItemPriority.Normal, null, new SlidingTime(TimeSpan.FromMinutes(5)));
+                    icm.Add(sCacheKey, res, CacheItemPriority.Normal, null, new AbsoluteTime(TimeSpan.FromMinutes(5)));
                 }
 
                 return res;
