@@ -97,7 +97,27 @@ namespace CIFCreation
                             fs1.Write(line, 0, line.Length);
                             fs1.Write(line, 0, line.Length);
                         }
-                        Head1 = "UNH" + cifs1.ICC + "007" + cifs1.ICC + ":+:TNO" + cifs1.TNO + "TE*:+:DCL" + cifs1.DCL + "DE*:+:CNL" + cifs1.CNL + "CE*:+:COF" + cifs1.COF + "CE*:+:DDI" + cifs1.DDI + "DE*:+:RND" + cifs1.RND + "RE*:+:PFD" + cifs1.PFD + "PE*:+:CWR" + cifs1.CWR + "CE*:+:COM" + cifs1.COM + "CE*:+:PIC" + cifs1.PIC + "PE*:+:UPG" + cifs1.UPG + "UE*:+:RBC" + cifs1.RBC + "RE*:+:VPN" + cifs1.VPN + "VE*:+:UNT" + Environment.NewLine;
+                        Head1 = "UNH" + cifs1.ICC + "007" + cifs1.ICC +
+                            ":+:TNO" + cifs1.TNO + "TE*" +
+                            ":+:DCL" + cifs1.DCL + "DE*" +
+                            ":+:CNL" + cifs1.CNL + "CE*" +
+                            ":+:COF" + cifs1.COF + "CE*" +
+                            ":+:DDI" + cifs1.DDI + "DE*" +
+                            ":+:RND" + cifs1.RND + "RE*" +
+                            ":+:PFD" + cifs1.PFD + "PE*" +
+                            ":+:CWR" + cifs1.CWR + "CE*";
+                        if (!String.IsNullOrEmpty(cifs1.TCO))
+                        {
+                            Head1 +=
+                                ":+:TCO" + cifs1.TCO + "TE*";
+                        }
+                        Head1 +=
+                            ":+:COM" + cifs1.COM + "CE*" +
+                            ":+:PIC" + cifs1.PIC + "PE*" +
+                            ":+:UPG" + cifs1.UPG + "UE*" +
+                            ":+:RBC" + cifs1.RBC + "RE*" +
+                            ":+:VPN" + cifs1.VPN + "VE*" +
+                            ":+:UNT" + Environment.NewLine;
                         line = Encoding.GetEncoding(1252).GetBytes(Head1);
                         fs1.Write(line, 0, line.Length);
                         if (k ==xl1.Count - 1)
@@ -157,7 +177,28 @@ namespace CIFCreation
                         {
                             cifs1.UPG = "Z"; //The customs say they have no information regarding this termination.
                         }
-                        Head1 = "UNH" + cifs1.ICC + "007" + cifs1.ICC + ":+:TNO" + cifs1.TNO + "TE*:+:DCL" + cifs1.DCL + "DE*:+:CNL" + cifs1.CNL + "CE*:+:COF" + cifs1.COF + "CE*:+:DDI" + cifs1.DDI + "DE*:+:RND" + cifs1.RND + "RE*:+:PFD" + cifs1.PFD + "PE*:+:CWR" + cifs1.CWR + "CE*:+:COM" + cifs1.COM + "CE*:+:PIC" + cifs1.PIC + "PE*:+:UPG" + cifs1.UPG + "UE*:+:RBC" + cifs1.RBC + "RE*:+:VPN" + cifs1.VPN + "VE*:+:RID" + cifs1.REQUESTID + "RE*:+:UNT" + Environment.NewLine;
+                        Head1 = "UNH" + cifs1.ICC + "007" + cifs1.ICC +
+                            ":+:TNO" + cifs1.TNO + "TE*" +
+                            ":+:DCL" + cifs1.DCL + "DE*" +
+                            ":+:CNL" + cifs1.CNL + "CE*" +
+                            ":+:COF" + cifs1.COF + "CE*" +
+                            ":+:DDI" + cifs1.DDI + "DE*" +
+                            ":+:RND" + cifs1.RND + "RE*" +
+                            ":+:PFD" + cifs1.PFD + "PE*" +
+                            ":+:CWR" + cifs1.CWR + "CE*";
+                        if (!String.IsNullOrEmpty(cifs1.TCO))
+                        {
+                            Head1 +=
+                                ":+:TCO" + cifs1.TCO + "TE*";
+                        }
+                        Head1 +=
+                            ":+:COM" + cifs1.COM + "CE*" +
+                            ":+:PIC" + cifs1.PIC + "PE*" +
+                            ":+:UPG" + cifs1.UPG + "UE*" +
+                            ":+:RBC" + cifs1.RBC + "RE*" +
+                            ":+:VPN" + cifs1.VPN + "VE*" +
+                            ":+:RID" + cifs1.REQUESTID + "RE*" +
+                            ":+:UNT" + Environment.NewLine;
                         line = Encoding.GetEncoding(1252).GetBytes(Head1);
                      
                         fs1.Write(line, 0, line.Length);
@@ -389,6 +430,17 @@ namespace CIFCreation
                     cifs.VPN = tempo.Substring(0, x);
                 }
                 //			Console.WriteLine("VPN={0}", VPN);
+
+                // TCO
+                tempo = "";
+                j = myRecord.IndexOf("TCO=\"");
+                if (j >= 0)
+                {
+                    tempo = myRecord.Substring(j + 5);
+                    x = tempo.IndexOf("\"");
+                    cifs.TCO = tempo.Substring(0, x);
+                }
+                //			Console.WriteLine("TCO={0}", TCO);
 
                 // COM
                 tempo = "";

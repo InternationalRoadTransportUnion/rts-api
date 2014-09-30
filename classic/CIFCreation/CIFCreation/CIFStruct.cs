@@ -22,6 +22,7 @@ namespace CIFCreation
         public string PFD;
         public string CWR;//optional
         public string VPN;
+        public string TCO;//optional
         public string COM;//optional
         public string RBC;//optional
         public string PIC;//optional-int
