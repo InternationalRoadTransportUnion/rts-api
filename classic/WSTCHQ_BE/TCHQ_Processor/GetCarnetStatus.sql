@@ -24,7 +24,7 @@ BEGIN
 	END  
 	ELSE  
 	BEGIN  
-		IF((SELECT C_C_STATE FROM dbo.CAR_CUR_CARNET_TABLE with (nolock) WHERE C_C_CARNET_NUMBER = @TIRNumber) IN (0,95,5,9)) 
+		IF((SELECT C_C_STATE FROM dbo.CAR_CUR_CARNET_TABLE with (nolock) WHERE C_C_CARNET_NUMBER = @TIRNumber) IN (0,95,5,9,101)) 
 		BEGIN 
 			-- if the carnet has been issued (Status 1, issue data available)
 			IF ((SELECT C_I_ISSUE_DATE FROM dbo.CAR_CUR_ISSUE_TABLE with (nolock) WHERE C_I_CARNET_NUMBER = @TIRNumber) is not null) 
