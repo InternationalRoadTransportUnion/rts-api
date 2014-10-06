@@ -38,6 +38,10 @@ namespace IRU.RTS.AdminClient
         private System.Windows.Forms.Button button1;
         private DateTimePicker dtStartDate;
         private Label label5;
+        private ComboBox cbSignatureAlgorithm;
+        private Label lblSignatureAlgorithm;
+        private ComboBox cbKeyLength;
+        private Label lblKeyLength;
         private IContainer components;
 
 		public frmCertClient()
@@ -102,6 +106,10 @@ namespace IRU.RTS.AdminClient
             this.txtOutPut = new System.Windows.Forms.TextBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cbSignatureAlgorithm = new System.Windows.Forms.ComboBox();
+            this.lblSignatureAlgorithm = new System.Windows.Forms.Label();
+            this.cbKeyLength = new System.Windows.Forms.ComboBox();
+            this.lblKeyLength = new System.Windows.Forms.Label();
             this.gpInput.SuspendLayout();
             this.gpOutput.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -109,6 +117,10 @@ namespace IRU.RTS.AdminClient
             // 
             // gpInput
             // 
+            this.gpInput.Controls.Add(this.cbSignatureAlgorithm);
+            this.gpInput.Controls.Add(this.lblSignatureAlgorithm);
+            this.gpInput.Controls.Add(this.cbKeyLength);
+            this.gpInput.Controls.Add(this.lblKeyLength);
             this.gpInput.Controls.Add(this.dtStartDate);
             this.gpInput.Controls.Add(this.label5);
             this.gpInput.Controls.Add(this.button1);
@@ -125,7 +137,7 @@ namespace IRU.RTS.AdminClient
             this.gpInput.Dock = System.Windows.Forms.DockStyle.Top;
             this.gpInput.Location = new System.Drawing.Point(0, 0);
             this.gpInput.Name = "gpInput";
-            this.gpInput.Size = new System.Drawing.Size(720, 136);
+            this.gpInput.Size = new System.Drawing.Size(702, 172);
             this.gpInput.TabIndex = 0;
             this.gpInput.TabStop = false;
             this.gpInput.Enter += new System.EventHandler(this.gpInput_Enter);
@@ -135,7 +147,7 @@ namespace IRU.RTS.AdminClient
             this.dtStartDate.Location = new System.Drawing.Point(144, 59);
             this.dtStartDate.Name = "dtStartDate";
             this.dtStartDate.Size = new System.Drawing.Size(184, 20);
-            this.dtStartDate.TabIndex = 10;
+            this.dtStartDate.TabIndex = 5;
             this.dtStartDate.ValueChanged += new System.EventHandler(this.dtStartDate_ValueChanged);
             // 
             // label5
@@ -143,16 +155,16 @@ namespace IRU.RTS.AdminClient
             this.label5.Location = new System.Drawing.Point(16, 60);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 23);
-            this.label5.TabIndex = 9;
+            this.label5.TabIndex = 4;
             this.label5.Text = "Start Date";
             // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(528, 96);
+            this.button1.Location = new System.Drawing.Point(511, 131);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(80, 24);
-            this.button1.TabIndex = 5;
+            this.button1.TabIndex = 15;
             this.button1.Text = "&Cancel";
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -161,7 +173,7 @@ namespace IRU.RTS.AdminClient
             this.cmdBrowse.Location = new System.Drawing.Point(456, 96);
             this.cmdBrowse.Name = "cmdBrowse";
             this.cmdBrowse.Size = new System.Drawing.Size(32, 23);
-            this.cmdBrowse.TabIndex = 3;
+            this.cmdBrowse.TabIndex = 10;
             this.cmdBrowse.Text = "...";
             this.cmdBrowse.Click += new System.EventHandler(this.cmdBrowse_Click);
             // 
@@ -170,14 +182,14 @@ namespace IRU.RTS.AdminClient
             this.dtExpiryDate.Location = new System.Drawing.Point(488, 56);
             this.dtExpiryDate.Name = "dtExpiryDate";
             this.dtExpiryDate.Size = new System.Drawing.Size(184, 20);
-            this.dtExpiryDate.TabIndex = 2;
+            this.dtExpiryDate.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.Location = new System.Drawing.Point(384, 56);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 23);
-            this.label4.TabIndex = 8;
+            this.label4.TabIndex = 6;
             this.label4.Text = "Expiry Date";
             // 
             // txtCertPath
@@ -187,7 +199,7 @@ namespace IRU.RTS.AdminClient
             this.txtCertPath.Name = "txtCertPath";
             this.txtCertPath.ReadOnly = true;
             this.txtCertPath.Size = new System.Drawing.Size(304, 20);
-            this.txtCertPath.TabIndex = 6;
+            this.txtCertPath.TabIndex = 9;
             this.txtCertPath.TabStop = false;
             // 
             // label3
@@ -195,7 +207,7 @@ namespace IRU.RTS.AdminClient
             this.label3.Location = new System.Drawing.Point(16, 96);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(120, 23);
-            this.label3.TabIndex = 6;
+            this.label3.TabIndex = 8;
             this.label3.Text = "Output Certificate Path";
             // 
             // label2
@@ -203,7 +215,7 @@ namespace IRU.RTS.AdminClient
             this.label2.Location = new System.Drawing.Point(384, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 23);
-            this.label2.TabIndex = 5;
+            this.label2.TabIndex = 2;
             this.label2.Text = "Issuer Email";
             // 
             // txtIssuerEmail
@@ -212,7 +224,7 @@ namespace IRU.RTS.AdminClient
             this.txtIssuerEmail.MaxLength = 20;
             this.txtIssuerEmail.Name = "txtIssuerEmail";
             this.txtIssuerEmail.Size = new System.Drawing.Size(100, 20);
-            this.txtIssuerEmail.TabIndex = 1;
+            this.txtIssuerEmail.TabIndex = 3;
             this.txtIssuerEmail.Text = "iru@iru.org";
             // 
             // cboSubscriber
@@ -221,23 +233,23 @@ namespace IRU.RTS.AdminClient
             this.cboSubscriber.Location = new System.Drawing.Point(144, 24);
             this.cboSubscriber.Name = "cboSubscriber";
             this.cboSubscriber.Size = new System.Drawing.Size(72, 21);
-            this.cboSubscriber.TabIndex = 0;
+            this.cboSubscriber.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.Location = new System.Drawing.Point(16, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 32);
-            this.label1.TabIndex = 2;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Distributed To  Subscriber";
             // 
             // cmdGenerate
             // 
             this.cmdGenerate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdGenerate.Location = new System.Drawing.Point(632, 96);
+            this.cmdGenerate.Location = new System.Drawing.Point(615, 131);
             this.cmdGenerate.Name = "cmdGenerate";
             this.cmdGenerate.Size = new System.Drawing.Size(75, 23);
-            this.cmdGenerate.TabIndex = 4;
+            this.cmdGenerate.TabIndex = 16;
             this.cmdGenerate.Text = "&Generate";
             this.cmdGenerate.Click += new System.EventHandler(this.cmdGenerate_Click);
             // 
@@ -245,9 +257,9 @@ namespace IRU.RTS.AdminClient
             // 
             this.gpOutput.Controls.Add(this.txtOutPut);
             this.gpOutput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gpOutput.Location = new System.Drawing.Point(0, 136);
+            this.gpOutput.Location = new System.Drawing.Point(0, 172);
             this.gpOutput.Name = "gpOutput";
-            this.gpOutput.Size = new System.Drawing.Size(720, 130);
+            this.gpOutput.Size = new System.Drawing.Size(702, 154);
             this.gpOutput.TabIndex = 1;
             this.gpOutput.TabStop = false;
             this.gpOutput.Text = "Command Output";
@@ -261,7 +273,7 @@ namespace IRU.RTS.AdminClient
             this.txtOutPut.Name = "txtOutPut";
             this.txtOutPut.ReadOnly = true;
             this.txtOutPut.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtOutPut.Size = new System.Drawing.Size(714, 111);
+            this.txtOutPut.Size = new System.Drawing.Size(696, 135);
             this.txtOutPut.TabIndex = 0;
             this.txtOutPut.TabStop = false;
             // 
@@ -273,15 +285,63 @@ namespace IRU.RTS.AdminClient
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // cbSignatureAlgorithm
+            // 
+            this.cbSignatureAlgorithm.AutoCompleteCustomSource.AddRange(new string[] {
+            "1024",
+            "2048"});
+            this.cbSignatureAlgorithm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSignatureAlgorithm.FormattingEnabled = true;
+            this.cbSignatureAlgorithm.Items.AddRange(new object[] {
+            "MD5",
+            "SHA1"});
+            this.cbSignatureAlgorithm.Location = new System.Drawing.Point(405, 131);
+            this.cbSignatureAlgorithm.Name = "cbSignatureAlgorithm";
+            this.cbSignatureAlgorithm.Size = new System.Drawing.Size(83, 21);
+            this.cbSignatureAlgorithm.TabIndex = 14;
+            // 
+            // lblSignatureAlgorithm
+            // 
+            this.lblSignatureAlgorithm.AutoSize = true;
+            this.lblSignatureAlgorithm.Location = new System.Drawing.Point(301, 134);
+            this.lblSignatureAlgorithm.Name = "lblSignatureAlgorithm";
+            this.lblSignatureAlgorithm.Size = new System.Drawing.Size(98, 13);
+            this.lblSignatureAlgorithm.TabIndex = 13;
+            this.lblSignatureAlgorithm.Text = "Signature Algorithm";
+            // 
+            // cbKeyLength
+            // 
+            this.cbKeyLength.AutoCompleteCustomSource.AddRange(new string[] {
+            "1024",
+            "2048"});
+            this.cbKeyLength.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbKeyLength.FormattingEnabled = true;
+            this.cbKeyLength.Items.AddRange(new object[] {
+            "1024"});
+            this.cbKeyLength.Location = new System.Drawing.Point(144, 131);
+            this.cbKeyLength.Name = "cbKeyLength";
+            this.cbKeyLength.Size = new System.Drawing.Size(121, 21);
+            this.cbKeyLength.TabIndex = 12;
+            // 
+            // lblKeyLength
+            // 
+            this.lblKeyLength.AutoSize = true;
+            this.lblKeyLength.Location = new System.Drawing.Point(16, 134);
+            this.lblKeyLength.Name = "lblKeyLength";
+            this.lblKeyLength.Size = new System.Drawing.Size(61, 13);
+            this.lblKeyLength.TabIndex = 11;
+            this.lblKeyLength.Text = "Key Length";
+            // 
             // frmCertClient
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-            this.ClientSize = new System.Drawing.Size(720, 266);
+            this.ClientSize = new System.Drawing.Size(702, 326);
             this.Controls.Add(this.gpOutput);
             this.Controls.Add(this.gpInput);
             this.Name = "frmCertClient";
             this.Text = "Create New IRU Keys";
             this.Load += new System.EventHandler(this.frmCertClient_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCertClient_FormClosing);
             this.gpInput.ResumeLayout(false);
             this.gpInput.PerformLayout();
             this.gpOutput.ResumeLayout(false);
@@ -345,7 +405,7 @@ namespace IRU.RTS.AdminClient
 
 			try
 			{
-				cg.GenerateCertificate(txtCertPath.Text,txtIssuerEmail.Text,cboSubscriber.Text, dtStartDate.Value, dtExpiryDate.Value, out standardOutPut, out commandLine, out dtGenerated, out CertPath);
+				cg.GenerateCertificate(txtCertPath.Text,txtIssuerEmail.Text,cboSubscriber.Text, dtStartDate.Value, dtExpiryDate.Value, cbSignatureAlgorithm.Text, out standardOutPut, out commandLine, out dtGenerated, out CertPath);
 			}
 			catch (FileNotFoundException fex)
 			{
@@ -585,6 +645,10 @@ namespace IRU.RTS.AdminClient
 
 			}
 			*/
+            cbKeyLength.SelectedIndex = 0;
+            cbSignatureAlgorithm.SelectedIndex = 1;
+            txtCertPath.Text = Properties.Settings.Default.RTSCertPath;
+            folderBrowserDialog1.SelectedPath = txtCertPath.Text;
 		}
 
 		private void PopulateSubsCombo()
@@ -597,6 +661,11 @@ namespace IRU.RTS.AdminClient
         private void dtStartDate_ValueChanged(object sender, EventArgs e)
         {
             dtExpiryDate.MinDate = dtStartDate.Value;
+        }
+
+        private void frmCertClient_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.RTSCertPath = txtCertPath.Text;
         }
 	}
 }

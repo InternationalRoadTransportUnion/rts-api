@@ -65,7 +65,7 @@ namespace IRU.RTS.Crypto
 		}
 
 
-		public void GenerateCertificate(string CertFolder, string EMail, string Subscriber, DateTime StartDate, DateTime ExpiryDate, out string StandardOutput, out string CommandLine, out DateTime dtGenerated, out string CertPath)
+		public void GenerateCertificate(string CertFolder, string EMail, string Subscriber, DateTime StartDate, DateTime ExpiryDate, string signatureAlgorithm, out string StandardOutput, out string CommandLine, out DateTime dtGenerated, out string CertPath)
 		{
 		
 			// create makecert command line
@@ -84,7 +84,7 @@ namespace IRU.RTS.Crypto
 			
 			//-len is important as on win2k it gens 512 bit keys 
             CultureInfo ciUS = new CultureInfo("en-US");
-			CommandLine = " -r -pe -len 1024 -n \"CN= IRU.org RTS, OU=Subscriber :" + Subscriber + " , O=IRU.org, E=" + EMail + "\"  -sr localmachine -ss IRUTEST -b "+StartDate.ToString("MM/dd/yyyy", ciUS)  +" -e " + ExpiryDate.ToString("MM/dd/yyyy", ciUS) + " \""  + CertPath + "\""; 
+            CommandLine = " -r -pe -len 1024 -n \"CN= IRU.org RTS, OU=Subscriber :" + Subscriber + " , O=IRU.org, E=" + EMail + "\"  -sr localmachine -ss IRUTEST -b " + StartDate.ToString("MM/dd/yyyy", ciUS) + " -e " + ExpiryDate.ToString("MM/dd/yyyy", ciUS) + " -a " + signatureAlgorithm + " \"" + CertPath + "\""; 
 
 			//overwrite the cert if already exists
 
