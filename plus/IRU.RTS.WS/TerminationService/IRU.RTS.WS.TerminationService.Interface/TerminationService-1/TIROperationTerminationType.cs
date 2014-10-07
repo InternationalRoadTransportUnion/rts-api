@@ -4,7 +4,7 @@ namespace IRU.RTS.WS.TerminationService.Interface
     
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReceivedTIROperationTerminationType))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5476")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5485")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -27,6 +27,10 @@ namespace IRU.RTS.WS.TerminationService.Interface
         private string certificateOfTerminationReferenceField;
         
         private System.DateTime certificateOfTerminationDateField;
+        
+        private bool isExitField;
+        
+        private bool isExitFieldSpecified;
         
         private bool isFinalField;
         
@@ -156,6 +160,35 @@ namespace IRU.RTS.WS.TerminationService.Interface
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public virtual bool IsExit
+        {
+            get
+            {
+                return this.isExitField;
+            }
+            set
+            {
+                this.isExitField = value;
+                this.IsExitSpecified = true;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public virtual bool IsExitSpecified
+        {
+            get
+            {
+                return this.isExitFieldSpecified;
+            }
+            set
+            {
+                this.isExitFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
         public virtual bool IsFinal
         {
             get
@@ -169,7 +202,7 @@ namespace IRU.RTS.WS.TerminationService.Interface
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
         public virtual byte SequenceNumber
         {
             get
@@ -198,7 +231,7 @@ namespace IRU.RTS.WS.TerminationService.Interface
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
+        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
         public virtual bool IsWithReservation
         {
             get
@@ -212,7 +245,7 @@ namespace IRU.RTS.WS.TerminationService.Interface
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
+        [System.Xml.Serialization.XmlElementAttribute(Order=12)]
         public virtual string CustomsComment
         {
             get
@@ -226,7 +259,7 @@ namespace IRU.RTS.WS.TerminationService.Interface
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=12)]
+        [System.Xml.Serialization.XmlElementAttribute(Order=13)]
         public virtual uint PackageCount
         {
             get

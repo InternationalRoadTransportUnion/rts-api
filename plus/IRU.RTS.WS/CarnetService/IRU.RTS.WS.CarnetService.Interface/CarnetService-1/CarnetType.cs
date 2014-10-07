@@ -3,7 +3,7 @@ namespace IRU.RTS.WS.CarnetService.Interface
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5476")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5485")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -14,6 +14,8 @@ namespace IRU.RTS.WS.CarnetService.Interface
         private CarnetStatusType statusField;
         
         private CarnetTypeTIROperationTerminations tIROperationTerminationsField;
+        
+        private string voucherNumberField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
@@ -40,6 +42,20 @@ namespace IRU.RTS.WS.CarnetService.Interface
             set
             {
                 this.tIROperationTerminationsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public virtual string VoucherNumber
+        {
+            get
+            {
+                return this.voucherNumberField;
+            }
+            set
+            {
+                this.voucherNumberField = value;
             }
         }
     }

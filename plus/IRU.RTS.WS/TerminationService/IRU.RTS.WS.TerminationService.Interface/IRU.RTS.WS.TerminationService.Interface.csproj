@@ -94,7 +94,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="output.config" />
+    <EmbeddedResource Include="TerminationService-1\iru-guarantee-1.xsd" />
     <None Include="TerminationService-1\TerminationService-1.wbs" />
+    <EmbeddedResource Include="TerminationService-1\tirplus-voucher-1.xsd" />
     <EmbeddedResource Include="TerminationService-1\tir-actor-1.xsd" />
     <EmbeddedResource Include="TerminationService-1\tir-carnet-1.xsd" />
   </ItemGroup>

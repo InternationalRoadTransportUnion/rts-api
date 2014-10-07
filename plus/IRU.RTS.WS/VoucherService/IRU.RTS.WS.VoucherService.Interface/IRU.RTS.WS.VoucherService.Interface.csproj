@@ -77,6 +77,7 @@
     <EmbeddedResource Include="VoucherService-1\tir-actor-1.xsd" />
     <EmbeddedResource Include="VoucherService-1\tir-carnet-1.xsd" />
     <EmbeddedResource Include="VoucherService-1\tirplus-voucher-1.xsd" />
+    <EmbeddedResource Include="VoucherService-1\iru-guarantee-1.xsd" />
     <None Include="VoucherService-1\VoucherService-1.wbs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

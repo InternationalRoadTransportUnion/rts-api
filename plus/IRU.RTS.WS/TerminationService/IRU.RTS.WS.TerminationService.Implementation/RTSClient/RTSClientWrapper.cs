@@ -65,8 +65,9 @@ namespace IRU.RTS.WS.TerminationService.Implementation.RTSClient
             res.DCL = DateTime.Compare(termination.CustomsLedgerEntryDate, DateTime.MinValue) > 0 ? (DateTime?)termination.CustomsLedgerEntryDate : null;
             res.RND = Trim(termination.CertificateOfTerminationReference);
             res.DDI = DateTime.Compare(termination.CertificateOfTerminationDate, DateTime.MinValue) > 0 ? (DateTime?)termination.CertificateOfTerminationDate : null;
-            res.PFD = termination.IsFinal ? "FD" : "PD";
+            res.PFD = termination.IsExitSpecified && termination.IsExit ? null : (termination.IsFinal ? "FD" : "PD");
             res.CWR = termination.IsWithReservation ? CWR.WithReservation : CWR.OK;
+            res.TCO = termination.IsExitSpecified && termination.IsExit ? "EXIT" : null;
             res.COM = Trim(termination.CustomsComment);
             res.PIC = termination.PackageCountSpecified ? (uint?)termination.PackageCount : null;
             res.UPG = isNewRecord ? UPG.New : UPG.CancelDelete;

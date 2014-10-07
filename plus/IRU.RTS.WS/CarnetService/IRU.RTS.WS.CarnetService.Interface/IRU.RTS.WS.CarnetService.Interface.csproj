@@ -52,6 +52,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CarnetService-1\rts-carnet-1.xsd" />
+    <EmbeddedResource Include="CarnetService-1\CarnetService-1.wsdl" />
+    <EmbeddedResource Include="CarnetService-1\iso-3166-1-alpha-3.xsd" />
+    <EmbeddedResource Include="CarnetService-1\tir-actor-1.xsd" />
+    <EmbeddedResource Include="CarnetService-1\tir-carnet-1.xsd" />
+    <None Include="CarnetService-1\CarnetService-1.wbs" />
+    <EmbeddedResource Include="CarnetService-1\iru-guarantee-1.xsd" />
     <Compile Include="CarnetService-1\Association.cs" />
     <Compile Include="CarnetService-1\CarnetBaseType.cs" />
     <Compile Include="CarnetService-1\CarnetServiceSEI.cs" />
@@ -68,15 +78,7 @@
     <Compile Include="CarnetService-1\stoppedCarnetsTypeStoppedCarnets.cs" />
     <Compile Include="CarnetService-1\stoppedCarnetsTypeTotal.cs" />
     <Compile Include="CarnetService-1\StoppedCarnetType.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="CarnetService-1\rts-carnet-1.xsd" />
-    <EmbeddedResource Include="CarnetService-1\CarnetService-1.wsdl" />
-    <EmbeddedResource Include="CarnetService-1\iso-3166-1-alpha-3.xsd" />
-    <EmbeddedResource Include="CarnetService-1\tir-actor-1.xsd" />
-    <EmbeddedResource Include="CarnetService-1\tir-carnet-1.xsd" />
-    <None Include="CarnetService-1\CarnetService-1.wbs" />
+    <EmbeddedResource Include="CarnetService-1\tirplus-voucher-1.xsd" />
     <None Include="output.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
