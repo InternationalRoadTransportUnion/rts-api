@@ -48,7 +48,7 @@
 					<xs:attribute name="RND" type="Upl:RNDType" use="optional" />
 					<xs:attribute name="PFD" type="Upl:PFDType" use="optional" />
 					<xs:attribute name="TCO" type="Upl:TCOType" use="optional" />
-					<xs:attribute name="CWR" type="Upl:CWRType" use="optional" />
+					<xs:attribute name="CWR" type="Upl:CWRType" use="required" />
 					<xs:attribute name="VPN" type="Upl:VPNType" use="required" />
 					<xs:attribute name="COM" type="Upl:COMType" use="optional" />
 					<xs:attribute name="RBC" type="Upl:RBCType" use="optional" />
@@ -73,7 +73,7 @@
 					<xs:attribute name="RND" type="Upl:RNDType" use="optional" />
 					<xs:attribute name="PFD" type="Upl:PFDType" use="optional" />
 					<xs:attribute name="TCO" type="Upl:TCOType" use="optional" />
-					<xs:attribute name="CWR" type="Upl:CWRType" use="optional" />
+					<xs:attribute name="CWR" type="Upl:CWRType" use="required" />
 					<xs:attribute name="VPN" type="Upl:VPNType" use="required" />
 					<xs:attribute name="COM" type="Upl:COMType" use="optional" />
 					<xs:attribute name="RBC" type="Upl:RBCType" use="optional" />
