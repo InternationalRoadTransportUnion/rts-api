@@ -64,8 +64,9 @@ namespace IRU.RTS.WSWSRQ
         public string DDI;
         public string	RND;
         public string	PFD;
-        public string	CWR;
-        public string	VPN; //2,4,6,8,10,12,14,16,18 or 20
+        public string   TCO;//EXIT
+        public string	CWR;        
+        public string	VPN; //0,2,4,6,8,10,12,14,16,18 or 20        
         public string	COM; 
         public string	RBC; //CR,CNR,VR,VNR
         public int		PIC; // non negative integer

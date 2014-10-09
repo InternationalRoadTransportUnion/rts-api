@@ -425,7 +425,7 @@ namespace IRU.RTS.WSWSRQ
                 //   " FROM  [WSRQ_DETAIL]  WHERE EXCHANGEID=0 AND [ICC] =N'" + sICC + "'";
                 string sSql = "BEGIN TRANSACTION " +
                     "SELECT [EXCHANGEID], [RequestID], [RequestDate], " +
-                    "[RequestReminderNum], [RequestDataSource],[TNO], [ICC], [DCL], [CNL], [COF], [DDI], [RND], [PFD], [CWR], [VPN], [COM], [RBC], [PIC],[RequestRemark]  " +
+                    "[RequestReminderNum], [RequestDataSource],[TNO], [ICC], [DCL], [CNL], [COF], [DDI], [RND], [PFD], [TCO], [CWR], [VPN], [COM], [RBC], [PIC],[RequestRemark]  " +
                     "FROM dbo.[WSRQ_DETAIL] WHERE EXCHANGEID = 0 AND [ICC] = N'" + sICC + "'" +
                     "UPDATE dbo.[WSRQ_DETAIL] SET [EXCHANGEID]= -1 WHERE [EXCHANGEID] = 0 AND [ICC] = N'" + sICC + "'" +
                     "COMMIT TRANSACTION ";

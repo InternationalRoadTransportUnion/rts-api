@@ -31,6 +31,7 @@ namespace IRU.RTS.WSRQ
             public DateTime DDI;
             public string RND;
             public string PFD;
+            public string TCO;
             public string CWR;
             public int VPN;
             public string COM;
@@ -101,8 +102,8 @@ namespace IRU.RTS.WSRQ
 				if (m_SchemaFilesPath.LastIndexOf("\\")!= m_SchemaFilesPath.Length-1)
 					m_SchemaFilesPath+="\\";
 
-                string QuerySchemaPath = m_SchemaFilesPath + "ReconciliationQueryData.xsd";
-                XMLValidationHelper.PopulateSchemas("http://www.iru.org/SafeTIRUpload", QuerySchemaPath);
+                string QuerySchemaPath = m_SchemaFilesPath + "SafeTIRReconciliation.xsd";
+                XMLValidationHelper.PopulateSchemas("http://www.iru.org/SafeTIRReconciliation", QuerySchemaPath, new string[] { null, "WSRQNewRequest" });
 			}
 			catch(ApplicationException e)
 			{
@@ -383,6 +384,10 @@ namespace IRU.RTS.WSRQ
                      {
                          aFileString = "PFD";
                      }
+                     else if (aFileContentsList[i].Trim().Contains("TCO="))
+                     {
+                         aFileString = "TCO";
+                     }
                      else if (aFileContentsList[i].Trim().Contains("CWR="))
                      {
                          aFileString = "CWR";
@@ -530,6 +535,19 @@ namespace IRU.RTS.WSRQ
                                  wds1.PFD = wds1.PFD + " " + aFileContent;
                              }
                             
+                             break;
+                         case "TCO":
+                             aFileContent = aFileContent.Replace("TCO=", "").Trim();
+                             if (wds1.TCO == null || wds1.TCO == "")
+                             {
+                                 wds1.TCO = aFileContent;
+                             }
+                             else
+                             {
+                                 wds1.TCO = wds1.TCO + " " + aFileContent;
+                             }
+
+
                              break;
                          case "CWR":
                              aFileContent = aFileContent.Replace("CWR=", "").Trim();

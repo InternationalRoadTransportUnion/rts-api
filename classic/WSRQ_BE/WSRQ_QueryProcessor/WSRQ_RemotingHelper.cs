@@ -61,13 +61,7 @@ namespace IRU.RTS.WSWSRQ
 					"Can't start ServiceHost: "
 					+ ex.Message);
 				throw ex;
-			} 
-
-            //Mandar 28-Sep-05
-
-            //Read the schema files into XMLHelper
-            string QuerySchemaPath = m_SchemaFilesPath + "\\WSRQ.xsd";
-            XMLValidationHelper.PopulateSchemas("http://www.iru.org/SafeTIRReconciliation", QuerySchemaPath);    
+			}
         }
 
         public void Stop()

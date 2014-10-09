@@ -653,7 +653,7 @@ namespace IRU.RTS.WSWSRQ
 				try
 				{
 
-					XMLValidationHelper.PopulateSchemas("http://www.iru.org/SafeTIRReconciliation", WSRQ_RemotingHelper.m_SchemaFilesPath + "WSRQueryData.xsd");
+                    XMLValidationHelper.PopulateSchemas("http://www.iru.org/SafeTIRReconciliation", WSRQ_RemotingHelper.m_SchemaFilesPath + "SafeTIRReconciliation.xsd", new string[] { null, "WSRQRequest" });
 					XMLValidationHelper xvh = new XMLValidationHelper();
 					if (!xvh.ValidateXML(wsrqLogQueryData.decryptedQueryParamXML, out wsrqLogQueryData.invalidQueryXMLReason))
 					{
@@ -916,6 +916,7 @@ namespace IRU.RTS.WSWSRQ
 						WLRRS1[hcnt].PIC = rPIC;
 
 						WLRRS1[hcnt].PFD = WSRQDS.Tables["WSRQ_DETAIL"].Rows[hcnt]["PFD"].ToString();
+                        WLRRS1[hcnt].TCO = WSRQDS.Tables["WSRQ_DETAIL"].Rows[hcnt]["TCO"].ToString();
 						WLRRS1[hcnt].ICC = WSRQDS.Tables["WSRQ_DETAIL"].Rows[hcnt]["ICC"].ToString();
 
 						DateTime DDIresult = new DateTime(0, DateTimeKind.Utc);
@@ -934,7 +935,7 @@ namespace IRU.RTS.WSWSRQ
 						WLRRS1[hcnt].CWR = WSRQDS.Tables["WSRQ_DETAIL"].Rows[hcnt]["CWR"].ToString();
 						WLRRS1[hcnt].COM = WSRQDS.Tables["WSRQ_DETAIL"].Rows[hcnt]["COM"].ToString();
 						WLRRS1[hcnt].COF = WSRQDS.Tables["WSRQ_DETAIL"].Rows[hcnt]["COF"].ToString();
-						WLRRS1[hcnt].CNL = WSRQDS.Tables["WSRQ_DETAIL"].Rows[hcnt]["CNL"].ToString();
+						WLRRS1[hcnt].CNL = WSRQDS.Tables["WSRQ_DETAIL"].Rows[hcnt]["CNL"].ToString();                        
 
 					}
 					#endregion
@@ -1079,6 +1080,10 @@ namespace IRU.RTS.WSWSRQ
 						attr = xd.CreateAttribute("PFD", null);
 						attr.Value = WLRRS1[nodeattrcnt].PFD.ToString();
 						childElement.Attributes.Append(attr);
+
+                        attr = xd.CreateAttribute("TCO", null);
+                        attr.Value = WLRRS1[nodeattrcnt].TCO.ToString();
+                        childElement.Attributes.Append(attr);
 
 						attr = xd.CreateAttribute("CWR", null);
 						attr.Value = WLRRS1[nodeattrcnt].CWR.ToString();

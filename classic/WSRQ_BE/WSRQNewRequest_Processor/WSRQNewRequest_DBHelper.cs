@@ -28,9 +28,9 @@ namespace IRU.RTS.WSRQ
                 try
                 {
                     string sSql = "INSERT INTO [WSRQ_Detail] " +
-                        "([ExchangeID], [RequestID], [RequestDate], [RequestReminderNum], [RequestDataSource], [TNO], [ICC], [DCL], [CNL], [COF], [DDI], [RND], [PFD], [CWR], [VPN], [COM], [RBC], [PIC], [RequestRemark])" +
+                        "([ExchangeID], [RequestID], [RequestDate], [RequestReminderNum], [RequestDataSource], [TNO], [ICC], [DCL], [CNL], [COF], [DDI], [RND], [PFD], [TCO], [CWR], [VPN], [COM], [RBC], [PIC], [RequestRemark])" +
                          " VALUES " +
-                        "(@EXCHANGEID, @RequestID,@RequestDate,@RequestReminderNum,@RequestDataSource,@TNO,@ICC,@DCL,@CNL,@COF,@DDI,@RND,@PFD,@CWR,@VPN,@COM,@RBC,@PIC,@RequestRemark)";
+                        "(@EXCHANGEID, @RequestID,@RequestDate,@RequestReminderNum,@RequestDataSource,@TNO,@ICC,@DCL,@CNL,@COF,@DDI,@RND,@PFD,@TCO,@CWR,@VPN,@COM,@RBC,@PIC,@RequestRemark)";
 
                     DateTime nullDate ;                DateTime.TryParse("", out nullDate);
                     SqlCommand sCmd = new SqlCommand(sSql);
@@ -91,6 +91,14 @@ namespace IRU.RTS.WSRQ
                     {
                         sCmd.Parameters.Add("@PFD", SqlDbType.NVarChar).Value = wsrqdetailsstruct1.PFD;
                     }
+                    if (wsrqdetailsstruct1.TCO == null || wsrqdetailsstruct1.TCO == "")
+                    {
+                        sCmd.Parameters.Add("@TCO", SqlDbType.NVarChar).Value = DBNull.Value;
+                    }
+                    else
+                    {
+                        sCmd.Parameters.Add("@TCO", SqlDbType.NVarChar).Value = wsrqdetailsstruct1.TCO;
+                    }
                     if (wsrqdetailsstruct1.CWR == null || wsrqdetailsstruct1.CWR == "")
                     {
                         sCmd.Parameters.Add("@CWR", SqlDbType.NVarChar).Value = DBNull.Value;
@@ -144,7 +152,6 @@ namespace IRU.RTS.WSRQ
                     {
                         sCmd.Parameters.Add("@RequestRemark", SqlDbType.NVarChar).Value = wsrqdetailsstruct1.RequestRemark;
                     }
-                    
                     
                     m_requestHelper.ExecuteNonQuery(sCmd);
                 }
