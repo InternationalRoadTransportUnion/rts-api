@@ -118,7 +118,7 @@
 
    <xs:simpleType name="CarnetNumberType">
        <xs:restriction base="xs:string">
-          <xs:pattern value="[A-Z]{2}[0-9]{8}" />
+          <xs:pattern value="([A-Z]{2})?[0-9]+" />
        </xs:restriction>
    </xs:simpleType>
 
