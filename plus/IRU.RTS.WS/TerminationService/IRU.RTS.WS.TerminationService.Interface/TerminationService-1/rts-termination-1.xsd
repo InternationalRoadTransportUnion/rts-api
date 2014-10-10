@@ -40,7 +40,7 @@
   <xs:complexType name="TIROperationTerminationType">
     <xs:sequence>
       <xs:element ref="car:TIRCarnetNumber" />
-      <xs:element ref="car:VoletPageNumber" />
+      <xs:element ref="car:VoletPageNumber" minOccurs="0" />
 
       <xs:element ref="act:Customs" />
       <xs:element name="CustomsOffice">

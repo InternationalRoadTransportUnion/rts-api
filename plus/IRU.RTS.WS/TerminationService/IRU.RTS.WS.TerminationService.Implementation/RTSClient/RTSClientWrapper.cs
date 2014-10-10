@@ -58,7 +58,7 @@ namespace IRU.RTS.WS.TerminationService.Implementation.RTSClient
             Record res = new Record();
 
             res.TNO = Trim(termination.TIRCarnetNumber);            
-            res.VPN = termination.VoletPageNumber;
+            res.VPN = termination.VoletPageNumberSpecified ? termination.VoletPageNumber : 0;
             res.ICC = Trim(termination.Customs.CountryCode);
             res.COF = Trim(termination.CustomsOffice);
             res.CNL = Trim(termination.CustomsLedgerEntryReference);

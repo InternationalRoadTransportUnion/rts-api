@@ -16,6 +16,8 @@ namespace IRU.RTS.WS.TerminationService.Interface
         
         private byte voletPageNumberField;
         
+        private bool voletPageNumberFieldSpecified;
+        
         private Customs customsField;
         
         private string customsOfficeField;
@@ -71,6 +73,21 @@ namespace IRU.RTS.WS.TerminationService.Interface
             set
             {
                 this.voletPageNumberField = value;
+                this.VoletPageNumberSpecified = true;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public virtual bool VoletPageNumberSpecified
+        {
+            get
+            {
+                return this.voletPageNumberFieldSpecified;
+            }
+            set
+            {
+                this.voletPageNumberFieldSpecified = value;
             }
         }
         
