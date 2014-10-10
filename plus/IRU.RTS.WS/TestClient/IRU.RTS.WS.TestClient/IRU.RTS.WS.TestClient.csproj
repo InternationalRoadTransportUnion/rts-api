@@ -119,10 +119,12 @@
     <None Include="Service References\CarnetService\IRU.RTS.WS.TestClient.CarnetService.stoppedCarnetsTypeTotal1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\CarnetService\item4.xsd" />
-    <None Include="Service References\CarnetService\item5.xsd" />
-    <None Include="Service References\CarnetService\item6.xsd" />
-    <None Include="Service References\CarnetService\item7.xsd" />
+    <None Include="Service References\CarnetService\Metadata.xsd" />
+    <None Include="Service References\CarnetService\Metadata1.xsd" />
+    <None Include="Service References\CarnetService\Metadata2.xsd" />
+    <None Include="Service References\CarnetService\Metadata3.xsd" />
+    <None Include="Service References\CarnetService\Metadata4.xsd" />
+    <None Include="Service References\CarnetService\Metadata5.xsd" />
     <None Include="Service References\CarnetService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

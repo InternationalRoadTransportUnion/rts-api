@@ -41,7 +41,7 @@ namespace IRU.RTS.WS.TestClient
 
         private void bnSearch_Click(object sender, EventArgs e)
         {
-            using (CarnetServiceSEIClient ws = new CarnetServiceSEIClient())
+            using (CarnetServiceSEIClient ws = new CarnetServiceSEIClient("CarnetServicePort"))
             {
                 ws.ClientCredentials.UserName.UserName = Properties.Settings.Default.UserName;
                 ws.ClientCredentials.UserName.Password = Properties.Settings.Default.Password;

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns="http://rts.iru.org/model/carnet-1" xmlns:act="http://www.iru.org/model/tir-actor-1" xmlns:car="http://www.iru.org/model/tir-carnet-1" elementFormDefault="qualified" targetNamespace="http://rts.iru.org/model/carnet-1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="?xsd=xsd2" namespace="http://www.iru.org/model/tir-actor-1" />
-  <xs:import schemaLocation="?xsd=xsd3" namespace="http://www.iru.org/model/tir-carnet-1" />
+<xs:schema xmlns="http://rts.iru.org/model/carnet-1" xmlns:vou="http://www.tirplus.net/model/voucher-1" xmlns:act="http://www.iru.org/model/tir-actor-1" xmlns:car="http://www.iru.org/model/tir-carnet-1" elementFormDefault="qualified" targetNamespace="http://rts.iru.org/model/carnet-1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="/emex/Metadata?sn=e2h0dHA6Ly9ydHMuaXJ1Lm9yZy9zZXJ2aWNlcy9DYXJuZXRTZXJ2aWNlLTF9Q2FybmV0U2VydmljZQ==&amp;dpa=True&amp;el=2" namespace="http://www.iru.org/model/tir-actor-1" />
+  <xs:import schemaLocation="/emex/Metadata?sn=e2h0dHA6Ly9ydHMuaXJ1Lm9yZy9zZXJ2aWNlcy9DYXJuZXRTZXJ2aWNlLTF9Q2FybmV0U2VydmljZQ==&amp;dpa=True&amp;el=6" namespace="http://www.iru.org/model/tir-carnet-1" />
+  <xs:import schemaLocation="/emex/Metadata?sn=e2h0dHA6Ly9ydHMuaXJ1Lm9yZy9zZXJ2aWNlcy9DYXJuZXRTZXJ2aWNlLTF9Q2FybmV0U2VydmljZQ==&amp;dpa=True&amp;el=5" namespace="http://www.tirplus.net/model/voucher-1" />
   <xs:element name="TIRCarnetNumber" type="car:TIRCarnetNumberType" />
   <xs:simpleType name="VoletPageNumberType">
     <xs:restriction base="car:VoletPageNumberType">
@@ -47,6 +48,7 @@
               <xs:attribute name="hasFinal" type="xs:boolean" use="required" />
             </xs:complexType>
           </xs:element>
+          <xs:element minOccurs="0" name="VoucherNumber" type="vou:VoucherNumberType" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>

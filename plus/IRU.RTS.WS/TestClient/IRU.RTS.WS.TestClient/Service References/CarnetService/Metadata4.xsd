@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.tirplus.net/model/voucher-1" elementFormDefault="qualified" targetNamespace="http://www.tirplus.net/model/voucher-1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="VoucherNumberType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{4}-[0-9]{4}-[0-9]{4}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RegistrationStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NOT_REGISTERED" />
+      <xs:enumeration value="NOT_REGISTERABLE" />
+      <xs:enumeration value="REGISTERED" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

@@ -20,11 +20,13 @@
     <MetadataSource Address="http://localhost:9080/?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="0225c9dd-b0da-4a4d-bdb5-d1d4f886a8f7" SourceId="1" SourceUrl="http://localhost:9080/?xsd=xsd1" />
-    <MetadataFile FileName="item5.xsd" MetadataType="Schema" ID="de90fe21-d878-4ec9-93ea-dbadb06aa5f3" SourceId="1" SourceUrl="http://localhost:9080/?xsd=xsd3" />
-    <MetadataFile FileName="item6.xsd" MetadataType="Schema" ID="6d7fb8fa-6b9c-46b2-9205-8da68ef28313" SourceId="1" SourceUrl="http://localhost:9080/?xsd=xsd2" />
-    <MetadataFile FileName="CarnetService1.wsdl" MetadataType="Wsdl" ID="05e74f7e-466a-4ced-b296-6d0bd5591ab0" SourceId="1" SourceUrl="http://localhost:9080/?wsdl" />
-    <MetadataFile FileName="item7.xsd" MetadataType="Schema" ID="046bcbc4-7783-4600-9659-ce31f711dd0b" SourceId="1" SourceUrl="http://localhost:9080/?xsd=xsd4" />
+    <MetadataFile FileName="Metadata.xsd" MetadataType="Schema" ID="3c83c485-0723-4f47-b7bd-d31c7c98e8a0" SourceId="1" SourceUrl="http://localhost:9080/emex/Metadata?sn=e2h0dHA6Ly9ydHMuaXJ1Lm9yZy9zZXJ2aWNlcy9DYXJuZXRTZXJ2aWNlLTF9Q2FybmV0U2VydmljZQ==&amp;dpa=True&amp;el=1" />
+    <MetadataFile FileName="Metadata1.xsd" MetadataType="Schema" ID="b49cf09a-c964-4066-b778-6d17ac994db1" SourceId="1" SourceUrl="http://localhost:9080/emex/Metadata?sn=e2h0dHA6Ly9ydHMuaXJ1Lm9yZy9zZXJ2aWNlcy9DYXJuZXRTZXJ2aWNlLTF9Q2FybmV0U2VydmljZQ==&amp;dpa=True&amp;el=2" />
+    <MetadataFile FileName="Metadata2.xsd" MetadataType="Schema" ID="c36c3348-f7af-438c-9e42-ca7b0a62747a" SourceId="1" SourceUrl="http://localhost:9080/emex/Metadata?sn=e2h0dHA6Ly9ydHMuaXJ1Lm9yZy9zZXJ2aWNlcy9DYXJuZXRTZXJ2aWNlLTF9Q2FybmV0U2VydmljZQ==&amp;dpa=True&amp;el=3" />
+    <MetadataFile FileName="Metadata3.xsd" MetadataType="Schema" ID="1d13e0b8-b93c-4a73-844d-ef197c49953c" SourceId="1" SourceUrl="http://localhost:9080/emex/Metadata?sn=e2h0dHA6Ly9ydHMuaXJ1Lm9yZy9zZXJ2aWNlcy9DYXJuZXRTZXJ2aWNlLTF9Q2FybmV0U2VydmljZQ==&amp;dpa=True&amp;el=4" />
+    <MetadataFile FileName="Metadata4.xsd" MetadataType="Schema" ID="06dbca23-15c5-4765-8515-bfb04b0b40d6" SourceId="1" SourceUrl="http://localhost:9080/emex/Metadata?sn=e2h0dHA6Ly9ydHMuaXJ1Lm9yZy9zZXJ2aWNlcy9DYXJuZXRTZXJ2aWNlLTF9Q2FybmV0U2VydmljZQ==&amp;dpa=True&amp;el=5" />
+    <MetadataFile FileName="Metadata5.xsd" MetadataType="Schema" ID="8673ecc5-78bf-4280-a2ea-47ffa08f2b9c" SourceId="1" SourceUrl="http://localhost:9080/emex/Metadata?sn=e2h0dHA6Ly9ydHMuaXJ1Lm9yZy9zZXJ2aWNlcy9DYXJuZXRTZXJ2aWNlLTF9Q2FybmV0U2VydmljZQ==&amp;dpa=True&amp;el=6" />
+    <MetadataFile FileName="CarnetService1.wsdl" MetadataType="Wsdl" ID="20e81104-bcf8-4019-b274-2dd14b3ad20a" SourceId="1" SourceUrl="http://localhost:9080/emex/Metadata?sn=e2h0dHA6Ly9ydHMuaXJ1Lm9yZy9zZXJ2aWNlcy9DYXJuZXRTZXJ2aWNlLTF9Q2FybmV0U2VydmljZQ==&amp;dpa=True" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

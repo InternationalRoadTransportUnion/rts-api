@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:icc="http://www.iru.org/model/iso-3166-1-alpha-3" xmlns="http://www.iru.org/model/tir-actor-1" elementFormDefault="qualified" targetNamespace="http://www.iru.org/model/tir-actor-1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="?xsd=xsd4" namespace="http://www.iru.org/model/iso-3166-1-alpha-3" />
+  <xs:import schemaLocation="/emex/Metadata?sn=e2h0dHA6Ly9ydHMuaXJ1Lm9yZy9zZXJ2aWNlcy9DYXJuZXRTZXJ2aWNlLTF9Q2FybmV0U2VydmljZQ==&amp;dpa=True&amp;el=3" namespace="http://www.iru.org/model/iso-3166-1-alpha-3" />
   <xs:element name="IRU">
     <xs:complexType />
   </xs:element>
@@ -21,6 +21,13 @@
   </xs:complexType>
   <xs:element name="Haulier" type="HaulierType" />
   <xs:element name="Holder" type="HaulierType" />
+  <xs:complexType name="GuaranteeChainPartyType">
+    <xs:choice>
+      <xs:element ref="IRU" />
+      <xs:element ref="Association" />
+      <xs:element ref="Haulier" />
+    </xs:choice>
+  </xs:complexType>
   <xs:element name="Customs">
     <xs:complexType>
       <xs:sequence>

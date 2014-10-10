@@ -78,6 +78,7 @@
   </xs:simpleType>
   <xs:simpleType name="TIROperationalCountryCodeType">
     <xs:restriction base="ContractingPartyCountryCodeType">
+      <xs:enumeration value="AFG" />
       <xs:enumeration value="ALB" />
       <xs:enumeration value="ARM" />
       <xs:enumeration value="AUT" />
