@@ -10,6 +10,7 @@ using System.ServiceModel.Configuration;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
 using System.ServiceModel.Channels;
+using System.ServiceModel.Web;
 using System.IdentityModel.Policy;
 using IRU.RTS.WS.Common.Data.RTSPlusLog;
 
@@ -101,6 +102,19 @@ namespace IRU.RTS.WS.Common.Logging
 
                 dli.RequestAction = mCopyRequest.Headers.Action;
                 dli.Request = mCopyRequest.ToString();
+
+                if (WebOperationContext.Current != null)
+                {
+                    IncomingWebRequestContext inWebReqCtx = WebOperationContext.Current.IncomingRequest;
+                    if (inWebReqCtx != null)
+                    {
+                        string sAddressFromProxy = (inWebReqCtx.Headers["X-Forwarded-For"] ?? String.Empty).Split(new char[] { ',' }).FirstOrDefault();
+                        if (!String.IsNullOrEmpty(sAddressFromProxy))
+                        {
+                            dli.RequestIpAddress = sAddressFromProxy;
+                        }
+                    }
+                }
 
                 request = mCopyRequest;
             }
