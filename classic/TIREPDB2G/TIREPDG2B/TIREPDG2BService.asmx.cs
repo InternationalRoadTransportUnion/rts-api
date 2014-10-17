@@ -7,6 +7,7 @@ using System.Web.Services.Protocols;
 using System.ComponentModel;
 using IRU.RTS.TIREPD;
 using IRU.RTS.Common.WCF;
+using IRU.RTS.Common.Extension; 
 
 namespace TIREPDG2B
 {
@@ -29,7 +30,7 @@ namespace TIREPDG2B
 				{
 					IG2BReceiver fileReceiver = client.GetProxy();
 
-					string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
+					string senderIP = HttpContext.Current.Request.GetCallerIP();
 					long lG2BMessageId = -1;
 					ack = fileReceiver.ProcessReceivedFile(su, senderIP, out lG2BMessageId);
 				}

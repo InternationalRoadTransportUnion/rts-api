@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Services;
 using IRU.RTS;
 using IRU.RTS.Common.WCF;
+using IRU.RTS.Common.Extension; 
 
 namespace WSRESPACE
 {
@@ -65,7 +66,7 @@ namespace WSRESPACE
 				{
 					IWSREFileReceiver iFileReceiver = client.GetProxy();
 
-					string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
+					string senderIP = HttpContext.Current.Request.GetCallerIP();
 
 					reconcileReplyAck = iFileReceiver.ProcessReceivedFile(su, senderIP);
 				}

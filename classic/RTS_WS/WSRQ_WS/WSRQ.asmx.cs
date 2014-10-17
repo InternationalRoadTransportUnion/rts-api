@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Services;
 using IRU.RTS;
 using IRU.RTS.Common.WCF;
+using IRU.RTS.Common.Extension; 
 
 namespace IRU.RTS.WSRQService
 {
@@ -49,7 +50,7 @@ namespace IRU.RTS.WSRQService
 				{
 					IWSRQProcessor iWSRQQueryProcessor = client.GetProxy();
 
-					string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
+					string senderIP = HttpContext.Current.Request.GetCallerIP();
 					long QueryID;
 					wResponse = iWSRQQueryProcessor.ProcessQuery(su, senderIP, out QueryID);
 					TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose, "Process Query Call Succeded");

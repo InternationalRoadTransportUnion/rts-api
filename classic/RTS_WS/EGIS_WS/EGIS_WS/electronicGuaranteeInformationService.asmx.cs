@@ -8,6 +8,7 @@ using System.Web.Services;
 using System.Web.Services.Protocols; 
 using IRU.RTS;
 using IRU.RTS.Common.WCF;
+using IRU.RTS.Common.Extension; 
 //using TraceHelper=TC;
 
 namespace IRU.RTS.WSEGIS
@@ -77,7 +78,7 @@ namespace IRU.RTS.WSEGIS
 				{
 					IEGISProcessor oEGISProcessor = client.GetProxy();
 
-					string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
+					string senderIP = HttpContext.Current.Request.GetCallerIP();
 					long IRUQueryID;
 					oResponse = oEGISProcessor.ProcessQuery(su, senderIP, out IRUQueryID);
 					TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose, "Process Query Call Succeded");

@@ -6,7 +6,8 @@ using System.Diagnostics;
 using System.Web;
 using System.Web.Services;
 using IRU.RTS;
-using IRU.RTS.Common.WCF; 
+using IRU.RTS.Common.WCF;
+using IRU.RTS.Common.Extension; 
 //using TraceHelper=TC;
 
 namespace IRU.RTS.WSTCHQService
@@ -77,7 +78,7 @@ namespace IRU.RTS.WSTCHQService
 				{
 					ITCHQProcessor iQueryProcessor = client.GetProxy();
 
-					string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
+					string senderIP = HttpContext.Current.Request.GetCallerIP();
 					long IRUQueryID;
 					tResponse = iQueryProcessor.ProcessQuery(su, senderIP, out IRUQueryID);
 					TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose, "Process Query Call Succeded");

@@ -8,6 +8,7 @@ using System.Web.Services;
 using System.Web.Services.Protocols;
 using IRU.RTS;
 using IRU.RTS.Common.WCF;
+using IRU.RTS.Common.Extension; 
 
 namespace IRU.RTS.WSTVQRService
 {
@@ -77,7 +78,7 @@ namespace IRU.RTS.WSTVQRService
 				{
 					ITVQRProcessor oTVQRProcessor = client.GetProxy();
 
-					string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
+					string senderIP = HttpContext.Current.Request.GetCallerIP();
 					long IRUQueryID;
 					oResponse = oTVQRProcessor.ProcessVoucherQuery(su, senderIP, out IRUQueryID);
 					TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose, "Process Query Call Succeded");
@@ -123,7 +124,7 @@ namespace IRU.RTS.WSTVQRService
 				{
 					ITVQRProcessor oTVQRProcessor = client.GetProxy();
 
-					string senderIP = HttpContext.Current.Request.UserHostAddress.ToString();
+					string senderIP = HttpContext.Current.Request.GetCallerIP();
 					long IRUQueryID;
 					oResponse = oTVQRProcessor.ProcessVoucherRegistration(su, senderIP, out IRUQueryID);
 					TraceHelper.TraceHelper.TraceMessage(TraceHelper.TraceHelper.EAITraceSwitch.TraceVerbose, "Process Query Call Succeded");
