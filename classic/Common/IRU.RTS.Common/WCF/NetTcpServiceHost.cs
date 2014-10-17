@@ -39,6 +39,11 @@ namespace IRU.RTS.Common.WCF
 			binding.SendTimeout = new TimeSpan(0, 15, 0);
 			AddServiceEndpoint(typeof(I), binding, remotingAddress);
 
+			// Ensure to pass details to the client in case of error
+			ServiceDebugBehavior sdb = Description.Behaviors.Find<ServiceDebugBehavior>();
+			if (sdb != null)
+				sdb.IncludeExceptionDetailInFaults = true;
+
 			// Check to see if the service host already has a ServiceMetadataBehavior
 			ServiceMetadataBehavior smb = Description.Behaviors.Find<ServiceMetadataBehavior>();
 			// If not, add one
@@ -46,8 +51,8 @@ namespace IRU.RTS.Common.WCF
 				smb = new ServiceMetadataBehavior();
 			smb.MetadataExporter.PolicyVersion = PolicyVersion.Policy15;
 			Description.Behaviors.Add(smb);
-			AddServiceEndpoint(ServiceMetadataBehavior.MexContractName, MetadataExchangeBindings.CreateMexTcpBinding(), remotingAddress + "/mex");
 
+			AddServiceEndpoint(ServiceMetadataBehavior.MexContractName, MetadataExchangeBindings.CreateMexTcpBinding(), remotingAddress + "/mex");
 		}
 
 		#region IDisposable Members
