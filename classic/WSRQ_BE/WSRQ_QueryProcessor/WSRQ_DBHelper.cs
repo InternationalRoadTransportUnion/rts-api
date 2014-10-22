@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+
 using IRU.RTS;
 using IRU.RTS.CommonComponents;
 using IRU.CommonInterfaces;
 using IRU.RTS.CryptoInterfaces;
+using IRU.RTS.Common.Extension;
+
 using System.Data;
 using System.Data.SqlClient;
 
@@ -118,7 +121,7 @@ namespace IRU.RTS.WSWSRQ
                 SqlCommand sCmd = new SqlCommand(sSql);
                 sCmd.CommandTimeout = 500;
                 sCmd.Parameters.Add("@DECRYPTION_RESULT", SqlDbType.Int).Value = wsrqLogQueryData.decryptionResult;
-                sCmd.Parameters.Add("@DECRYPTION_RESULT_DESCRIPTION", SqlDbType.NVarChar).Value = wsrqLogQueryData.decryptionResultDesc;
+                sCmd.Parameters.Add("@DECRYPTION_RESULT_DESCRIPTION", SqlDbType.NVarChar).Value = wsrqLogQueryData.decryptionResultDesc.Truncate(800);
                 sCmd.Parameters.Add("@EXCHANGEID", SqlDbType.Decimal).Value = wsrqLogQueryData.Exchange_ID;
                 if (decryptionFailed)
                 {

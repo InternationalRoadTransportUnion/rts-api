@@ -1,8 +1,10 @@
 using System;
+
 using IRU.RTS;
 using IRU.RTS.CommonComponents;
 using IRU.CommonInterfaces;
-using IRU.RTS.CryptoInterfaces; 
+using IRU.RTS.CryptoInterfaces;
+using IRU.RTS.Common.Extension; 
 
 using System.Data;
 using System.Data.SqlClient ;
@@ -156,7 +158,7 @@ namespace IRU.RTS.WSTCHQ
 			sCmd.CommandTimeout = 500;
 
 			sCmd.Parameters.Add("@DECRYPTION_RESULT", SqlDbType.Int ).Value = tchQLogRequestData.decryptionResult;
-			sCmd.Parameters.Add("@DECRYPTION_RESULT_DESCRIPTION", SqlDbType.NVarChar).Value = tchQLogRequestData.decryptionResultDesc;
+			sCmd.Parameters.Add("@DECRYPTION_RESULT_DESCRIPTION", SqlDbType.NVarChar).Value = tchQLogRequestData.decryptionResultDesc.Truncate(800);
 			//sCmd.Parameters.Add("@ROW_CREATED_TIME", SqlDbType.DateTime ).Value = tchQLogRequestData.rowCreationTime ;
 
 			if(decryptionFailed)
