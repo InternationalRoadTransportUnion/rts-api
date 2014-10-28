@@ -8,6 +8,7 @@
 				<xs:element name="Envelope" type="Upl:EnvelopeType" />
 				<xs:element name="Body" type="Upl:BodyType" />
 			</xs:sequence>
+			<xs:attribute name="Sender_Document_Version" type="xs:string" use="optional" />
 		</xs:complexType>
 	</xs:element>
 	<xs:complexType name="BodyType">
@@ -129,7 +130,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="TNOType">
 		<xs:restriction base="xs:string">
-			<xs:pattern value="([A-Z]{2})?[0-9]+" />
+			<xs:pattern value="[a-zA-Z]{2}[0-9]+" />
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="ICCType">

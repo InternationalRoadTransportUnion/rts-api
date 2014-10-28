@@ -108,7 +108,7 @@
 	</xs:simpleType>
 	<xs:simpleType name="TNOType">
 		<xs:restriction base="xs:string">
-			<xs:pattern value="([A-Z]{2})?[0-9]+" />
+			<xs:pattern value="[a-zA-Z]{2}[0-9]+" />
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="ICCType">
