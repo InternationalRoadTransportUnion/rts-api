@@ -6,8 +6,9 @@ mkdir Dependencies
 
 set REPO_LIBS_RELEASE_LOCAL_URL=http://repo.iruworld.org/libs-release-local
 set COMMON_CRYPTO_VERSION=1.1.0.0
+set WGET_PARAMS=--no-proxy
 
-wget %REPO_LIBS_RELEASE_LOCAL_URL%/org/iru/common/crypto/ciphersharp/%COMMON_CRYPTO_VERSION%/ciphersharp-%COMMON_CRYPTO_VERSION%-3.5.dll
+wget %WGET_PARAMS% %REPO_LIBS_RELEASE_LOCAL_URL%/org/iru/common/crypto/ciphersharp/%COMMON_CRYPTO_VERSION%/ciphersharp-%COMMON_CRYPTO_VERSION%-3.5.dll
 move ciphersharp-%COMMON_CRYPTO_VERSION%-3.5.dll Dependencies\IRU.Common.Crypto.Cipher.dll
 
 REM Call other scripts
