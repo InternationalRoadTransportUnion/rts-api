@@ -15,7 +15,7 @@ namespace IRU.RTS.Common.Web
 	{
 		public static void Process(HttpRequest request, HttpResponse response)
 		{
-			if (request.Url.OriginalString.EndsWith("?wsdl", StringComparison.InvariantCultureIgnoreCase))
+			if (request.Url.OriginalString.EndsWith("?wsdl", StringComparison.InvariantCultureIgnoreCase) && ("GET".Equals(request.HttpMethod, StringComparison.InvariantCultureIgnoreCase)))
 			{
 				string webAppPath = HttpContext.Current.ApplicationInstance.Server.MapPath("~/");
 				string wsdlPath = String.Format("{0}.wsdl", Path.GetFileNameWithoutExtension(request.Url.AbsolutePath));
