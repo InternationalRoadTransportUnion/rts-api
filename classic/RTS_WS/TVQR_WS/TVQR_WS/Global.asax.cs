@@ -3,6 +3,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.Web;
 using System.Web.SessionState;
+using IRU.RTS.Common.Web;
 
 namespace RTS 
 {
@@ -32,7 +33,7 @@ namespace RTS
 
 		protected void Application_BeginRequest(Object sender, EventArgs e)
 		{
-
+			WsdlModifier.Process(this.Request, this.Response);
 		}
 
 		protected void Application_EndRequest(Object sender, EventArgs e)

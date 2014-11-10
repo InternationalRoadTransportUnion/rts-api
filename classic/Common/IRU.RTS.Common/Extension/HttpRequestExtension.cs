@@ -18,5 +18,17 @@ namespace IRU.RTS.Common.Extension
 			else
 				return sAddressFromProxy;
 		}
+
+		public static string GetCallerProtocol(this HttpRequest httpRequest)
+		{
+			string sProtocol = httpRequest.Url.Scheme;
+
+			string sProtocolFromProxy = (HttpContext.Current.Request.Headers["X-Forwarded-Proto"] ?? String.Empty).Split(new char[] { ',' }).FirstOrDefault();
+
+			if (String.IsNullOrEmpty(sProtocolFromProxy))
+				return sProtocol;
+			else
+				return sProtocolFromProxy;
+		}
 	}
 }
