@@ -3,7 +3,7 @@
 REM Download EPD messages schemas on artifactory and rename them accordingly
 
 set REPO_LIBS_RELEASE_LOCAL_URL=http://repo.iruworld.org/libs-release-local
-set EPD_MESSAGES_VERSION=1.0.5
+set EPD_MESSAGES_VERSION=1.0.6
 set WGET_PARAMS=--no-proxy
 
 SETLOCAL ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
