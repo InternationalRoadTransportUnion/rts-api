@@ -17,26 +17,29 @@ namespace IRU.RTS.Common.Web
 
 		public override void ReflectDescription()
 		{
-			ServiceDescription description = ReflectionContext.ServiceDescription;
-			foreach (Service service in description.Services)
+			lock (WsdlModifier.Lock)
 			{
-				foreach (Port port in service.Ports)
+				ServiceDescription description = ReflectionContext.ServiceDescription;
+				foreach (Service service in description.Services)
 				{
-					foreach (ServiceDescriptionFormatExtension extension in port.Extensions)
+					foreach (Port port in service.Ports)
 					{
-						SoapAddressBinding binding = extension as SoapAddressBinding;
-						if (null != binding)
+						foreach (ServiceDescriptionFormatExtension extension in port.Extensions)
 						{
-							Uri uriLocation = new Uri(binding.Location);
-							binding.Location = String.Format("http://replace.me.iru.org{0}", uriLocation.AbsolutePath);
+							SoapAddressBinding binding = extension as SoapAddressBinding;
+							if (null != binding)
+							{
+								Uri uriLocation = new Uri(binding.Location);
+								//binding.Location = String.Format("http://replace.me.iru.org{0}", uriLocation.AbsolutePath);
+							}
 						}
 					}
 				}
-			}
 
-			string webAppPath = HttpContext.Current.ApplicationInstance.Server.MapPath("~/");
-			string wsdlPath = String.Format("{0}.wsdl", Path.GetFileNameWithoutExtension(new Uri(ReflectionContext.ServiceUrl).AbsolutePath));
-			description.Write(Path.Combine(webAppPath, wsdlPath));
+				string webAppPath = HttpContext.Current.ApplicationInstance.Server.MapPath("~/");
+				string wsdlPath = String.Format("{0}.wsdl", Path.GetFileNameWithoutExtension(new Uri(ReflectionContext.ServiceUrl).AbsolutePath).ToLowerInvariant());
+				description.Write(Path.Combine(webAppPath, wsdlPath));
+			}
 		}
 	}
 }

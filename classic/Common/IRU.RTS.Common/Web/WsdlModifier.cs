@@ -13,53 +13,66 @@ namespace IRU.RTS.Common.Web
 {
 	public class WsdlModifier
 	{
+		public static Object Lock = new Object();
+
 		public static void Process(HttpRequest request, HttpResponse response)
 		{
 			if (request.Url.OriginalString.EndsWith("?wsdl", StringComparison.InvariantCultureIgnoreCase) && ("GET".Equals(request.HttpMethod, StringComparison.InvariantCultureIgnoreCase)))
 			{
-				string webAppPath = HttpContext.Current.ApplicationInstance.Server.MapPath("~/");
-				string wsdlPath = String.Format("{0}.wsdl", Path.GetFileNameWithoutExtension(request.Url.AbsolutePath));
-				string wsdlFullPath = Path.Combine(webAppPath, wsdlPath);
-
-				if (File.Exists(wsdlFullPath))
+				lock (Lock)
 				{
-					response.ContentType = "text/xml";
-					response.Charset = "utf-8";
-					response.ContentEncoding = Encoding.UTF8;
-					
-					XmlDocument xdWsdl = new XmlDocument();
-					xdWsdl.Load(wsdlFullPath);
-					
-					XElement xeWsdl = XElement.Parse(xdWsdl.InnerXml);
+					string webAppPath = HttpContext.Current.ApplicationInstance.Server.MapPath("~/");
+					string wsdlPath = String.Format("{0}.wsdl", Path.GetFileNameWithoutExtension(request.Url.AbsolutePath).ToLowerInvariant());
+					string wsdlFullPath = Path.Combine(webAppPath, wsdlPath);
 
-					foreach (XElement xeSvc in xeWsdl.Descendants("{http://schemas.xmlsoap.org/wsdl/}service"))
+					if (File.Exists(wsdlFullPath))
 					{
-						// SOAP 1.1
-						foreach (XElement xeAddr in xeSvc.Descendants("{http://schemas.xmlsoap.org/wsdl/soap/}address"))
+						response.ContentType = "text/xml";
+						response.Charset = "utf-8";
+						response.ContentEncoding = Encoding.UTF8;
+
+						XmlDocument xdWsdl = new XmlDocument();
+						xdWsdl.Load(wsdlFullPath);
+
+						XElement xeWsdl = XElement.Parse(xdWsdl.InnerXml);
+
+						// Try to recompute Endpoint/Port Address in a friendly way with Reverse Proxy
+						foreach (XElement xeSvc in xeWsdl.Descendants("{http://schemas.xmlsoap.org/wsdl/}service"))
 						{
-							Uri uPub = new Uri(xeAddr.Attribute("location").Value);
-							Uri uNew = TranslateUri(request, uPub);
-							xeAddr.SetAttributeValue("location", uNew.ToString());
+							// SOAP 1.1
+							foreach (XElement xeAddr in xeSvc.Descendants("{http://schemas.xmlsoap.org/wsdl/soap/}address"))
+							{
+								Uri uPub = new Uri(xeAddr.Attribute("location").Value);
+								Uri uNew = TranslateUri(request, uPub);
+								xeAddr.SetAttributeValue("location", uNew.ToString());
+							}
+
+							// SOAP 1.2
+							foreach (XElement xeAddr in xeSvc.Descendants("{http://schemas.xmlsoap.org/wsdl/soap12/}address"))
+							{
+								Uri uPub = new Uri(xeAddr.Attribute("location").Value);
+								Uri uNew = TranslateUri(request, uPub);
+								xeAddr.SetAttributeValue("location", uNew.ToString());
+							}
+
+							foreach (XElement xeAddr in xeSvc.Descendants("{http://www.w3.org/2005/08/addressing}Address"))
+							{
+								Uri uPub = new Uri(xeAddr.Value);
+								Uri uNew = TranslateUri(request, uPub);
+								xeAddr.SetValue(uNew.ToString());
+							}
 						}
 
-						// SOAP 1.2
-						foreach (XElement xeAddr in xeSvc.Descendants("{http://schemas.xmlsoap.org/wsdl/soap12/}address"))
+						XmlWriterSettings xws = new XmlWriterSettings();
+						xws.Encoding = Encoding.UTF8;
+						xws.Indent = true;
+						using (XmlWriter xw = XmlWriter.Create(response.OutputStream, xws))
 						{
-							Uri uPub = new Uri(xeAddr.Attribute("location").Value);
-							Uri uNew = TranslateUri(request, uPub);
-							xeAddr.SetAttributeValue("location", uNew.ToString());
+							xeWsdl.WriteTo(xw);
 						}
-					}
 
-					XmlWriterSettings xws = new XmlWriterSettings();
-					xws.Encoding = Encoding.UTF8;
-					xws.Indent = true;
-					using (XmlWriter xw = XmlWriter.Create(response.OutputStream, xws))
-					{
-						xeWsdl.WriteTo(xw);
+						response.End();
 					}
-
-					response.End();
 				}
 			}
 		}
