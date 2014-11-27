@@ -19,6 +19,38 @@ namespace IRU.RTS.WS.TerminationService.Interface
         
         private Customs customsField;
         
+        private string customsOfficeField;
+        
+        private string customsLedgerEntryReferenceField;
+        
+        private System.DateTime customsLedgerEntryDateField;
+        
+        private string certificateOfTerminationReferenceField;
+        
+        private System.DateTime certificateOfTerminationDateField;
+        
+        private bool isExitField;
+        
+        private bool isExitFieldSpecified;
+        
+        private bool isFinalField;
+        
+        private bool isFinalFieldSpecified;
+        
+        private byte sequenceNumberField;
+        
+        private bool sequenceNumberFieldSpecified;
+        
+        private bool isWithReservationField;
+        
+        private bool isWithReservationFieldSpecified;
+        
+        private string customsCommentField;
+        
+        private uint packageCountField;
+        
+        private bool packageCountFieldSpecified;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://rts.iru.org/model/carnet-1", DataType="token", Order=0)]
         public virtual string TIRCarnetNumber
@@ -73,6 +105,235 @@ namespace IRU.RTS.WS.TerminationService.Interface
             set
             {
                 this.customsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public virtual string CustomsOffice
+        {
+            get
+            {
+                return this.customsOfficeField;
+            }
+            set
+            {
+                this.customsOfficeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public virtual string CustomsLedgerEntryReference
+        {
+            get
+            {
+                return this.customsLedgerEntryReferenceField;
+            }
+            set
+            {
+                this.customsLedgerEntryReferenceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public virtual System.DateTime CustomsLedgerEntryDate
+        {
+            get
+            {
+                return this.customsLedgerEntryDateField;
+            }
+            set
+            {
+                this.customsLedgerEntryDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public virtual string CertificateOfTerminationReference
+        {
+            get
+            {
+                return this.certificateOfTerminationReferenceField;
+            }
+            set
+            {
+                this.certificateOfTerminationReferenceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public virtual System.DateTime CertificateOfTerminationDate
+        {
+            get
+            {
+                return this.certificateOfTerminationDateField;
+            }
+            set
+            {
+                this.certificateOfTerminationDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public virtual bool IsExit
+        {
+            get
+            {
+                return this.isExitField;
+            }
+            set
+            {
+                this.isExitField = value;
+                this.IsExitSpecified = true;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public virtual bool IsExitSpecified
+        {
+            get
+            {
+                return this.isExitFieldSpecified;
+            }
+            set
+            {
+                this.isExitFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+        public virtual bool IsFinal
+        {
+            get
+            {
+                return this.isFinalField;
+            }
+            set
+            {
+                this.isFinalField = value;
+                this.IsFinalSpecified = true;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public virtual bool IsFinalSpecified
+        {
+            get
+            {
+                return this.isFinalFieldSpecified;
+            }
+            set
+            {
+                this.isFinalFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
+        public virtual byte SequenceNumber
+        {
+            get
+            {
+                return this.sequenceNumberField;
+            }
+            set
+            {
+                this.sequenceNumberField = value;
+                this.SequenceNumberSpecified = true;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public virtual bool SequenceNumberSpecified
+        {
+            get
+            {
+                return this.sequenceNumberFieldSpecified;
+            }
+            set
+            {
+                this.sequenceNumberFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
+        public virtual bool IsWithReservation
+        {
+            get
+            {
+                return this.isWithReservationField;
+            }
+            set
+            {
+                this.isWithReservationField = value;
+                this.IsWithReservationSpecified = true;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public virtual bool IsWithReservationSpecified
+        {
+            get
+            {
+                return this.isWithReservationFieldSpecified;
+            }
+            set
+            {
+                this.isWithReservationFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=12)]
+        public virtual string CustomsComment
+        {
+            get
+            {
+                return this.customsCommentField;
+            }
+            set
+            {
+                this.customsCommentField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=13)]
+        public virtual uint PackageCount
+        {
+            get
+            {
+                return this.packageCountField;
+            }
+            set
+            {
+                this.packageCountField = value;
+                this.PackageCountSpecified = true;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public virtual bool PackageCountSpecified
+        {
+            get
+            {
+                return this.packageCountFieldSpecified;
+            }
+            set
+            {
+                this.packageCountFieldSpecified = value;
             }
         }
     }
