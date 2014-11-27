@@ -100,6 +100,32 @@
       <xs:element ref="car:TIRCarnetNumber" />
       <xs:element ref="car:VoletPageNumber" minOccurs="0"/>
       <xs:element ref="act:Customs" />
+
+      <xs:element name="CustomsOffice" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1" />
+            <xs:maxLength value="255" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:group ref="CustomsLedgerEntryGroup" minOccurs="0"/>
+      <xs:group ref="CertificateOfTerminationGroup" minOccurs="0"/>
+
+      <xs:element name="IsExit" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="IsFinal" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="SequenceNumber" type="xs:unsignedByte" minOccurs="0"/>
+      <xs:element name="IsWithReservation" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="CustomsComment" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="126" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="PackageCount" type="xs:unsignedInt" minOccurs="0"/>
+
     </xs:sequence>
   </xs:complexType>
 
