@@ -26,8 +26,20 @@
 		</dependency>
 	</dependencies>
 
-
 	<build>
+	   <resources>
+	       <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>tir-*.xsd</exclude>
+                    <exclude>iso-*.xsd</exclude>
+                    <exclude>ietf-*.xsd</exclude>
+                    <exclude>tirplus-*.xsd</exclude>
+                    <exclude>iru-*.xsd</exclude>
+                </excludes>
+            </resource>
+        </resources>
+	
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -59,6 +71,7 @@
 								<include>ietf-*.xsd</include>
 								<include>rts-*-1.xsd</include>
 								<include>tirplus-*.xsd</include>
+								<include>iru-*.xsd</include>
 							</includes>
 						</fileset>
 					</filesets>
@@ -88,7 +101,7 @@
 									<filtering>false</filtering>
 									<directory>../CarnetService/IRU.RTS.WS.CarnetService.Interface/CarnetService-1</directory>
 									<includes><include>rts-carnet-1.xsd</include></includes>
-								</resource>
+								</resource>								
 							</resources>
 						</configuration>
 					</execution>
