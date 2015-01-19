@@ -102,46 +102,26 @@
 					<globalBindings>globalBindings.xjb</globalBindings>
 				</configuration>
 			</plugin>
-
-
+			
 			<plugin>
-				<groupId>org.jvnet.jaxb2.maven2</groupId>
-				<artifactId>maven-jaxb2-plugin</artifactId>
-				<version>0.8.0</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-						<configuration>
-							<bindingDirectory>${basedir}/target/xjb</bindingDirectory>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>delete-common-dependencies</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<delete>
-									<fileset dir="target/generated-sources/xjc/org/iru/model" includes="**/*.java" />
-									<fileset dir="target/generated-sources/xjc/net/tirplus/model" includes="**/*.java" />
-								</delete>
-							</target>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb22-plugin</artifactId>
+                <version>0.12.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <episode>true</episode> 
+                    <useDependenciesAsEpisodes>true</useDependenciesAsEpisodes>
+                    <schemaDirectory>${basedir}/src/main/resources</schemaDirectory>
+                    <bindingDirectory>${basedir}/target/xjb</bindingDirectory>    
+                    <generateDirectory>${basedir}/target/generated-sources/${project.artifactId}/app</generateDirectory>            
+                </configuration>
+            </plugin>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
