@@ -27,19 +27,19 @@
 	</dependencies>
 
 	<build>
-	   <resources>
-	       <resource>
-                <directory>src/main/resources</directory>
-                <excludes>
-                    <exclude>tir-*.xsd</exclude>
-                    <exclude>iso-*.xsd</exclude>
-                    <exclude>ietf-*.xsd</exclude>
-                    <exclude>tirplus-*.xsd</exclude>
-                    <exclude>iru-*.xsd</exclude>
-                </excludes>
-            </resource>
-        </resources>
-	
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<excludes>
+					<exclude>tir-*.xsd</exclude>
+					<exclude>iso-*.xsd</exclude>
+					<exclude>ietf-*.xsd</exclude>
+					<exclude>tirplus-*.xsd</exclude>
+					<exclude>iru-*.xsd</exclude>
+				</excludes>
+			</resource>
+		</resources>
+
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -95,13 +95,17 @@
 								<resource>
 									<filtering>false</filtering>
 									<directory>../TerminationService/IRU.RTS.WS.TerminationService.Interface/TerminationService-1</directory>
-									<includes><include>rts-termination-1.xsd</include></includes>
+									<includes>
+										<include>rts-termination-1.xsd</include>
+									</includes>
 								</resource>
 								<resource>
 									<filtering>false</filtering>
 									<directory>../CarnetService/IRU.RTS.WS.CarnetService.Interface/CarnetService-1</directory>
-									<includes><include>rts-carnet-1.xsd</include></includes>
-								</resource>								
+									<includes>
+										<include>rts-carnet-1.xsd</include>
+									</includes>
+								</resource>
 							</resources>
 						</configuration>
 					</execution>
@@ -115,26 +119,47 @@
 					<globalBindings>globalBindings.xjb</globalBindings>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
-                <groupId>org.jvnet.jaxb2.maven2</groupId>
-                <artifactId>maven-jaxb21-plugin</artifactId>
-                <version>0.12.1</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <episode>true</episode> 
-                    <useDependenciesAsEpisodes>true</useDependenciesAsEpisodes>
-                    <schemaDirectory>${basedir}/src/main/resources</schemaDirectory>
-                    <bindingDirectory>${basedir}/target/xjb</bindingDirectory>    
-                    <generateDirectory>${basedir}/target/generated-sources/${project.artifactId}/app</generateDirectory>            
-                </configuration>
-            </plugin>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb21-plugin</artifactId>
+				<version>0.12.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<episode>true</episode>
+					<useDependenciesAsEpisodes>true</useDependenciesAsEpisodes>
+					<schemaDirectory>${basedir}/src/main/resources</schemaDirectory>
+					<bindingDirectory>${basedir}/target/xjb</bindingDirectory>				
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>delete-common-dependencies</id>
+						<phase>process-sources</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<delete>
+									<fileset dir="target/generated-sources/xjc/org/iru/model"
+										includes="**/*.java" />
+								</delete>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
