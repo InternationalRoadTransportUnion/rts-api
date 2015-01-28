@@ -48,9 +48,10 @@ namespace IRU.RTS.CommonComponents
 			sCommand +="\n set nocount on";
 			sCommand +="\n Begin Transaction";
 			sCommand +="\n Declare @newID numeric";
-			sCommand +="\n Update dbo.RTS_IDS set @newID = ID_Value + 1, ID_Value = ID_Value + 1 where  ID_Purpose = @IdPurpose";
+			sCommand +="\n Update [{0}].RTS_IDS set @newID = ID_Value + 1, ID_Value = ID_Value + 1 where  ID_Purpose = @IdPurpose";
 			sCommand +="\n Select @newID as NewGenID";
 			sCommand +="\n Commit Transaction";
+			sCommand = String.Format(sCommand, IDDBHelper.SchemaName);
 
 			object returned=null ;
 			try

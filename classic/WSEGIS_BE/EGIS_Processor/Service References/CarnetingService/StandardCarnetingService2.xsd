@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://CarnetingDBContracts" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://CarnetingDBContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.25.12.50:9999/StandardCarnetingService?xsd=xsd2" namespace="http://Carneting.CarnetingBL.Contracts" />
+  <xs:import schemaLocation="http://172.25.12.50:9999/StandardCarnetingService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="TYP__R_Carnet_Table_T_Contract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="L_Carnet_Num" type="xs:int" />
+      <xs:element minOccurs="0" name="W_State_Num" type="xs:short" />
+      <xs:element minOccurs="0" name="W_Reason_Num" type="xs:short" />
+      <xs:element minOccurs="0" name="W_Ass_Num" type="xs:short" />
+      <xs:element minOccurs="0" name="W_Series_Type" type="xs:short" />
+      <xs:element minOccurs="0" name="Qu_Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="W_Username_Code" type="xs:short" />
+      <xs:element minOccurs="0" name="T_Archive_Num_10" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="W_Insurer" type="xs:short" />
+      <xs:element minOccurs="0" name="W_Ins_C31" type="xs:short" />
+      <xs:element xmlns:q1="http://Carneting.CarnetingBL.Contracts" minOccurs="0" name="R_Texts" nillable="true" type="q1:Typ__R_Carnet_Texts_T_Contract" />
+      <xs:element minOccurs="0" name="Vt_Holder" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Qu_Rem_Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Qu_Dec_Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Qu_Exp_Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="T_Rem_Date" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="T_Dec_Date" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="T_Exp_Date" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="C_Dec_Type" type="ser:char" />
+      <xs:element minOccurs="0" name="C_Exp_Type" type="ser:char" />
+      <xs:element minOccurs="0" name="W_Carnet_Pages" type="xs:short" />
+      <xs:element minOccurs="0" name="Vt_Comment" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TYP__R_Carnet_Table_T_Contract" nillable="true" type="tns:TYP__R_Carnet_Table_T_Contract" />
+  <xs:complexType name="ArrayOfTYP__R_Carnet_Table_T_Contract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TYP__R_Carnet_Table_T_Contract" nillable="true" type="tns:TYP__R_Carnet_Table_T_Contract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTYP__R_Carnet_Table_T_Contract" nillable="true" type="tns:ArrayOfTYP__R_Carnet_Table_T_Contract" />
+</xs:schema>

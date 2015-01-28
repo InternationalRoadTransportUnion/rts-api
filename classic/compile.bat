@@ -9,6 +9,7 @@ msbuild WSRE_BE/WSRE_ProcessorHostService/WSRE_ProcessorHostService.csproj /p:Co
 msbuild WSRE_BE/WSRE_FileRcvrHostService/WSRE_FileRcvrHostService.csproj /p:Configuration=%CONFIG% /t:rebuild /p:OutputPath=./../../RTS/WSRE_Ex/
 msbuild WSTVQR_BE/TVQRHostService/TVQRHostService.csproj /p:Configuration=%CONFIG% /t:rebuild /p:OutputPath=./../../RTS/TVQR/
 msbuild TIREPD_RTS/TIREDPG2BRecvrHostService/TIREDPG2BRecvrHostService.csproj /p:Configuration=%CONFIG% /t:rebuild /p:OutputPath=./../../RTS/TIREPDG2B_SVC/
+msbuild WSEGIS_BE/EGISHostService/EGISHostService.csproj /p:Configuration=%CONFIG% /t:rebuild /p:OutputPath=./../../RTS/EGIS/
 msbuild AlertProcessor/RTSAlertHostService/RTSAlertHostService.csproj /p:Configuration=%CONFIG% /t:rebuild /p:OutputPath=./../../RTS/AlertProcessor/
 msbuild CryptoRemotingHost/CryptoHostService/CryptoHostService.csproj /p:Configuration=%CONFIG% /t:rebuild /p:OutputPath=./../../RTS/CryptoHost/
 

@@ -251,6 +251,15 @@ namespace IRU.CommonInterfaces
         object ExecuteScaler(IDbCommand CommandObject);
 
 		/// <summary>
+		/// Returns the Name of the Schema used in DB
+		/// </summary>
+		/// <returns>Returns the Name of the Schema used in DB ("dbo" by default).</returns>
+		string SchemaName
+		{
+			get;
+		}
+
+		/// <summary>
 		/// IDisposable implementation. Close the Connection
 		/// </summary>
 		/// <param name="IsDisposing">Not Used</param>

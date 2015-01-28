@@ -16,6 +16,7 @@ namespace IRU.RTS.CommonComponents
 	public class DBHelperFactory:IPlugIn,IDBHelperFactory
 	{
 		internal Hashtable m_connectionHash;
+		internal Hashtable m_schemaHash;
 		private IPlugInManager m_PluginManager;
 		private string m_PluginName;
 		
@@ -76,9 +77,13 @@ namespace IRU.RTS.CommonComponents
 				foreach (XmlNode xDBNode in xDBList)
 				{
 					string dbName = xDBNode.Attributes["Name"].InnerText;
-					string connectionString =xDBNode.SelectSingleNode("./ConnectionString").InnerXml;
-				
+					
+					string connectionString = xDBNode.SelectSingleNode("./ConnectionString").InnerXml;				
 					m_connectionHash.Add(dbName,connectionString);
+
+					XmlNode xnSchemaName = xDBNode.SelectSingleNode("./SchemaName");
+					string schemaName = xnSchemaName != null ? xnSchemaName.InnerXml : "dbo";
+					m_schemaHash.Add(dbName, schemaName);
 				}
 
 
@@ -111,8 +116,8 @@ namespace IRU.RTS.CommonComponents
 		/// </summary>
 		public void Unload()
 		{
-			m_connectionHash=null;
-
+			m_connectionHash = null;
+			m_schemaHash = null;
 		}
 		/// <summary>
 		/// Set to DBHelper by PluginManager, this name has to be used as other Plugins will refer to this by "DBHelper"
@@ -136,8 +141,10 @@ namespace IRU.RTS.CommonComponents
 		public DBHelperFactory()
 		{
 			m_connectionHash = new Hashtable();
-			m_connectionHash= Hashtable.Synchronized(m_connectionHash);
-		
+			m_connectionHash = Hashtable.Synchronized(m_connectionHash);
+
+			m_schemaHash = new Hashtable();
+			m_schemaHash = Hashtable.Synchronized(m_schemaHash);
 		}
 
 		/// <summary>
@@ -148,10 +155,12 @@ namespace IRU.RTS.CommonComponents
 		/// <exception cref="ApplicationException">In case teh DBName does not correspond to value stored in the config gile</exception>
 		public IDBHelper GetDBHelper(string DBName)
 		{
-			string sConnectionString=null;
+			string sConnectionString = null;
+			string sSchemaName = null;
 			try
 			{
 				sConnectionString = (string)m_connectionHash[DBName];
+				sSchemaName = (string)m_schemaHash[DBName];
 			}
 			catch
 			{
@@ -159,7 +168,7 @@ namespace IRU.RTS.CommonComponents
 				throw;
 			}
 
-			DBHelper dbhToReturn = new DBHelper(sConnectionString);
+			DBHelper dbhToReturn = new DBHelper(sConnectionString, sSchemaName);
 		
 			return dbhToReturn;
 		}
@@ -175,6 +184,7 @@ namespace IRU.RTS.CommonComponents
 		private SqlTransaction m_sqlTransaction;
 		private string m_connectionString;
 		private SqlConnection m_sqlConnection;
+		private string m_schemaName;
 		private bool m_IsConnected;
 		private bool m_isTransacted;
 
@@ -183,13 +193,24 @@ namespace IRU.RTS.CommonComponents
 		/// Stores the connection string in member variables and initialises other members.
 		/// </summary>
 		/// <param name="ConnectString">Connection string used by SQLConnection.Open</param>
-		public DBHelper(string ConnectString)
+		/// <param name="SchemaName">Name of the Schema of DB</param>
+		public DBHelper(string ConnectString, string SchemaName)
 		{
 			m_sqlConnection = new SqlConnection();
 			m_connectionString = ConnectString;
 			m_sqlConnection.ConnectionString=m_connectionString;
+			m_schemaName = SchemaName;
 			m_IsConnected=false;
 			m_isTransacted=false;
+		}
+
+		/// <summary>
+		/// Stores the connection string in member variables and initialises other members.
+		/// </summary>
+		/// <param name="ConnectString">Connection string used by SQLConnection.Open</param>
+		public DBHelper(string ConnectString)
+			: this(ConnectString, "dbo")
+		{
 		}
 
 		/// <summary>
@@ -451,6 +472,18 @@ namespace IRU.RTS.CommonComponents
 
             return CommandObject.ExecuteScalar();
         }
+
+		/// <summary>
+		/// Returns the Name of the Schema used in DB
+		/// </summary>
+		/// <returns>Returns the Name of the Schema used in DB ("dbo" by default).</returns>
+		public string SchemaName
+		{
+			get
+			{
+				return m_schemaName;
+			}
+		}
 
 		/// <summary>
 		/// Closes the connection if open

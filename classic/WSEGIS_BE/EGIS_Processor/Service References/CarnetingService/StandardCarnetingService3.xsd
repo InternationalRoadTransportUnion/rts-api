@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Carneting.CarnetingBL.Contracts/2011/09/12" elementFormDefault="qualified" targetNamespace="http://Carneting.CarnetingBL.Contracts/2011/09/12" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.25.12.50:9999/StandardCarnetingService?xsd=xsd2" namespace="http://Carneting.CarnetingBL.Contracts" />
+  <xs:import schemaLocation="http://172.25.12.50:9999/StandardCarnetingService?xsd=xsd3" namespace="http://CarnetingDBContracts" />
+  <xs:import schemaLocation="http://172.25.12.50:9999/StandardCarnetingService?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://172.25.12.50:9999/StandardCarnetingService?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+  <xs:element name="GetBulletin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="year" type="xs:short" />
+        <xs:element minOccurs="0" name="bulletinNumber" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBulletinResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://Carneting.CarnetingBL.Contracts" minOccurs="0" name="GetBulletinResult" nillable="true" type="q1:CAR_Bull_Table_Row_Contract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBulletinByInvNum">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="invNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBulletinByInvNumResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://Carneting.CarnetingBL.Contracts" minOccurs="0" name="GetBulletinByInvNumResult" nillable="true" type="q2:CAR_Bull_Table_Row_Contract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarnet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="carnetNumber" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarnetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://CarnetingDBContracts" minOccurs="0" name="GetCarnetResult" nillable="true" type="q3:TYP__R_Carnet_Table_T_Contract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPacketDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="carnetNumber" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPacketDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://Carneting.CarnetingBL.Contracts" minOccurs="0" name="GetPacketDetailsResult" nillable="true" type="q4:TYP__R_Packet_28_Contract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSerieDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="carnetNumber" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSerieDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://Carneting.CarnetingBL.Contracts" minOccurs="0" name="GetSerieDetailsResult" nillable="true" type="q5:TYP__R_Series_17_T_Contract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="carnetNumber" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://CarnetingDBContracts" minOccurs="0" name="GetHistoryResult" nillable="true" type="q6:ArrayOfTYP__R_Carnet_Table_T_Contract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSafeTIRData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="carnetNumber" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSafeTIRDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://Carneting.CarnetingBL.Contracts" minOccurs="0" name="GetSafeTIRDataResult" nillable="true" type="q7:ArrayOfTYP__IDB_Record_Contract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExtendedSafeTIRData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="carnetNumber" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExtendedSafeTIRDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://Carneting.CarnetingBL.Contracts" minOccurs="0" name="GetExtendedSafeTIRDataResult" nillable="true" type="q8:ArrayOfExtendedSafeTIRRecord" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetArchivedCarnetRecords">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fromDateIncluded" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="toDateExcluded" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetArchivedCarnetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://Carneting.CarnetingBL.Contracts" minOccurs="0" name="GetArchivedCarnetRecordsResult" nillable="true" type="q9:ArrayOfArchivedCarnetRecord" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExtendedArchivedCarnetRecords">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fromDateIncluded" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="toDateExcluded" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExtendedArchivedCarnetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://Carneting.CarnetingBL.Contracts" minOccurs="0" name="GetExtendedArchivedCarnetRecordsResult" nillable="true" type="q10:ArrayOfExtendedArchivedCarnetRecord" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarnetInformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="carnetNumber" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarnetInformationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://Carneting.CarnetingBL.Contracts" minOccurs="0" name="GetCarnetInformationResult" nillable="true" type="q11:CarnetInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BulkLoadCarnetDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="carnetNumbers" nillable="true" type="q12:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BulkLoadCarnetDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://Carneting.CarnetingBL.Contracts" minOccurs="0" name="BulkLoadCarnetDetailsResult" nillable="true" type="q13:ArrayOfBulkCarnetDetails" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCarnetStateReason">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="carnetNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newState" nillable="true" type="xs:short" />
+        <xs:element minOccurs="0" name="newReason" nillable="true" type="xs:short" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCarnetStateReasonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://Carneting.CarnetingBL.Contracts" minOccurs="0" name="UpdateCarnetStateReasonResult" nillable="true" type="q14:CarnetInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFullCarnetStateReason">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="carnetNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newState" nillable="true" type="xs:short" />
+        <xs:element minOccurs="0" name="newReason" nillable="true" type="xs:short" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFullCarnetStateReasonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateFullCarnetStateReasonResult" nillable="true" type="tns:FullCarnetDetailsAndHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="FullCarnetDetailsAndHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalGuarantees" nillable="true" type="tns:ArrayOfFullCarnetAdditionalGuaranteeDetails" />
+      <xs:element minOccurs="0" name="History" nillable="true" type="tns:ArrayOfCarnetHistoryEntry" />
+      <xs:element minOccurs="0" name="IssueEvent" nillable="true" type="tns:FullCarnetIssueEventDetails" />
+      <xs:element minOccurs="0" name="Number" type="xs:int" />
+      <xs:element minOccurs="0" name="Packet" nillable="true" type="tns:FullPacketDetails" />
+      <xs:element minOccurs="0" name="Reminders" nillable="true" type="tns:ArrayOfFullCarnetReminderDetails" />
+      <xs:element minOccurs="0" name="ReturnEvent" nillable="true" type="tns:FullCarnetReturnEventDetails" />
+      <xs:element minOccurs="0" name="Stopped" nillable="true" type="tns:FullStoppedCarnetDetails" />
+      <xs:element minOccurs="0" name="Terminations" nillable="true" type="tns:ArrayOfFullTerminationDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FullCarnetDetailsAndHistory" nillable="true" type="tns:FullCarnetDetailsAndHistory" />
+  <xs:complexType name="ArrayOfFullCarnetAdditionalGuaranteeDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FullCarnetAdditionalGuaranteeDetails" nillable="true" type="tns:FullCarnetAdditionalGuaranteeDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFullCarnetAdditionalGuaranteeDetails" nillable="true" type="tns:ArrayOfFullCarnetAdditionalGuaranteeDetails" />
+  <xs:complexType name="FullCarnetAdditionalGuaranteeDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActivationDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IssuanceDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IssuingAssociation" nillable="true" type="tns:FullAssociationDetails" />
+      <xs:element minOccurs="0" name="Number" type="xs:int" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:FullUserDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FullCarnetAdditionalGuaranteeDetails" nillable="true" type="tns:FullCarnetAdditionalGuaranteeDetails" />
+  <xs:complexType name="FullAssociationDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:FullReferenceDataDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddressLine1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLine3" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLine4" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLine5" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLine6" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLine7" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLine8" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Language" nillable="true" type="tns:FullLanguageDetails" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FullAssociationDetails" nillable="true" type="tns:FullAssociationDetails" />
+  <xs:complexType name="FullReferenceDataDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:short" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FullReferenceDataDetails" nillable="true" type="tns:FullReferenceDataDetails" />
+  <xs:complexType name="FullLanguageDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:FullCommentedReferenceDataDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FrenchName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FullLanguageDetails" nillable="true" type="tns:FullLanguageDetails" />
+  <xs:complexType name="FullCommentedReferenceDataDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:FullReferenceDataDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FullCommentedReferenceDataDetails" nillable="true" type="tns:FullCommentedReferenceDataDetails" />
+  <xs:complexType name="FullUserDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:FullReferenceDataDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Initials" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsDeleted" type="xs:boolean" />
+          <xs:element minOccurs="0" name="WinLogin" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FullUserDetails" nillable="true" type="tns:FullUserDetails" />
+  <xs:complexType name="ArrayOfCarnetHistoryEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CarnetHistoryEntry" nillable="true" type="tns:CarnetHistoryEntry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCarnetHistoryEntry" nillable="true" type="tns:ArrayOfCarnetHistoryEntry" />
+  <xs:complexType name="CarnetHistoryEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ArchivePacketNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Association" nillable="true" type="tns:FullAssociationDetails" />
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsCurrent" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Reason" nillable="true" type="tns:FullReasonDetails" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="tns:FullStateDetails" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:FullUserDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CarnetHistoryEntry" nillable="true" type="tns:CarnetHistoryEntry" />
+  <xs:complexType name="FullReasonDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:FullCommentedReferenceDataDetails">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FullReasonDetails" nillable="true" type="tns:FullReasonDetails" />
+  <xs:complexType name="FullStateDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:FullCommentedReferenceDataDetails">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FullStateDetails" nillable="true" type="tns:FullStateDetails" />
+  <xs:complexType name="FullCarnetIssueEventDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:FullCarnetIssueReturnEventDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ExpiryDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FullCarnetIssueEventDetails" nillable="true" type="tns:FullCarnetIssueEventDetails" />
+  <xs:complexType name="FullCarnetIssueReturnEventDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:FullCarnetEventDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Association" nillable="true" type="tns:FullAssociationDetails" />
+          <xs:element minOccurs="0" name="HolderCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsHighValue" nillable="true" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FullCarnetIssueReturnEventDetails" nillable="true" type="tns:FullCarnetIssueReturnEventDetails" />
+  <xs:complexType name="FullCarnetEventDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EventDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Filename" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProcessingDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FullCarnetEventDetails" nillable="true" type="tns:FullCarnetEventDetails" />
+  <xs:complexType name="FullPacketDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Association" nillable="true" type="tns:FullAssociationDetails" />
+      <xs:element minOccurs="0" name="BulletinDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="BulletinNumber" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="CarnetTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DeliveryMode" nillable="true" type="tns:FullDeliveryModeDetails" />
+      <xs:element minOccurs="0" name="Insurer" nillable="true" type="tns:FullInsurerDetails" />
+      <xs:element minOccurs="0" name="Insurer31" nillable="true" type="tns:FullInsurerDetails" />
+      <xs:element minOccurs="0" name="InvoiceDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InvoiceNumber" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxCarnetNumber" nillable="true" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Number" type="xs:int" />
+      <xs:element minOccurs="0" name="Reference" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Serie" nillable="true" type="tns:FullSerieDetails" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="tns:FullStateDetails" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:FullUserDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FullPacketDetails" nillable="true" type="tns:FullPacketDetails" />
+  <xs:complexType name="FullDeliveryModeDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:FullCommentedReferenceDataDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FrenchName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FullDeliveryModeDetails" nillable="true" type="tns:FullDeliveryModeDetails" />
+  <xs:complexType name="FullInsurerDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FullInsurerDetails" nillable="true" type="tns:FullInsurerDetails" />
+  <xs:complexType name="FullSerieDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Association" nillable="true" type="tns:FullAssociationDetails" />
+      <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Language" nillable="true" type="tns:FullLanguageDetails" />
+      <xs:element minOccurs="0" name="MaxCarnetNumber" nillable="true" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Number" type="xs:int" />
+      <xs:element minOccurs="0" name="Pages" type="xs:short" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="tns:FullStateDetails" />
+      <xs:element minOccurs="0" name="Surcharge" nillable="true" type="tns:FullSurchargeDetails" />
+      <xs:element minOccurs="0" name="Usage" nillable="true" type="tns:FullUsageDetails" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:FullUserDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FullSerieDetails" nillable="true" type="tns:FullSerieDetails" />
+  <xs:complexType name="FullSurchargeDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:FullCommentedReferenceDataDetails">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FullSurchargeDetails" nillable="true" type="tns:FullSurchargeDetails" />
+  <xs:complexType name="FullUsageDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:FullCommentedReferenceDataDetails">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FullUsageDetails" nillable="true" type="tns:FullUsageDetails" />
+  <xs:complexType name="ArrayOfFullCarnetReminderDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FullCarnetReminderDetails" nillable="true" type="tns:FullCarnetReminderDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFullCarnetReminderDetails" nillable="true" type="tns:ArrayOfFullCarnetReminderDetails" />
+  <xs:complexType name="FullCarnetReminderDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InvoicedAssociation" nillable="true" type="tns:FullAssociationDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FullCarnetReminderDetails" nillable="true" type="tns:FullCarnetReminderDetails" />
+  <xs:complexType name="FullCarnetReturnEventDetails">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:FullCarnetIssueReturnEventDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Used" nillable="true" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FullCarnetReturnEventDetails" nillable="true" type="tns:FullCarnetReturnEventDetails" />
+  <xs:complexType name="FullStoppedCarnetDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DeclarationDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DeclarationDateTypeCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExpiryDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ExpiryDateTypeCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HolderName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastModificationDate" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FullStoppedCarnetDetails" nillable="true" type="tns:FullStoppedCarnetDetails" />
+  <xs:complexType name="ArrayOfFullTerminationDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FullTerminationDetails" nillable="true" type="tns:FullTerminationDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFullTerminationDetails" nillable="true" type="tns:ArrayOfFullTerminationDetails" />
+  <xs:complexType name="FullTerminationDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BlockedByDispatch" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CarnetIndex" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CarnetKey" type="xs:long" />
+      <xs:element minOccurs="0" name="CarnetReason" nillable="true" type="tns:FullReasonDetails" />
+      <xs:element minOccurs="0" name="CarnetState" nillable="true" type="tns:FullStateDetails" />
+      <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryIsoCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreationDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CustomsFilename" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomsNumber" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CustomsOffice" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateInLedger" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateOfDischarge" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DischargeReference" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DischargeStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DischargeType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileKey" type="xs:long" />
+      <xs:element minOccurs="0" name="InvoicedAssociation" nillable="true" type="tns:FullAssociationDetails" />
+      <xs:element minOccurs="0" name="ModifyMotiveId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="NumberOfPackages" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PacketState" nillable="true" type="tns:FullStateDetails" />
+      <xs:element minOccurs="0" name="PreviousKey" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="RecordCount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RecordState" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="RecordStateDetailsId" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="RecordTypeId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ReferenceInLedger" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RetainedByCustoms" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReturnedAssociation" nillable="true" type="tns:FullAssociationDetails" />
+      <xs:element minOccurs="0" name="ReturnedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SerieType" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="SheetNumber" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TransitStatus" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FullTerminationDetails" nillable="true" type="tns:FullTerminationDetails" />
+  <xs:element name="GetSafeTIRCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="carnets" nillable="true" type="q15:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSafeTIRCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="GetSafeTIRCountResult" nillable="true" type="q16:ArrayOfKeyValuePairOfintint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullCarnetDetailsAndHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="carnetNumber" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullCarnetDetailsAndHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetFullCarnetDetailsAndHistoryResult" nillable="true" type="tns:FullCarnetDetailsAndHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFullCarnetStateReasonDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="carnetNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newState" nillable="true" type="xs:short" />
+        <xs:element minOccurs="0" name="newReason" nillable="true" type="xs:short" />
+        <xs:element minOccurs="0" name="newDate" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFullCarnetStateReasonDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateFullCarnetStateReasonDateResult" nillable="true" type="tns:FullCarnetDetailsAndHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumberOfPagesForCarnet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="carnetNumber" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumberOfPagesForCarnetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetNumberOfPagesForCarnetResult" type="xs:short" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAssociations">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAssociationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAllAssociationsResult" nillable="true" type="tns:ArrayOfCurrentAssociationDefinition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfCurrentAssociationDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CurrentAssociationDefinition" nillable="true" type="tns:CurrentAssociationDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCurrentAssociationDefinition" nillable="true" type="tns:ArrayOfCurrentAssociationDefinition" />
+  <xs:complexType name="CurrentAssociationDefinition">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ReferenceDataDefinition">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddressLine1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLine3" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLine4" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLine5" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLine6" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLine7" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AddressLine8" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LanguageId" nillable="true" type="xs:short" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CurrentAssociationDefinition" nillable="true" type="tns:CurrentAssociationDefinition" />
+  <xs:complexType name="ReferenceDataDefinition">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DataDefinition">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:short" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ReferenceDataDefinition" nillable="true" type="tns:ReferenceDataDefinition" />
+  <xs:complexType name="DataDefinition">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="DataDefinition" nillable="true" type="tns:DataDefinition" />
+  <xs:element name="GetCarnetStatusMessages">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarnetStatusMessagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCarnetStatusMessagesResult" nillable="true" type="tns:ArrayOfMessageDefinition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfMessageDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MessageDefinition" nillable="true" type="tns:MessageDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessageDefinition" nillable="true" type="tns:ArrayOfMessageDefinition" />
+  <xs:complexType name="MessageDefinition">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DataDefinition">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsStoppedFlag" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StatusCode" type="xs:short" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MessageDefinition" nillable="true" type="tns:MessageDefinition" />
+  <xs:element name="GetCarnetStatusMessagesTranslationsForLocales">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="locales" nillable="true" type="q17:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarnetStatusMessagesTranslationsForLocalesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCarnetStatusMessagesTranslationsForLocalesResult" nillable="true" type="tns:ArrayOfMessageTranslationDefinition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfMessageTranslationDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MessageTranslationDefinition" nillable="true" type="tns:MessageTranslationDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessageTranslationDefinition" nillable="true" type="tns:ArrayOfMessageTranslationDefinition" />
+  <xs:complexType name="MessageTranslationDefinition">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DataDefinition">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Locale" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TranslatedText" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MessageTranslationDefinition" nillable="true" type="tns:MessageTranslationDefinition" />
+</xs:schema>
