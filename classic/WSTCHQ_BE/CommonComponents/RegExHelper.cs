@@ -14,7 +14,7 @@ namespace IRU.RTS.CommonComponents
     
 		public static string ExtractBODYContents(string Message)
 		{
-			string nsPattern = "Body>(?<body>.*)</.*Body";
+			string nsPattern = "Body[^>]*>(?<body>.*)</.*Body";
 
 			Regex r = new Regex(nsPattern,RegexOptions.IgnoreCase| RegexOptions.Singleline | RegexOptions.ExplicitCapture );
 
@@ -90,7 +90,7 @@ namespace IRU.RTS.CommonComponents
 		{
 			string hashValue="";
 
-			string nsPattern = "Hash>\\s*(?<hash>[\\S]*)\\s*</.*Hash>";
+			string nsPattern = "Hash[^>]*>\\s*(?<hash>[\\S]*)\\s*</.*Hash>";
 
 			Regex r = new Regex(nsPattern,RegexOptions.IgnoreCase| RegexOptions.Singleline | RegexOptions.ExplicitCapture );
 

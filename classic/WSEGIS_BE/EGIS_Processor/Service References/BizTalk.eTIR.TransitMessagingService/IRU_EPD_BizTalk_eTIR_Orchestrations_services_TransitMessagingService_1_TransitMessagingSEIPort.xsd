@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://epd.iru.org/services/TransitMessagingService-1" xmlns:b="http://schemas.microsoft.com/BizTalk/2003" elementFormDefault="qualified" targetNamespace="http://epd.iru.org/services/TransitMessagingService-1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://shanga.iruworld.org:80/IRU.EPD.BizTalk.eTIR.Orchestrations/IRU_EPD_BizTalk_eTIR_Orchestrations_services_TransitMessagingService_1_TransitMessagingSEIPort.svc?xsd=xsd2" namespace="http://epd.iru.org/model/TransitMessaging-1" />
+  <xs:annotation>
+    <xs:appinfo>
+      <references xmlns="http://schemas.microsoft.com/BizTalk/2003">
+        <reference targetNamespace="http://epd.iru.org/model/TransitMessaging-1" />
+      </references>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="getTransitMessagesOfGuarantee">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://epd.iru.org/model/TransitMessaging-1" minOccurs="1" maxOccurs="1" name="GuaranteeNumber" type="q1:GuaranteeNumberType" />
+        <xs:element minOccurs="0" maxOccurs="1" name="Countries" nillable="true">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element xmlns:q2="http://epd.iru.org/model/TransitMessaging-1" minOccurs="0" maxOccurs="unbounded" name="CountryCode" type="q2:CountryISO2CodeType" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="MessageTypes" nillable="true">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="MessageTypeId" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="1" name="OriginalMessageDatetime" nillable="true">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="From" type="xs:dateTime" />
+              <xs:element minOccurs="0" maxOccurs="1" name="To" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getTransitMessagesOfGuaranteeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://epd.iru.org/model/TransitMessaging-1" minOccurs="0" maxOccurs="1" name="GetTransitMessagesOfGuaranteeResult" nillable="true" type="q3:ArrayOfTransitMessagesType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

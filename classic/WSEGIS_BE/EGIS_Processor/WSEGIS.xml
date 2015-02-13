@@ -5,7 +5,7 @@
         <Plugin name="InMemoryCache" objectType="IRU.RTS.CommonComponents.FileCache, CommonComponents" isRunnable="false" />
     </Section>
     <Section name="EGIS_RemotingHelper">
-        <EGIS_RemotingHelperSettings DBHelperFactoryPlugin="DBHelperFactory" EGISDBName="EGISDB" SubscriberDBName="SubscriberDB" EncryptionKeysTable="EncryptionKeys" InMemoryCachePlugin="InMemoryCache" RemotingPort="9008" CryptoProviderEndpoint="tcp://127.0.0.1:9012/CryptoProvider.rem" RemotingEndPoint="WSEGIS_Processor.rem" SchemaFilesPath="Schemas" CarnetingServiceEndpoint="http://172.25.12.50:9999/StandardCarnetingService">
+        <EGIS_RemotingHelperSettings DBHelperFactoryPlugin="DBHelperFactory" EGISDBName="EGISDB" SubscriberDBName="SubscriberDB" EncryptionKeysTable="EncryptionKeys" InMemoryCachePlugin="InMemoryCache" RemotingPort="9008" CryptoProviderEndpoint="tcp://127.0.0.1:9012/CryptoProvider.rem" RemotingEndPoint="WSEGIS_Processor.rem" SchemaFilesPath="Schemas" CarnetingServiceEndpoint="http://172.25.12.50:9999/StandardCarnetingService" TransitMessagingServiceEndPoint="http://shanga.iruworld.org/IRU.EPD.BizTalk.eTIR.Orchestrations/IRU_EPD_BizTalk_eTIR_Orchestrations_services_TransitMessagingService_1_TransitMessagingSEIPort.svc">
         </EGIS_RemotingHelperSettings>
     </Section>
     <Section name="InMemoryCache">

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:tns="http://epd.iru.org/services/TransitMessagingService-1" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" name="BizTalkServiceInstance" targetNamespace="http://epd.iru.org/services/TransitMessagingService-1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>
+    <CreationInfo Created="2015-01-29 09:29:21Z" />
+  </wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://epd.iru.org/services/TransitMessagingService-1/Imports">
+      <xsd:import schemaLocation="http://shanga.iruworld.org:80/IRU.EPD.BizTalk.eTIR.Orchestrations/IRU_EPD_BizTalk_eTIR_Orchestrations_services_TransitMessagingService_1_TransitMessagingSEIPort.svc?xsd=xsd2" namespace="http://epd.iru.org/model/TransitMessaging-1" />
+      <xsd:import schemaLocation="http://shanga.iruworld.org:80/IRU.EPD.BizTalk.eTIR.Orchestrations/IRU_EPD_BizTalk_eTIR_Orchestrations_services_TransitMessagingService_1_TransitMessagingSEIPort.svc?xsd=xsd3" namespace="http://epd.iru.org/services/TransitMessagingService-1" />
+      <xsd:import schemaLocation="http://shanga.iruworld.org:80/IRU.EPD.BizTalk.eTIR.Orchestrations/IRU_EPD_BizTalk_eTIR_Orchestrations_services_TransitMessagingService_1_TransitMessagingSEIPort.svc?xsd=xsd4" namespace="http://epd.iru.org/services/TransitMessagingService-1" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IRU_EPD_BizTalk_eTIR_Orchestrations_services_TransitMessagingService_1_TransitMessagingSEIPort_getTransitMessagesOfGuarantee_InputMessage">
+    <wsdl:part name="part" element="tns:getTransitMessagesOfGuarantee" />
+  </wsdl:message>
+  <wsdl:message name="IRU_EPD_BizTalk_eTIR_Orchestrations_services_TransitMessagingService_1_TransitMessagingSEIPort_getTransitMessagesOfGuarantee_OutputMessage">
+    <wsdl:part name="part" element="tns:getTransitMessagesOfGuaranteeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IRU_EPD_BizTalk_eTIR_Orchestrations_services_TransitMessagingService_1_TransitMessagingSEIPort">
+    <wsdl:documentation>service "IRU.EPD.BizTalk.eTIR.Orchestrations.services.TransitMessagingService_1" port "TransitMessagingSEIPort"</wsdl:documentation>
+    <wsdl:operation name="getTransitMessagesOfGuarantee">
+      <wsdl:documentation>operation "getTransitMessagesOfGuarantee"</wsdl:documentation>
+      <wsdl:input message="tns:IRU_EPD_BizTalk_eTIR_Orchestrations_services_TransitMessagingService_1_TransitMessagingSEIPort_getTransitMessagesOfGuarantee_InputMessage" />
+      <wsdl:output message="tns:IRU_EPD_BizTalk_eTIR_Orchestrations_services_TransitMessagingService_1_TransitMessagingSEIPort_getTransitMessagesOfGuarantee_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ITwoWayAsync" type="tns:IRU_EPD_BizTalk_eTIR_Orchestrations_services_TransitMessagingService_1_TransitMessagingSEIPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getTransitMessagesOfGuarantee">
+      <wsdl:documentation>operation "getTransitMessagesOfGuarantee"</wsdl:documentation>
+      <soap:operation soapAction="getTransitMessagesOfGuarantee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BizTalkServiceInstance">
+    <wsdl:port name="BasicHttpBinding_ITwoWayAsync" binding="tns:BasicHttpBinding_ITwoWayAsync">
+      <soap:address location="http://shanga.iruworld.org/IRU.EPD.BizTalk.eTIR.Orchestrations/IRU_EPD_BizTalk_eTIR_Orchestrations_services_TransitMessagingService_1_TransitMessagingSEIPort.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

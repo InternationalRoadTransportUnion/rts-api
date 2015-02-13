@@ -169,6 +169,12 @@
     <Compile Include="EGIS_Structures.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="EGIS_TransitMessagingServiceHelper.cs" />
+    <Compile Include="Service References\BizTalk.eTIR.TransitMessagingService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\CarnetingService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -181,9 +187,22 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\BizTalk.eTIR.TransitMessagingService\configuration91.svcinfo" />
+    <None Include="Service References\BizTalk.eTIR.TransitMessagingService\configuration.svcinfo" />
+    <None Include="Service References\BizTalk.eTIR.TransitMessagingService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="WSEGIS.xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\BizTalk.eTIR.TransitMessagingService\BizTalkServiceInstance.wsdl" />
+    <None Include="Service References\BizTalk.eTIR.TransitMessagingService\IRU.RTS.WSEGIS.BizTalk.eTIR.TransitMessagingService.getTransitMessagesOfGuaranteeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BizTalk.eTIR.TransitMessagingService\IRU_EPD_BizTalk_eTIR_Orchestrations_services_TransitMessagingService_1_TransitMessagingSEIPort.xsd" />
+    <None Include="Service References\BizTalk.eTIR.TransitMessagingService\IRU_EPD_BizTalk_eTIR_Orchestrations_services_TransitMessagingService_1_TransitMessagingSEIPort1.xsd" />
+    <None Include="Service References\BizTalk.eTIR.TransitMessagingService\IRU_EPD_BizTalk_eTIR_Orchestrations_services_TransitMessagingService_1_TransitMessagingSEIPort2.xsd" />
     <None Include="Service References\CarnetingService\IRU.RTS.WSEGIS.CarnetingService.ArchivedCarnetRecord.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -238,6 +257,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\BizTalk.eTIR.TransitMessagingService\" />
     <WCFMetadataStorage Include="Service References\CarnetingService\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
