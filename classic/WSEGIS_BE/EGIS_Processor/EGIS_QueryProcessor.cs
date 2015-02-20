@@ -7,9 +7,14 @@ using IRU.CommonInterfaces;
 using IRU.RTS.CryptoInterfaces;
 using IRU.CryptEngine;
 using System.Xml;
+using System.Xml.Linq;
+using System.Text;
 using System.Collections;
+using System.Collections.Generic;
 using IRU.RTS.Crypto;
 using IRU.RTS.Common.WCF;
+using IRU.RTS.WSEGIS.CarnetingService;
+using IRU.RTS.WSEGIS.BizTalk.eTIR.TransitMessagingService;
 
 namespace IRU.RTS.WSEGIS
 {
@@ -896,6 +901,18 @@ namespace IRU.RTS.WSEGIS
                     egisRequestLogData.numberOfTerminations = carnetingHashTable["No_Of_Terminations"];
                     egisRequestLogData.voucherNumber = carnetingHashTable["Voucher_Number"];
 
+                    tmpNode1 = nodeResponseBody.SelectSingleNode("./egis:TIROperationMessages/egis:StartMessages", xnsResponse);
+                    FillEPDMessages(tmpNode1, epdMessagingHashTable);
+
+                    tmpNode1 = nodeResponseBody.SelectSingleNode("./egis:TIROperationMessages/egis:TerminationAndExitMessages", xnsResponse);
+                    FillSafeTIRData(tmpNode1, carnetingHashTable);
+
+                    tmpNode1 = nodeResponseBody.SelectSingleNode("./egis:TIROperationMessages/egis:DischargeMessages", xnsResponse);
+                    FillEPDMessages(tmpNode1, epdMessagingHashTable);
+
+                    tmpNode1 = nodeResponseBody.SelectSingleNode("./egis:TIROperationMessages/egis:UpdateSealsMessages", xnsResponse);
+                    FillEPDMessages(tmpNode1, epdMessagingHashTable);
+
                     //          Body Node - Elements
                     //          <Sender>IRU</Sender>
                     //          <Originator>Originator1</Originator>
@@ -908,7 +925,18 @@ namespace IRU.RTS.WSEGIS
                     //          <NumTerminations>0</NumTerminations>
                     //          <Voucher_Number>0001-2345-6789</Voucher_Number>
 
-
+                    StringBuilder sbResponse = new StringBuilder();
+                    XmlWriterSettings xwsResponse = new XmlWriterSettings();
+                    xwsResponse.OmitXmlDeclaration = true;
+                    xwsResponse.Indent = true;
+                    xwsResponse.NewLineOnAttributes = true;
+                    using (XmlWriter xwResponse = XmlWriter.Create(sbResponse, xwsResponse))
+                    {
+                        XElement xeResponse = XElement.Parse(xdResponse.OuterXml);
+                        xeResponse.WriteTo(xwResponse);
+                        xwResponse.Flush();
+                        xdResponse.LoadXml(sbResponse.ToString());
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -990,10 +1018,13 @@ namespace IRU.RTS.WSEGIS
                     System.Diagnostics.Debug.WriteLine(">>Hash " + DateTime.Now.ToString("HH:mm:ss:fff"));
                     string hashBodyValue = Convert.ToBase64String(outputHash);
 
-                    string nsPrefix = RegExHelper.ExtractNameSpacePrefix(sDocwithHash, "http://www.iru.org/TCHQResponse");
+                    string nsPrefixEnvelope = RegExHelper.ExtractNameSpacePrefix(sDocwithHash, "http://rts.iru.org/egis");
+                    string nsPrefixHash = RegExHelper.ExtractNameSpacePrefix(sDocwithHash, "http://www.iru.org/TCHQResponse");
 
-                    sDocwithHash = RegExHelper.SetHASH(sDocwithHash, nsPrefix, hashBodyValue);
+                    sDocwithHash = RegExHelper.SetHASH(sDocwithHash, nsPrefixEnvelope, nsPrefixHash, hashBodyValue);
                     #endregion
+
+                    egisRequestLogData.decryptedQueryResultXML = sDocwithHash;
 
                     #region - Encrypt Query Response
 
@@ -1289,5 +1320,160 @@ namespace IRU.RTS.WSEGIS
             return iEGISQueryInvalidReasonNo;
         }
         #endregion
+
+        private void FillEPDMessages(XmlNode nodeEPDMessages, Hashtable epdMessagingHashTable)
+        {
+            nodeEPDMessages.RemoveAll();
+            List<TransitMessageType> transitMessages = (List<TransitMessageType>)epdMessagingHashTable[nodeEPDMessages.LocalName];
+            if (transitMessages != null)
+            {
+                StringBuilder sbEPDMessages = new StringBuilder();
+                foreach (TransitMessageType transitMessage in transitMessages)
+                {
+                    sbEPDMessages.AppendLine(transitMessage.MessageXml);
+                }
+                nodeEPDMessages.InnerXml = sbEPDMessages.ToString();
+            }
+            if (String.IsNullOrEmpty(nodeEPDMessages.InnerXml))
+            {
+                nodeEPDMessages.ParentNode.RemoveChild(nodeEPDMessages);
+            }
+        }
+
+        private void FillSafeTIRData(XmlNode nodeSafeTIRData, Hashtable carnetingHashTable)
+        {
+            DateTime nullVMSDate = new DateTime(1858, 11, 17);
+
+            nodeSafeTIRData.RemoveAll();
+            List<FullTerminationDetails> terminations = (List<FullTerminationDetails>)carnetingHashTable["SafeTIRData"];
+            if (terminations != null)
+            {
+                foreach (FullTerminationDetails termination in terminations)
+                {
+                    XmlNode nodeSafeTIRRecord = nodeSafeTIRData.OwnerDocument.CreateElement("safetir", "Record", "http://www.iru.org/SafeTIRUpload");
+
+                    XmlAttribute attr = nodeSafeTIRData.OwnerDocument.CreateAttribute("TNO");
+                    attr.Value = carnetingHashTable["Carnet_Number"].ToString();
+                    nodeSafeTIRRecord.Attributes.Append(attr);
+                    nodeSafeTIRData.AppendChild(nodeSafeTIRRecord);
+
+                    attr = nodeSafeTIRData.OwnerDocument.CreateAttribute("ICC");
+                    attr.Value = termination.CountryIsoCode;
+                    nodeSafeTIRRecord.Attributes.Append(attr);
+                    nodeSafeTIRData.AppendChild(nodeSafeTIRRecord);
+
+                    if (termination.DateInLedger.HasValue && DateTime.Compare(termination.DateInLedger.Value, nullVMSDate) > 0)
+                    {
+                        attr = nodeSafeTIRData.OwnerDocument.CreateAttribute("DCL");
+                        attr.Value = termination.DateInLedger.Value.ToString("yyyy'-'MM'-'dd");
+                        nodeSafeTIRRecord.Attributes.Append(attr);
+                        nodeSafeTIRData.AppendChild(nodeSafeTIRRecord);
+                    }
+
+                    if (!String.IsNullOrEmpty(termination.ReferenceInLedger))
+                    {
+                        attr = nodeSafeTIRData.OwnerDocument.CreateAttribute("CNL");
+                        attr.Value = termination.ReferenceInLedger;
+                        nodeSafeTIRRecord.Attributes.Append(attr);
+                        nodeSafeTIRData.AppendChild(nodeSafeTIRRecord);
+                    }
+
+                    attr = nodeSafeTIRData.OwnerDocument.CreateAttribute("COF");
+                    attr.Value = termination.CustomsOffice;
+                    nodeSafeTIRRecord.Attributes.Append(attr);
+                    nodeSafeTIRData.AppendChild(nodeSafeTIRRecord);
+
+                    if (termination.DateOfDischarge.HasValue && DateTime.Compare(termination.DateOfDischarge.Value, nullVMSDate) > 0)
+                    {
+                        attr = nodeSafeTIRData.OwnerDocument.CreateAttribute("DDI");
+                        attr.Value = termination.DateOfDischarge.Value.ToString("yyyy'-'MM'-'dd");
+                        nodeSafeTIRRecord.Attributes.Append(attr);
+                        nodeSafeTIRData.AppendChild(nodeSafeTIRRecord);
+                    }
+
+                    if (!String.IsNullOrEmpty(termination.DischargeReference))
+                    {
+                        attr = nodeSafeTIRData.OwnerDocument.CreateAttribute("RND");
+                        attr.Value = termination.DischargeReference;
+                        nodeSafeTIRRecord.Attributes.Append(attr);
+                        nodeSafeTIRData.AppendChild(nodeSafeTIRRecord);
+                    }
+
+                    string dischargeType = (termination.DischargeType ?? String.Empty).ToUpper().Trim();
+                    if (dischargeType.StartsWith("FD") || dischargeType.StartsWith("PD"))
+                    {
+                        attr = nodeSafeTIRData.OwnerDocument.CreateAttribute("PFD");
+                        attr.Value = dischargeType.Substring(0, 2);
+                        nodeSafeTIRRecord.Attributes.Append(attr);
+                        nodeSafeTIRData.AppendChild(nodeSafeTIRRecord);
+                    }
+                    else if (dischargeType.Equals("EXI"))
+                    {
+                        attr = nodeSafeTIRData.OwnerDocument.CreateAttribute("TCO");
+                        attr.Value = "EXIT";
+                        nodeSafeTIRRecord.Attributes.Append(attr);
+                        nodeSafeTIRData.AppendChild(nodeSafeTIRRecord);
+                    }
+
+                    string dischargeStatus = (termination.DischargeStatus ?? String.Empty).ToUpper().Trim();
+                    attr = nodeSafeTIRData.OwnerDocument.CreateAttribute("CWR");
+                    if (dischargeStatus.StartsWith("OK"))
+                    {
+                        attr.Value = "OK";
+                    }
+                    else
+                    {
+                        attr.Value = "R";
+                    }
+                    nodeSafeTIRRecord.Attributes.Append(attr);
+                    nodeSafeTIRData.AppendChild(nodeSafeTIRRecord);
+
+                    attr = nodeSafeTIRData.OwnerDocument.CreateAttribute("VPN");
+                    attr.Value = (termination.SheetNumber.HasValue ? termination.SheetNumber.Value : 0).ToString();
+                    nodeSafeTIRRecord.Attributes.Append(attr);
+                    nodeSafeTIRData.AppendChild(nodeSafeTIRRecord);
+
+                    if (!String.IsNullOrEmpty(termination.Comments))
+                    {
+                        attr = nodeSafeTIRData.OwnerDocument.CreateAttribute("COM");
+                        attr.Value = termination.Comments;
+                        nodeSafeTIRRecord.Attributes.Append(attr);
+                        nodeSafeTIRData.AppendChild(nodeSafeTIRRecord);
+                    }
+
+                    string retainedByCustoms = (termination.RetainedByCustoms ?? String.Empty).ToUpper().Trim();
+                    if (retainedByCustoms.Equals("CR") || retainedByCustoms.Equals("CNR") ||
+                        retainedByCustoms.Equals("VR") || retainedByCustoms.Equals("VNR"))
+                    {
+                        attr = nodeSafeTIRData.OwnerDocument.CreateAttribute("RBC");
+                        attr.Value = retainedByCustoms;
+                        nodeSafeTIRRecord.Attributes.Append(attr);
+                        nodeSafeTIRData.AppendChild(nodeSafeTIRRecord);
+                    }
+
+                    /* Ignored, because only New records are shown and the attribute is optional
+                    if (termination.RecordTypeId.HasValue)
+                    {
+                        attr = nodeSafeTIRData.OwnerDocument.CreateAttribute("UPG");
+                        attr.Value = "N";
+                        nodeSafeTIRRecord.Attributes.Append(attr);
+                        nodeSafeTIRData.AppendChild(nodeSafeTIRRecord);
+                    }
+                    */
+
+                    if (termination.NumberOfPackages.HasValue)
+                    {
+                        attr = nodeSafeTIRData.OwnerDocument.CreateAttribute("PIC");
+                        attr.Value = termination.NumberOfPackages.Value.ToString();
+                        nodeSafeTIRRecord.Attributes.Append(attr);
+                        nodeSafeTIRData.AppendChild(nodeSafeTIRRecord);
+                    }
+                }
+            }
+            if (!nodeSafeTIRData.HasChildNodes)
+            {
+                nodeSafeTIRData.ParentNode.RemoveChild(nodeSafeTIRData);
+            }
+        }
     }
 }

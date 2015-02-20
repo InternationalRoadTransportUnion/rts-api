@@ -105,6 +105,9 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <ProjectReference Include="..\..\Common\IRU.RTS.Common\IRU.RTS.Common.csproj">
       <Project>{51C1C416-18C9-4A64-B542-A2E8B3299F61}</Project>
       <Name>IRU.RTS.Common</Name>

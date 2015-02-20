@@ -16,7 +16,7 @@
         <egis:RequestedGuaranteeNumber>AB12345678</egis:RequestedGuaranteeNumber>
         <egis:TIROperationMessages>
             <egis:StartMessages>
-                <EPD029 xmlns="">
+                <EPD029>
                     <HEAHEA>
                         <RefNumHEA4>GX70416000P030760</RefNumHEA4>
                         <DocNumHEA5>14XA00002014121601</DocNumHEA5>
@@ -31,6 +31,53 @@
             <egis:TerminationAndExitMessages>
                 <safetir:Record TNO="XE76354930" ICC="ESP" DCL="2015-02-12" CNL="15FR44301249316602" COF="BARCELONA" PFD="FD" CWR="OK" VPN="4" COM="CON INDICADOR DE PRECINTOS" UPG="N" />
             </egis:TerminationAndExitMessages>
+            <egis:DischargeMessages>
+                <EPD045>
+                    <HEAHEA>
+                        <GuaranteeNumber>XH1000000224</GuaranteeNumber>
+                        <DocNumHEA5>MRNXH1000000224P030332</DocNumHEA5>
+                        <WriteOffDate>20150109</WriteOffDate>
+                    </HEAHEA>
+                    <TRAPRIPC1>
+                        <NamPC17>AO TRANS - LEASING.KZ</NamPC17>
+                        <StrAndNumPC122>BESTUJEVA 31</StrAndNumPC122>
+                        <PosCodPC123>040000</PosCodPC123>
+                        <CitPC124>ALMATY REGION, CITY TALGAR</CitPC124>
+                        <CouPC125>KZ</CouPC125>
+                        <NADLNGPC>RU</NADLNGPC>
+                        <TINPC159>KAZ081236</TINPC159>
+                    </TRAPRIPC1>
+                    <CUSOFFDESEST>
+                        <RefNumEST1>15200</RefNumEST1>
+                    </CUSOFFDESEST>
+                </EPD045>
+            </egis:DischargeMessages>
+            <egis:UpdateSealsMessages>
+                <EPD025>
+                    <HEAHEA>
+                        <GuaranteeNumber>XK1000000156</GuaranteeNumber>
+                        <DocNumHEA5>MRNXK1000000156P010626</DocNumHEA5>
+                        <MessageDate>20150216</MessageDate>
+                    </HEAHEA>
+                    <TRAPRIPC1>
+                        <NamPC17>Company YUNIS Ltd.</NamPC17>
+                        <StrAndNumPC122>53, Michailovskaya str.</StrAndNumPC122>
+                        <PosCodPC123>050000</PosCodPC123>
+                        <CitPC124>Almaty</CitPC124>
+                        <CouPC125>KZ</CouPC125>
+                        <NADLNGPC>RU</NADLNGPC>
+                        <TINPC159>KAZ08123</TINPC159>
+                    </TRAPRIPC1>
+                    <CUSOFFDESEST>
+                        <RefNumEST1>071300</RefNumEST1>
+                    </CUSOFFDESEST>
+                    <SEAINFSLI>
+                        <SealsIntact>1</SealsIntact>
+                        <SeaNumber>9999</SeaNumber>
+                        <SEAIDSID>ABCDEF99887766</SEAIDSID>
+                    </SEAINFSLI>
+                </EPD025>
+            </egis:UpdateSealsMessages>
         </egis:TIROperationMessages>
     </egis:Body>
 </egis:EGISResponse>
