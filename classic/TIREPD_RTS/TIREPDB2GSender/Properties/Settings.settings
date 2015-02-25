@@ -1,9 +1,0 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TIREPDB2GSender.Properties" GeneratedClassName="Settings">
-  <Profiles />
-  <Settings>
-    <Setting Name="TIREPDB2GSender_TIREPDB2GService_TIREPDB2GServiceClass" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://localhost:8080/SMDWEBS/EPD/TIREPDB2G/TIREPDB2GService.asmx</Value>
-    </Setting>
-  </Settings>
-</SettingsFile>

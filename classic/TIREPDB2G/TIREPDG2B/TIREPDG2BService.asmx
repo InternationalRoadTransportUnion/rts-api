@@ -1,1 +1,0 @@
-<%@ WebService Language="C#" CodeBehind="TIREPDG2BService.asmx.cs" Class="TIREPDG2B.TIREPDG2BService" %>

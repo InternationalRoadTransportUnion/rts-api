@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:include schemaLocation="TIREPD_IE025.xsd" />
-  <xs:include schemaLocation="TIREPD_IE029.xsd" />
-  <xs:include schemaLocation="TIREPD_IE045.xsd" />
-</xs:schema>
