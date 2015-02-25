@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" 
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
+	xmlns:tns="http://rts.iru.org/TVQR"
+	xmlns:s="http://www.w3.org/2001/XMLSchema" 
+	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" 
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
+	targetNamespace="http://rts.iru.org/TVQR" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://rts.iru.org/TVQR">
+      <s:element name="VoucherQuery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="su" type="tns:VoucherQueryType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="VoucherQueryType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SubscriberID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MessageTag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ESessionKey" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="VoucherQueryParams" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="Query_ID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="VoucherQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QueryResult" type="tns:VoucherQueryResponseType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="VoucherQueryResponseType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MessageTag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ESessionKey" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="VoucherQueryResponseParams" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Query_ID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    
+    <s:element name="VoucherRegistration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="su" type="tns:VoucherRegistrationType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="VoucherRegistrationType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SubscriberID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MessageTag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ESessionKey" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="VoucherRegistrationParams" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sender_MessageID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="VoucherRegistrationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrationResult" type="tns:VoucherRegistrationResponseType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="VoucherRegistrationResponseType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MessageTag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ESessionKey" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="VoucherRegistrationResponseParams" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sender_MessageID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    
+    
+  </wsdl:types>
+
+  <wsdl:message name="VoucherQuery">
+    <wsdl:part name="parameters" element="tns:VoucherQuery" />
+  </wsdl:message>
+  <wsdl:message name="VoucherQueryResponse">
+    <wsdl:part name="parameters" element="tns:VoucherQueryResponse" />
+  </wsdl:message>
+
+  <wsdl:message name="VoucherRegistration">
+    <wsdl:part name="parameters" element="tns:VoucherRegistration" />
+  </wsdl:message>
+  <wsdl:message name="VoucherRegistrationResponse">
+    <wsdl:part name="parameters" element="tns:VoucherRegistrationResponse" />
+  </wsdl:message>
+
+  <wsdl:portType name="TVQRServiceClassSoap">
+    <wsdl:operation name="VoucherQuery">
+      <wsdl:input message="tns:VoucherQuery" />
+      <wsdl:output message="tns:VoucherQueryResponse" />
+    </wsdl:operation>
+
+    <wsdl:operation name="VoucherRegistration">
+      <wsdl:input message="tns:VoucherRegistration" />
+      <wsdl:output message="tns:VoucherRegistrationResponse" />
+    </wsdl:operation>
+
+  </wsdl:portType>
+  <wsdl:binding name="TVQRServiceClassSoap" type="tns:TVQRServiceClassSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VoucherQuery">
+      <soap:operation soapAction="http://rts.iru.org/TVQR/Query" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="VoucherRegistration">
+      <soap:operation soapAction="http://rts.iru.org/TVQR/Registration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+
+  </wsdl:binding>
+  <wsdl:binding name="TVQRServiceClassSoap12" type="tns:TVQRServiceClassSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VoucherQuery">
+      <soap12:operation soapAction="http://rts.iru.org/TVQR/Query" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="VoucherRegistration">
+      <soap12:operation soapAction="http://rts.iru.org/TVQR/Registration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+
+  </wsdl:binding>
+  <wsdl:service name="TVQRServiceClass">
+    <wsdl:port name="TVQRServiceClassSoap" binding="tns:TVQRServiceClassSoap">
+      <soap:address location="http://localhost/RTS2/TVQR_WS/voucherQueryAndRegistration.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TVQRServiceClassSoap12" binding="tns:TVQRServiceClassSoap12">
+      <soap12:address location="http://localhost/RTS2/TVQR_WS/voucherQueryAndRegistration.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

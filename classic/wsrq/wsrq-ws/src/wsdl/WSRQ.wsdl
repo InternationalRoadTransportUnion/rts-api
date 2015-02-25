@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.iru.org" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.iru.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.iru.org">
+      <s:element name="WSRQ">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="su" type="tns:ReconciliationQuery"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ReconciliationQuery">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MessageTag" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="SubscriberID" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ESessionKey" type="s:base64Binary"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ReconciliationQueryData" type="s:base64Binary"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Sender_MessageID" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Information_Exchange_Version" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WSRQResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WSRQResult" type="tns:ReconciliationResponse"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ReconciliationResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Sender" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="MessageTag" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ESessionKey" type="s:base64Binary"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ReconciliationRequestData" type="s:base64Binary"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Sender_MessageID" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int"/>
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="WSRQSoapIn">
+    <wsdl:part name="parameters" element="tns:WSRQ"/>
+  </wsdl:message>
+  <wsdl:message name="WSRQSoapOut">
+    <wsdl:part name="parameters" element="tns:WSRQResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="ReconciliationQueryServiceClassSoap">
+    <wsdl:operation name="WSRQ">
+      <wsdl:input message="tns:WSRQSoapIn"/>
+      <wsdl:output message="tns:WSRQSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ReconciliationQueryServiceClassSoap" type="tns:ReconciliationQueryServiceClassSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="WSRQ">
+      <soap:operation soapAction="http://www.iru.org/WSRQ" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ReconciliationQueryServiceClassSoap12" type="tns:ReconciliationQueryServiceClassSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="WSRQ">
+      <soap12:operation soapAction="http://www.iru.org/WSRQ" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReconciliationQueryServiceClass">
+    <wsdl:port name="ReconciliationQueryServiceClassSoap" binding="tns:ReconciliationQueryServiceClassSoap">
+      <soap:address location="http://localhost/RTS2/WSRQ_WS/WSRQ.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="ReconciliationQueryServiceClassSoap12" binding="tns:ReconciliationQueryServiceClassSoap12">
+      <soap12:address location="http://localhost/RTS2/WSRQ_WS/WSRQ.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

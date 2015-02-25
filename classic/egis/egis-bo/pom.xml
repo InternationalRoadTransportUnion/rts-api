@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.iru.rts.classic</groupId>
+		<artifactId>egis</artifactId>
+		<version>1.6.15-SNAPSHOT</version>
+	</parent>
+
+	<groupId>org.iru.rts.classic.egis</groupId>
+	<artifactId>egis-bo</artifactId>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.iru.rts.classic.tchq</groupId>
+			<artifactId>tchq-bo</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.iru.rts.classic.wsst</groupId>
+			<artifactId>safetirupload-bo</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.iru.epd</groupId>
+			<artifactId>epd-messages</artifactId>
+			<version>1.0.7</version>
+		</dependency>		
+	</dependencies>
+	
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+				<excludes>
+					<exclude>TIREPD_*.xsd</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+				<includes>
+					<include>TIREPD_IE025.xsd</include>
+					<include>TIREPD_IE029.xsd</include>
+					<include>TIREPD_IE045.xsd</include>
+					<include>TIREPD_Types.xsd</include>
+				</includes>
+			</resource>
+		</resources>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+			</plugin>
+			
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>src/main/resources</directory>
+							<includes>
+								<include>SafeTIRUpload.xsd</include>
+								<include>TCHQ*.xsd</include>
+								<include>TIREPD_*.xsd</include>
+							</includes>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.iru.maven.plugins</groupId>
+				<artifactId>maven-jaxbgenser-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb2-plugin</artifactId>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>delete-common-dependencies</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<delete>
+									<fileset dir="target/generated-sources/xjc/org/iru/rts/tchq"
+										includes="**/*.java" />
+									<fileset dir="target/generated-sources/xjc/org/iru/rts/safetirupload"
+										includes="**/*.java" />
+									<fileset dir="target/generated-sources/xjc/org/iru/epd"
+										includes="**/*.java" />
+								</delete>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>
+

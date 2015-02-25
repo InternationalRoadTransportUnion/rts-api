@@ -1,9 +1,5 @@
-*.suo
-*.user
-*.cache
-bin
-obj
-Debug
-Release
-*.orig
 target/
+target/
+.project
+.settings/
+.classpath

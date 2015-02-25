@@ -1,0 +1,91 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://rts.iru.org/egis" 
+	xmlns:egis="http://rts.iru.org/egis"
+	xmlns:tchq="http://www.iru.org/TCHQuery"
+	xmlns:tchqr="http://www.iru.org/TCHQResponse"
+	xmlns:wsst="http://www.iru.org/SafeTIRUpload"
+	elementFormDefault="qualified">
+	<xs:import namespace="http://www.iru.org/TCHQuery" schemaLocation="TCHQuery.xsd" />
+	<xs:import namespace="http://www.iru.org/TCHQResponse" schemaLocation="TCHQResponse.xsd" />
+	<xs:import namespace="http://www.iru.org/SafeTIRUpload" schemaLocation="SafeTIRUpload.xsd" />
+	<xs:import schemaLocation="EGISTIREpd.xsd" />
+
+	<xs:element name="EGISQuery" type="egis:EGISQueryType" id="EGISQuery"/>
+
+	<xs:complexType name="EGISQueryType" >
+		<xs:sequence>
+			<xs:element name="Envelope" type="tchq:EnvelopeType" />
+			<xs:element name="Body" type="egis:QueryBodyType" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="QueryBodyType">
+		<xs:sequence>
+			<xs:element name="Sender" type="tchq:SenderType"/>
+			<xs:element name="SentTime" type="xs:dateTime"/>
+			<xs:element name="Originator" type="tchq:OriginatorType"/>
+			<xs:element name="OriginTime" type="xs:dateTime"/>
+			<xs:element name="Password" type="tchq:PasswordType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Query_Type" type="egis:QueryType"/>
+			<xs:element name="Carnet_Number" type="tchq:CarnetNumberType"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="QueryType">
+		<!--
+		  1=Standard Electronic Guarantee Information with CarnetHolder.
+		  Currently there is only one type of query.
+		  But this is included for expansion -->
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="1" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:element name="EGISResponse" type="egis:EGISResponseType" id="EGISResponse"/>
+
+	<xs:complexType name="EGISResponseType">
+		<xs:sequence>
+			<xs:element name="Envelope" type="tchqr:EnvelopeType" />
+			<xs:element name="Body" type="egis:ResponseBodyType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ResponseBodyType">
+		<xs:complexContent>
+			<xs:extension base="tchqr:BodyType">
+				<xs:sequence>
+					<xs:element name="RequestedGuaranteeNumber" type="tchqr:CarnetNumberType" />
+					<xs:element name="TIROperationMessages" type="egis:TIROperationMessagesType" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="StartMessagesType">
+		<xs:sequence>
+			<xs:element ref="EPD029" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DischargeMessagesType">
+		<xs:sequence>
+			<xs:element ref="EPD045" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="UpdateSealsMessagesType">
+		<xs:sequence>
+			<xs:element ref="EPD025" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="TIROperationMessagesType">
+		<xs:sequence>
+			<xs:element name="StartMessages" type="egis:StartMessagesType" minOccurs="0" />
+			<xs:element name="TerminationAndExitMessages" type="wsst:Records" minOccurs="0" />
+			<xs:element name="DischargeMessages" type="egis:DischargeMessagesType" minOccurs="0" />
+			<xs:element name="UpdateSealsMessages" type="egis:UpdateSealsMessagesType" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>
