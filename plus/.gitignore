@@ -1,1 +1,5 @@
-Dependencies
+iru-*.xsd
+tir*.xsd
+iso-*.xsd
+ietf-*.xsd
+/*-sei/src/wsdl/rts*.xsd

@@ -46,7 +46,7 @@
 				<configuration>
 					<filesets>
 						<fileset>
-							<directory>${basedir}</directory>
+							<directory>${basedir}/src/wsdl</directory>
 							<includes>
 								<include>tir-*.xsd</include>
 								<include>iso-*.xsd</include>
