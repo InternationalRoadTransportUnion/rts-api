@@ -134,7 +134,7 @@
 						<configuration>
 							<artifacts>
 								<artifact>
-									<file>TerminationService-1.wsdl</file>
+									<file>src/wsdl/TerminationService-1.wsdl</file>
 									<type>wsdl</type>
 								</artifact>
 							</artifacts>

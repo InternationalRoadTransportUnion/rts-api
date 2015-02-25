@@ -133,7 +133,7 @@
 						<configuration>
 							<artifacts>
 								<artifact>
-									<file>CarnetService-1.wsdl</file>
+									<file>src/wsdl/CarnetService-1.wsdl</file>
 									<type>wsdl</type>
 								</artifact>
 							</artifacts>

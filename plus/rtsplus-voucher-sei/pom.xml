@@ -132,7 +132,7 @@
 						<configuration>
 							<artifacts>
 								<artifact>
-									<file>VoucherService-1.wsdl</file>
+									<file>src/wsdl/VoucherService-1.wsdl</file>
 									<type>wsdl</type>
 								</artifact>
 							</artifacts>
