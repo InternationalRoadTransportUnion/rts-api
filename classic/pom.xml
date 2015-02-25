@@ -1,21 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>org.iru.rts</groupId>
-		<artifactId>rts-all</artifactId>
+		<groupId>org.iru.rts.classic</groupId>
+		<artifactId>rts-classic</artifactId>
 		<version>1.6.15-SNAPSHOT</version>
 	</parent>
 
-	<groupId>org.iru.rts.classic</groupId>
-	<artifactId>rts-classic</artifactId>
+	<artifactId>rtsjava-client</artifactId>
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>java</module>
-		<module>cs</module>
-		<module>rts-keys</module>
+		<module>tchq</module>
+		<module>wsst</module>
+		<module>wsrq</module>
+		<module>tvqr</module>
+		<module>egis</module>
+		<module>wscrypto</module>
+		<module>rts-client-api</module>
+		<module>rts-client-impl</module>
+		<module>rtsplus-client-impl</module>
 	</modules>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-other-bo-xsd-for-xsd</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>unpack-dependencies</goal>
+						</goals>
+						<configuration>
+							<includes>*.xsd</includes>
+							<outputDirectory>${basedir}/src/main/resources</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
+
