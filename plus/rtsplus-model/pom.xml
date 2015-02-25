@@ -5,9 +5,8 @@
 
 	<parent>
 		<groupId>org.iru.rtsplus</groupId>
-		<artifactId>rtsplus-services</artifactId>
-		<version>2.0.9-SNAPSHOT</version>
-		<relativePath>../..</relativePath>
+		<artifactId>rtsplus-api</artifactId>
+		<version>2.1-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>rtsplus-model</artifactId>
@@ -69,47 +68,12 @@
 								<include>tir-*.xsd</include>
 								<include>iso-*.xsd</include>
 								<include>ietf-*.xsd</include>
-								<include>rts-*-1.xsd</include>
 								<include>tirplus-*.xsd</include>
 								<include>iru-*.xsd</include>
 							</includes>
 						</fileset>
 					</filesets>
 				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.5</version>
-				<executions>
-					<execution>
-						<id>copy-xsds</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${basedir}/src/main/resources</outputDirectory>
-							<resources>
-								<resource>
-									<filtering>false</filtering>
-									<directory>../TerminationService/IRU.RTS.WS.TerminationService.Interface/TerminationService-1</directory>
-									<includes>
-										<include>rts-termination-1.xsd</include>
-									</includes>
-								</resource>
-								<resource>
-									<filtering>false</filtering>
-									<directory>../CarnetService/IRU.RTS.WS.CarnetService.Interface/CarnetService-1</directory>
-									<includes>
-										<include>rts-carnet-1.xsd</include>
-									</includes>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 
 			<plugin>
