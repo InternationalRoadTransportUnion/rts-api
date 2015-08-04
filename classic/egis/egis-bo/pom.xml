@@ -82,6 +82,11 @@
 			<plugin>
 				<groupId>org.jvnet.jaxb2.maven2</groupId>
 				<artifactId>maven-jaxb2-plugin</artifactId>
+					<configuration>
+						<schemaIncludes>
+							<include>EGIS.xsd</include>
+						</schemaIncludes>
+					</configuration>
 			</plugin>
 			
 			<plugin>
