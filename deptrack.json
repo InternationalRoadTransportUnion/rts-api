@@ -1,0 +1,17 @@
+{ "technicalInterfaceArtifacts": [ { "artifact": { "groupId": "org.iru.rts.classic.wsst",
+                                                   "artifactId": "wsst-ws",
+                                                   "version": "${project.version}",
+                                                   "type": "jar" 
+                                                 },
+                                     "technicalInterfaces": [ { "name": "soap::http://www.iru.org/rts2/wsst_ws/safetirupload.asmx",
+                                                                "version": "${project.version}",
+                                                                "functionalInterfaces": [ { "name": "RTSClassicWSSTService",
+                                                                                            "version": "2.2"
+                                                                                           }
+                                                                                        ]
+                                                              }
+                                                            ]
+                                   }
+                                 ]
+}
+
