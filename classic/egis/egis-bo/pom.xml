@@ -26,8 +26,8 @@
 		<dependency>
 			<groupId>org.iru.epd</groupId>
 			<artifactId>epd-messages</artifactId>
-			<version>1.0.7</version>
-		</dependency>		
+			<version>1.0.8</version>
+		</dependency>
 	</dependencies>
 	
 	<build>
