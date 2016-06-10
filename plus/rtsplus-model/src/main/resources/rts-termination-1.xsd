@@ -55,9 +55,11 @@
       <xs:group ref="CustomsLedgerEntryGroup" minOccurs="0"/>
       <xs:group ref="CertificateOfTerminationGroup" minOccurs="0"/>
 
-      <xs:element name="IsBeforeLoad" type="xs:boolean" minOccurs="0"/>
-      <xs:element name="IsExit" type="xs:boolean" minOccurs="0"/>
-      <xs:element name="IsFinal" type="xs:boolean" />
+      <xs:choice>
+        <xs:element name="IsBeforeLoad" type="xs:boolean" fixed="true"/>
+        <xs:element name="IsExit" type="xs:boolean" fixed="true"/>
+        <xs:element name="IsFinal" type="xs:boolean" />
+      </xs:choice>
       <xs:element name="SequenceNumber" type="xs:unsignedByte" minOccurs="0"/>
       <xs:element name="IsWithReservation" type="xs:boolean" />
       <xs:element name="CustomsComment" minOccurs="0">
@@ -114,9 +116,11 @@
       <xs:group ref="CustomsLedgerEntryGroup" minOccurs="0"/>
       <xs:group ref="CertificateOfTerminationGroup" minOccurs="0"/>
 
-      <xs:element name="IsBeforeLoad" type="xs:boolean" minOccurs="0"/>
-      <xs:element name="IsExit" type="xs:boolean" minOccurs="0"/>
-      <xs:element name="IsFinal" type="xs:boolean" minOccurs="0"/>
+      <xs:choice minOccurs="0">
+        <xs:element name="IsBeforeLoad" type="xs:boolean" fixed="true"/>
+        <xs:element name="IsExit" type="xs:boolean" fixed="true"/>
+        <xs:element name="IsFinal" type="xs:boolean" />
+      </xs:choice>
       <xs:element name="SequenceNumber" type="xs:unsignedByte" minOccurs="0"/>
       <xs:element name="IsWithReservation" type="xs:boolean" minOccurs="0"/>
       <xs:element name="CustomsComment" minOccurs="0">
