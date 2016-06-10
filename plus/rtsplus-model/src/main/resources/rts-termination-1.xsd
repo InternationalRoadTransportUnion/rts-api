@@ -55,6 +55,7 @@
       <xs:group ref="CustomsLedgerEntryGroup" minOccurs="0"/>
       <xs:group ref="CertificateOfTerminationGroup" minOccurs="0"/>
 
+      <xs:element name="IsBeforeLoad" type="xs:boolean" minOccurs="0"/>
       <xs:element name="IsExit" type="xs:boolean" minOccurs="0"/>
       <xs:element name="IsFinal" type="xs:boolean" />
       <xs:element name="SequenceNumber" type="xs:unsignedByte" minOccurs="0"/>
@@ -113,6 +114,7 @@
       <xs:group ref="CustomsLedgerEntryGroup" minOccurs="0"/>
       <xs:group ref="CertificateOfTerminationGroup" minOccurs="0"/>
 
+      <xs:element name="IsBeforeLoad" type="xs:boolean" minOccurs="0"/>
       <xs:element name="IsExit" type="xs:boolean" minOccurs="0"/>
       <xs:element name="IsFinal" type="xs:boolean" minOccurs="0"/>
       <xs:element name="SequenceNumber" type="xs:unsignedByte" minOccurs="0"/>
