@@ -6,7 +6,7 @@
                                      "technicalInterfaces": [ { "name": "soap::http://www.iru.org/rts2/wsst_ws/safetirupload.asmx",
                                                                 "version": "${project.version}",
                                                                 "functionalInterfaces": [ { "name": "RTSClassicWSSTService",
-                                                                                            "version": "2.2"
+                                                                                            "version": "2.8"
                                                                                            }
                                                                                         ]
                                                               }
