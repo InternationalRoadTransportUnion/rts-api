@@ -10,13 +10,12 @@
 	</parent>
 
 	<artifactId>rtsplus-model</artifactId>
-	<packaging>jar</packaging>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.iru.common</groupId>
 			<artifactId>iru-schemas</artifactId>
-			<version>1.8</version>
+			<version>1.14</version>
 		</dependency>
 		<dependency>
 			<groupId>org.iru.tirplus</groupId>
@@ -28,7 +27,6 @@
 	<build>
 		<resources>
 			<resource>
-				<directory>src/main/resources</directory>
 				<excludes>
 					<exclude>tir-*.xsd</exclude>
 					<exclude>iso-*.xsd</exclude>
@@ -36,71 +34,24 @@
 					<exclude>tirplus-*.xsd</exclude>
 					<exclude>iru-*.xsd</exclude>
 				</excludes>
+				<directory>${basedir}/src/main/resources</directory>
 			</resource>
 		</resources>
 
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>copy-common-xsd-for-xsd</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>unpack-dependencies</goal>
-						</goals>
-						<configuration>
-							<includes>*.xsd</includes>
-							<outputDirectory>${basedir}/src/main/resources</outputDirectory>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<artifactId>maven-clean-plugin</artifactId>
-				<configuration>
-					<filesets>
-						<fileset>
-							<directory>${basedir}/src/main/resources</directory>
-							<includes>
-								<include>tir-*.xsd</include>
-								<include>iso-*.xsd</include>
-								<include>ietf-*.xsd</include>
-								<include>tirplus-*.xsd</include>
-								<include>iru-*.xsd</include>
-							</includes>
-						</fileset>
-					</filesets>
-				</configuration>
-			</plugin>
-
-			<plugin>
 				<groupId>org.iru.maven.plugins</groupId>
-				<artifactId>maven-jaxbgenser-plugin</artifactId>
-				<configuration>
-					<globalBindings>globalBindings.xjb</globalBindings>
-				</configuration>
+				<artifactId>jaxbgenser-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+                <groupId>org.iru.maven.plugins</groupId>
+                <artifactId>jaxbdeps-maven-plugin</artifactId>
 			</plugin>
 
 			<plugin>
 				<groupId>org.jvnet.jaxb2.maven2</groupId>
 				<artifactId>maven-jaxb21-plugin</artifactId>
-				<version>0.12.1</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<episode>true</episode>
-					<useDependenciesAsEpisodes>true</useDependenciesAsEpisodes>
-					<schemaDirectory>${basedir}/src/main/resources</schemaDirectory>
-					<bindingDirectory>${basedir}/target/xjb</bindingDirectory>				
-				</configuration>
 			</plugin>
 
 			<plugin>
@@ -116,8 +67,7 @@
 						<configuration>
 							<target>
 								<delete>
-									<fileset dir="target/generated-sources/xjc/org/iru/model"
-										includes="**/*.java" />
+									<fileset dir="target/generated-sources/xjc/org/iru/model" />
 								</delete>
 							</target>
 						</configuration>
@@ -134,13 +84,8 @@
 				<artifactId>maven-source-plugin</artifactId>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-			</plugin>
-			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>1.7</version>
 				<executions>
 					<execution>
 						<id>attach-schemas</id>

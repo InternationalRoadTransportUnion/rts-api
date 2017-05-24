@@ -8,7 +8,7 @@
 	<xs:import namespace="http://www.iru.org/TCHQuery" schemaLocation="TCHQuery.xsd" />
 	<xs:import namespace="http://www.iru.org/TCHQResponse" schemaLocation="TCHQResponse.xsd" />
 	<xs:import namespace="http://www.iru.org/SafeTIRUpload" schemaLocation="SafeTIRUpload.xsd" />
-	<xs:import schemaLocation="EGISTIREpd.xsd" />
+	<xs:import schemaLocation="TIREPD_Set.xsd" />
 
 	<xs:element name="EGISQuery" type="egis:EGISQueryType" id="EGISQuery"/>
 

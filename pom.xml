@@ -14,6 +14,15 @@
 	</modules>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+				<includes>
+					<include>*.xsd</include>
+				</includes>
+			</resource>
+		</resources>
+	
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -27,8 +36,8 @@
 
 				<plugin>
 					<groupId>org.iru.maven.plugins</groupId>
-					<artifactId>maven-jaxbgenser-plugin</artifactId>
-					<version>1.0.1</version>
+					<artifactId>jaxbgenser-maven-plugin</artifactId>
+					<version>1.0.2</version>
 					<executions>
 						<execution>
 							<goals>
@@ -38,9 +47,34 @@
 					</executions>
 				</plugin>
 
+                <plugin>
+                    <groupId>org.iru.maven.plugins</groupId>
+                    <artifactId>jaxbdeps-maven-plugin</artifactId>
+                    <version>1.0.2</version>
+                    <configuration>
+                        <bindingDirectory>${project.build.directory}/xjb</bindingDirectory>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>unpack-dependencies</id>
+                            <phase>generate-sources</phase>
+                            <goals>
+                                <goal>unpack</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>clean-dependencies</id>
+                            <phase>pre-clean</phase>
+                            <goals>
+                                <goal>clean</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
 				<plugin>
 					<groupId>org.jvnet.jaxb2.maven2</groupId>
-					<artifactId>maven-jaxb2-plugin</artifactId>
+					<artifactId>maven-jaxb21-plugin</artifactId>
 					<version>0.12.3</version>
 					<executions>
 						<execution>
@@ -49,6 +83,11 @@
 							</goals>
 						</execution>
 					</executions>
+					<configuration>
+						<episode>true</episode>
+						<useDependenciesAsEpisodes>true</useDependenciesAsEpisodes>
+						<schemaDirectory>${basedir}/src/main/resources</schemaDirectory>
+					</configuration>
 				</plugin>
 
 				<plugin>
@@ -69,8 +108,8 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.1</version>
 					<configuration>
-						<source>1.6</source>
-						<target>1.6</target>
+						<source>1.8</source>
+						<target>1.8</target>
 						<encoding>UTF-8</encoding>
 					</configuration>
 				</plugin>
@@ -82,23 +121,6 @@
 					<executions>
 						<execution>
 							<id>attach-sources</id>
-							<goals>
-								<goal>jar</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-javadoc-plugin</artifactId>
-					<version>2.9.1</version>
-					<configuration>
-						<encoding>UTF-8</encoding>
-					</configuration>
-					<executions>
-						<execution>
-							<id>attach-javadocs</id>
 							<goals>
 								<goal>jar</goal>
 							</goals>
@@ -131,6 +153,12 @@
 					<version>2.4</version>
 				</plugin>
 
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>1.7</version>
+				</plugin>
+
 			</plugins>
 		</pluginManagement>
 
@@ -138,7 +166,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.5</version>
 				<inherited>false</inherited>
 				<configuration>
 					<encoding>UTF-8</encoding>
@@ -166,7 +193,6 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>1.7</version>
 				<inherited>false</inherited>
 				<executions>
 					<execution>
@@ -190,28 +216,5 @@
 		</plugins>
 
 	</build>
-
-	<profiles>
-		<profile>
-			<id>doclint-java8-disable</id>
-			<activation>
-				<jdk>[1.8,)</jdk>
-			</activation>
-
-			<build>
-				<pluginManagement>
-					<plugins>
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-javadoc-plugin</artifactId>
-							<configuration>
-								<additionalparam>-Xdoclint:none</additionalparam>
-							</configuration>
-						</plugin>
-					</plugins>
-				</pluginManagement>
-			</build>
-		</profile>
-	</profiles>
 
 </project>

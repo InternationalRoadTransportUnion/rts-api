@@ -10,7 +10,6 @@
 
 	<groupId>org.iru.rts.classic</groupId>
 	<artifactId>rts-classic-api</artifactId>
-	<version>2.9-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<modules>
@@ -22,45 +21,33 @@
 	</modules>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>copy-other-bo-xsd-for-xsd</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>unpack-dependencies</goal>
-						</goals>
-						<configuration>
-							<includes>*.xsd</includes>
-							<outputDirectory>${basedir}/src/main/resources</outputDirectory>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-			</plugin>
-		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.iru.maven.plugins</groupId>
+					<artifactId>jaxbgenser-maven-plugin</artifactId>
+					<configuration>
+						<bindingDirectory>${project.build.resources[0].directory}</bindingDirectory>
+					</configuration>
+				</plugin>
+				
+				<plugin>
+					<groupId>org.jvnet.jax-ws-commons</groupId>
+					<artifactId>jaxws-maven-plugin</artifactId>
+					<configuration>
+						<bindingDirectory>${project.build.resources[0].directory}</bindingDirectory>
+					</configuration>
+				</plugin>
+				
+			</plugins>
+			
+			
+			
+		</pluginManagement>
 	</build>
+	
+
+
 
 </project>
 

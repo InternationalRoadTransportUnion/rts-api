@@ -16,18 +16,23 @@
 		<plugins>
 
 			<plugin>
+				<groupId>org.iru.maven.plugins</groupId>
+				<artifactId>jaxbgenser-maven-plugin</artifactId>
+			</plugin>
+		
+			<plugin>
+				<groupId>org.iru.maven.plugins</groupId>
+				<artifactId>jaxbdeps-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
 			</plugin>
 
 			<plugin>
-				<groupId>org.iru.maven.plugins</groupId>
-				<artifactId>maven-jaxbgenser-plugin</artifactId>
-			</plugin>
-
-			<plugin>
 				<groupId>org.jvnet.jaxb2.maven2</groupId>
-				<artifactId>maven-jaxb2-plugin</artifactId>
+				<artifactId>maven-jaxb21-plugin</artifactId>
 			</plugin>
 
 			<plugin>
@@ -39,11 +44,7 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-			</plugin>
-
+			
 		</plugins>
 	</build>
 

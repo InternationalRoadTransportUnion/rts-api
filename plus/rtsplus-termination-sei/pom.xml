@@ -10,7 +10,6 @@
 	</parent>
 
 	<artifactId>rtsplus-termination-sei</artifactId>
-	<packaging>jar</packaging>
 
 	<dependencies>
 		<dependency>
@@ -23,71 +22,22 @@
 
 	<build>
 		<plugins>
+		
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>copy-common-xsd-for-xsd</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>unpack-dependencies</goal>
-						</goals>
-						<configuration>
-							<includes>*.xsd</includes>
-							<outputDirectory>${basedir}/src/wsdl</outputDirectory>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<artifactId>maven-clean-plugin</artifactId>
-				<configuration>
-					<filesets>
-						<fileset>
-							<directory>${basedir}/src/wsdl</directory>
-							<includes>
-								<include>tir-*.xsd</include>
-								<include>ietf-*.xsd</include>
-								<include>iso-*.xsd</include>
-								<include>tirplus-*.xsd</include>
-								<include>rts-carnet-1.xsd</include>
-							</includes>
-						</fileset>
-					</filesets>
-				</configuration>
-			</plugin>
+				<groupId>org.iru.maven.plugins</groupId>
+				<artifactId>jaxbgenser-maven-plugin</artifactId>
+			</plugin>		
 
 			<plugin>
 				<groupId>org.iru.maven.plugins</groupId>
-				<artifactId>maven-jaxbgenser-plugin</artifactId>
-				<configuration>
-					<globalBindings>globalBindings.xml</globalBindings>
-				</configuration>
-			</plugin>
-					
+				<artifactId>jaxbdeps-maven-plugin</artifactId>
+			</plugin>		
+
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
+				<groupId>org.jvnet.jax-ws-commons</groupId>
 				<artifactId>jaxws-maven-plugin</artifactId>
-				<version>1.12</version>
-				<configuration>
-					<args>
-						<arg>-extension</arg>
-					</args>
-					<wsdlFiles> 
-						<wsdlFile>TerminationService-1.wsdl</wsdlFile>
-					</wsdlFiles>					
-					<bindingDirectory>${basedir}/target/xjb</bindingDirectory>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>wsimport</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
+			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
@@ -101,8 +51,7 @@
 						<configuration>
 							<target>
 								<delete>
-									<fileset dir="target/jaxws/wsimport/java/org/iru"
-										includes="**/model/**/*.java" />
+									<fileset dir="target/generated-sources/wsimport/org/iru/rts/model" />
 								</delete>
 							</target>
 						</configuration>
@@ -118,13 +67,8 @@
 				<artifactId>maven-source-plugin</artifactId>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-			</plugin>
-			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>1.7</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -141,8 +85,9 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
 
+			</plugin>
+			
 		</plugins>
 	</build>
 </project>
