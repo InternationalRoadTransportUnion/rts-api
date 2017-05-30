@@ -48,6 +48,25 @@
 				</includes>
 			</resource>
 		</resources>
+
+		<dependencyManagement>
+			<dependency>
+				<groupId>org.iru.common</groupId>
+				<artifactId>iru-schemas</artifactId>
+				<version>1.14</version>
+			</dependency>
+			<dependency>
+				<groupId>org.iru.tirplus</groupId>
+				<artifactId>tirplus-model</artifactId>
+				<version>1.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.iru.epd</groupId>
+				<artifactId>epd-messages</artifactId>
+				<version>1.0.9</version>
+			</dependency>
+		</dependencyManagement>
+
 	
 		<pluginManagement>
 			<plugins>
