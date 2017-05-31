@@ -44,17 +44,17 @@
 			<dependency>
 				<groupId>org.iru.common</groupId>
 				<artifactId>iru-schemas</artifactId>
-				<version>1.14</version>
+				<version>1.16</version>
 			</dependency>
 			<dependency>
 				<groupId>org.iru.tirplus</groupId>
 				<artifactId>tirplus-model</artifactId>
-				<version>1.1</version>
+				<version>1.2</version>
 			</dependency>
 			<dependency>
 				<groupId>org.iru.epd</groupId>
 				<artifactId>epd-messages</artifactId>
-				<version>1.0.9</version>
+				<version>1.0.12</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
