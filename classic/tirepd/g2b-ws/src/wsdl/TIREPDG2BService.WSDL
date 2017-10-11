@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.iru.org" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.iru.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.iru.org">
+      <s:element name="TIREPDG2B">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="su" type="tns:TIREPDG2BUploadParams" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TIREPDG2BUploadParams">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SubscriberID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CertificateID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ESessionKey" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubscriberMessageID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InformationExchangeVersion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MessageName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimeSent" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="MessageContent" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TIREPDG2BResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TIREPDG2BResult" type="tns:TIREPDG2BUploadAck" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TIREPDG2BUploadAck">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="HostID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubscriberMessageID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnCode" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TIREPDG2BSoapIn">
+    <wsdl:part name="parameters" element="tns:TIREPDG2B" />
+  </wsdl:message>
+  <wsdl:message name="TIREPDG2BSoapOut">
+    <wsdl:part name="parameters" element="tns:TIREPDG2BResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TIREPDG2BServiceClassSoap">
+    <wsdl:operation name="TIREPDG2B">
+      <wsdl:input message="tns:TIREPDG2BSoapIn" />
+      <wsdl:output message="tns:TIREPDG2BSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TIREPDG2BServiceClassSoap" type="tns:TIREPDG2BServiceClassSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TIREPDG2B">
+      <soap:operation soapAction="http://www.iru.org/TIREPDG2B" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TIREPDG2BServiceClassSoap1" type="tns:TIREPDG2BServiceClassSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TIREPDG2B">
+      <soap12:operation soapAction="http://www.iru.org/TIREPDG2B" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TIREPDG2BService">
+    <wsdl:port name="TIREPDG2BServiceClassSoap" binding="tns:TIREPDG2BServiceClassSoap">
+      <soap:address location="http://172.25.65.50/RTS2/TIREPDG2B/TIREPDG2BService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TIREPDG2BServiceClassSoap1" binding="tns:TIREPDG2BServiceClassSoap1">
+      <soap12:address location="http://172.25.65.50/RTS2/TIREPDG2B/TIREPDG2BService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

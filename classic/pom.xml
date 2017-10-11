@@ -18,6 +18,7 @@
 		<module>wsrq</module>
 		<module>tvqr</module>
 		<module>egis</module>
+		<module>tirepd</module>
 	</modules>
 
 	<build>
