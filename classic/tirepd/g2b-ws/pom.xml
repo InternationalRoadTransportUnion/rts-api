@@ -10,7 +10,7 @@
 	</parent>
 
 	<groupId>org.iru.rts.classic.tirepd</groupId>
-        <artifactId>tirepd-g2b-ws</artifactId>
+        <artifactId>g2b-ws</artifactId>
 
 	<build>
 		<plugins>
