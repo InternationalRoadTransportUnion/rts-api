@@ -60,7 +60,7 @@
 						<configuration>
 							<artifacts>
 								<artifact>
-									<file>src/wsdl/TIREPDG2BService.WSDL</file>
+									<file>src/wsdl/TIREPDG2BService.wsdl</file>
 									<type>wsdl</type>
 								</artifact>
 							</artifacts>
