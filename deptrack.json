@@ -19,6 +19,66 @@
                ]
             }
          ]
+      },
+      {
+         "artifact" : {
+            "groupId" : "org.iru.rtsplus",
+            "artifactId" : "rtsplus-carnet-sei",
+            "version" : "${project.version}",
+            "type" : "jar"
+         },
+         "technicalInterfaces" : [
+            {
+               "name" : "soap::http://rts.iru.org/services/CarnetService-1",
+               "version" : "${project.version}",
+               "functionalInterfaces" : [
+                  {
+                     "name" : "RTSPlusCarnetService",
+                     "version" : "2.1"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "artifact" : {
+            "groupId" : "org.iru.rtsplus",
+            "artifactId" : "rtsplus-voucher-sei",
+            "version" : "${project.version}",
+            "type" : "jar"
+         },
+         "technicalInterfaces" : [
+            {
+               "name" : "soap::http://rts.iru.org/services/VoucherService-1",
+               "version" : "${project.version}",
+               "functionalInterfaces" : [
+                  {
+                     "name" : "RTSPlusVoucherService",
+                     "version" : "2.1"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "artifact" : {
+            "groupId" : "org.iru.rtsplus",
+            "artifactId" : "rtsplus-termination-sei",
+            "version" : "${project.version}",
+            "type" : "jar"
+         },
+         "technicalInterfaces" : [
+            {
+               "name" : "soap::http://rts.iru.org/services/TerminationService-1",
+               "version" : "${project.version}",
+               "functionalInterfaces" : [
+                  {
+                     "name" : "RTSPlusTerminationService",
+                     "version" : "2.7"
+                  }
+               ]
+            }
+         ]
       }
    ]
 }
