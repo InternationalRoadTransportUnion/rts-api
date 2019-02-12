@@ -39,22 +39,28 @@
 		<module>plus</module>
 	</modules>
 
+	<properties>
+		<iru-schemas.version>1.16</iru-schemas.version>
+		<tirplus-model.version>1.2</tirplus-model.version>
+		<epd-messages.version>1.0.12</epd-messages.version>
+	</properties>
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>org.iru.common</groupId>
 				<artifactId>iru-schemas</artifactId>
-				<version>1.16</version>
+				<version>${iru-schemas.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.iru.tirplus</groupId>
 				<artifactId>tirplus-model</artifactId>
-				<version>1.2</version>
+				<version>${tirplus-model.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.iru.epd</groupId>
 				<artifactId>epd-messages</artifactId>
-				<version>1.0.12</version>
+				<version>${epd-messages.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -124,7 +130,7 @@
 				<plugin>
 					<groupId>org.jvnet.jaxb2.maven2</groupId>
 					<artifactId>maven-jaxb21-plugin</artifactId>
-					<version>0.12.3</version>
+					<version>0.14.0</version>
 					<executions>
 						<execution>
 							<goals>
