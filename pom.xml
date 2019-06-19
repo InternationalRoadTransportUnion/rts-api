@@ -42,7 +42,7 @@
 	<properties>
 		<iru-schemas.version>1.16</iru-schemas.version>
 		<tirplus-model.version>1.2</tirplus-model.version>
-		<epd-messages.version>1.1.6</epd-messages.version>
+		<epd-messages.version>1.1.8</epd-messages.version>
 	</properties>
 
 	<dependencyManagement>
