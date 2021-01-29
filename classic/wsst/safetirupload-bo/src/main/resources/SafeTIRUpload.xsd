@@ -38,7 +38,7 @@
 	</xs:complexType>
 	<xs:complexType name="Records">
 		<xs:sequence>
-			<xs:element name="Record" minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="Record" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:attribute name="TNO" type="Upl:TNOType" use="required" />
 					<xs:attribute name="ICC" type="Upl:ICCType" use="required" />
@@ -61,7 +61,7 @@
 	</xs:complexType>
 	<xs:complexType name="RequestReplyRecords">
 		<xs:sequence>
-			<xs:element name="RequestReplyRecord" minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="RequestReplyRecord" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:attribute name="RequestID" type="Upl:RequestIDType" use="required" />
 					<xs:attribute name="RequestReplyType" type="Upl:RequestReplyType" use="required" />

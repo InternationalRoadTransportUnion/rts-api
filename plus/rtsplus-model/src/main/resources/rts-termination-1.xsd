@@ -86,7 +86,7 @@
   <xs:element name="UpdatedTIROperationTermination" type="UpdatedTIROperationTerminationType" />
 
   <xs:complexType name="TIROperationTerminationsType">
-    <xs:sequence maxOccurs="unbounded">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
       <xs:choice>
         <xs:element ref="NewTIROperationTermination" />
         <xs:element ref="CancelledTIROperationTermination" />
