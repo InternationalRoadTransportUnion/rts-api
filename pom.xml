@@ -5,7 +5,7 @@
 
 	<groupId>org.iru.rts.api</groupId>
 	<artifactId>rts-api</artifactId>
-	<version>2.19-SNAPSHOT</version>
+	<version>2.19</version>
 	<packaging>pom</packaging>
 
   <name>rts-api</name>
